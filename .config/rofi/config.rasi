@@ -1,0 +1,66 @@
+/**
+ * ROFI Color theme
+ * User: Qball
+ * Copyright: Dave Davenport
+ */
+
+* {
+    background-color:      Black;
+    border-color:          White;
+    text-color:           White;
+    font:            "Times New Roman 12";
+}
+window {
+    anchor:     north;
+    location:   north;
+    width:      100%;
+    padding:    4px;
+    children:   [ horibox ];
+}
+horibox {
+    orientation: horizontal;
+    children:   [ prompt, entry, listview ];
+}
+listview {
+    layout:     horizontal;
+    spacing:    5px;
+    lines:      100;
+}
+entry {
+    expand:     false;
+    width:      10em;
+}
+element {
+    padding: 0px 2px;
+}
+element selected {
+    background-color: SteelBlue;
+}
+
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}
+//@theme "/usr/share/rofi/themes/Monokai.rasi"
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+//@theme "/usr/share/rofi/themes/Monokai.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nord-oneline.rasi"
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nord-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/spotlight-dark.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/dracula.rasi"
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/spotlight-dark.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/dracula.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nord-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nord-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/catppuccin-mocha.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nord-oneline.rasi"
+//@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nord-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/dracula-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
+//@theme "/usr/share/rofi/themes/Monokai.rasi"
+@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
