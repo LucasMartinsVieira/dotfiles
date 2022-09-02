@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+#
+# Script name: dmsearch
+# Description: Search various search engines (inspired by surfraw).
+# Dependencies: dmenu and a web browser
+# GitLab: https://www.gitlab.com/dwt1/dmscripts
+# Contributors: Derek Taylor
+
+# Defining our web browser.
+BROWSER="librewolf"
+
+# An array of search engines.  You can edit this list to add/remove
+# search engines. The format must be: "engine_name - url".
+# The url format must allow for the search keywords at the end of the url.
+# For example: https://www.amazon.com/s?k=XXXX searches Amazon for 'XXXX'.
+declare -A websearch
+
+websearch[AliExpress]="https://pt.aliexpress.com/wholesale?catId=0&SearchText="
+websearch[Amazon]="https://www.amazon.com.br/s?k="
+websearch[ArchAur]="https://aur.archlinux.org/packages?O=0&K="
+websearch[ArchPkg]="https://archlinux.org/packages/?sort=&q="
+websearch[ArchWiki]="https://wiki.archlinux.org/index.php?search="
+## websearch[BaixakiFilmes]="https://baixakifilmes.net/?s="
+websearch[Bing]="https://www.bing.com/search?q="
+websearch[Duckduckgo]="https://duckduckgo.com/?q="
+websearch[Ecosia]="https://www.ecosia.org/search?q="
+websearch[GitHub]="https://github.com/search?q="
+websearch[GitLab]="https://gitlab.com/search?search="
+websearch[Google]="https://www.google.com/search?q="
+websearch[GoogleImages]="https://www.google.com/search?hl=en&tbm=isch&q="
+websearch[GoogleNews]="https://news.google.com/search?q="
+websearch[Letterboxd]="https://letterboxd.com/search/"
+websearch[MercadoLivre]="https://lista.mercadolivre.com.br/"
+websearch[Odysse]="https://odysee.com/$/search?q="
+websearch[Reedit]="https://www.reddit.com/search/?q="
+websearch[Stackoverflow]="https://stackoverflow.com/search?q="
+websearch[Translate]="https://translate.google.com/?sl=auto&tl=en&text="
+websearch[Twitter]="https://twitter.com/search?q="
+websearch[Wikipedia]="https://pt.wikipedia.org/wiki/"
+websearch[Wiktionary]="https://pt.wiktionary.org/w/index.php?search="
+websearch[Youtube]="https://www.youtube.com/results?search_query="
+
+main(){
+
+engine=$(printf '%s\n' "${!websearch[@]}" | sort | rofi -dmenu -i 20 -p 'Escolha o buscador' "$@") || exit 1
+url="${websearch["${engine}"]}"
+
+while [ -z "$query" ]; do
+query=$(rofi -dmenu -i 20 -p "Pesquisando $engine") || exit
+done
+
+${BROWSER} "${url}${query}"
+}
+main

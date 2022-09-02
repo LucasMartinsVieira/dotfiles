@@ -1,0 +1,67 @@
+#!/bin/bash
+
+## Author : Aditya Shakya (adi1090x)
+## Mail : adi1090x@gmail.com
+## Github : @adi1090x
+## Reddit : @adi1090x
+
+ROFI="rofi -dmenu -i"
+uptime=$(uptime -p)
+my_hostname=$(hostname)
+
+# Options
+shutdown="Shutdown"
+restart="Restart"
+reboot="Reboot"
+suspend="Suspend"
+logout="Logout"
+quit="Quit"
+
+# Variable passed to rofi
+options="$shutdown\n$restart\n$reboot\n$suspend\n$logout\n$quit"
+
+chosen="$(echo -e "$options" | $ROFI -p " $my_hostname | $uptime" -dmenu -selected-row 2)"
+case $chosen in
+    $shutdown)
+      if [[ "$(echo -e "No\nYes" | rofi -dmenu -i -p 'Shutdown?' "${options}?" "${@}" )" == "Yes" ]]; then
+                systemctl poweroff
+            else
+                output "User chose not to shutdown." && exit 0
+            fi
+            ;;
+    $restart)
+      if [[ "$(echo -e "No\nYes" | rofi -dmenu -i -p 'Restart?' "${options}?" "${@}" )" == "Yes" ]]; then
+                awesome-client 'awesome.restart()'
+            else
+                output "User chose not to restart." && exit 0
+            fi
+            ;;
+
+    $reboot)
+       if [[ "$(echo -e "No\nYes" | rofi -dmenu -i -p 'Reboot?' "${options}?" "${@}" )" == "Yes" ]]; then
+                systemctl reboot
+            else
+                output "User chose not to reboot." && exit 0
+            fi
+            ;;
+
+    $suspend)
+      if [[ "$(echo -e "No\nYes" | rofi -dmenu -i -p 'Suspend?' "${options}?" "${@}" )" == "Yes" ]]; then
+                systemctl suspend
+            else
+                output "User chose not to suspend." && exit 0
+            fi
+            ;;
+
+    $logout)
+      if [[ "$(echo -e "No\nYes" | rofi -dmenu -i -p 'Logout?' "${options}?" "${@}" )" == "Yes" ]]; then
+                 pkill -KILL -u $USER
+            else
+                output "User chose not to logout." && exit 1
+            fi
+            ;;
+
+    $quit)
+        echo "Program terminated." && exit 1
+        ;;
+esac

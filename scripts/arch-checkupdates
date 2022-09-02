@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Dependencies: pacman-contrib 
+
+UPDATES=$(checkupdates | wc -l ; checkupdates)
+
+notify-send "UPDATES :  $UPDATES"
