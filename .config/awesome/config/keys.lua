@@ -147,6 +147,10 @@ globalkeys = gears.table.join(
 
   
   -- Scripts
+  awful.key({ modkey, }, ".", function()
+    awful.util.spawn("playerctl play-pause")
+  end, { description = "Play or Pause", group = "awesome" }),
+
   awful.key({ modkey, "Shift" }, "d", function()
     awful.util.spawn("/home/lucas/Documentos/scripts/time")
   end, { description = "show date", group = "awesome" }),
