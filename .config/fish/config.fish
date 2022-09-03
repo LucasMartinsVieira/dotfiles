@@ -37,6 +37,13 @@ alias note="nvim ~/Documentos/vimwiki/Notes.md"
 alias op="nvim ~/Documentos/vimwiki/one-piece-dublado.md"
 #alias notevga="xrandr --output LVDS-1 --off --output VGA-1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI-1 --off --output DP-1 --off"
 
+### Git Aliases ###
+
+alias ga="git add"
+alias gs="git status"
+alias gm="git commit"
+alias gp="git push"
+
 ### Curl's alias ###
 alias crypto="curl rate.sx"
 alias news="curl getnews.tech"
