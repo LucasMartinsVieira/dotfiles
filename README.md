@@ -1,2 +1,2 @@
 # dotfiles
-My dorfiles.
+My dotfiles.
