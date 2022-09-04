@@ -17,7 +17,7 @@ local user_vars = require("user_variables")
 local modkey      = "Mod4"
 
 
-local tbox_separator = wibox.widget.textbox("   ")
+local tbox_separator = wibox.widget.textbox("  ")
 local tbox_separator2 = wibox.widget.textbox("    ")
 
 require("config.menu")
@@ -196,7 +196,7 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       s.mylayoutbox,
-      tbox_separator2,
+      tbox_separator,
       layout = wibox.layout.fixed.horizontal,
       s.mytaglist,
       tbox_separator2,
