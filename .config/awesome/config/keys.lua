@@ -145,11 +145,21 @@ globalkeys = gears.table.join(
         {description = "followed by KEY", group = "Neovim"}
         ),
 
-  
-  -- Scripts
-  awful.key({ modkey, }, ".", function()
+  -- Playerctl
+
+  awful.key({ modkey, }, ";", function()
     awful.util.spawn("playerctl play-pause")
-  end, { description = "Play or Pause", group = "awesome" }),
+  end, { description = "Play or Pause", group = "Playerctl" }),
+
+  awful.key({ modkey, }, ".", function()
+    awful.util.spawn("playerctl next")
+  end, { description = "Next", group = "Playerctl" }),
+
+  awful.key({ modkey, }, ",", function()
+    awful.util.spawn("playerctl previous")
+  end, { description = "Previous", group = "Playerctl" }),
+
+  -- Scripts
 
   awful.key({ modkey, "Shift" }, "d", function()
     awful.util.spawn("/home/lucas/Documentos/scripts/time")
@@ -177,7 +187,7 @@ globalkeys = gears.table.join(
   end, { description = "Music Player", group = "applications" }),
 
   awful.key({ modkey }, "p", function()
-    awful.util.spawn("kitty ranger")
+    awful.util.spawn(applications.default.terminal_emulator .. " -e ranger")
   end, { description = "Ranger", group = "applications" }),
 
   awful.key({ modkey, "Shift" }, "b", function()
