@@ -43,6 +43,8 @@ alias ga="git add"
 alias gs="git status"
 alias gm="git commit"
 alias gp="git push"
+alias gd="git diff"
+alias gl="git log"
 
 ### Curl's alias ###
 alias crypto="curl rate.sx"
