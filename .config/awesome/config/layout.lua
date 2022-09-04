@@ -12,8 +12,3 @@ awful.layout.layouts = {
   l.max,
   l.max.fullscreen,
 }
-
--- Gaps
-beautiful.useless_gap = 4
-
---beautiful.gap_single_client = false
