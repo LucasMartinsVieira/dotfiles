@@ -2,13 +2,13 @@
 local colors = {}
 
 -- Bg Colors 
-colors.bg_color    = "#011627"
-colors.bg_focus    = "#7c8f8f"
-colors.bg_urgent   = "#fc514e"
-colors.bg_minimize = "#444444"
-colors.bg_systray  = "#011627"
+colors.bg_color    = "#282a36"
+colors.bg_focus    = "#44475a"
+colors.bg_urgent   = "#ff5555"
+colors.bg_minimize = "#282a36"
+colors.bg_systray  = "#282a36"
  
 -- Fg Colors
-colors.fg_color   = "#c3ccdc"
+colors.fg_color   = "#f8f8f2"
 
 return colors
