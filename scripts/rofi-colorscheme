@@ -17,10 +17,9 @@ if [ "$choice" ]; then
   # Set the theme for Kitty
   sed -i "s|^include ./themes/.*.conf|include ./themes/$config.conf|g" ~/.config/kitty/kitty.conf
   # Set the theme for AwesomeWM
-  # ln -sfT $awesomepath.lua /home/lucas/.config/awesome/theme/theme.lua;
+  sed -i "s|^local colors = require('theme.*')|local colors = require('theme.$config')|g" ~/.config/awesome/theme/theme.lua
   # Restart Awesome
-  # awesome-client 'awesome.restart()';
-  
+  awesome-client 'awesome.restart()';
   else
    echo "Program terminated." && exit 0
 fi
