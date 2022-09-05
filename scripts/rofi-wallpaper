@@ -11,7 +11,7 @@ main() {
   "Set")
   wallpaper="$(sxiv -t -o "${wallpaper_dir}")"
   ${set_bg} "$wallpaper"
-  notify-send "Wallpaper has been updated"
+  notify-send "Wallpaper has been updated" -i $wallpaper
   ;;
   "Random")
   valid_paper="No"
