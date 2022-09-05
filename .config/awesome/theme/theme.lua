@@ -14,7 +14,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 local theme = {}
 
-local colors = require("theme.nightfly")
+local colors = require('theme.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
 
 -- Base colors
 theme.color_bg    = colors.bg_color
