@@ -162,7 +162,7 @@ globalkeys = gears.table.join(
   -- Scripts
 
   awful.key({ modkey, "Shift" }, "d", function()
-    awful.util.spawn("/home/lucas/Documentos/scripts/time")
+    awful.util.spawn("date")
   end, { description = "show date", group = "awesome" }),
 
   awful.key({ modkey }, "u", function()
@@ -170,11 +170,11 @@ globalkeys = gears.table.join(
   end, { description = "checkupdates", group = "scripts" }),
 
   awful.key({ modkey }, "=", function()
-    awful.util.spawn("/home/lucas/Documentos/scripts/volume+")
+    awful.util.spawn("volume+")
   end, { description = "volume +", group = "scripts" }),
 
   awful.key({ modkey }, "-", function()
-    awful.util.spawn("/home/lucas/Documentos/scripts/volume-")
+    awful.util.spawn("volume-")
   end, { description = "volume -", group = "scripts" }),
 
   -- applications keybindings
