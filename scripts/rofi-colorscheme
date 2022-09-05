@@ -7,8 +7,8 @@ declare -A colorschemes
 colorschemes[Dracula]="dracula"
 colorschemes[Doom One]="doom-one"
 colorschemes[Nightfly]="nightfly"
-# colorschemes[Monokai Pro]="monokai_pro"
-# colorschemes[Solarized Dark]="solarized_dark"
+colorschemes[Monokai Pro]="monokai_pro"
+colorschemes[Solarized Dark]="solarized_dark"
 
 choice=$(printf '%s\n' "${!colorschemes[@]}" | sort | ${ROFI} 'Choose a colorscheme' "${@}")
 config="${colorschemes["${choice}"]}"
