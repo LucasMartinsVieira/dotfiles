@@ -8,7 +8,7 @@ colorschemes[Dracula]="dracula"
 colorschemes[Doom One]="doom-one"
 colorschemes[Nightfly]="nightfly"
 colorschemes[Monokai Pro]="monokai_pro"
-colorschemes[Solarized Dark]="solarized_dark"
+colorschemes[Solarized Dark]="solarized"
 
 choice=$(printf '%s\n' "${!colorschemes[@]}" | sort | ${ROFI} 'Choose a colorscheme' "${@}")
 config="${colorschemes["${choice}"]}"
@@ -16,6 +16,8 @@ config="${colorschemes["${choice}"]}"
 if [ "$choice" ]; then
   # Set the theme for Kitty
   sed -i "s|^include ./themes/.*.conf|include ./themes/$config.conf|g" ~/.config/kitty/kitty.conf
+  # Set the theme for Nvim
+  sed -i "s/^local colorscheme = '.*'/local colorscheme = '$config'/g" ~/.config/nvim/lua/user/colorscheme.lua                                                                                     
   # Set the theme for AwesomeWM
   sed -i "s|^local colors = require('theme.*')|local colors = require('theme.$config')|g" ~/.config/awesome/theme/theme.lua
   # Restart Awesome
