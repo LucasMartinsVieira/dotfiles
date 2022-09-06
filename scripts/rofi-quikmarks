@@ -31,6 +31,7 @@ webmarks["[nf]"]="https://www.nerdfonts.com/"
 webmarks["[hc]"]="https://www.color-hex.com/"
 webmarks["[cn]"]="https://www.clash.ninja/upgrade-tracker/yc2jjr9yc/home#builders"
 webmarks["[lg]"]="https://libgen.is/"
+webmarks["[cv]"]="https://www.cursoemvideo.com/login/"
 
 # Piping the above array into dmenu.
 # We use "printf '%s\n'" to format the array one item to a line.
