@@ -1,5 +1,6 @@
 require("user.options")
 require("user.colorscheme")
+require("user.alpha")
 require("user.maps")
 require("user.plugins")
 require("user.cmp")
