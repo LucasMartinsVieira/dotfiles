@@ -21,7 +21,6 @@ local tbox_separator = wibox.widget.textbox("  ")
 local tbox_separator2 = wibox.widget.textbox("    ")
 
 require("config.menu")
-
 ----- Widgets
 
 -- Keyboard map indicator and switcher
@@ -159,20 +158,6 @@ awful.screen.connect_for_each_screen(function(s)
     end)
    ))
 
-  -- Create the Wifi Widget
-   local wifi = awful.widget.watch('bash -c "echo "', 10, function(widget, stdout)
-     widget:set_markup("直 VIVOFIBRA-2G" .. stdout)
-   end)
- 
-   wifi:buttons(gears.table.join(
-     awful.button({}, 1, function ()
-        awful.spawn("rofi-wifi")
-     end),
-    awful.button({}, 3, function ()
-      awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
-    end)
-   ))
-
   -- Create the wibox
   local visibility = true
   s.mywibox = awful.wibar({
@@ -209,27 +194,23 @@ awful.screen.connect_for_each_screen(function(s)
     --s.mytasklist, --Middle widgets
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
+      playerctl_widget,
+      tbox_separator2,
       updates,
-      --tbox_separator2,
       --mykeyboardlayout,
       tbox_separator2,
-      wifi,
-      tbox_separator2,
-      --volumebar,
      volume_widget {
         widget_type = 'icon_and_text'
       },
-      tbox_separator2,
+      tbox_separator,
       weather_widget({
         api_key = user_vars.widget.weather.key,
-        --api_key = 'd66e9508671053721051099df3ab79cf',
-        --coordinates = { -23.6639, -46.5383 },
         coordinates = user_vars.widget.weather.cordinates,
         show_hourly_forecast = true,
         show_daily_forecast = true,
       }),
       tbox_separator2,
-      --mylauncher,
+      -- mylauncher,
       --tbox_separator,
       wibox.widget.systray(),
     },
