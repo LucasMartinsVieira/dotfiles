@@ -68,6 +68,16 @@ theme.menu_width            = dpi(130)
 theme.menu_border_width	    = dpi(2)
 theme.menu_border_color     = theme.fg_normal
 
+-- Hotkeys Popup
+theme.hotkeys_bg                = "#211e1e"
+theme.hotkeys_fg                = "#f8f2f2"
+theme.hotkeys_border_color      = "#ffffff"
+theme.hotkeys_modifiers_fg      = "#7eb8ed"
+theme.hotkeys_border_width      = dpi(2)
+theme.hotkeys_font              = theme.font
+theme.hotkeys_description_font  = theme.font
+theme.hotkeys_group_margin      = dpi(10)
+
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path .. "default/titlebar/close_normal.png"
 theme.titlebar_close_button_focus  = themes_path .. "default/titlebar/close_focus.png"
