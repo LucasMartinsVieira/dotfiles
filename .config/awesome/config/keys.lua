@@ -190,6 +190,10 @@ globalkeys = gears.table.join(
     awful.util.spawn(applications.default.terminal_emulator .. " -e ranger")
   end, { description = "Ranger", group = "applications" }),
 
+  awful.key({ modkey }, "i", function()
+    awful.util.spawn(applications.default.image_editor)
+  end, { description = "Gimp", group = "applications" }),
+
   awful.key({ modkey, "Shift" }, "b", function()
     awful.util.spawn("qutebrowser")
   end, { description = "Qutebrowser", group = "applications" }),
