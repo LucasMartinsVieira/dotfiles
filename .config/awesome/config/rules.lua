@@ -15,8 +15,8 @@ awful.rules.rules = {
   { rule = { class = "vlc" },
     properties = { maximized = true } },
 
-  {trule = { class = "gimp" },
-    properties = { 
+  { rule = { class = "Gimp" },
+    properties = {
       floating = true,
     } },
 
