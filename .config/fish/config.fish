@@ -74,6 +74,7 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 
 # Apps
 alias v="nvim"
+alias lf="lfrun"
 alias mpv="devour mpv"
 alias feh="devour feh"
 alias sxiv="devour sxiv"
@@ -89,3 +90,10 @@ alias .3="cd ../../.."
 
 ### Run fetch ###
 # neofetch
+
+# Start X at login
+if status --is-login
+if test -z "$DISPLAY" -a $XDG_VTNR = 1
+exec startx -- -keeptty
+end
+  end
