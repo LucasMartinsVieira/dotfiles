@@ -37,9 +37,14 @@ map e
 map . set hidden!
 map md mkdir
 map mf mkfile
-map ee $nvim "$f"
 map DD delete
 map zp unarchive
+
+# Applications
+map ov $nvim "$f"
+map of $feh "$f"
+map oz $zathura "$f"
+map om $mpv "$f"
 
 # Editing
 map eda $nvim ~/.config/awesome/rc.lua
