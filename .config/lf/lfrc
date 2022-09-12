@@ -100,3 +100,7 @@ map gmf cd ~/Media/Filmes/
 map gml cd ~/Media/Livros/
 map gms cd ~/Media/Series/
 
+# VimWiki bindings
+map gw. cd ~/Documentos/vimwiki/
+map gwi $nvim ~/Documentos/vimwiki/index.md
+map gwn $nvim ~/Documentos/vimwiki/Notes.md
