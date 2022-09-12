@@ -32,7 +32,6 @@ cmd unarchive ${{
 # Removing default Bindings
 map m
 map e 
-map c
 
 # Basic Functions
 map . set hidden!
@@ -41,7 +40,6 @@ map mf mkfile
 map ee $nvim "$f"
 map DD delete
 map zp unarchive
-map cd cd
 
 # Editing
 map eda $nvim ~/.config/awesome/rc.lua
@@ -61,7 +59,11 @@ map gdw cd ~/Downloads
 map gdv cd ~/dev/
 map g. cd ~/.config/
 map gi cd ~/Imagens/
-map gr cd ~/repos/
+
+# Repos bindings
+map gr. cd ~/repos/
+map grd cd ~/repos/dotfiles/
+map grl cd ~/repos/LucasMartinsVieira/
 
 # Media bindings
 map gm. cd ~/Media/
