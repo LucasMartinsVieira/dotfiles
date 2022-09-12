@@ -9,7 +9,8 @@ export GOPATH="$HOME/.local/share/go"
 
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
-  
+bind \cf 'lfrun'
+
 export FZF_DEFAULT_COMMAND="find -H"
 export PATH="/home/lucas/.local/share/cargo/bin/:$PATH"
 export PATH="/home/lucas/.local/bin/:$PATH"
