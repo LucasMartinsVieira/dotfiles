@@ -187,8 +187,8 @@ globalkeys = gears.table.join(
   end, { description = "Music Player", group = "applications" }),
 
   awful.key({ modkey }, "p", function()
-    awful.util.spawn(applications.default.terminal_emulator .. " -e ranger")
-  end, { description = "Ranger", group = "applications" }),
+    awful.util.spawn(applications.default.terminal_emulator .. " -e lfrun")
+  end, { description = "Lf", group = "applications" }),
 
   awful.key({ modkey }, "i", function()
     awful.util.spawn(applications.default.image_editor)
