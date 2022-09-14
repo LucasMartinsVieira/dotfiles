@@ -33,34 +33,34 @@ cmd tar %tar cvf "$f.tar" "$f"
 cmd targz %tar cvzf "$f.tar.gz" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
 
+# Wallpaper 
+cmd setwallpaper $feh --bg-scale --no-fehbg "$f"
+
+cmd fzf_configs ${{
+  ~/.config/lf/editconf
+}}
+
+
 # Bindings
 # Removing default Bindings
 map m
-map e 
+map e
+map i
 
 # Basic Functions
 map . set hidden!
 map md mkdir
 map mf mkfile
 map DD delete
+map sw setwallpaper
+map o fzf_configs
 
 # Applications
-map ov $nvim "$f"
-map of $feh "$f"
-map oz $zathura "$f"
-map om $mpv "$f"
-
-# Editing
-map eda $nvim ~/.config/awesome/rc.lua
-map edl $nvim ~/.config/lf/lfrc
-map edv $nvim ~/.config/nvim/init.lua
-map edk $nvim ~/.config/kitty/kitty.conf
-map edq $nvim ~/.config/qutebrowser/config.py
-map edr $nvim ~/.config/rofi/config.rasi
-map edf $nvim ~/.config/fish/config.fish
-map edp $nvim ~/.config/picom/picom.conf
-map edz $nvim ~/.config/zathura/zathurarc
-map edn $nvim ~/.config/neofetch/config.conf
+map ee $nvim "$f"
+map ed $doas nvim "$f"
+map i $devour feh "$f"
+map Z $devour zathura "$f"
+map M $devour mpv "$f"
 
 # Archive mappings
 map az zip
@@ -72,7 +72,6 @@ map au unarchive
 # Movement
 map gdc cd ~/Documentos
 map gdw cd ~/Downloads
-map gdv cd ~/dev/
 
 map gi. cd ~/Imagens/
 map giw cd ~/Imagens/Wallpapers/
@@ -83,6 +82,7 @@ map g/ cd /
 map gE cd /etc/
 map gu cd /usr/
 map gUs cd /usr/share/
+map gUb cd /usr/local/bin/
 map gRM cd /run/media/
 
 # Repos bindings
@@ -91,6 +91,13 @@ map grd cd ~/repos/dotfiles/
 map grl cd ~/repos/LucasMartinsVieira/
 map grs cd ~/repos/scripts/
 map grc cd ~/repos/clones/
+
+# Dev bindings
+map gv. cd ~/dev/
+map gvc cd ~/dev/c/
+map gvh cd ~/dev/html/
+map gvr cd ~/dev/rust/
+map gvp cd ~/dev/php/
 
 # Media bindings
 map gm. cd ~/Media/
