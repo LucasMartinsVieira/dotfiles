@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+awesome="Awesome"
+bash="Bash"
+fish="Fish"
+kitty="Kitty"
+nvim="Nvim"
+picom="Picom"
+lf="Lf"
+qutebrowser="Qutebrowser"
+zathura="Zathura"
+rofi="Rofi"
+neofetch="Neofetch"
+
+options="$awesome\n$bash\n$fish\n$kitty\n$nvim\n$picom\n$lf\n$qutebrowser\n$zathura\n$neofetch\n$rofi"
+
+choice="$(echo -e "$options" | sort | fzf)"
+
+case $choice in
+  $awesome)
+    nvim ~/.config/awesome/rc.lua
+    ;;
+  $bash)
+    nvim ~/.bashrc
+    ;;
+  $fish)
+    nvim ~/.config/fish/config.fish
+    ;;
+  $kitty)
+    nvim ~/.config/kitty/kitty.conf
+    ;;
+  $nvim)
+    nvim ~/.config/nvim/init.lua
+    ;;
+  $picom)
+    nvim ~/.config/picom/picom.conf
+    ;;
+  $lf)
+    nvim ~/.config/lf/lfrc
+    ;;
+  $qutebrowser)
+    nvim ~/.config/qutebrowser/config.py
+    ;;
+  $zathura)
+    nvim ~/.config/zathura/zathurarc
+    ;;
+  $neofetch)
+    nvim ~/.config/neofetch/config.conf
+    ;;
+  $rofi)
+    nvim ~/.config/rofi/config.rasi
+esac
