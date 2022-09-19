@@ -15,6 +15,7 @@ export FZF_DEFAULT_COMMAND="find -H"
 export PATH="/home/lucas/.local/share/cargo/bin/:$PATH"
 export PATH="/home/lucas/.local/bin/:$PATH"
 
+export EDITOR="/usr/bin/nvim"
 # bare git repo alias for dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/repos/dotfiles --work-tree=$HOME"
 
