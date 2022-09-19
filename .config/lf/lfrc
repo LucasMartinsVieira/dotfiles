@@ -70,15 +70,18 @@ map ab targz
 map au unarchive
 
 # Git
-cmd git commit ${{
+cmd gitadd $git add "$f"
+cmd gitpush $git push
+
+cmd gitcommit ${{
   printf "Commit Message: "
   read ans
   git commit -m "$ans"
 }}
 
-map ga $git add "$f"
-map gm git commit
-map gp git push
+map ga gitadd
+map gm gitcommit
+map gp gitpush
 
 # Movement
 map gdc cd ~/Documentos
