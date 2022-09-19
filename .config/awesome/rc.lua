@@ -6,7 +6,6 @@ local beautiful = require("beautiful")
 
 ----- Theme
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
---beautiful.init("/home/lucas/.config/awesome/theme/nightfly/theme.lua")
 
 ----- Error Handling
 require("config.errors")
