@@ -27,6 +27,11 @@ awful.rules.rules = {
         height    = 800,
     }},
 
+  { rule = { class = "Gnome-screenshot" },
+    properties = {
+        floating  = true,
+    }},
+
   {
     rule = {},
     properties = {

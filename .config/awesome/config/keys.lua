@@ -190,7 +190,7 @@ globalkeys = gears.table.join(
   end, { description = "Lf", group = "applications" }),
 
   awful.key({ modkey }, "i", function()
-    awful.util.spawn(applications.default.image_editor)
+    awful.util.spawn("gnome-screenshot --interactive")
   end, { description = "Gimp", group = "applications" }),
 
   awful.key({ modkey, "Shift" }, "b", function()
