@@ -11,25 +11,14 @@ local beautiful = require("beautiful")
 local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local applications = require("config.applications")
 
+-- Vars
 local user_vars = require("user_variables")
+local applications = require("config.applications")
 local modkey = "Mod4"
-
-local tbox_separator = wibox.widget.textbox("  ")
-local tbox_separator2 = wibox.widget.textbox("    ")
-
 require("config.menu")
------ Widgets
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
--- Menu Button in left corner
--- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mainmenu })
--- mylauncher = awful.widget.launcher({ image = "/home/lucas/Imagens/librewolf.png", menu = mainmenu })
-
--- {{{ Wibar
+--  Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("%a %d %b, %H:%M", 1)
 local cw = calendar_widget({
@@ -142,12 +131,24 @@ awful.screen.connect_for_each_screen(function(s)
 		-- buttons = tasklist_buttons,
 	})
 
-	-- Create the updates widget
-	local updates = awful.widget.watch('bash -c "checkupdates | wc -l"', 20, function(widget, stdout)
-		widget:set_markup("    " .. stdout)
+	-- Wifi Widget
+	s.wifi = awful.widget.watch(".config/awesome/widgets/wifi", 1)
+
+	s.wifi:buttons(gears.table.join(
+		awful.button({}, 1, function()
+			awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
+		end),
+		awful.button({}, 3, function()
+			awful.spawn("rofi-wifi")
+		end)
+	))
+
+	-- Updates Widget
+	s.updates = awful.widget.watch('bash -c "checkupdates | wc -l"', 20, function(widget, stdout)
+		widget:set_markup("  " .. stdout)
 	end)
 
-	updates:buttons(gears.table.join(
+	s.updates:buttons(gears.table.join(
 		awful.button({}, 1, function()
 			awful.spawn(applications.default.terminal_emulator .. " -e yay -Syu --noconfirm")
 		end),
@@ -155,28 +156,6 @@ awful.screen.connect_for_each_screen(function(s)
 			awful.spawn("arch-checkupdates")
 		end)
 	))
-
-	-- Create the Playerctl widget
-	local playerctl = awful.widget.watch(
-		"playerctl metadata --format '{{ title }} - {{ artist }}' -i =firefox",
-		5,
-		function(widget, stdout)
-			widget:set_markup("    " .. stdout)
-		end
-	)
-
-	playerctl:buttons(gears.table.join(
-		awful.button({}, 1, function()
-			awful.spawn("playerctl play-pause")
-		end),
-		awful.button({}, 4, function()
-			awful.spawn("playerctl next")
-		end),
-		awful.button({}, 5, function()
-			awful.spawn("playerctl previous")
-		end)
-	))
-
 	-- Create the wibox
 	local visibility = true
 	s.mywibox = awful.wibar({
@@ -198,43 +177,47 @@ awful.screen.connect_for_each_screen(function(s)
 	--  Add widgets to the wibox
 	s.mywibox:setup({
 		layout = wibox.layout.align.horizontal,
-		{ -- Left widgets
-      s.mylayoutbox,
-			tbox_separator,
+
+		-- Left widgets
+		{
+			s.mylayoutbox,
+			wibox.widget.textbox(" "),
 			s.mytaglist,
 			layout = wibox.layout.fixed.horizontal,
-			tbox_separator2,
+			wibox.widget.textbox("    "),
 			s.mypromptbox,
 		},
+
+		-- Middle Widgets
 		{
 			layout = wibox.layout.ratio.horizontal,
-			wibox.container.place(mytextclock), --Middle widgets
+			wibox.container.place(mytextclock),
 		},
-		--s.mytasklist, --Middle widgets
-		{ -- Right widgets
+
+		-- Right widgets
+		{
 			layout = wibox.layout.fixed.horizontal,
-			--playerctl,
-			tbox_separator,
-			updates,
-			tbox_separator2,
+			wibox.widget.textbox("   "),
+			s.wifi,
+			wibox.widget.textbox(" "),
+			s.updates,
+			wibox.widget.textbox("   "),
 			volume_widget({
 				widget_type = "icon_and_text",
 			}),
-			tbox_separator,
+			wibox.widget.textbox(" "),
 			weather_widget({
 				api_key = user_vars.widget.weather.key,
 				coordinates = user_vars.widget.weather.cordinates,
 				show_hourly_forecast = true,
 				show_daily_forecast = true,
 			}),
-			tbox_separator2,
-			-- mylauncher,
-			--tbox_separator,
+			s.weather,
+			wibox.widget.textbox("  "),
 			wibox.widget.systray(),
 		},
 	})
 end)
--- }}}
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
