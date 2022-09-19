@@ -63,4 +63,5 @@ element-text, element-icon {
 //@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
 //@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
 //@theme "/usr/share/rofi/themes/Monokai.rasi"
-@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
+//@theme "/home/lucas/.local/share/rofi/themes/nightfly-oneline.rasi"
+@theme "/home/lucas/.config/rofi/themes/nightfly-oneline.rasi"
