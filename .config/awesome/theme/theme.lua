@@ -27,6 +27,7 @@ theme.color_fg    = colors.fg_color
 -- Font
 theme.font = "JetBrains Mono 9"
 
+-- Colors
 theme.bg_normal   = theme.color_bg
 theme.bg_focus    = theme.focus_bg
 theme.bg_urgent   = theme.urgent_bg
