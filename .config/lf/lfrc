@@ -79,9 +79,9 @@ cmd gitcommit ${{
   git commit -m "$ans"
 }}
 
-map ga gitadd
-map gm gitcommit
-map gp gitpush
+map gta gitadd
+map gtm gitcommit
+map gtp gitpush
 
 # Movement
 map gdc cd ~/Documentos
