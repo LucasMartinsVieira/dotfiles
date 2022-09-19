@@ -20,15 +20,15 @@ dashboard.section.header.val = {
 [[  ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝]],
 }
 dashboard.section.buttons.val = {
-        button("f", "  Find file", "<CMD>FZF<CR>"),
-        button("e", "  New file", "<cmd>ene!<CR>"),
-        button("w", "  Find word", "<CMD>Telescope live_grep<CR>"),
-        button("r", "  Recent Files", "<CMD>Telescope oldfiles<CR>"),
-        button("p", "  Recent Projects", "<CMD>Telescope projects<CR>"),
-        button("m", "  Vim Wiki", ":VimwikiIndex<CR>"),
-        button("c", "  Config", ":e ~/.config/nvim/init.lua<CR>"),
-        button("u", "  Update", ":PackerSync<CR>"),
-        button("q", "  Quit", "e :qa<CR>"),
+        button("SPC f f", "  Find file", "<CMD>Telescope file_browser<CR>"),
+        button("SPC f e", "  New file", "<cmd>ene!<CR>"),
+        button("SPC f w", "  Find word", "<CMD>Telescope live_grep<CR>"),
+        button("SPC f r", "  Recent Files", "<CMD>Telescope oldfiles<CR>"),
+        button("SPC f p", "  Recent Projects", "<CMD>Telescope projects<CR>"),
+        button("SPC m", "  Vim Wiki", ":VimwikiIndex<CR>"),
+        button("SPC c", "  Config", ":e ~/.config/nvim/init.lua<CR>"),
+        button("SPC u", "  Update", ":PackerSync<CR>"),
+        button("SPC q", "  Quit", ":q<CR>"),
 }
 local function footer()
   return "https://github.com/LucasMartinsVieira"
