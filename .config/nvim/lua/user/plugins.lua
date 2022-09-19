@@ -16,7 +16,7 @@ return packer.startup(function(use)
 	use({ "nvim-lua/plenary.nvim" })
 	use({ "wbthomason/packer.nvim" })
 
-  -- FZF
+	-- FZF
 	use({ "junegunn/fzf" })
 
 	-- ToggleTerm
@@ -27,39 +27,41 @@ return packer.startup(function(use)
 
 	use("lukas-reineke/indent-blankline.nvim")
 
--- Vim wiki 
-  use({ 'vimwiki/vimwiki' })
+	-- Vim wiki
+	use({ "vimwiki/vimwiki" })
 
 	-- Dashboard (Alpha)
-use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
-    end
-}
-  -- Telescope
-  use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
+	use({
+		"goolord/alpha-nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
+	})
+	-- Telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 
-use {
-  "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup {
-    }
-  end
-}
+  use({ "nvim-telescope/telescope-file-browser.nvim" })
 
-  -- Colorschemes
-  use({ "Mofiqul/dracula.nvim" })
-  use({ "bluz71/vim-nightfly-guicolors" })
-  use{( "romgrk/doom-one.vim" )}
-  use{( "tanvirtin/monokai.nvim" )}
-  use{( "maxmx03/solarized.nvim" )}
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({})
+		end,
+	})
 
-  -- Markdown preview
+	-- Colorschemes
+	use({ "Mofiqul/dracula.nvim" })
+	use({ "bluz71/vim-nightfly-guicolors" })
+	use({ "romgrk/doom-one.vim" })
+	use({ "tanvirtin/monokai.nvim" })
+	use({ "maxmx03/solarized.nvim" })
+
+	-- Markdown preview
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
@@ -98,7 +100,7 @@ use {
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
-  use({ "tpope/vim-fugitive" })
+	use({ "tpope/vim-fugitive" })
 	-- BufferLine
 	use({
 		"akinsho/bufferline.nvim",
@@ -122,5 +124,4 @@ use {
 
 	-- Color Highlighter
 	use({ "norcalli/nvim-colorizer.lua" })
-
 end)
