@@ -11,6 +11,7 @@ local beautiful = require("beautiful")
 local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 -- Vars
 local user_vars = require("user_variables")
@@ -181,7 +182,7 @@ awful.screen.connect_for_each_screen(function(s)
 		-- Left widgets
 		{
 			s.mylayoutbox,
-			wibox.widget.textbox(" "),
+			wibox.widget.textbox("  "),
 			s.mytaglist,
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.textbox("    "),
@@ -212,7 +213,10 @@ awful.screen.connect_for_each_screen(function(s)
 				show_hourly_forecast = true,
 				show_daily_forecast = true,
 			}),
-			s.weather,
+			wibox.widget.textbox(" "),
+      logout_menu_widget{
+        onlock = function() awful.spawn.with_shell('slock') end
+      },
 			wibox.widget.textbox("  "),
 			wibox.widget.systray(),
 		},
