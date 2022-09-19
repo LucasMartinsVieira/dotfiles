@@ -16,5 +16,6 @@ require("user.flutter")
 require("user.trouble")
 require("user.project-nvim")
 require("user.vim-wiki")
+require("user.telescope-file-browser")
 require("colorizer").setup()
 
