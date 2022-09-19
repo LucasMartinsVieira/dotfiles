@@ -69,13 +69,24 @@ map ag targz
 map ab targz
 map au unarchive
 
+# Git
+cmd git commit ${{
+  printf "Commit Message: "
+  read ans
+  git commit -m "$ans"
+}}
+
+map ga $git add "$f"
+map gm git commit
+map gp git push
+
 # Movement
 map gdc cd ~/Documentos
 map gdw cd ~/Downloads
 
-map gi. cd ~/Imagens/
-map giw cd ~/Imagens/Wallpapers/
-map gis cd ~/Imagens/Screenshot/
+map gp. cd ~/Imagens/
+map gpw cd ~/Imagens/Wallpapers/
+map gps cd ~/Imagens/Screenshot/
 
 map gc cd ~/.config/
 map g/ cd /
@@ -106,6 +117,15 @@ map gma cd ~/Media/Animes/
 map gmf cd ~/Media/Filmes/
 map gml cd ~/Media/Livros/
 map gms cd ~/Media/Series/
+
+# Books bindings
+map gb. cd ~/Media/Livros/
+map gbe cd ~/Media/Livros/Estudos/
+map gbE cd ~/Media/Livros/Estória/
+map gbb cd ~/Media/Livros/Biografia/
+map gbh cd ~/Media/Livros/História/
+map gbn cd ~/Media/Livros/Negócios/
+
 
 # VimWiki bindings
 map gw. cd ~/Documentos/vimwiki/
