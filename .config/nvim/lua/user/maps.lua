@@ -12,10 +12,14 @@ end
     vim.api.nvim_set_keymap("v", key, map, opts)
   end
 
+  local keymap = vim.api.nvim_set_keymap
+
   -- Normal --
   -- Salvar/Sair arquivo
 nmap("<space>w", ":w<CR>")
 nmap("<space>q", ":q<CR>")
+nmap("<space>u", ":PackerSync<CR>")
+nmap("<space>c", ":e ~/.config/nvim/init.lua<CR>")
 
 -- Vim Wiki
 nmap("<space>m", ":VimwikiIndex<CR>")
@@ -43,11 +47,17 @@ nmap("<space>bn", ":bnext<CR>")
 nmap("<space>bp", ":bprevious<CR>")
 nmap("<space>bx", ":bdelete<CR>")
 
-
 -- Telescope
-nmap("<space>ff", ":FZF<CR>")
+nmap("<space>ff", ":Telescope file_browser<CR>")
+nmap("<space>fe", ":ene!<CR>")
+nmap("<space>fw", ":Telescope live_grep<CR>")
+nmap("<space>fr", ":Telescope oldfiles<CR>")
+nmap("<space>fp", ":Telescope projects<CR>")
 nmap("<space>fb", ":Telescope buffers<CR>")
 nmap("<space>ft", ":Telescope live_grep<CR>")
+-- Move selecionados
+nmap("<A-j>", ":m +2<CR>gv")
+nmap("<A-k>", ":m -2<CR>gv")
 
 -- NvimTree
 nmap("<space>e", ":NvimTreeToggle<CR>")
