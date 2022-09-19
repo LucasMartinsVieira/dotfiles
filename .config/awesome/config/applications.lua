@@ -9,7 +9,7 @@ return {
     music_player  = "g4music",
     filemanager = "pcmanfm",
     image_editor = "gimp",
-    rss_reader = "newsflash",
+    rss_reader = "fluent-reader",
   },
 }
 -- Menubar configuration
