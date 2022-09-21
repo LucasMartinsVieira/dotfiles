@@ -135,7 +135,7 @@ globalkeys = gears.table.join(
             if     key == "v" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim")
             elseif key == "w" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim ~/Documentos/vimwiki/index.md")
             elseif key == "n" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim ~/Documentos/vimwiki/Notes.md")
-            elseif key == "o" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim ~/Documentos/vimwiki/one-piece-dublado.md")
+            elseif key == "o" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim ~/Documentos/vimwiki/one-piece-manga.md")
             end
             awful.keygrabber.stop(grabber)
             end

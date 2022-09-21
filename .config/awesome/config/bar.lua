@@ -214,9 +214,7 @@ awful.screen.connect_for_each_screen(function(s)
 				show_daily_forecast = true,
 			}),
 			wibox.widget.textbox(" "),
-      logout_menu_widget{
-        onlock = function() awful.spawn.with_shell('slock') end
-      },
+      logout_menu_widget(),
 			wibox.widget.textbox("  "),
 			wibox.widget.systray(),
 		},

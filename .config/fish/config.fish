@@ -29,7 +29,7 @@ alias sudo="doas"
 alias beats="rofi-beats"
 alias wiki="nvim ~/Documentos/vimwiki/index.md"
 alias note="nvim ~/Documentos/vimwiki/Notes.md"
-alias op="nvim ~/Documentos/vimwiki/one-piece-dublado.md"
+alias op="nvim ~/Documentos/vimwiki/one-piece-manga.md"
 
 ### Git Aliases ###
 
