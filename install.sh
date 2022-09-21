@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Variables
+backup_dir="$HOME/.config/backup_config"
+separator="echo"""
+
+# Welcome Message
 welcome() {
   echo "########################################################"
   echo "#     Welcome to LucasMartinsVieira install script     #"
@@ -11,6 +16,7 @@ welcome
 
 read
 
+# Explanation Message
 explanation() {
   echo "############################################################################"
   echo "#     The purpose of this script is to install my personal configs for     #"
@@ -22,6 +28,9 @@ explanation() {
 }
 explanation
 
+$separator
+
+# Configs
 configs() {
   while true; do
     #Awesome
@@ -35,6 +44,8 @@ configs() {
         break;;
     esac
   done
+$separator
+
   # Fish
   while true; do
     read -p "Do you want my Fish config? (y/N)" yn
@@ -47,6 +58,8 @@ configs() {
         break;;
     esac
   done
+$separator
+
   # Kitty
   while true; do
     read -p "Do you want my Kitty config? (y/N)" yn
@@ -59,6 +72,8 @@ configs() {
         break;;
     esac
   done
+$separator
+
   # LF
   while true; do
     read -p "Do you want my LF config? (y/N)" yn
@@ -71,11 +86,13 @@ configs() {
         break;;
     esac
   done
+$separator
+
   # Neovim
   while true; do
     read -p "Do you want my Neovim config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/nvim/ ~/.config/backup_config; rm -rf ~/.config/nvim; cp -r ~/repos/dotfiles/.config/nvim/ ~/.config/nvim
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/nvim/ ~/.config/backup_config; rm -rf ~/.config/nvim; ln -s ~/repos/dotfiles/.config/nvim/ ~/.config/nvim
                 break;;
         [Nn]* ) echo "You choose not to get my Neovim config.";
                 break;;
@@ -83,6 +100,8 @@ configs() {
         break;;
     esac
   done
+$separator
+
   # Rofi
   while true; do
     read -p "Do you want my Rofi config? (y/N)" yn
@@ -98,7 +117,9 @@ configs() {
 }
 configs
 
+# Backup function
 backup() {
+$separator
   while true; do
     read -p "Do you want to delete the backup? (y/N)" yn
     case $yn in
@@ -112,13 +133,13 @@ backup() {
   done
 }
 
+# Remove backup function
 rmbackup() {
-  backup_dir="$HOME/.config/backup_config"
   rm -rf $backup_dir
 }
 
+# Checking if was a "backup_config" folder in $HOME/.config
 check(){
-  backup_dir="$HOME/.config/backup_config"
   if [ -d "$backup_dir" ]; then
     backup
   fi
