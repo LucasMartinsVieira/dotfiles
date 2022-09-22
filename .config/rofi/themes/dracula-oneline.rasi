@@ -8,31 +8,29 @@
 * {
     font:   "JetBrains Mono 10";
 
-    colorl:     #b7d4e3;
-
-    color0:     #2e3440;
-    color1:     #3b4252;
-    color2:     #434c5e;
+    color0:     #282a36;
+    color1:     #44475a;
+    color2:     #44475a;
     color3:     #4c566a;
 
-    color4:     #d8dee9;
-    color5:     #e5e9f0;
-    color6:     #eceff4;
+    color4:     #f8f8f2;
+    color5:     #f8f8f2;
+    color6:     #f8f8f2;
 
-    color7:     #8fbcbb;
-    color8:     #88c0d0;
-    color9:     #81a1c1;
-    color10:    #5e81ac;
-    color11:    #bf616a;
+    color7:     #96ebfd;
+    color8:     #8be9fd;
+    color9:     #8be9fd;
+    color10:    #8be9fd;
+    color11:    #ff5555;
 
-    color12:    #d08770;
-    color13:    #ebcb8b;
-    color14:    #a3be8c;
-    color15:    #b48ead;
+    color12:    #ffb86c;
+    color13:    #f1fa8c;
+    color14:    #50fa7b;
+    color15:    #ff79c6;
 
     background-color:   transparent;
     text-color:         @color4;
-    accent-color:       @colorl;
+    accent-color:       @color7;
 
     margin:     3px;
     padding:    2px;
