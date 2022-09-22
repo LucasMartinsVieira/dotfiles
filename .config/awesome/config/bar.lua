@@ -133,7 +133,7 @@ awful.screen.connect_for_each_screen(function(s)
 	})
 
 	-- Wifi Widget
-	s.wifi = awful.widget.watch(".config/awesome/widgets/wifi", 1)
+	s.wifi = awful.widget.watch(".config/awesome/widgets/wifi", 10)
 
 	s.wifi:buttons(gears.table.join(
 		awful.button({}, 1, function()
@@ -145,9 +145,7 @@ awful.screen.connect_for_each_screen(function(s)
 	))
 
 	-- Updates Widget
-	s.updates = awful.widget.watch('bash -c "checkupdates | wc -l"', 20, function(widget, stdout)
-		widget:set_markup("  " .. stdout)
-	end)
+	s.updates = awful.widget.watch(".config/awesome/widgets/updates", 10)
 
 	s.updates:buttons(gears.table.join(
 		awful.button({}, 1, function()
@@ -157,6 +155,21 @@ awful.screen.connect_for_each_screen(function(s)
 			awful.spawn("arch-checkupdates")
 		end)
 	))
+
+  -- powerbutton
+  s.powerbutton = wibox.widget {
+    text = " ⏻ ",
+    font = "JetBrains Mono 18",
+    ellipsize = "none",
+    widget = wibox.widget.textbox,
+  }
+
+  s.powerbutton:buttons(gears.table.join(
+    awful.button({}, 1, function ()
+      awful.spawn("rofi-powermenu")
+    end)
+  ))
+
 	-- Create the wibox
 	local visibility = true
 	s.mywibox = awful.wibar({
@@ -214,11 +227,7 @@ awful.screen.connect_for_each_screen(function(s)
 				show_daily_forecast = true,
 			}),
 			wibox.widget.textbox(" "),
-			logout_menu_widget({
-				onlock = function()
-					awful.spawn.with_shell("slock")
-				end,
-			}),
+      s.powerbutton,
 			wibox.widget.textbox("  "),
 			wibox.widget.systray(),
 		},
