@@ -6,11 +6,11 @@ separator="echo"""
 
 # Welcome Message
 welcome() {
-  echo "########################################################"
-  echo "#     Welcome to LucasMartinsVieira install script     #"
-  echo "#               Press enter to continue                #"
-  echo "#         https://github.com/lucasmartinsvieira        #"
-  echo "########################################################"
+  echo "##########################################################"
+  echo "##     Welcome to LucasMartinsVieira install script     ##"
+  echo "##               Press enter to continue                ##"
+  echo "##         https://github.com/lucasmartinsvieira        ##"
+  echo "##########################################################"
 }
 welcome
 
@@ -18,13 +18,13 @@ read
 
 # Explanation Message
 explanation() {
-  echo "############################################################################"
-  echo "#     The purpose of this script is to install my personal configs for     #"
-  echo "#               AwesomeWM, Fish, Kitty, Lf, Neovim and Rofi                #"
-  echo "#                                                                          #"
-  echo "#         This script Will make a backup folder with your configs in:      #"
-  echo "#                           ~/.config/backup_config                        #"
-  echo "############################################################################"
+  echo "#############################################################################"
+  echo "##     The purpose of this script is to install my personal configs for    ##"
+  echo "##               AwesomeWM, Fish, Kitty, Lf, Neovim and Rofi               ##"
+  echo "##                                                                         ##"
+  echo "##         This script Will make a backup folder with your configs in:     ##"
+  echo "##                           ~/.config/backup_config                       ##"
+  echo "#############################################################################"
 }
 explanation
 
@@ -146,3 +146,13 @@ check(){
 }
 
 check
+
+$separator
+
+finish_msg(){
+  echo "#######################################################################"
+  echo "##    Congratulations, now you may or may not have my configs. :)    ##"
+  echo "#######################################################################"
+}
+
+finish_msg
