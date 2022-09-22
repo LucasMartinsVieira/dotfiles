@@ -4,7 +4,7 @@
 backup_dir="$HOME/.config/backup_config"
 separator="echo"""
 
-# Welcome Message
+# Welcome Message.
 welcome() {
   echo "##########################################################"
   echo "##     Welcome to LucasMartinsVieira install script     ##"
@@ -16,7 +16,7 @@ welcome
 
 read
 
-# Explanation Message
+# Explanation Message.
 explanation() {
   echo "#############################################################################"
   echo "##     The purpose of this script is to install my personal configs for    ##"
@@ -117,7 +117,7 @@ $separator
 }
 configs
 
-# Backup function
+# Backup function.
 backup() {
 $separator
   while true; do
@@ -149,6 +149,7 @@ check
 
 $separator
 
+# Finish at the end of the script.
 finish_msg(){
   echo "#######################################################################"
   echo "##    Congratulations, now you may or may not have my configs. :)    ##"
