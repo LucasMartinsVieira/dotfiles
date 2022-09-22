@@ -7,7 +7,7 @@ My dotfiles.
 cd
 mkdir repos
 cd repos
-git clone https://github.com/LucasMartinsVieira/dotfiles.git
+git clone --recursive https://github.com/LucasMartinsVieira/dotfiles.git
 cd dotfiles/
 ./install.sh
 ```
