@@ -23,10 +23,10 @@ require("config.menu")
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("%a %d %b, %H:%M", 1)
 local cw = calendar_widget({
-	theme = "dracula",
+	theme = "dark",
 	placement = "top_center",
 	start_sunday = true,
-	radius = 6,
+	radius = 8,
 	-- with customized next/previous (see table above)
 	previous_month_button = 1,
 	next_month_button = 3,
@@ -214,7 +214,11 @@ awful.screen.connect_for_each_screen(function(s)
 				show_daily_forecast = true,
 			}),
 			wibox.widget.textbox(" "),
-      logout_menu_widget(),
+			logout_menu_widget({
+				onlock = function()
+					awful.spawn.with_shell("slock")
+				end,
+			}),
 			wibox.widget.textbox("  "),
 			wibox.widget.systray(),
 		},
