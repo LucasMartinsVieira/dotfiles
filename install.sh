@@ -16,7 +16,7 @@ welcome
 
 read
 
-# Explanation Message.
+# Explanation Message
 explanation() {
   echo "#############################################################################"
   echo "##     The purpose of this script is to install my personal configs for    ##"
@@ -149,7 +149,7 @@ check
 
 $separator
 
-# Finish at the end of the script.
+# Finish message at the end of the script.
 finish_msg(){
   echo "#######################################################################"
   echo "##    Congratulations, now you may or may not have my configs. :)    ##"
