@@ -36,7 +36,8 @@ configs() {
     # Alacritty
     read -p "Do you want my Alacritty config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/alacritty/ ~/.config/backup_config; rm -rf ~/.config/alacritty; ln -s ~/repos/dotfiles/.config/alacritty/ ~/.config/alacritty
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/alacritty/ ~/.config/backup_config; \
+          rm -rf ~/.config/alacritty; ln -s ~/repos/dotfiles/.config/alacritty/ ~/.config/alacritty
                 break;;
         [Nn]* ) echo "You choose not to get my Alacritty config.";
                 break;;
@@ -50,7 +51,8 @@ $separator
     #Awesome
     read -p "Do you want my AwesomeWM config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/awesome/ ~/.config/backup_config; rm -rf ~/.config/awesome; ln -s ~/repos/dotfiles/.config/awesome/ ~/.config/awesome
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/awesome/ ~/.config/backup_config; \
+          rm -rf ~/.config/awesome; ln -s ~/repos/dotfiles/.config/awesome/ ~/.config/awesome
                 break;;
         [Nn]* ) echo "You choose not to get my AwesomeWM config.";
                 break;;
@@ -64,7 +66,8 @@ $separator
   while true; do
     read -p "Do you want my Fish config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/fish/ ~/.config/backup_config; rm -rf ~/.config/fish; ln -s ~/repos/dotfiles/.config/fish/ ~/.config/fish
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/fish/ ~/.config/backup_config; \
+          rm -rf ~/.config/fish; ln -s ~/repos/dotfiles/.config/fish/ ~/.config/fish
                 break;;
         [Nn]* ) echo "You choose not to get my Fish config.";
                 break;;
@@ -78,7 +81,8 @@ $separator
   while true; do
     read -p "Do you want my Kitty config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/kitty/ ~/.config/backup_config; rm -rf ~/.config/kitty; ln -s ~/repos/dotfiles/.config/kitty/ ~/.config/kitty
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/kitty/ ~/.config/backup_config; \
+          rm -rf ~/.config/kitty; ln -s ~/repos/dotfiles/.config/kitty/ ~/.config/kitty
                 break;;
         [Nn]* ) echo "You choose not to get my Kitty config.";
                 break;;
@@ -107,7 +111,8 @@ $separator
   while true; do
     read -p "Do you want my Neovim config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/nvim/ ~/.config/backup_config; rm -rf ~/.config/nvim; ln -s ~/repos/dotfiles/.config/nvim/ ~/.config/nvim
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/nvim/ ~/.config/backup_config; \
+          rm -rf ~/.config/nvim; ln -s ~/repos/dotfiles/.config/nvim/ ~/.config/nvim
                 break;;
         [Nn]* ) echo "You choose not to get my Neovim config.";
                 break;;
@@ -121,7 +126,8 @@ $separator
   while true; do
     read -p "Do you want my Rofi config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/rofi/ ~/.config/backup_config; rm -rf ~/.config/rofi; ln -s ~/repos/dotfiles/.config/rofi/ ~/.config/rofi
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/rofi/ ~/.config/backup_config; \
+          rm -rf ~/.config/rofi; ln -s ~/repos/dotfiles/.config/rofi/ ~/.config/rofi
                 break;;
         [Nn]* ) echo "You choose not to get my Rofi config.";
                 break;;
