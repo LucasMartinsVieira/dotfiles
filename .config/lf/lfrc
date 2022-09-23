@@ -119,9 +119,9 @@ map gtp gitpush
 map gdc cd ~/Documentos
 map gdw cd ~/Downloads
 
-map gp. cd ~/Imagens/
-map gpw cd ~/Imagens/Wallpapers/
-map gps cd ~/Imagens/Screenshot/
+map gi. cd ~/Imagens/
+map giw cd ~/Imagens/Wallpapers/
+map gis cd ~/Imagens/Screenshot/
 
 map gc cd ~/.config/
 map g/ cd /
