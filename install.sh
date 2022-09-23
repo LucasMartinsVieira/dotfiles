@@ -20,7 +20,7 @@ read
 explanation() {
   echo "#############################################################################"
   echo "##     The purpose of this script is to install my personal configs for    ##"
-  echo "##               AwesomeWM, Fish, Kitty, Lf, Neovim and Rofi               ##"
+  echo "##         Alacritty ,AwesomeWM, Fish, Kitty, Lf, Neovim and Rofi          ##"
   echo "##                                                                         ##"
   echo "##         This script Will make a backup folder with your configs in:     ##"
   echo "##                           ~/.config/backup_config                       ##"
@@ -32,6 +32,20 @@ $separator
 
 # Configs
 configs() {
+  while true; do
+    # Alacritty
+    read -p "Do you want my Alacritty config? (y/N)" yn
+    case $yn in
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/alacritty/ ~/.config/backup_config; rm -rf ~/.config/alacritty; ln -s ~/repos/dotfiles/.config/alacritty/ ~/.config/alacritty
+                break;;
+        [Nn]* ) echo "You choose not to get my Alacritty config.";
+                break;;
+        * ) echo "You choose not to get my Alacritty config.";
+        break;;
+    esac
+  done
+$separator
+
   while true; do
     #Awesome
     read -p "Do you want my AwesomeWM config? (y/N)" yn
