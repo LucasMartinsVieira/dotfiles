@@ -92,7 +92,8 @@ $separator
   while true; do
     read -p "Do you want my LF config? (y/N)" yn
     case $yn in
-        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/lf/ ~/.config/backup_config; rm -rf ~/.config/lf; ln -s ~/repos/dotfiles/.config/lf/ ~/.config/lf
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/lf/ ~/.config/backup_config; rm -rf ~/.config/lf; \
+          ln -s ~/repos/dotfiles/.config/lf/ ~/.config/lf; ln -s ~/repos/dotfiles/.config/lf-ueberzug/ ~/.config/lf-ueberzug
                 break;;
         [Nn]* ) echo "You choose not to get my LF config.";
                 break;;
