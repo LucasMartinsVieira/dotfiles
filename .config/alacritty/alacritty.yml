@@ -258,7 +258,7 @@ colors: *nightfly
 # Shapes Available: Beam, Block, Underline
 cursor:
   style:
-    shape: Beam
+    shape: Block
     blinking: off
 
 
