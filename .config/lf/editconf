@@ -11,12 +11,16 @@ qutebrowser="Qutebrowser"
 zathura="Zathura"
 rofi="Rofi"
 neofetch="Neofetch"
+alacritty="Alacritty"
 
-options="$awesome\n$bash\n$fish\n$kitty\n$nvim\n$picom\n$lf\n$qutebrowser\n$zathura\n$neofetch\n$rofi"
+options="$awesome\n$bash\n$fish\n$kitty\n$nvim\n$picom\n$lf\n$qutebrowser\n$zathura\n$neofetch\n$rofi\n$alacritty"
 
 choice="$(echo -e "$options" | sort | fzf)"
 
 case $choice in
+  $alacritty)
+    nvim ~/.config/alacritty/alacritty.yml
+    ;;
   $awesome)
     nvim ~/.config/awesome/rc.lua
     ;;
