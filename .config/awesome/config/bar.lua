@@ -11,7 +11,6 @@ local beautiful = require("beautiful")
 local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 -- Vars
 local user_vars = require("user_variables")
