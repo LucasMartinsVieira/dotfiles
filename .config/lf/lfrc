@@ -37,7 +37,33 @@ cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
 cmd setwallpaper $feh --bg-scale --no-fehbg "$f"
 
 cmd fzf_configs ${{
-  ~/.config/lf/editconf
+  $HOME/.config/lf/editconf
+}}
+
+# Trash cli bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    # extract the substring from start of string up to delimiter.
+    # this is the first "element" of the string.
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    # if there's only one element left, set `files` to an empty string.
+    # this causes us to exit this `while` loop.
+    # else, we delete the first "element" of the string from files, and move onto the next.
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd clear_trash %trash-empty
+
+cmd restore_trash ${{
+  trash-restore
 }}
 
 
@@ -46,14 +72,20 @@ cmd fzf_configs ${{
 map m
 map e
 map i
+map d
 
 # Basic Functions
 map . set hidden!
 map md mkdir
 map mf mkfile
-map DD delete
 map sw setwallpaper
 map o fzf_configs
+map mv cut
+
+# Trash cli bindings
+map dd trash
+map dc clear_trash
+map dr restore_trash
 
 # Applications
 map ee $nvim "$f"
