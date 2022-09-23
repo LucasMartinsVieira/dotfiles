@@ -80,7 +80,7 @@ cmd gitcommit ${{
 }}
 
 map gta gitadd
-map gtm gitcommit
+map gtc gitcommit
 map gtp gitpush
 
 # Movement
