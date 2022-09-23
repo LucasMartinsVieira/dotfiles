@@ -4,5 +4,5 @@
 
 UPDATES=$(checkupdates | wc -l)
 
-echo " $UPDATES" 
+echo "$UPDATES" 
 

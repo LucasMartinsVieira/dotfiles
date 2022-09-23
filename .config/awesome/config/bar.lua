@@ -144,8 +144,31 @@ awful.screen.connect_for_each_screen(function(s)
 		end)
 	))
 
+  s.wifi_icon = wibox.widget {
+    text = "直",
+    font = "JetBrains Mono 18",
+    ellipsize = "none",
+    widget = wibox.widget.textbox,
+  }
+
+	s.wifi_icon:buttons(gears.table.join(
+		awful.button({}, 1, function()
+			awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
+		end),
+		awful.button({}, 3, function()
+			awful.spawn("rofi-wifi")
+		end)
+	))
+
 	-- Updates Widget
 	s.updates = awful.widget.watch(".config/awesome/widgets/updates", 10)
+  
+  s.updates_icon = wibox.widget {
+    text = "  ",
+    font = "jetbrains mono 16",
+    ellipsize = "none",
+    widget = wibox.widget.textbox,
+  }
 
 	s.updates:buttons(gears.table.join(
 		awful.button({}, 1, function()
@@ -156,10 +179,18 @@ awful.screen.connect_for_each_screen(function(s)
 		end)
 	))
 
+	s.updates_icon:buttons(gears.table.join(
+		awful.button({}, 1, function()
+			awful.spawn(applications.default.terminal_emulator .. " -e yay -Syu --noconfirm")
+		end),
+		awful.button({}, 3, function()
+			awful.spawn("arch-checkupdates")
+		end)
+	))
   -- powerbutton
   s.powerbutton = wibox.widget {
-    text = " ⏻ ",
-    font = "JetBrains Mono 18",
+    text = "⏻",
+    font = "jetbrains mono 18",
     ellipsize = "none",
     widget = wibox.widget.textbox,
   }
@@ -212,8 +243,11 @@ awful.screen.connect_for_each_screen(function(s)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.textbox("   "),
-			s.wifi,
+      s.wifi_icon,
 			wibox.widget.textbox(" "),
+			s.wifi,
+			--wibox.widget.textbox(""),
+      s.updates_icon,
 			s.updates,
 			wibox.widget.textbox("   "),
 			volume_widget({
@@ -226,7 +260,7 @@ awful.screen.connect_for_each_screen(function(s)
 				show_hourly_forecast = true,
 				show_daily_forecast = true,
 			}),
-			wibox.widget.textbox(" "),
+			wibox.widget.textbox("  "),
       s.powerbutton,
 			wibox.widget.textbox("  "),
 			wibox.widget.systray(),
