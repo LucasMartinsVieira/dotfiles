@@ -25,10 +25,10 @@ dashboard.section.buttons.val = {
         button("SPC f w", "  Find word", "<CMD>Telescope live_grep<CR>"),
         button("SPC f r", "  Recent Files", "<CMD>Telescope oldfiles<CR>"),
         button("SPC f p", "  Recent Projects", "<CMD>Telescope projects<CR>"),
-        button("SPC m", "  Vim Wiki", ":VimwikiIndex<CR>"),
-        button("SPC c", "  Config", ":e ~/.config/nvim/init.lua<CR>"),
-        button("SPC u", "  Update", ":PackerSync<CR>"),
-        button("SPC q", "  Quit", ":q<CR>"),
+        button("SPC m",   "  Vim Wiki", ":VimwikiIndex<CR>"),
+        button("SPC c",   "  Config", ":e ~/.config/nvim/init.lua<CR>"),
+        button("SPC u",   "  Update", ":PackerSync<CR>"),
+        button("SPC q",   "  Quit", ":q<CR>"),
 }
 local function footer()
   return "https://github.com/LucasMartinsVieira"
