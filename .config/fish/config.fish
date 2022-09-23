@@ -3,55 +3,44 @@ if status is-interactive
   setxkbmap br
 end
 
+### Cleaning $HOME
 export CARGO_HOME="$HOME/.local/share/cargo"
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 export GOPATH="$HOME/.local/share/go"
 
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
+
+# Binding CRTL + f to run lf
 bind \cf 'lfrun'
 
-export FZF_DEFAULT_COMMAND="find -H"
+### Adding to the $PATH
 export PATH="/home/lucas/.local/share/cargo/bin/:$PATH"
 export PATH="/home/lucas/.local/bin/:$PATH"
 
-export EDITOR="/usr/bin/nvim"
-# bare git repo alias for dotfiles
-alias dotfiles="/usr/bin/git --git-dir=$HOME/repos/dotfiles --work-tree=$HOME"
-
-### Disable Fish intro menssage ###
-
-set fish_greeting 
-
+### EXPORT
+set EDITOR "/usr/bin/nvim"                  # Set the $EDITOR to nvim
+set fish_greeting                           # Disable Fish's intro message
 
 ### Alias ###
 alias sudo="doas"
 alias beats="rofi-beats"
 alias wiki="nvim ~/Documentos/vimwiki/index.md"
 alias note="nvim ~/Documentos/vimwiki/Notes.md"
-alias op="nvim ~/Documentos/vimwiki/one-piece-manga.md"
 
 ### Git Aliases ###
 
 alias ga="git add"
 alias gs="git status"
-alias gm="git commit"
+alias gc="git commit"
 alias gp="git push"
 alias gd="git diff"
 alias gl="git log"
 
-### Curl's alias ###
-alias crypto="curl rate.sx"
-alias news="curl getnews.tech"
-
-### FZF aliases ###
-alias vfzf="nvim (fzf)"
-alias zfzf="cd ~/Documentos/Media/Livros/ | zathura (fzf)"
-
 # confirm before overwriting something
-# alias cp="cp -i"
-# alias mv='mv -i'
-# alias rm='rm -i'
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
 
 # adding flags
 alias df='df -h'                          
@@ -61,7 +50,7 @@ alias free='free -h'
 alias ls="exa -al -s=type"
 alias l="exa -a --icons -s=type"
 
-# yt-dlp
+# Yt-dlp
 alias yta-aac="yt-dlp --extract-audio --audio-format aac"
 alias yta-best="yt-dlp --extract-audio --audio-format best"
 alias yta-flac="yt-dlp --extract-audio --audio-format flac"
@@ -81,7 +70,6 @@ alias sxiv="devour sxiv"
 alias zathura="devour zathura"
 alias pcmanfm="devour pcmanfm"
 alias librewolf="devour librewolf"
-
 
 # Alias for cd
 alias ..="cd .."
