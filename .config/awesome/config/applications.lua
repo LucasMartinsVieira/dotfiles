@@ -5,7 +5,7 @@ return {
     app_launcher = "rofi -show drun -show-icons",
     audio = "pavucontrol",
     browser = "librewolf",
-    terminal_emulator = "kitty",
+    terminal_emulator = "alacritty",
     music_player  = "g4music",
     filemanager = "pcmanfm",
     image_editor = "gimp",
