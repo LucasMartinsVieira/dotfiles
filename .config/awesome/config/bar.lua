@@ -137,9 +137,6 @@ awful.screen.connect_for_each_screen(function(s)
 	s.wifi:buttons(gears.table.join(
 		awful.button({}, 1, function()
 			awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
-		end),
-		awful.button({}, 3, function()
-			awful.spawn("rofi-wifi")
 		end)
 	))
 

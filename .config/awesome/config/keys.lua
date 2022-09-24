@@ -102,7 +102,6 @@ globalkeys = gears.table.join(
             elseif key == "c" then awful.spawn.with_shell("rofi -show calc")
             elseif key == "w" then awful.spawn.with_shell("rofi-wallpaper")
             elseif key == "t" then awful.spawn.with_shell("rofi-colorscheme")
-            elseif key == "o" then awful.spawn.with_shell("rofi-wifi")
             end
             awful.keygrabber.stop(grabber)
             end
