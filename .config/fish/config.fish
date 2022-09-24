@@ -24,7 +24,6 @@ set TERM "alacritty"
 set fish_greeting                           # Disable Fish's intro message
 
 ### Alias ###
-alias sudo="doas"
 alias beats="rofi-beats"
 alias wiki="nvim ~/Documentos/vimwiki/index.md"
 alias note="nvim ~/Documentos/vimwiki/Notes.md"
