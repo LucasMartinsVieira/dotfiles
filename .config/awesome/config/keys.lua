@@ -93,7 +93,6 @@ globalkeys = gears.table.join(
             if event == "release" then return end
 
             if key == "f" then awful.spawn.with_shell("rofi-files")
-            elseif key == "k" then awful.spawn.with_shell("rofi-kill")
             elseif key == "s" then awful.spawn.with_shell("rofi-search")
             elseif key == "d" then awful.spawn.with_shell("rofi-powermenu")
             elseif key == "b" then awful.spawn.with_shell("rofi-beats")
