@@ -92,8 +92,7 @@ globalkeys = gears.table.join(
           function(_, key, event)
             if event == "release" then return end
 
-            if     key == "w" then awful.spawn.with_shell("rofi-watchmenu")
-            elseif key == "f" then awful.spawn.with_shell("rofi-files")
+            if key == "f" then awful.spawn.with_shell("rofi-files")
             elseif key == "k" then awful.spawn.with_shell("rofi-kill")
             elseif key == "s" then awful.spawn.with_shell("rofi-search")
             elseif key == "d" then awful.spawn.with_shell("rofi-powermenu")
@@ -102,7 +101,7 @@ globalkeys = gears.table.join(
             elseif key == "h" then awful.spawn.with_shell("rofi-bangs")
             elseif key == "i" then awful.spawn.with_shell("rofi-maim")
             elseif key == "c" then awful.spawn.with_shell("rofi -show calc")
-            elseif key == "x" then awful.spawn.with_shell("rofi-wallpaper")
+            elseif key == "w" then awful.spawn.with_shell("rofi-wallpaper")
             elseif key == "t" then awful.spawn.with_shell("rofi-colorscheme")
             elseif key == "o" then awful.spawn.with_shell("rofi-wifi")
             end
