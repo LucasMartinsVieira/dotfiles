@@ -146,12 +146,9 @@ map gvr cd ~/dev/rust/
 map gvp cd ~/dev/php/
 
 # Media bindings
-map gm. cd ~/Media/
-map gmm cd ~/Media/Manga/
-map gma cd ~/Media/Animes/
-map gmf cd ~/Media/Filmes/
-map gml cd ~/Media/Livros/
-map gms cd ~/Media/Series/
+map gm. cd ~/Documentos/Media/
+map gmm cd ~/Documentos/Media/Manga/
+map gmb cd ~/Documentos/Media/Livros/
 
 # Books bindings
 map gb. cd ~/Media/Livros/
