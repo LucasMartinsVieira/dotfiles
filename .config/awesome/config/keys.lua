@@ -100,12 +100,10 @@ globalkeys = gears.table.join(
             elseif key == "b" then awful.spawn.with_shell("rofi-beats")
             elseif key == "p" then awful.spawn.with_shell("rofi-pass")
             elseif key == "h" then awful.spawn.with_shell("rofi-bangs")
-            elseif key == "y" then awful.spawn.with_shell("rofi-weather")
             elseif key == "i" then awful.spawn.with_shell("rofi-maim")
             elseif key == "c" then awful.spawn.with_shell("rofi -show calc")
             elseif key == "x" then awful.spawn.with_shell("rofi-wallpaper")
             elseif key == "t" then awful.spawn.with_shell("rofi-colorscheme")
-            elseif key == "q" then awful.spawn.with_shell("rofi-quikmarks")
             elseif key == "o" then awful.spawn.with_shell("rofi-wifi")
             end
             awful.keygrabber.stop(grabber)
