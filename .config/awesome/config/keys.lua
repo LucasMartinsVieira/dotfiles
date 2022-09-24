@@ -1,10 +1,21 @@
 local awful = require("awful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
-require("awful.autofocus")
+local naughty = require("naughty")
 local applications = require("config.applications")
 
+require("awful.autofocus")
 local modkey = "Mod4"
+
+local show_volume_percent_notification = function()
+	local command = "pamixer --get-volume"
+	awful.spawn.easy_async_with_shell(command, function(out)
+		naughty.notification({
+			message = string.format("Volume: %s", out),
+			timeout = 0.5,
+		})
+	end)
+end
 
 globalkeys = gears.table.join(
   awful.key({ modkey }, "/", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -164,11 +175,13 @@ globalkeys = gears.table.join(
   end, { description = "checkupdates", group = "scripts" }),
 
   awful.key({ modkey }, "=", function()
-    awful.util.spawn("volume+")
+    awful.util.spawn("pamixer -i 5")
+   	show_volume_percent_notification()
   end, { description = "volume +", group = "scripts" }),
 
   awful.key({ modkey }, "-", function()
-    awful.util.spawn("volume-")
+    awful.util.spawn("pamixer -d 5")
+   	show_volume_percent_notification()
   end, { description = "volume -", group = "scripts" }),
 
   -- applications keybindings
