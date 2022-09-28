@@ -204,7 +204,7 @@ awful.screen.connect_for_each_screen(function(s)
   
   s.weather:buttons(gears.table.join(
     awful.button({}, 1, function ()
-      awful.spawn('bash -c "curl wttr.in/?T | yad --text-info --center"')
+      awful.spawn('bash -c "curl wttr.in/Santo%20Andr%C3%A9?T | yad --text-info --center"')
     end)
   ))
   -- powerbutton
