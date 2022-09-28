@@ -20,7 +20,7 @@ nmap("<space>w", ":w<CR>")
 nmap("<space>q", ":q<CR>")
 nmap("<space>u", ":PackerSync<CR>")
 nmap("<space>c", ":e ~/.config/nvim/init.lua<CR>")
-
+keymap('n', '<space>s', ":%s ///gI<Left><Left><Left><Left>", {noremap = true, silent = false})
 -- Vim Wiki
 nmap("<space>m", ":VimwikiIndex<CR>")
 
