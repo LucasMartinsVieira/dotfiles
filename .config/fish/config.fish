@@ -3,10 +3,17 @@ if status is-interactive
   setxkbmap br
 end
 
+### Setting variables
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 ### Cleaning $HOME
-export CARGO_HOME="$HOME/.local/share/cargo"
-export RUSTUP_HOME="$HOME/.local/share/rustup"
-export GOPATH="$HOME/.local/share/go"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export GOPATH="$XDG_DATA_HOME/go"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export GNUPGNOME=$XDG_DATA_HOME/gnupg
 
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
