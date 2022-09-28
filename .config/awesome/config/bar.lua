@@ -128,9 +128,6 @@ awful.screen.connect_for_each_screen(function(s)
 	s.wifi_icon:buttons(gears.table.join(
 		awful.button({}, 1, function()
 			awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
-		end),
-		awful.button({}, 3, function()
-			awful.spawn("rofi-wifi")
 		end)
 	))
 
@@ -207,7 +204,7 @@ awful.screen.connect_for_each_screen(function(s)
   
   s.weather:buttons(gears.table.join(
     awful.button({}, 1, function ()
-      awful.spawn(applications.default.terminal_emulator .. " -e curl -s https://wttr.in/")
+      awful.spawn('bash -c "curl wttr.in/?T | yad --text-info --center"')
     end)
   ))
   -- powerbutton
