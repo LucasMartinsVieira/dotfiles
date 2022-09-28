@@ -1,19 +1,11 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-require("awful.autofocus")
-
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-
--- Awesome wm Widgets
-
-local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+require("awful.autofocus")
 
 -- Vars
-local user_vars = require("user_variables")
 local applications = require("config.applications")
 local modkey = "Mod4"
 require("config.menu")
@@ -21,15 +13,6 @@ require("config.menu")
 --  Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("%a %d %b, %H:%M", 1)
-local cw = calendar_widget({
-	theme = "dark",
-	placement = "top_center",
-	start_sunday = true,
-	radius = 8,
-	-- with customized next/previous (see table above)
-	previous_month_button = 1,
-	next_month_button = 3,
-})
 
 mytextclock:connect_signal("button::press", function(_, _, _, button)
 	if button == 1 then
@@ -130,6 +113,7 @@ awful.screen.connect_for_each_screen(function(s)
 		filter = awful.widget.tasklist.filter.focused,
 		-- buttons = tasklist_buttons,
 	})
+  
 
 	-- Wifi Widget
 	s.wifi = awful.widget.watch(".config/awesome/widgets/wifi", 10)
@@ -157,7 +141,7 @@ awful.screen.connect_for_each_screen(function(s)
 	))
 
 	-- Updates Widget
-	s.updates = awful.widget.watch(".config/awesome/widgets/updates", 10)
+	s.updates = awful.widget.watch(".config/awesome/widgets/updates")
   
   s.updates_icon = wibox.widget {
     text = "  ",
@@ -183,6 +167,55 @@ awful.screen.connect_for_each_screen(function(s)
 			awful.spawn("arch-checkupdates")
 		end)
 	))
+
+  -- Volume Widget
+  s.volume = awful.widget.watch(".config/awesome/widgets/volume", 1)
+
+  s.volume_icon = wibox.widget {
+    text = "墳",
+    font = "JetBrains Mono 18",
+    ellipsize = "none",
+    widget = wibox.widget.textbox,
+  }
+
+	s.volume:buttons(gears.table.join(
+		awful.button({}, 1, function()
+			awful.spawn("pamixer -t")
+		end),
+		awful.button({}, 3, function()
+			awful.spawn("pavucontrol")
+		end),
+		awful.button({}, 4, function()
+			awful.spawn("pamixer -i 5")
+		end),
+		awful.button({}, 5, function()
+			awful.spawn("pamixer -d 5")
+		end)
+	))
+
+	s.volume_icon:buttons(gears.table.join(
+		awful.button({}, 1, function()
+			awful.spawn("pamixer -t")
+		end),
+		awful.button({}, 3, function()
+			awful.spawn("pavucontrol")
+		end),
+		awful.button({}, 4, function()
+			awful.spawn("pamixer -i 5")
+		end),
+		awful.button({}, 5, function()
+			awful.spawn("pamixer -d 5")
+		end)
+	))
+
+  -- Weather Widget
+  s.weather = awful.widget.watch(".config/awesome/widgets/weather")
+  
+  s.weather:buttons(gears.table.join(
+    awful.button({}, 1, function ()
+      awful.spawn(applications.default.terminal_emulator .. " -e curl -s https://wttr.in/")
+    end)
+  ))
   -- powerbutton
   s.powerbutton = wibox.widget {
     text = "⏻",
@@ -242,21 +275,15 @@ awful.screen.connect_for_each_screen(function(s)
       s.wifi_icon,
 			wibox.widget.textbox(" "),
 			s.wifi,
-			--wibox.widget.textbox(""),
       s.updates_icon,
 			s.updates,
-			wibox.widget.textbox("   "),
-			volume_widget({
-				widget_type = "icon_and_text",
-			}),
-			wibox.widget.textbox(" "),
-			weather_widget({
-				api_key = user_vars.widget.weather.key,
-				coordinates = user_vars.widget.weather.cordinates,
-				show_hourly_forecast = true,
-				show_daily_forecast = true,
-			}),
 			wibox.widget.textbox("  "),
+      s.volume_icon,
+			wibox.widget.textbox(" "),
+      s.volume,
+			wibox.widget.textbox("  "),
+      s.weather,
+			wibox.widget.textbox(" "),
       s.powerbutton,
 			wibox.widget.textbox("  "),
 			wibox.widget.systray(),
