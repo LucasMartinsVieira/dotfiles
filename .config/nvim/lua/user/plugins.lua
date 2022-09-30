@@ -83,13 +83,12 @@ return packer.startup(function(use)
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-nvim-lsp",
       "saadparwaiz1/cmp_luasnip",
-      "quangnguyen30192/cmp-nvim-ultisnips",
     },
   })
 
   -- Snippets
   use({ "L3MON4D3/LuaSnip" })
-  use({ "rafamadriz/friendly-snippets" })
+  use({ "lucasmartinsvieira/friendly-snippets" })
   use({ "honza/vim-snippets" })
 
   -- LSP

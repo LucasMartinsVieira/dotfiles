@@ -15,19 +15,23 @@ end
   local keymap = vim.api.nvim_set_keymap
 
   -- Normal --
-  -- Salvar/Sair arquivo
+
+  -- Basics
 nmap("<space>w", ":w<CR>")
 nmap("<space>q", ":q<CR>")
-nmap("<space>u", ":PackerSync<CR>")
-nmap("<space>c", ":e ~/.config/nvim/init.lua<CR>")
+nmap("<space>e", ":NvimTreeToggle<CR>")
+nmap("<space>p", ":Format<CR>")
 nmap("<space>z", ":ZenMode<CR>")
 keymap('n', '<space>s', ":%s ///gc<Left><Left><Left><Left>", {noremap = true, silent = false})
 
+-- Config Keys
+nmap("<space>ci", ":e ~/.config/nvim/init.lua<CR>")
+nmap("<space>co", ":e ~/.config/nvim/lua/user/options.lua<CR>")
+nmap("<space>cp", ":e ~/.config/nvim/lua/user/plugins.lua<CR>")
+nmap("<space>cm", ":e ~/.config/nvim/lua/user/maps.lua<CR>")
+
 -- Vim Wiki
 nmap("<space>m", ":VimwikiIndex<CR>")
-
--- Formatar arquivo
-nmap("<space>p", ":Format<CR>")
 
 -- Terminal 
 nmap("<space>tt", ":ToggleTerm<CR>")
@@ -58,31 +62,32 @@ nmap("<space>bx", ":bdelete<CR>")
 nmap("<space>bf", ":Telescope buffers<CR>")
 
 -- Telescope
-nmap("<space>ff", ":Telescope file_browser<CR>")
+nmap("<space>ff", ":FZF<CR>")
 nmap("<space>fe", ":ene!<CR>")
 nmap("<space>fw", ":Telescope live_grep<CR>")
 nmap("<space>fr", ":Telescope oldfiles<CR>")
 nmap("<space>fp", ":Telescope projects<CR>")
 nmap("<space>ft", ":Telescope live_grep<CR>")
--- Move selecionados
+
+-- Moves selected
 nmap("<A-j>", ":m +2<CR>gv")
 nmap("<A-k>", ":m -2<CR>gv")
-
--- NvimTree
-nmap("<space>e", ":NvimTreeToggle<CR>")
 
 -- Trouble
 nmap("<space>x", ":TroubleToggle<CR>")
 
 -- Insert --
--- Escape mais acessivel
+
+-- ESC more acessible
 imap("jk", "<ESC>")
+imap("kj", "<ESC>")
 
 -- Visual --
--- Indenta
+
+-- Indent
 vmap("<", "<gv")
 vmap(">", ">gv")
 
--- Move selecionadoa
+-- Moves selected 
 vmap("<A-j>", ":m +2<CR>gv")
 vmap("<A-k>", ":m -2<CR>gv")
