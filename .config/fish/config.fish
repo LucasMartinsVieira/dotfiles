@@ -27,7 +27,7 @@ export PATH="/home/lucas/.local/bin/:$PATH"
 
 ### EXPORT
 set EDITOR "/usr/bin/nvim"                  # Set the $EDITOR to nvim
-set TERM "alacritty"
+set TERM "kitty"
 set fish_greeting                           # Disable Fish's intro message
 
 ### Alias ###

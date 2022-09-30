@@ -18,3 +18,6 @@ set.showtabline = 2
 set.showmode = false
 set.undofile = true
 set.timeoutlen = 1000
+set.clipboard = "unnamedplus"
+set.swapfile = false
+set.showtabline = 0

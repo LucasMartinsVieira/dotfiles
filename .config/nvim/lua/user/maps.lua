@@ -20,12 +20,20 @@ nmap("<space>w", ":w<CR>")
 nmap("<space>q", ":q<CR>")
 nmap("<space>u", ":PackerSync<CR>")
 nmap("<space>c", ":e ~/.config/nvim/init.lua<CR>")
-keymap('n', '<space>s', ":%s ///gI<Left><Left><Left><Left>", {noremap = true, silent = false})
+nmap("<space>z", ":ZenMode<CR>")
+keymap('n', '<space>s', ":%s ///gc<Left><Left><Left><Left>", {noremap = true, silent = false})
+
 -- Vim Wiki
 nmap("<space>m", ":VimwikiIndex<CR>")
 
 -- Formatar arquivo
 nmap("<space>p", ":Format<CR>")
+
+-- Terminal 
+nmap("<space>tt", ":ToggleTerm<CR>")
+nmap("<space>tv", ":ToggleTerm size=60 direction=vertical<CR>")
+nmap("<space>th", ":ToggleTerm direction=horizontal<CR>")
+nmap("<space>tf", ":ToggleTerm direction=float<CR>")
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>")
@@ -42,10 +50,12 @@ nmap("<C-Right>", ":vertical resize -2<CR>")
 -- Navegar arquivos (buffers)
 nmap("<S-l>", ":bnext<CR>")
 nmap("<S-h>", ":bprevious<CR>")
-nmap("<S-x>", ":bdelete<CR>")
+nmap("<S-d>", ":bdelete<CR>")
+
 nmap("<space>bn", ":bnext<CR>")
 nmap("<space>bp", ":bprevious<CR>")
 nmap("<space>bx", ":bdelete<CR>")
+nmap("<space>bf", ":Telescope buffers<CR>")
 
 -- Telescope
 nmap("<space>ff", ":Telescope file_browser<CR>")
@@ -53,7 +63,6 @@ nmap("<space>fe", ":ene!<CR>")
 nmap("<space>fw", ":Telescope live_grep<CR>")
 nmap("<space>fr", ":Telescope oldfiles<CR>")
 nmap("<space>fp", ":Telescope projects<CR>")
-nmap("<space>fb", ":Telescope buffers<CR>")
 nmap("<space>ft", ":Telescope live_grep<CR>")
 -- Move selecionados
 nmap("<A-j>", ":m +2<CR>gv")
@@ -63,7 +72,7 @@ nmap("<A-k>", ":m -2<CR>gv")
 nmap("<space>e", ":NvimTreeToggle<CR>")
 
 -- Trouble
-nmap("<space>t", ":TroubleToggle<CR>")
+nmap("<space>x", ":TroubleToggle<CR>")
 
 -- Insert --
 -- Escape mais acessivel
