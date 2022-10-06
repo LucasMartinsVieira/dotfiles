@@ -11,11 +11,11 @@ if not status_ok then
 end
 
 return packer.startup(function(use)
-  
-  --Plugins to support other plugins 
+  --Plugins to support other plugins
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "wbthomason/packer.nvim" })
+  use({ "kyazdani42/nvim-web-devicons" })
 
   -- Colorschemes
   use({ "Mofiqul/dracula.nvim" })
@@ -23,16 +23,17 @@ return packer.startup(function(use)
   use({ "romgrk/doom-one.vim" })
   use({ "tanvirtin/monokai.nvim" })
   use({ "maxmx03/solarized.nvim" })
+  use({ "lunarvim/horizon.nvim" })
 
-  -- FZF
-  use({ "junegunn/fzf" })
+  -- Winbar
+  use({ "fgheng/winbar.nvim" })
 
   -- ToggleTerm
   use({ "akinsho/toggleterm.nvim" })
 
   -- AutoPairs
   use({ "jiangmiao/auto-pairs" })
-  
+
   -- indent Blankline
   use("lukas-reineke/indent-blankline.nvim")
 
@@ -45,7 +46,6 @@ return packer.startup(function(use)
   -- Dashboard (Alpha)
   use({
     "goolord/alpha-nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
       require("alpha").setup(require("alpha.themes.dashboard").config)
     end,
@@ -54,7 +54,6 @@ return packer.startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
-    requires = { { "nvim-lua/plenary.nvim" } },
   })
 
   use({
@@ -63,7 +62,6 @@ return packer.startup(function(use)
       require("project_nvim").setup({})
     end,
   })
-
 
   -- Markdown preview
   use({
@@ -88,7 +86,7 @@ return packer.startup(function(use)
 
   -- Snippets
   use({ "L3MON4D3/LuaSnip" })
-  use({ "lucasmartinsvieira/friendly-snippets" })
+  use({ "rafamadriz/friendly-snippets" })
   use({ "honza/vim-snippets" })
 
   -- LSP
@@ -115,7 +113,10 @@ return packer.startup(function(use)
   use({ "kyazdani42/nvim-tree.lua" })
 
   -- Errors
-  use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+  use({ "folke/trouble.nvim" })
+
+  -- Todo Comments
+  use({ "folke/todo-comments.nvim" })
 
   -- Color Highlighter
   use({ "norcalli/nvim-colorizer.lua" })

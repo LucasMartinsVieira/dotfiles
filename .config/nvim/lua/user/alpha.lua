@@ -20,8 +20,8 @@ dashboard.section.header.val = {
 [[  ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝]],
 }
 dashboard.section.buttons.val = {
-        button("f", "  Find file", "<CMD>FZF<CR>"),
-        button("e", "  New file", "<cmd>ene!<CR>"),
+        button("f", "  Find file", "<CMD>Telescope find_files<CR>"),
+        button("n", "  New file", "<cmd>ene!<CR>"),
         button("w", "  Find word", "<CMD>Telescope live_grep<CR>"),
         button("r", "  Recent Files", "<CMD>Telescope oldfiles<CR>"),
         button("p", "  Recent Projects", "<CMD>Telescope projects<CR>"),
