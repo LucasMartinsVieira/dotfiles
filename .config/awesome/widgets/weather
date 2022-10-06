@@ -1,5 +1,0 @@
-#!/bin/bash
-
-city="Santo+André"
-weather=$(curl -s https://wttr.in/$city?format="%t\n" | head -n 3)
-echo " $weather "
