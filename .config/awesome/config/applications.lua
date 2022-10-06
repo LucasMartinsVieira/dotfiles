@@ -6,12 +6,11 @@ return {
     audio = "pavucontrol",
     browser = "librewolf",
     terminal_emulator = "kitty",
-    music_player  = "g4music",
+    music_player = "g4music",
     filemanager = "pcmanfm",
     image_editor = "gimp",
-    rss_reader = "fluent-reader",
+    rss_reader = "newsflash",
   },
 }
 -- Menubar configuration
 --menubar.utils.terminal = terminal -- Set the terminal for applications that require it
-
