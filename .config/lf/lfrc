@@ -1,6 +1,8 @@
 # Basic Settings
 set hidden true
 set ignorecase true
+set icons true
+set drawbox true
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
 
@@ -62,6 +64,12 @@ cmd trash ${{
 
 cmd clear_trash %trash-empty
 
+cmd list_trash ${{
+  trash-list
+  printf "Press Enter to go to LF"
+  read
+}}
+
 cmd restore_trash ${{
   trash-restore
 }}
@@ -86,12 +94,12 @@ map mv cut
 map dd trash
 map dc clear_trash
 map dr restore_trash
+map dl list_trash
 
 # Applications
 map ee $nvim "$f"
 map ed $doas nvim "$f"
 map i $devour feh "$f"
-map Z $devour zathura "$f"
 map M $devour mpv "$f"
 
 # Archive mappings
@@ -148,7 +156,7 @@ map gvp cd ~/dev/php/
 # Media bindings
 map gm. cd ~/Documentos/Media/
 map gmm cd ~/Documentos/Media/Manga/
-map gmb cd ~/Documentos/Media/Livros/
+map gml cd ~/Documentos/Media/Livros/
 
 # Books bindings
 map gb. cd ~/Media/Livros/
@@ -157,7 +165,6 @@ map gbE cd ~/Media/Livros/Estória/
 map gbb cd ~/Media/Livros/Biografia/
 map gbh cd ~/Media/Livros/História/
 map gbn cd ~/Media/Livros/Negócios/
-
 
 # VimWiki bindings
 map gw. cd ~/Documentos/vimwiki/
