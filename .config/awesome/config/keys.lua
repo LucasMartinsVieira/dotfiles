@@ -47,12 +47,12 @@ globalkeys = gears.table.join(
     awful.screen.focus_relative(-1)
   end, { description = "focus the previous screen", group = "screen" }),
   awful.key({ modkey }, "g", awful.client.urgent.jumpto, { description = "jump to urgent client", group = "client" }),
-  awful.key({ modkey }, "Tab", function()
-    awful.client.focus.history.previous()
-    if client.focus then
-      client.focus:raise()
-    end
-  end, { description = "go back", group = "client" }),
+  --[[ awful.key({ modkey }, "Tab", function() ]]
+  --[[   awful.client.focus.history.previous() ]]
+  --[[   if client.focus then ]]
+  --[[     client.focus:raise() ]]
+  --[[   end ]]
+  --[[ end, { description = "go back", group = "client" }), ]]
 
   -- Standard program
   awful.key({ modkey }, "Return", function()
@@ -80,10 +80,10 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Control" }, "l", function()
     awful.tag.incncol(-1, nil, true)
   end, { description = "decrease the number of columns", group = "layout" }),
-  awful.key({ modkey }, "space", function()
+  awful.key({ modkey }, "Tab", function()
     awful.layout.inc(1)
   end, { description = "select next", group = "layout" }),
-  awful.key({ modkey, "Shift" }, "space", function()
+  awful.key({ modkey, "Shift" }, "Tab", function()
     awful.layout.inc(-1)
   end, { description = "select previous", group = "layout" }),
 
