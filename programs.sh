@@ -30,11 +30,11 @@ explanation() {
 explanation
 
 start() {
-  echo "##################################################################################"
-  echo "##                                                                              ##"
-  echo "##    first of all, the script will update the system and install base-devel    ##"
-  echo "##                                                                              ##"
-  echo "##################################################################################"
+  echo "############################################################"
+  echo "##                                                        ##"
+  echo "##    first of all, the script will install base-devel    ##"
+  echo "##                                                        ##"
+  echo "############################################################"
   doas pacman -S base-devel --needed
 }
 start
@@ -93,11 +93,11 @@ confirmation() {
   read -p "$anwser is your aur helper? (Y/n)" custom_aur
   $separator
   case $custom_aur in
-    [Yy]* ) $anwser -Syu - < pkgs.txt --needed --noconfim --removemake && change_shell;
+    [Yy]* ) $anwser -Syu - < pkgs.txt --needed --noconfim --askremovemake && change_shell;
       break;;
     [Nn]* ) other_aur; 
       break;;
-        * ) $anwser -Syu - < pkgs.txt --needed --noconfirm --removemake&& change_shell;
+        * ) $anwser -Syu - < pkgs.txt --needed --noconfirm --askremovemake && change_shell;
           break;;
   esac
 done
@@ -105,8 +105,8 @@ done
 
 change_shell() {
   while true; do
-    read -p "Do you want to change your user shell to Fish? (y/N)" shch_fish
-    case $shch_fish in
+    read -p "Do you want to change your user shell to Fish? (y/N)" chsh_fish
+    case $chsh_fish in
         [Yy]* ) chsh -s /bin/fish && scripts
                 break;;
         [Nn]* ) echo "You choose not to change your user shell." && scripts; 
@@ -125,7 +125,7 @@ $separator
 select choice in "${aur_helpers[@]}"; do
     case $choice in
          paru | yay)
-            $choice -Syu - < pkgs.txt --needed --noconfirm --removemake && change_shell
+            $choice -Syu - < pkgs.txt --needed --noconfirm --askremovemake && change_shell
             break
             ;;
          Other)
