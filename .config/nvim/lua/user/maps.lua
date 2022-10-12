@@ -23,8 +23,9 @@ nmap("<space>e", "<CMD>NvimTreeToggle<CR>")
 nmap("<space>p", "<CMD>Format<CR>")
 nmap("<space>z", "<CMD>ZenMode<CR>")
 nmap("<space>c", "<CMD>ColorizerToggle<CR>")
-nmap("<space>n", "<CMD>ene!<CR>")
-keymap("n", "<space>s", "<CMD>%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
+nmap("<space>n", "<CMD>ene <BAR> startinsert<CR>")
+nmap("<space>v", "<CMD>vsplit<CR>")
+keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
 nmap("<space>ci", "<CMD>e ~/.config/nvim/init.lua<CR>")
@@ -33,13 +34,24 @@ nmap("<space>cp", "<CMD>e ~/.config/nvim/lua/user/plugins.lua<CR>")
 nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>")
 nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>")
 
+-- Lsp
+nmap("<space>li", "<CMD>LspInfo<CR>")
+nmap("<space>ld", "<CMD>TroubleToggle<CR>")
+nmap("<space>lf", "<CMD>Format<CR>")
+nmap("<space>lF", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>")
+nmap("<space>ls", "<CMD>Telescope lsp_document_symbols<CR>")
+nmap("<space>lR", "<CMD>TroubleToggle lsp_references<CR>")
+
 -- Vim Wiki
 nmap("<space>m", "<CMD>VimwikiIndex<CR>")
 
+-- Alpha
+nmap("<space>;", "<CMD>Alpha<CR>")
+
 -- Terminal
-nmap("<M-h>", "<CMD>ToggleTerm direction=horizontal<CR>")
-nmap("<M-v>", "<CMD>ToggleTerm size=40 direction=vertical<CR>")
-nmap("<M-f>", "<CMD>ToggleTerm direction=float<CR>")
+nmap("<M-1>", "<CMD>ToggleTerm direction=horizontal<CR>")
+nmap("<M-2>", "<CMD>ToggleTerm size=40 direction=vertical<CR>")
+nmap("<M-3>", "<CMD>ToggleTerm direction=float<CR>")
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>")
@@ -60,30 +72,31 @@ nmap("<S-d>", "<CMD>bdelete<CR>")
 keymap("n", "<space>b", ":b ", { noremap = true, silent = false })
 
 -- Telescope
-nmap("<space>ff", "<CMD>Telescope find_files<CR>")
+nmap("<space>ff", "<CMD>FZF<CR>")
+-- nmap("<space>ff", "<CMD>Telescope find_files<CR>")
 nmap("<space>fr", "<CMD>Telescope oldfiles<CR>")
 nmap("<space>fw", "<CMD>Telescope live_grep<CR>")
 nmap("<space>fb", "<CMD>Telescope buffers<CR>")
 nmap("<space>fp", "<CMD>Telescope projects<CR>")
 nmap("<space>fc", "<CMD>Telescope colorscheme<CR>")
+nmap("<space>fk", "<CMD>Telescope keymaps<CR>")
+nmap("<space>fo", "<CMD>Telescope vim_options<CR>")
+nmap("<space>ft", "<CMD>Telescope treesitter<CR>")
 
-nmap("<space>fgs", "<CMD>Telescope git_status<CR>")
-nmap("<space>fgc", "<CMD>Telescope git_commits<CR>")
-nmap("<space>fgf", "<CMD>Telescope git_files<CR>")
-nmap("<space>fgb", "<CMD>Telescope git_branches<CR>")
+-- Git
+nmap("<space>gs", "<CMD>Telescope git_status<CR>")
+nmap("<space>gc", "<CMD>Telescope git_commits<CR>")
+nmap("<space>gf", "<CMD>Telescope git_files<CR>")
+nmap("<space>gb", "<CMD>Telescope git_branches<CR>")
 
 -- Moves selected
 nmap("<A-j>", "<CMD>m +2<CR>gv")
 nmap("<A-k>", "<CMD>m -2<CR>gv")
 
--- Trouble
-nmap("<space>x", "<CMD>TroubleToggle<CR>")
-
 -- Insert --
 
 -- ESC more acessible
 imap("jk", "<ESC>")
-imap("kj", "<ESC>")
 
 -- Visual --
 
