@@ -25,6 +25,9 @@ return packer.startup(function(use)
   use({ "maxmx03/solarized.nvim" })
   use({ "lunarvim/horizon.nvim" })
 
+  -- FZF
+  use({ "junegunn/fzf" })
+
   -- Winbar
   use({ "fgheng/winbar.nvim" })
 
