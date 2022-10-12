@@ -101,6 +101,7 @@ map ee $nvim "$f"
 map ed $doas nvim "$f"
 map i $devour feh "$f"
 map M $devour mpv "$f"
+map Z $devour zathura "$f"
 
 # Archive mappings
 map az zip
