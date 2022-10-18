@@ -43,9 +43,6 @@ return packer.startup(function(use)
   -- Vim wiki
   use({ "vimwiki/vimwiki" })
 
-  -- Zen Mode
-  use({ "folke/zen-mode.nvim" })
-
   -- Dashboard (Alpha)
   use({
     "goolord/alpha-nvim",

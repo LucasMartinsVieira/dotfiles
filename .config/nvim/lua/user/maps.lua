@@ -21,10 +21,12 @@ nmap("<space>w", "<CMD>w<CR>")
 nmap("<space>q", "<CMD>q<CR>")
 nmap("<space>e", "<CMD>NvimTreeToggle<CR>")
 nmap("<space>p", "<CMD>Format<CR>")
-nmap("<space>z", "<CMD>ZenMode<CR>")
-nmap("<space>c", "<CMD>ColorizerToggle<CR>")
 nmap("<space>n", "<CMD>ene <BAR> startinsert<CR>")
 nmap("<space>v", "<CMD>vsplit<CR>")
+nmap("<space>t", "<CMD>TroubleToggle<CR>")
+nmap("<space>p", "<CMD>Format<CR>")
+nmap("<space>m", "<CMD>VimwikiIndex<CR>")
+nmap("<space>;", "<CMD>Alpha<CR>")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
@@ -33,20 +35,6 @@ nmap("<space>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>")
 nmap("<space>cp", "<CMD>e ~/.config/nvim/lua/user/plugins.lua<CR>")
 nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>")
 nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>")
-
--- Lsp
-nmap("<space>li", "<CMD>LspInfo<CR>")
-nmap("<space>ld", "<CMD>TroubleToggle<CR>")
-nmap("<space>lf", "<CMD>Format<CR>")
-nmap("<space>lF", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>")
-nmap("<space>ls", "<CMD>Telescope lsp_document_symbols<CR>")
-nmap("<space>lR", "<CMD>TroubleToggle lsp_references<CR>")
-
--- Vim Wiki
-nmap("<space>m", "<CMD>VimwikiIndex<CR>")
-
--- Alpha
-nmap("<space>;", "<CMD>Alpha<CR>")
 
 -- Terminal
 nmap("<M-1>", "<CMD>ToggleTerm direction=horizontal<CR>")
@@ -79,9 +67,6 @@ nmap("<space>fw", "<CMD>Telescope live_grep<CR>")
 nmap("<space>fb", "<CMD>Telescope buffers<CR>")
 nmap("<space>fp", "<CMD>Telescope projects<CR>")
 nmap("<space>fc", "<CMD>Telescope colorscheme<CR>")
-nmap("<space>fk", "<CMD>Telescope keymaps<CR>")
-nmap("<space>fo", "<CMD>Telescope vim_options<CR>")
-nmap("<space>ft", "<CMD>Telescope treesitter<CR>")
 
 -- Git
 nmap("<space>gs", "<CMD>Telescope git_status<CR>")
