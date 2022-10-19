@@ -7,7 +7,6 @@ return {
     browser = "librewolf",
     terminal_emulator = "kitty",
     music_player = "g4music",
-    filemanager = "pcmanfm",
     image_editor = "gimp",
     rss_reader = "newsflash",
   },

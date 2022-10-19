@@ -107,7 +107,6 @@ globalkeys = gears.table.join(
             elseif key == "s" then awful.spawn.with_shell("rofi-search")
             elseif key == "d" then awful.spawn.with_shell("rofi-powermenu")
             elseif key == "b" then awful.spawn.with_shell("rofi-beats")
-            elseif key == "h" then awful.spawn.with_shell("rofi-bangs")
             elseif key == "i" then awful.spawn.with_shell("rofi-maim")
             elseif key == "c" then awful.spawn.with_shell("rofi -show calc")
             elseif key == "w" then awful.spawn.with_shell("rofi-wallpaper")
@@ -192,17 +191,9 @@ globalkeys = gears.table.join(
     awful.util.spawn(applications.default.terminal_emulator .. " -e lfrun")
   end, { description = "Lf", group = "applications" }),
 
-  awful.key({ modkey }, "i", function()
-    awful.util.spawn("gnome-screenshot --interactive")
-  end, { description = "Gimp", group = "applications" }),
-
   awful.key({ modkey, "Shift" }, "b", function()
     awful.util.spawn("qutebrowser")
   end, { description = "Qutebrowser", group = "applications" }),
-
-  awful.key({ modkey, "Shift" }, "p", function()
-    awful.util.spawn(applications.default.filemanager)
-  end, { description = "File Manager", group = "applications" }),
 
   awful.key({ modkey }, "y", function()
     visibility = not visibility
