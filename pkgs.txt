@@ -10,7 +10,6 @@ exa
 fd
 feh
 ffmpegthumbnailer
-firefox
 fish
 fzf
 gimp
@@ -29,17 +28,14 @@ neofetch
 neovim
 nerd-fonts-inconsolata
 newsflash
-nodejs
 noto-fonts
 nvim-packer-git
-npm
+obsidian
 opendoas
 pamixer
 pavucontrol
-pcmanfm-gtk3
 picom
 playerctl
-pnpm-bin
 poppler
 pulseaudio
 rofi
