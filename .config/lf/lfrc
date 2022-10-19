@@ -74,6 +74,7 @@ cmd restore_trash ${{
   trash-restore
 }}
 
+cmd trash1 %trash -b "$@"
 
 # Bindings
 # Removing default Bindings
@@ -99,9 +100,9 @@ map dl list_trash
 # Applications
 map ee $nvim "$f"
 map ed $doas nvim "$f"
-map i $devour feh "$f"
-map M $devour mpv "$f"
-map Z $devour zathura "$f"
+map i $feh "$f"
+map M $mpv "$f"
+map Z $zathura "$f"
 
 # Archive mappings
 map az zip
