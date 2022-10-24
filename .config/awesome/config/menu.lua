@@ -5,8 +5,7 @@ mainmenu = awful.menu {
 	items = {
 		{ "Audio Config", applications.default.audio },
 		{ "Browser", applications.default.browser },
-		{ "File Manager", applications.default.filemanager },
-    { "Htop", applications.default.terminal_emulator .. " -e htop"},
+    { "Btop", applications.default.terminal_emulator .. " -e btop"},
     { "Image Editor", applications.default.image_editor },
     { "Menu", applications.default.app_launcher },
     { "Music Player", applications.default.music_player},
