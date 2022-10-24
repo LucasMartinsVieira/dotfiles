@@ -146,6 +146,7 @@ map gr. cd ~/repos/
 map grd cd ~/repos/dotfiles/
 map grl cd ~/repos/LucasMartinsVieira/
 map grs cd ~/repos/scripts/
+map grv cd ~/repos/vault/
 map grc cd ~/repos/clones/
 
 # Dev bindings
