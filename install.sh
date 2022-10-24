@@ -36,7 +36,7 @@ start() {
   echo "##    first of all, the script will install base-devel    ##"
   echo "##                                                        ##"
   echo "############################################################"
-  # doas pacman -S base-devel --needed
+  doas pacman -S base-devel --needed
 }
 start
 
