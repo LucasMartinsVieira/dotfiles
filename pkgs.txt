@@ -1,9 +1,8 @@
-awesome-git
 alacritty
 bat
+btop
 cmatrix
 curl
-devour
 discord
 epub-thumbnailer-git
 exa
@@ -14,8 +13,6 @@ fish
 fzf
 gimp
 git
-gnome-screenshot
-htop
 imagemagick
 kitty
 lf
@@ -54,7 +51,6 @@ ttf-fira-mono
 ttf-fira-sans
 ttf-hack
 ttf-jetbrains-mono
-ttf-iosevka-nerd
 ttf-liberation
 ttf-ms-fonts
 ttf-nerd-fonts-symbols-2048-em
