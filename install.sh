@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Variables
-backup_dir="$HOME/.config/backup_config"
-separator="echo"""
+BACKUP_DIR="$HOME/.config/backup_config"
+AUR_HELPERS=("paru" "yay" "Other" "Dont_Have_One")
+SEPARATOR="echo"""
 
 # Welcome Message.
 welcome() {
@@ -18,19 +19,33 @@ read
 
 # Explanation Message
 explanation() {
-  echo "#############################################################################"
-  echo "##     The purpose of this script is to install my personal configs for    ##"
-  echo "##         Alacritty ,AwesomeWM, Fish, Kitty, Lf, Neovim and Rofi          ##"
-  echo "##                                                                         ##"
-  echo "##         This script Will make a backup folder with your configs in:     ##"
-  echo "##                           ~/.config/backup_config                       ##"
-  echo "#############################################################################"
+  echo "##################################################################################"
+  echo "##   the purpose of this script is to install programs that i use for example   ##"
+  echo "##                                                                              ##"
+  echo "##          Alacritty ,AwesomeWM, Fish, Kitty, Lf, Neovim, Rofi, etc.           ##"
+  echo "##                          And my Rofi/Bash Scripts                            ##"
+  echo "##                                                                              ##"
+  echo "##################################################################################"
+  $SEPARATOR
 }
 explanation
 
-$separator
+start() {
+  echo "############################################################"
+  echo "##                                                        ##"
+  echo "##    first of all, the script will install base-devel    ##"
+  echo "##                                                        ##"
+  echo "############################################################"
+  # doas pacman -S base-devel --needed
+}
+start
 
-# Configs
+finish_msg(){
+  echo "########################################################################"
+  echo "##    Congratulations, now you may or may not have my programs. :)    ##"
+  echo "########################################################################"
+}
+
 configs() {
   while true; do
     # Alacritty
@@ -45,7 +60,7 @@ configs() {
         break;;
     esac
   done
-$separator
+$SEPARATOR
 
   while true; do
     #Awesome
@@ -60,7 +75,7 @@ $separator
         break;;
     esac
   done
-$separator
+$SEPARATOR
 
   # Fish
   while true; do
@@ -75,7 +90,7 @@ $separator
         break;;
     esac
   done
-$separator
+$SEPARATOR
 
   # Kitty
   while true; do
@@ -90,14 +105,15 @@ $separator
         break;;
     esac
   done
-$separator
+$SEPARATOR
 
   # LF
   while true; do
     read -p "Do you want my LF config? (y/N)" yn
     case $yn in
         [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/lf/ ~/.config/backup_config; rm -rf ~/.config/lf; \
-          ln -s ~/repos/dotfiles/.config/lf/ ~/.config/lf; ln -s ~/repos/dotfiles/.config/lf-ueberzug/ ~/.config/lf-ueberzug
+          ln -s ~/repos/dotfiles/.config/lf/ ~/.config/lf; cp -r ~/.config/lf-ueberzug/ ~/.config/backup_config; rm -rf ~/.config/lf-ueberzug; \
+          ln -s ~/repos/dotfiles/.config/lf-ueberzug/ ~/.config/lf-ueberzug
                 break;;
         [Nn]* ) echo "You choose not to get my LF config.";
                 break;;
@@ -105,7 +121,7 @@ $separator
         break;;
     esac
   done
-$separator
+$SEPARATOR
 
   # Neovim
   while true; do
@@ -120,7 +136,7 @@ $separator
         break;;
     esac
   done
-$separator
+$SEPARATOR
 
   # Rofi
   while true; do
@@ -135,12 +151,12 @@ $separator
         break;;
     esac
   done
+  check
 }
-configs
 
 # Backup function.
 backup() {
-$separator
+$SEPARATOR
   while true; do
     read -p "Do you want to delete the backup? (y/N)" yn
     case $yn in
@@ -156,25 +172,113 @@ $separator
 
 # Remove backup function
 rmbackup() {
-  rm -rf $backup_dir
+  rm -rf $BACKUP_DIR
 }
 
 # Checking if was a "backup_config" folder in $HOME/.config
 check(){
-  if [ -d "$backup_dir" ]; then
+  if [ -d "$BACKUP_DIR" ]; then
     backup
+  else
+    finish_msg
   fi
 }
 
-check
-
-$separator
-
-# Finish message at the end of the script.
-finish_msg(){
-  echo "#######################################################################"
-  echo "##    Congratulations, now you may or may not have my configs. :)    ##"
-  echo "#######################################################################"
+$SEPARATOR
+scripts() {
+  while true; do
+    read -p "Do you want my Rofi/Bash scripts? (y/N)" yn
+    case $yn in
+        [Yy]* ) script_yes
+                break;;
+        [Nn]* ) echo "You choose not to get my Rofi/Bash scripts." \
+          && $SEPARATOR\
+          && configs;
+                break;;
+        * ) echo "You choose not to get my Rofi/Bash scripts.";
+        break;;
+    esac
+  done
 }
 
-finish_msg
+script_yes() {
+  mkdir -p $HOME/repos/
+  cd $HOME/repos/
+  git clone git@github.com:LucasMartinsVieira/scripts.git
+  cd $HOME/repos/scripts
+  cp lfrun ~/.local/bin/
+  ln -s ~/repos/scripts/arch-checkupdates ~/.local/bin/arch-checkupdates
+  ln -s ~/repos/scripts/rofi-bangs ~/.local/bin/rofi-bangs
+  ln -s ~/repos/scripts/rofi-beats ~/.local/bin/rofi-beats
+  ln -s ~/repos/scripts/rofi-colorscheme ~/.local/bin/rofi-colorscheme
+  ln -s ~/repos/scripts/rofi-files ~/.local/bin/rofi-files
+  ln -s ~/repos/scripts/rofi-maim ~/.local/bin/rofi-maim
+  ln -s ~/repos/scripts/rofi-powermenu ~/.local/bin/rofi-powermenu
+  ln -s ~/repos/scripts/rofi-search ~/.local/bin/rofi-search
+  ln -s ~/repos/scripts/rofi-wallpaper ~/.local/bin/rofi-wallpaper
+  $SEPARATOR
+  echo "The scripts instalation finished. The scripts are located in $HOME/.local/bin/"
+  $SEPARATOR
+  configs
+}
+
+other_aur() {
+  read -p "What's your Aur Helper?" anwser && confirmation
+}
+
+confirmation() {
+  while true; do 
+  read -p "$anwser is your aur helper? (Y/n)" custom_aur
+  $SEPARATOR
+  case $custom_aur in
+    [Yy]* ) $anwser -Syu - < pkgs.txt --needed --noconfim --askremovemake && change_shell;
+      break;;
+    [Nn]* ) other_aur; 
+      break;;
+        * ) $anwser -Syu - < pkgs.txt --needed --noconfirm --askremovemake && change_shell;
+          break;;
+  esac
+done
+}
+
+change_shell() {
+  while true; do
+    read -p "Do you want to change your user shell to Fish? (y/N)" chsh_fish
+    case $chsh_fish in
+        [Yy]* ) chsh -s /bin/fish && scripts
+                break;;
+        [Nn]* ) echo "You choose not to change your user shell." && scripts; 
+                break;;
+        * ) echo "You choose not to change your user shell." && scripts;
+        break;;
+    esac
+  done
+}
+
+main() {
+select choice in "${AUR_HELPERS[@]}"; do
+    case $choice in
+         paru | yay)
+            $choice -Syu - < pkgs.txt --needed --noconfirm --askremovemake && change_shell
+            break
+            ;;
+         Other)
+           other_aur
+            break
+            ;;
+         Dont_Have_One)
+           echo "You need an AUR Helper to run this script. I recomend to you to install either paru or yay."
+           $SEPARATOR
+           echo "Paru"
+           echo "https://github.com/Morganamilo/paru"
+           echo "Yay"
+           echo "https://github.com/Jguer/yay"
+           break
+            ;;
+         *)
+              echo "invalid option $REPLY"
+            ;;
+    esac
+done
+}
+main
