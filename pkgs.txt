@@ -1,3 +1,4 @@
+awesome-git
 alacritty
 bat
 btop
@@ -40,6 +41,7 @@ rofi-calc
 rustup
 spotify
 sxiv
+todoist-appimage
 transmission-gtk
 trash-cli
 tree-sitter
