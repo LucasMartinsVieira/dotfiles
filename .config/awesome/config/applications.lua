@@ -6,9 +6,6 @@ return {
     audio = "pavucontrol",
     browser = "librewolf",
     terminal_emulator = "kitty",
-    music_player = "g4music",
-    image_editor = "gimp",
-    rss_reader = "newsflash",
   },
 }
 -- Menubar configuration

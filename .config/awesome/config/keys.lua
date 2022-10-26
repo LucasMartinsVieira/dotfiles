@@ -183,10 +183,6 @@ globalkeys = gears.table.join(
     awful.util.spawn(applications.default.browser)
   end, { description = "Browser", group = "applications" }),
 
-  awful.key({ modkey }, "g", function()
-    awful.util.spawn(applications.default.music_player)
-  end, { description = "Music Player", group = "applications" }),
-
   awful.key({ modkey }, "p", function()
     awful.util.spawn(applications.default.terminal_emulator .. " -e lfrun")
   end, { description = "Lf", group = "applications" }),
