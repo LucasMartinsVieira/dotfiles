@@ -21,13 +21,11 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
         button("f", "  Find file", "<CMD>FZF<CR>"),
-        button("n", "  New file", "<cmd>ene!<CR>"),
+        button("n", "  New file", "<cmd>ene!<BAR>startinsert<CR>"),
         button("w", "  Find word", "<CMD>Telescope live_grep<CR>"),
         button("r", "  Recent Files", "<CMD>Telescope oldfiles<CR>"),
         button("p", "  Recent Projects", "<CMD>Telescope projects<CR>"),
-        button("m", "  Vim Wiki", ":VimwikiIndex<CR>"),
         button("c", "  Config", ":e ~/.config/nvim/init.lua<CR>"),
-        button("u", "  Update", ":PackerSync<CR>"),
         button("q", "  Quit", ":q<CR>"),
 }
 local function footer()
