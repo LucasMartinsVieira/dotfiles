@@ -30,6 +30,7 @@ noto-fonts
 nvim-packer-git
 obsidian
 opendoas
+pacman-contrib
 pamixer
 pavucontrol
 picom
