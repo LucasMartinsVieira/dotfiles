@@ -40,12 +40,6 @@ start() {
 }
 start
 
-finish_msg(){
-  echo "########################################################################"
-  echo "##    Congratulations, now you may or may not have my programs. :)    ##"
-  echo "########################################################################"
-}
-
 configs() {
   while true; do
     # Alacritty
@@ -180,7 +174,6 @@ check(){
   if [ -d "$BACKUP_DIR" ]; then
     backup
   else
-    finish_msg
   fi
 }
 
