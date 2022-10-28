@@ -1,5 +1,4 @@
 awesome-git
-alacritty
 bat
 btop
 cmatrix
@@ -21,7 +20,6 @@ lxappearance-gtk3
 maim
 mangal-bin
 mpv
-mpv-mpris
 neofetch
 neovim
 nerd-fonts-inconsolata
@@ -34,7 +32,6 @@ pacman-contrib
 pamixer
 pavucontrol
 picom
-playerctl
 poppler
 pulseaudio
 rofi
@@ -42,7 +39,6 @@ rofi-calc
 rustup
 spotify
 sxiv
-todoist-appimage
 transmission-gtk
 trash-cli
 tree-sitter
