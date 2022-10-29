@@ -23,7 +23,6 @@ nmap("<space>e", "<CMD>NvimTreeToggle<CR>")
 nmap("<space>p", "<CMD>Format<CR>")
 nmap("<space>t", "<CMD>TroubleToggle<CR>")
 nmap("<space>p", "<CMD>Format<CR>")
-nmap("<space>;", "<CMD>Alpha<CR>")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
@@ -55,21 +54,6 @@ nmap("<S-l>", "<CMD>bnext<CR>")
 nmap("<S-h>", "<CMD>bprevious<CR>")
 nmap("<S-d>", "<CMD>bdelete<CR>")
 keymap("n", "<space>b", ":b ", { noremap = true, silent = false })
-
--- Telescope
-nmap("<space>ff", "<CMD>FZF<CR>")
--- nmap("<space>ff", "<CMD>Telescope find_files<CR>")
-nmap("<space>fr", "<CMD>Telescope oldfiles<CR>")
-nmap("<space>fw", "<CMD>Telescope live_grep<CR>")
-nmap("<space>fb", "<CMD>Telescope buffers<CR>")
-nmap("<space>fp", "<CMD>Telescope projects<CR>")
-nmap("<space>fc", "<CMD>Telescope colorscheme<CR>")
-
--- Git
-nmap("<space>gs", "<CMD>Telescope git_status<CR>")
-nmap("<space>gc", "<CMD>Telescope git_commits<CR>")
-nmap("<space>gf", "<CMD>Telescope git_files<CR>")
-nmap("<space>gb", "<CMD>Telescope git_branches<CR>")
 
 -- Moves selected
 nmap("<A-j>", "<CMD>m +2<CR>gv")

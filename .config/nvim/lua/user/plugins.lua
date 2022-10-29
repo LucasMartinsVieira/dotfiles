@@ -49,18 +49,6 @@ return packer.startup(function(use)
       require("alpha").setup(require("alpha.themes.dashboard").config)
     end,
   })
-  -- Telescope
-  use({
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
-  })
-
-  use({
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup({})
-    end,
-  })
 
   -- Markdown preview
   use({
