@@ -148,20 +148,6 @@ globalkeys = gears.table.join(
         {description = "followed by KEY", group = "Neovim"}
         ),
 
-  -- Playerctl
-
-  awful.key({ modkey, }, ";", function()
-    awful.util.spawn("playerctl play-pause")
-  end, { description = "Play or Pause", group = "Playerctl" }),
-
-  awful.key({ modkey, }, ".", function()
-    awful.util.spawn("playerctl next")
-  end, { description = "Next", group = "Playerctl" }),
-
-  awful.key({ modkey, }, ",", function()
-    awful.util.spawn("playerctl previous")
-  end, { description = "Previous", group = "Playerctl" }),
-
   -- Scripts
 
   awful.key({ modkey }, "u", function()
