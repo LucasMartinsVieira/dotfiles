@@ -86,6 +86,20 @@ $SEPARATOR
   done
 $SEPARATOR
 
+  # Starship 
+  while true; do
+    read -p "Do you want my Starship config? (y/N)" yn
+    case $yn in
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp ~/.config/starship.toml ~/.config/backup_config; \
+          rm -rf ~/.config/starship.toml; ln -s ~/repos/dotfiles/.config/starship.toml ~/.config/starship.toml
+                break;;
+        [Nn]* ) echo "You choose not to get my Starship config.";
+                break;;
+        * ) echo "You choose not to get my Starship config.";
+        break;;
+    esac
+  done
+$SEPARATOR
   # Kitty
   while true; do
     read -p "Do you want my Kitty config? (y/N)" yn
@@ -201,7 +215,6 @@ script_yes() {
   cd $HOME/repos/scripts
   cp lfrun ~/.local/bin/
   ln -s ~/repos/scripts/arch-checkupdates ~/.local/bin/arch-checkupdates
-  ln -s ~/repos/scripts/rofi-bangs ~/.local/bin/rofi-bangs
   ln -s ~/repos/scripts/rofi-beats ~/.local/bin/rofi-beats
   ln -s ~/repos/scripts/rofi-colorscheme ~/.local/bin/rofi-colorscheme
   ln -s ~/repos/scripts/rofi-files ~/.local/bin/rofi-files
@@ -209,6 +222,7 @@ script_yes() {
   ln -s ~/repos/scripts/rofi-powermenu ~/.local/bin/rofi-powermenu
   ln -s ~/repos/scripts/rofi-search ~/.local/bin/rofi-search
   ln -s ~/repos/scripts/rofi-wallpaper ~/.local/bin/rofi-wallpaper
+  ln -s ~/repos/scripts/usb ~/.local/bin/usb
   $SEPARATOR
   echo "The scripts instalation finished. The scripts are located in $HOME/.local/bin/"
   $SEPARATOR
