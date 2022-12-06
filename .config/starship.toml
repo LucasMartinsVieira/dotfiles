@@ -1,0 +1,27 @@
+format = """
+[](#DA627D)\
+[](bg:#DA627D fg:#DA627D)\
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+[](fg:#FCA17D bg:#86BBD8)\
+[](fg:#86BBD8 bg:#06969A)\
+[](fg:#06969A bg:#33658A)\
+[ ](fg:#33658A)\
+"""
+
+# Disable the blank line at the start of the prompt
+add_newline = true
+
+[line_break]
+disabled = true
+
+[directory]
+style = "bg:#DA627D"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+style = "bg:#FCA17D"
+format = '[ $branch ]($style)'
