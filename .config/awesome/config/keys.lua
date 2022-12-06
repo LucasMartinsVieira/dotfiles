@@ -29,7 +29,7 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, "k", function()
     awful.client.focus.byidx(-1)
   end, { description = "focus previous by index", group = "client" }),
-  awful.key({ modkey, "Control" }, "w", function()
+  awful.key({ modkey, "Shift" }, "w", function()
     mainmenu:show()
   end, { description = "show main menu", group = "awesome" }),
 
@@ -47,12 +47,6 @@ globalkeys = gears.table.join(
     awful.screen.focus_relative(-1)
   end, { description = "focus the previous screen", group = "screen" }),
   awful.key({ modkey }, "g", awful.client.urgent.jumpto, { description = "jump to urgent client", group = "client" }),
-  --[[ awful.key({ modkey }, "Tab", function() ]]
-  --[[   awful.client.focus.history.previous() ]]
-  --[[   if client.focus then ]]
-  --[[     client.focus:raise() ]]
-  --[[   end ]]
-  --[[ end, { description = "go back", group = "client" }), ]]
 
   -- Standard program
   awful.key({ modkey }, "Return", function()
@@ -96,60 +90,48 @@ globalkeys = gears.table.join(
   end, { description = "restore minimized", group = "client" }),
 
   -- Rofi Keybindings
-  awful.key( {modkey}, "r", function()
-      local grabber
-      grabber =
-        awful.keygrabber.run(
-          function(_, key, event)
-            if event == "release" then return end
-
-            if key == "f" then awful.spawn.with_shell("rofi-files")
-            elseif key == "s" then awful.spawn.with_shell("rofi-search")
-            elseif key == "d" then awful.spawn.with_shell("rofi-powermenu")
-            elseif key == "b" then awful.spawn.with_shell("rofi-beats")
-            elseif key == "i" then awful.spawn.with_shell("rofi-maim")
-            elseif key == "c" then awful.spawn.with_shell("rofi -show calc")
-            elseif key == "w" then awful.spawn.with_shell("rofi-wallpaper")
-            elseif key == "t" then awful.spawn.with_shell("rofi-colorscheme")
-            end
-            awful.keygrabber.stop(grabber)
-            end
-          )
-        end,
-        {description = "followed by KEY", group = "Rofi"}
-        ),
-
-  awful.key({ modkey, "Shift" }, "Return", function()
+  
+  awful.key({ modkey }, "r", function()
     awful.util.spawn(applications.default.app_launcher)
   end, { description = "Rofi", group = "Rofi" }),
 
+  awful.key({ modkey }, "c", function()
+    awful.util.spawn("rofi -show calc")
+  end, { description = "Rofi Calc", group = "Rofi" }),
+
+  awful.key({ modkey }, "e", function()
+    awful.util.spawn("rofi -show emoji -theme /usr/share/rofi/themes/Adapta-Nokto.rasi")
+  end, { description = "Rofi Emoji", group = "Rofi" }),
+
+  awful.key({ modkey }, "i", function()
+    awful.util.spawn("rofi-maim")
+  end, { description = "Rofi Maim", group = "Rofi" }),
+
   awful.key({ modkey }, "w", function()
-    awful.util.spawn("rofi -show window")
-  end, { description = "Rofi window ", group = "Rofi" }),
+    awful.util.spawn("rofi-wallpaper")
+  end, { description = "Rofi Wallpaper", group = "Rofi" }),
 
-  -- Neovim Keybindings
-  
- awful.key( {modkey}, "v", function()
-      local grabber
-      grabber =
-        awful.keygrabber.run(
-          function(_, key, event)
-            if event == "release" then return end
+  awful.key({ modkey }, "s", function()
+    awful.util.spawn("rofi-search")
+  end, { description = "Rofi Search", group = "Rofi" }),
 
-            if     key == "v" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim")
-            elseif key == "w" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim ~/Documentos/vimwiki/index.md")
-            elseif key == "n" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim ~/Documentos/vimwiki/Notes.md")
-            elseif key == "o" then awful.spawn.with_shell(applications.default.terminal_emulator .. " -e nvim ~/Documentos/vimwiki/one-piece-manga.md")
-            end
-            awful.keygrabber.stop(grabber)
-            end
-          )
-        end,
-        {description = "followed by KEY", group = "Neovim"}
-        ),
+  awful.key({ modkey, "Shift" }, "d", function()
+    awful.util.spawn("rofi-powermenu")
+  end, { description = "Rofi Powermenu", group = "Rofi" }),
+
+  awful.key({ modkey, "Shift" }, "b", function()
+    awful.util.spawn("rofi-beats")
+  end, { description = "Rofi Beats", group = "Rofi" }),
+
+  awful.key({ modkey, "Shift" }, "f", function()
+    awful.util.spawn("rofi-files")
+  end, { description = "Rofi Files", group = "Rofi" }),
+
+  awful.key({ modkey, "Shift" }, "t", function()
+    awful.util.spawn("rofi-colorscheme")
+  end, { description = "Rofi Colorcheme", group = "Rofi" }),
 
   -- Scripts
-
   awful.key({ modkey }, "u", function()
     awful.util.spawn("arch-checkupdates")
   end, { description = "checkupdates", group = "awesome" }),
@@ -172,10 +154,6 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, "p", function()
     awful.util.spawn(applications.default.terminal_emulator .. " -e lfrun")
   end, { description = "Lf", group = "applications" }),
-
-  awful.key({ modkey, "Shift" }, "b", function()
-    awful.util.spawn("qutebrowser")
-  end, { description = "Qutebrowser", group = "applications" }),
 
   awful.key({ modkey }, "y", function()
     visibility = not visibility

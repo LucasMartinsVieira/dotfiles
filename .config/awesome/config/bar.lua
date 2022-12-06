@@ -12,8 +12,15 @@ require("config.menu")
 
 --  Wibar
 -- Create a textclock widget
+-- mytextclock = wibox.widget.textclock("%a %d %b, %H:%M", 1)
 mytextclock = wibox.widget.textclock("%a %d %b, %H:%M", 1)
 
+mytextclock_icon = wibox.widget {
+   text = "",
+   font = "jetbrains mono 16",
+   ellipsize = "none",
+   widget = wibox.widget.textbox,
+}
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
   awful.button({}, 1, function(t)
@@ -35,25 +42,6 @@ local taglist_buttons = gears.table.join(
   end),
   awful.button({}, 5, function(t)
     awful.tag.viewprev(t.screen)
-  end)
-)
-
-local tasklist_buttons = gears.table.join(
-  awful.button({}, 1, function(c)
-    if c == client.focus then
-      c.minimized = true
-    else
-      c:emit_signal("request::activate", "tasklist", { raise = true })
-    end
-  end),
-  awful.button({}, 3, function()
-    awful.menu.client_list({ theme = { width = 250 } })
-  end),
-  awful.button({}, 4, function()
-    awful.client.focus.byidx(1)
-  end),
-  awful.button({}, 5, function()
-    awful.client.focus.byidx(-1)
   end)
 )
 
@@ -105,31 +93,15 @@ awful.screen.connect_for_each_screen(function(s)
   s.mytasklist = awful.widget.tasklist({
     screen = s,
     filter = awful.widget.tasklist.filter.focused,
-    -- buttons = tasklist_buttons,
+    buttons = {
+       awful.button({ }, 1, function (c)
+            c:activate { context = "tasklist", action = "toggle_minimization" }
+        end),
+        awful.button({ }, 3, function() awful.menu.client_list { theme = { width = 250 } } end),
+        awful.button({ }, 4, function() awful.client.focus.byidx(-1) end),
+        awful.button({ }, 5, function() awful.client.focus.byidx( 1) end),
+    },
   })
-
-
-  -- Wifi Widget
-  s.wifi = awful.widget.watch(".config/awesome/widgets/wifi", 10)
-
-  s.wifi:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
-    end)
-  ))
-
-  s.wifi_icon = wibox.widget {
-    text = "直",
-    font = "JetBrains Mono 18",
-    ellipsize = "none",
-    widget = wibox.widget.textbox,
-  }
-
-  s.wifi_icon:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
-    end)
-  ))
 
   -- Updates Widget
   s.updates = awful.widget.watch(".config/awesome/widgets/updates")
@@ -226,30 +198,25 @@ awful.screen.connect_for_each_screen(function(s)
       s.mylayoutbox,
       wibox.widget.textbox("  "),
       s.mytaglist,
+      wibox.widget.textbox(" | "),
       layout = wibox.layout.fixed.horizontal,
-      wibox.widget.textbox("    "),
-      s.mypromptbox,
     },
-
-    -- Middle Widgets
-    {
-      layout = wibox.layout.ratio.horizontal,
-      wibox.container.place(mytextclock),
-    },
-
+    s.mytasklist, -- Middle Widgets
+    
     -- Right widgets
     {
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.textbox("   "),
-      s.wifi_icon,
-      wibox.widget.textbox(" "),
-      s.wifi,
-      s.updates_icon,
-      s.updates,
-      wibox.widget.textbox("  "),
       s.volume_icon,
       wibox.widget.textbox(" "),
       s.volume,
+      wibox.widget.textbox(" "),
+      s.updates_icon,
+      s.updates,
+      wibox.widget.textbox("  "),
+      mytextclock_icon,
+      wibox.widget.textbox(" "),
+      mytextclock,
       wibox.widget.textbox("  "),
       wibox.widget.systray(),
     },

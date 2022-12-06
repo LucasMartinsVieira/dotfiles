@@ -14,9 +14,6 @@ awful.spawn.with_shell("xset s off -dpms")
 -- Start the compositor
 awful.spawn.with_shell("picom")
 
--- Startup music
-awful.spawn.with_shell("mpv --no-video --volume=80 ~/Música/startup/windowsxp.mp3")
-
 -- Set a Random Wallpaper
 awful.spawn.with_shell("feh --no-fehbg --bg-scale --randomize --no-xinerama ~/Imagens/Wallpapers/")
 

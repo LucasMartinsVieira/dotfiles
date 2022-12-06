@@ -1,7 +1,6 @@
 # Basic Settings
 set hidden true
 set ignorecase true
-set icons true
 set drawbox true
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
@@ -126,8 +125,10 @@ map gtc gitcommit
 map gtp gitpush
 
 # Movement
+map gv cd ~/Vídeos
 map gdc cd ~/Documentos
 map gdw cd ~/Downloads
+map gdv cd ~/dev/
 
 map gi. cd ~/Imagens/
 map giw cd ~/Imagens/Wallpapers/
@@ -135,41 +136,19 @@ map gis cd ~/Imagens/Screenshot/
 
 map gc cd ~/.config/
 map g/ cd /
-map gE cd /etc/
+map ge cd /etc/
 map gu cd /usr/
-map gUs cd /usr/share/
-map gUb cd /usr/local/bin/
-map gRM cd /run/media/
 
 # Repos bindings
 map gr. cd ~/repos/
 map grd cd ~/repos/dotfiles/
 map grl cd ~/repos/LucasMartinsVieira/
 map grs cd ~/repos/scripts/
-map grv cd ~/repos/vault/
+map grh cd ~/repos/homepage/
 map grc cd ~/repos/clones/
-
-# Dev bindings
-map gv. cd ~/dev/
-map gvc cd ~/dev/c/
-map gvh cd ~/dev/html/
-map gvr cd ~/dev/rust/
-map gvp cd ~/dev/php/
 
 # Media bindings
 map gm. cd ~/Documentos/Media/
 map gmm cd ~/Documentos/Media/Manga/
-map gml cd ~/Documentos/Media/Livros/
-
-# Books bindings
-map gb. cd ~/Media/Livros/
-map gbe cd ~/Media/Livros/Estudos/
-map gbE cd ~/Media/Livros/Estória/
-map gbb cd ~/Media/Livros/Biografia/
-map gbh cd ~/Media/Livros/História/
-map gbn cd ~/Media/Livros/Negócios/
-
-# VimWiki bindings
-map gw. cd ~/Documentos/vimwiki/
-map gwi $nvim ~/Documentos/vimwiki/index.md
-map gwn $nvim ~/Documentos/vimwiki/Notes.md
+map gmb cd ~/Documentos/Media/Livros/
+map gmf cd ~/Documentos/Media/Filmes/

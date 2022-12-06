@@ -1,7 +1,7 @@
+alacritty
 awesome-git
 bat
 btop
-cmatrix
 curl
 discord
 epub-thumbnailer-git
@@ -23,10 +23,9 @@ mpv
 neofetch
 neovim
 nerd-fonts-inconsolata
-newsflash
 noto-fonts
+noto-fonts-emoji
 nvim-packer-git
-obsidian
 opendoas
 pacman-contrib
 pamixer
@@ -36,7 +35,9 @@ poppler
 pulseaudio
 rofi
 rofi-calc
+rofi-emoji
 rustup
+starship
 spotify
 sxiv
 transmission-gtk

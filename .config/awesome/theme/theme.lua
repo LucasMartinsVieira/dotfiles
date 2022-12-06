@@ -16,6 +16,10 @@ local theme = {}
 
 local colors = require('theme.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
 
+theme.taglist_fg_focus = colors.taglist_fg_focus
+theme.taglist_fg_occupied = colors.taglist_fg_occupied
+theme.taglist_bg_focus = colors.bg_color
+
 -- Base colors
 theme.color_bg    = colors.bg_color
 theme.focus_bg    = colors.bg_focus
@@ -38,6 +42,8 @@ theme.fg_normal   = theme.color_fg
 theme.fg_focus    = theme.color_fg
 theme.fg_urgent   = theme.color_fg
 theme.fg_minimize = theme.color_fg
+
+theme.tasklist_bg_focus = colors.bg_color
 
 -- Gaps
 theme.useless_gap   = dpi(4)
@@ -70,10 +76,10 @@ theme.menu_border_width	    = dpi(2)
 theme.menu_border_color     = theme.fg_normal
 
 -- Hotkeys Popup
-theme.hotkeys_bg                = "#211e1e"
-theme.hotkeys_fg                = "#f8f2f2"
+theme.hotkeys_bg                = "#011627"
+theme.hotkeys_fg                = "#c3ccdc"
 theme.hotkeys_border_color      = "#ffffff"
-theme.hotkeys_modifiers_fg      = "#7eb8ed"
+theme.hotkeys_modifiers_fg      = "#ecc48d"
 theme.hotkeys_border_width      = dpi(2)
 theme.hotkeys_font              = theme.font
 theme.hotkeys_description_font  = theme.font
