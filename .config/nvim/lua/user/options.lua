@@ -7,6 +7,7 @@ set.softtabstop = 2
 set.expandtab = true
 set.termguicolors = true
 set.number = true
+-- set.relativenumber = true
 set.updatetime = 300
 set.background = "dark"
 set.smartindent = true

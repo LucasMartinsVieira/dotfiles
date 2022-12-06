@@ -44,22 +44,17 @@ nmap("<C-k>", "<C-w>k<CR>")
 nmap("<C-l>", "<C-w>l<CR>")
 
 -- Redimensionar janela
-nmap("<C-w>", "<CMD>resize -2<CR>")
-nmap("<C-s>", "<CMD>resize +2<CR>")
-nmap("<C-a>", "<CMD>vertical resize -2<CR>")
-nmap("<C-d>", "<CMD>vertical resize +2<CR>")
+nmap("<M-k>", "<CMD>resize -2<CR>")
+nmap("<M-j>", "<CMD>resize +2<CR>")
+nmap("<M-l>", "<CMD>vertical resize -2<CR>")
+nmap("<M-h>", "<CMD>vertical resize +2<CR>")
 
 -- Navegar arquivos (buffers)
 nmap("<S-l>", "<CMD>bnext<CR>")
 nmap("<S-h>", "<CMD>bprevious<CR>")
 nmap("<S-d>", "<CMD>bdelete<CR>")
-keymap("n", "<space>b", ":b ", { noremap = true, silent = false })
-
--- Moves selected
-nmap("<A-j>", "<CMD>m +2<CR>gv")
-nmap("<A-k>", "<CMD>m -2<CR>gv")
-
 -- Insert --
+keymap("n", "<space>b", ":b ", { noremap = true, silent = false })
 
 -- ESC more acessible
 imap("jk", "<ESC>")

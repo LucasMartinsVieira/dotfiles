@@ -23,6 +23,7 @@ return packer.startup(function(use)
   use({ "romgrk/doom-one.vim" })
   use({ "tanvirtin/monokai.nvim" })
   use({ "lunarvim/horizon.nvim" })
+  use({ "sainnhe/everforest" })
 
   -- FZF
   use({ "junegunn/fzf" })
