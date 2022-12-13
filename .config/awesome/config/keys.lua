@@ -3,19 +3,19 @@ local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local naughty = require("naughty")
 local applications = require("config.applications")
+local volume = require("widgets.volume")
+local updates = require("widgets.updates")
+
 
 require("awful.autofocus")
 local modkey = "Mod4"
 
-local show_volume_percent_notification = function()
-	local command = "pamixer --get-volume"
-	awful.spawn.easy_async_with_shell(command, function(out)
+local show_current_layout = function()
 		naughty.notification({
-			message = string.format("Volume: %s", out),
-			timeout = 0.5,
+			message = string.format("Layout: %s", awful.layout.getname(_layout)),
+			timeout = 1.5,
 		})
-	end)
-end
+	end
 
 globalkeys = gears.table.join(
   awful.key({ modkey }, "/", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -80,7 +80,9 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Shift" }, "Tab", function()
     awful.layout.inc(-1)
   end, { description = "select previous", group = "layout" }),
-
+  awful.key({ modkey, "Control" }, "Tab", function()
+    show_current_layout()
+  end, { description = "show layout", group = "layout" }),
   awful.key({ modkey, "Control" }, "n", function()
     local c = awful.client.restore()
     -- Focus restored client
@@ -91,9 +93,9 @@ globalkeys = gears.table.join(
 
   -- Rofi Keybindings
   
-  awful.key({ modkey }, "r", function()
-    awful.util.spawn(applications.default.app_launcher)
-  end, { description = "Rofi", group = "Rofi" }),
+  awful.key({ modkey }, "r", function()   
+    awful.util.spawn(applications.default.app_launcher) 
+  end, { description = "Rofi", group = "Rofi" }),   
 
   awful.key({ modkey }, "c", function()
     awful.util.spawn("rofi -show calc")
@@ -133,18 +135,23 @@ globalkeys = gears.table.join(
 
   -- Scripts
   awful.key({ modkey }, "u", function()
-    awful.util.spawn("arch-checkupdates")
+    updates.updates_()
   end, { description = "checkupdates", group = "awesome" }),
 
   awful.key({ modkey }, "=", function()
-    awful.util.spawn("pamixer -i 5")
-   	show_volume_percent_notification()
+    awful.util.spawn("amixer -D pulse sset Master 2%+")
+   	volume.show_volume_percent_notification()
   end, { description = "volume +", group = "awesome" }),
 
   awful.key({ modkey }, "-", function()
-    awful.util.spawn("pamixer -d 5")
-   	show_volume_percent_notification()
+    awful.util.spawn("amixer -D pulse sset Master 2%-")
+   	volume.show_volume_percent_notification()
   end, { description = "volume -", group = "awesome" }),
+
+  awful.key({ modkey }, "0", function()
+    awful.util.spawn("amixer -D pulse sset Master toggle")
+   	volume.show_switch_notification()
+  end, { description = "volume mute/unmute", group = "awesome" }),
 
   -- applications keybindings
   awful.key({ modkey }, "b", function()

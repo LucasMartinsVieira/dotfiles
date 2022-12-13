@@ -8,12 +8,34 @@ require("awful.autofocus")
 -- Vars
 local applications = require("config.applications")
 local modkey = "Mod4"
-require("config.menu")
-
+local menu = require("config.menu")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
+require("config.dashboard")
+local volume = require("widgets.volume")
+local updates = require("widgets.updates")
 --  Wibar
 -- Create a textclock widget
--- mytextclock = wibox.widget.textclock("%a %d %b, %H:%M", 1)
-mytextclock = wibox.widget.textclock("%a %d %b, %H:%M", 1)
+mytextclock = wibox.widget.textclock("%d %B %Y, %H:%M", 1)
+
+local awful_icon = wibox.widget {
+  --image = beautiful.awesome_icon,
+  image = "/home/lucas/Imagens/dragon-svgrepo-com.svg",
+  resize = true,
+  --forced_width = dpi(20),
+  widget = wibox.widget.imagebox,
+  visible = true,
+  clip_shape = gears.shape.rectangle,
+  buttons = {
+    awful.button({}, 1, nil, function ()
+      if dashboard.visible == false then
+        dashboard.visible = true
+      else
+        dashboard.visible = false
+      end
+    end)
+  }
+}
 
 mytextclock_icon = wibox.widget {
    text = "",
@@ -103,75 +125,7 @@ awful.screen.connect_for_each_screen(function(s)
     },
   })
 
-  -- Updates Widget
-  s.updates = awful.widget.watch(".config/awesome/widgets/updates")
-
-  s.updates_icon = wibox.widget {
-    text = "  ",
-    font = "jetbrains mono 16",
-    ellipsize = "none",
-    widget = wibox.widget.textbox,
-  }
-
-  s.updates:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.spawn(applications.default.terminal_emulator .. " -e yay -Syu --noconfirm")
-    end),
-    awful.button({}, 3, function()
-      awful.spawn("arch-checkupdates")
-    end)
-  ))
-
-  s.updates_icon:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.spawn(applications.default.terminal_emulator .. " -e yay -Syu --noconfirm")
-    end),
-    awful.button({}, 3, function()
-      awful.spawn("arch-checkupdates")
-    end)
-  ))
-
-  -- Volume Widget
-  s.volume = awful.widget.watch(".config/awesome/widgets/volume", 1)
-
-  s.volume_icon = wibox.widget {
-    text = "墳",
-    font = "JetBrains Mono 18",
-    ellipsize = "none",
-    widget = wibox.widget.textbox,
-  }
-
-  s.volume:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.spawn("pamixer -t")
-    end),
-    awful.button({}, 3, function()
-      awful.spawn("pavucontrol")
-    end),
-    awful.button({}, 4, function()
-      awful.spawn("pamixer -i 5")
-    end),
-    awful.button({}, 5, function()
-      awful.spawn("pamixer -d 5")
-    end)
-  ))
-
-  s.volume_icon:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.spawn("pamixer -t")
-    end),
-    awful.button({}, 3, function()
-      awful.spawn("pavucontrol")
-    end),
-    awful.button({}, 4, function()
-      awful.spawn("pamixer -i 5")
-    end),
-    awful.button({}, 5, function()
-      awful.spawn("pamixer -d 5")
-    end)
-  ))
-
-  -- Create the wibox
+    -- Create the wibox
   local visibility = true
   s.mywibox = awful.wibar({
     position = "top",
@@ -185,7 +139,7 @@ awful.screen.connect_for_each_screen(function(s)
       right = 6,
     },
     shape = function(cr, width, height)
-      gears.shape.rounded_rect(cr, width, height, 10)
+      gears.shape.rounded_rect(cr, width, height, 4)
     end,
   })
 
@@ -195,8 +149,8 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Left widgets
     {
-      s.mylayoutbox,
-      wibox.widget.textbox("  "),
+      awful_icon,
+      wibox.widget.textbox(" "),
       s.mytaglist,
       wibox.widget.textbox(" | "),
       layout = wibox.layout.fixed.horizontal,
@@ -207,12 +161,11 @@ awful.screen.connect_for_each_screen(function(s)
     {
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.textbox("   "),
-      s.volume_icon,
+      volume.volume_icon,
+      volume.volume,
       wibox.widget.textbox(" "),
-      s.volume,
-      wibox.widget.textbox(" "),
-      s.updates_icon,
-      s.updates,
+      updates.updates_icon,
+      updates.updates,
       wibox.widget.textbox("  "),
       mytextclock_icon,
       wibox.widget.textbox(" "),

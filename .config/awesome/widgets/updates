@@ -1,8 +1,0 @@
-#!/bin/bash
-
-#Dependencies: pacman-contrib 
-
-UPDATES=$(checkupdates | wc -l)
-
-echo "$UPDATES" 
-

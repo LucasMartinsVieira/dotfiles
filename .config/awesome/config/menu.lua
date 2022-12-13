@@ -19,3 +19,5 @@ mainmenu = awful.menu {
     { "Rofi", applications.default.app_launcher },
 	}
 }
+
+mylauncher1 = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mainmenu })
