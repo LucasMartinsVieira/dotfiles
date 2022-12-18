@@ -3,7 +3,6 @@
 return {
   default = {
     app_launcher = "rofi -show drun -show-icons",
-    audio = "pavucontrol",
     browser = "librewolf",
     terminal_emulator = "kitty",
   },

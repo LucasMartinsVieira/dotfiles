@@ -1,6 +1,4 @@
 alacritty
-awesome-git
-bat
 btop
 curl
 discord
@@ -17,6 +15,7 @@ imagemagick
 kitty
 lf
 lxappearance-gtk3
+lxsession
 maim
 mangal-bin
 mpv
@@ -38,7 +37,6 @@ rofi-calc
 rofi-emoji
 rustup
 starship
-spotify
 sxiv
 transmission-gtk
 trash-cli

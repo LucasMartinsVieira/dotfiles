@@ -187,7 +187,6 @@ rmbackup() {
 check(){
   if [ -d "$BACKUP_DIR" ]; then
     backup
-  else
   fi
 }
 
@@ -238,11 +237,11 @@ confirmation() {
   read -p "$anwser is your aur helper? (Y/n)" custom_aur
   $SEPARATOR
   case $custom_aur in
-    [Yy]* ) $anwser -Syu - < pkgs.txt --needed --noconfim --askremovemake && change_shell;
+    [Yy]* ) $anwser -Syu - < pkgs.txt --needed  && change_shell;
       break;;
     [Nn]* ) other_aur; 
       break;;
-        * ) $anwser -Syu - < pkgs.txt --needed --noconfirm --askremovemake && change_shell;
+        * ) $anwser -Syu - < pkgs.txt --needed  && change_shell;
           break;;
   esac
 done
@@ -266,7 +265,7 @@ main() {
 select choice in "${AUR_HELPERS[@]}"; do
     case $choice in
          paru | yay)
-            $choice -Syu - < pkgs.txt --needed --noconfirm --askremovemake && change_shell
+            $choice -Syu - < pkgs.txt --needed && change_shell
             break
             ;;
          Other)

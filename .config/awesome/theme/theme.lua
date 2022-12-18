@@ -7,11 +7,14 @@
                                                                                           
   --]]
 
+local gears = require("gears")
+local naughty = require("naughty")
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
+local icons_dir = require("gears").filesystem.get_configuration_dir() .."/icons/"
 local theme = {}
 
 local colors = require('theme.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
@@ -51,25 +54,21 @@ theme.border_width  = dpi(2)
 theme.border_normal = theme.color_fg
 theme.border_marked = theme.urgent_bg
 
--- Generate taglist squares:
--- local taglist_square_size = dpi(4)
--- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
---   taglist_square_size, theme.fg_normal
--- )
--- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
---   taglist_square_size, theme.fg_normal
--- )
-
 -- Notifications 
+naughty.config.defaults.border_width = 0
+naughty.config.defaults.timeout = 5
 theme.notification_spacing    = dpi(4)
 theme.notification_bg         = theme.color_bg
-theme.notification_bg_alt     = theme.focus_bg
+theme.notification_fg         = theme.color_fg
 theme.notification_max_width  = dpi(800)
 theme.notification_max_height = dpi(240)
 theme.notification_icon_size  = dpi(60)
+theme.notification_shape = function(cr, width, height)
+    gears.shape.rounded_rect(cr, width, height, 4)
+end
 
 -- Menu
-theme.menu_submenu_icon     = themes_path .. "default/submenu.png"
+theme.submenu = "  "
 theme.menu_height           = dpi(25)
 theme.menu_width            = dpi(130)
 theme.menu_border_width	    = dpi(2)
@@ -112,8 +111,6 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path .. "default/titleb
 theme.titlebar_maximized_button_normal_active   = themes_path .. "default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active    = themes_path .. "default/titlebar/maximized_focus_active.png"
 
--- theme.wallpaper = themes_path.."default/background.png"
-
 -- You can use your own layout icons like this:
 theme.layout_fairh      = themes_path .. "default/layouts/fairhw.png"
 theme.layout_fairv      = themes_path .. "default/layouts/fairvw.png"
@@ -141,5 +138,3 @@ theme.awesome_icon      = theme_assets.awesome_icon(
 theme.icon_theme = nil
 
 return theme
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

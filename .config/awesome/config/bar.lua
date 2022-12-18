@@ -4,45 +4,17 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 require("awful.autofocus")
-
 -- Vars
-local applications = require("config.applications")
 local modkey = "Mod4"
-local menu = require("config.menu")
-local xresources = require("beautiful.xresources")
-local dpi = xresources.apply_dpi
-require("config.dashboard")
+
+-- Widgets
 local volume = require("widgets.volume")
 local updates = require("widgets.updates")
+local widgets = require("widgets.widgets")
+
+
 --  Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock("%d %B %Y, %H:%M", 1)
 
-local awful_icon = wibox.widget {
-  --image = beautiful.awesome_icon,
-  image = "/home/lucas/Imagens/dragon-svgrepo-com.svg",
-  resize = true,
-  --forced_width = dpi(20),
-  widget = wibox.widget.imagebox,
-  visible = true,
-  clip_shape = gears.shape.rectangle,
-  buttons = {
-    awful.button({}, 1, nil, function ()
-      if dashboard.visible == false then
-        dashboard.visible = true
-      else
-        dashboard.visible = false
-      end
-    end)
-  }
-}
-
-mytextclock_icon = wibox.widget {
-   text = "",
-   font = "jetbrains mono 16",
-   ellipsize = "none",
-   widget = wibox.widget.textbox,
-}
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
   awful.button({}, 1, function(t)
@@ -86,7 +58,6 @@ awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
 
-  s.mypromptbox = awful.widget.prompt()
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
   s.mylayoutbox = awful.widget.layoutbox(s)
@@ -125,8 +96,7 @@ awful.screen.connect_for_each_screen(function(s)
     },
   })
 
-    -- Create the wibox
-  local visibility = true
+  -- Create the wibox
   s.mywibox = awful.wibar({
     position = "top",
     screen = s,
@@ -143,13 +113,13 @@ awful.screen.connect_for_each_screen(function(s)
     end,
   })
 
-  --  Add widgets to the wibox
+  -- Add widgets to the wibox
   s.mywibox:setup({
     layout = wibox.layout.align.horizontal,
 
     -- Left widgets
     {
-      awful_icon,
+      widgets.awful_icon,
       wibox.widget.textbox(" "),
       s.mytaglist,
       wibox.widget.textbox(" | "),
@@ -163,55 +133,17 @@ awful.screen.connect_for_each_screen(function(s)
       wibox.widget.textbox("   "),
       volume.volume_icon,
       volume.volume,
-      wibox.widget.textbox(" "),
       updates.updates_icon,
-      updates.updates,
-      wibox.widget.textbox("  "),
-      mytextclock_icon,
       wibox.widget.textbox(" "),
-      mytextclock,
+      updates.updates,
+      wibox.widget.textbox(" "),
+      widgets.mykeyboardlayout,
+      wibox.widget.textbox(" "),
+      widgets.mytextclock_icon,
+      wibox.widget.textbox(" "),
+      widgets.mytextclock,
       wibox.widget.textbox("  "),
       wibox.widget.systray(),
     },
-  })
-end)
-
--- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
-  -- buttons for the titlebar
-  local buttons = gears.table.join(
-    awful.button({}, 1, function()
-      c:emit_signal("request::activate", "titlebar", { raise = true })
-      awful.mouse.client.move(c)
-    end),
-    awful.button({}, 3, function()
-      c:emit_signal("request::activate", "titlebar", { raise = true })
-      awful.mouse.client.resize(c)
-    end)
-  )
-
-  awful.titlebar(c):setup({
-    { -- Left
-      awful.titlebar.widget.iconwidget(c),
-      buttons = buttons,
-      layout = wibox.layout.fixed.horizontal,
-    },
-    { -- Middle
-      { -- Title
-        align = "center",
-        widget = awful.titlebar.widget.titlewidget(c),
-      },
-      buttons = buttons,
-      layout = wibox.layout.flex.horizontal,
-    },
-    { -- Right
-      awful.titlebar.widget.floatingbutton(c),
-      awful.titlebar.widget.maximizedbutton(c),
-      awful.titlebar.widget.stickybutton(c),
-      awful.titlebar.widget.ontopbutton(c),
-      awful.titlebar.widget.closebutton(c),
-      layout = wibox.layout.fixed.horizontal(),
-    },
-    layout = wibox.layout.align.horizontal,
   })
 end)

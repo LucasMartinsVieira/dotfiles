@@ -5,6 +5,7 @@ local naughty = require("naughty")
 local applications = require("config.applications")
 local volume = require("widgets.volume")
 local updates = require("widgets.updates")
+local screenshot = require("lib.screenshot")
 
 
 require("awful.autofocus")
@@ -76,13 +77,12 @@ globalkeys = gears.table.join(
   end, { description = "decrease the number of columns", group = "layout" }),
   awful.key({ modkey }, "Tab", function()
     awful.layout.inc(1)
+    show_current_layout()
   end, { description = "select next", group = "layout" }),
   awful.key({ modkey, "Shift" }, "Tab", function()
     awful.layout.inc(-1)
-  end, { description = "select previous", group = "layout" }),
-  awful.key({ modkey, "Control" }, "Tab", function()
     show_current_layout()
-  end, { description = "show layout", group = "layout" }),
+  end, { description = "select previous", group = "layout" }),
   awful.key({ modkey, "Control" }, "n", function()
     local c = awful.client.restore()
     -- Focus restored client
@@ -93,9 +93,9 @@ globalkeys = gears.table.join(
 
   -- Rofi Keybindings
   
-  awful.key({ modkey }, "r", function()   
-    awful.util.spawn(applications.default.app_launcher) 
-  end, { description = "Rofi", group = "Rofi" }),   
+  awful.key({ modkey }, "r", function()
+    awful.util.spawn(applications.default.app_launcher)
+  end, { description = "Rofi", group = "Rofi" }),
 
   awful.key({ modkey }, "c", function()
     awful.util.spawn("rofi -show calc")
@@ -106,9 +106,11 @@ globalkeys = gears.table.join(
   end, { description = "Rofi Emoji", group = "Rofi" }),
 
   awful.key({ modkey }, "i", function()
-    awful.util.spawn("rofi-maim")
-  end, { description = "Rofi Maim", group = "Rofi" }),
-
+    awful.util.spawn(screenshot.full())
+  end, { description = "Fullscreen Screenshot", group = "awesome" }),
+  awful.key({ modkey, "Shift" }, "i", function()
+    awful.util.spawn(screenshot.area())
+  end, { description = "Area Screenshot", group = "awesome" }),
   awful.key({ modkey }, "w", function()
     awful.util.spawn("rofi-wallpaper")
   end, { description = "Rofi Wallpaper", group = "Rofi" }),

@@ -6,21 +6,14 @@ local applications = require("config.applications")
 
 local _M = {}
 
-_M.updates = wibox.widget.textbox()
+_M.updates = awful.widget.watch('bash -c "checkupdates | wc -l"', 1)
 
 _M.updates_icon = wibox.widget {
-  text = "  ",
+  text = " ",
   font = "JetBrains Mono 16",
   ellipsize = "none",
   widget = wibox.widget.textbox,
 }
-
-function _M.updates_num()
-  local command = "checkupdates | wc -l"
-  awful.spawn.easy_async_with_shell(command, function(out)
-    _M.updates.text = string.format("%s ", out)
-  end)
-end
 
 function _M.updates_()
   local command = "checkupdates"
@@ -49,7 +42,5 @@ _M.updates_icon:buttons(gears.table.join(
     _M.updates_()
   end)
 ))
-
-_M.updates_num()
 
 return _M
