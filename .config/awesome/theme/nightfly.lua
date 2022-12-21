@@ -11,8 +11,10 @@ colors.bg_systray  = "#011627"
 -- Fg Colors
 colors.fg_color   = "#c3ccdc"
 
--- Taglist colors
-colors.taglist_fg_focus    = "#e3d18a"
-colors.taglist_fg_occupied = "#82aaff"
+-- Colors
+colors.yellow = "#e3d18a"
+colors.blue   = "#82aaff"
+colors.green  = "#a1cd5e"
+colors.red    = "#fc514e"
 
 return colors

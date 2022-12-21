@@ -19,9 +19,10 @@ local theme = {}
 
 local colors = require('theme.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
 
-theme.taglist_fg_focus = colors.taglist_fg_focus
-theme.taglist_fg_occupied = colors.taglist_fg_occupied
-theme.taglist_bg_focus = colors.bg_color
+theme.yellow = colors.yellow
+theme.blue = colors.blue
+theme.red = colors.red
+theme.green = colors.green
 
 -- Base colors
 theme.color_bg    = colors.bg_color
@@ -30,6 +31,11 @@ theme.urgent_bg   = colors.bg_urgent
 theme.minimize_bg = colors.bg_minimize
 theme.systray_bg  = colors.bg_systray
 theme.color_fg    = colors.fg_color
+
+-- Taglist colors
+theme.taglist_fg_focus = theme.yellow
+theme.taglist_fg_occupied = theme.blue
+theme.taglist_bg_focus = colors.bg_color
 
 -- Font
 theme.font = "JetBrains Mono 9"
@@ -60,8 +66,8 @@ naughty.config.defaults.timeout = 5
 theme.notification_spacing    = dpi(4)
 theme.notification_bg         = theme.color_bg
 theme.notification_fg         = theme.color_fg
-theme.notification_max_width  = dpi(800)
-theme.notification_max_height = dpi(240)
+theme.notification_max_width  = dpi(1600)
+theme.notification_max_height = dpi(800)
 theme.notification_icon_size  = dpi(60)
 theme.notification_shape = function(cr, width, height)
     gears.shape.rounded_rect(cr, width, height, 4)

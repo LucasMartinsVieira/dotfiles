@@ -33,3 +33,5 @@ require("config.signals")
 
 ----- Bar
 require("config.bar")
+
+require("signals")
