@@ -1,7 +1,7 @@
 local awful = require "awful"
 local applications = require("config.applications")
 local screenshot = require("lib.screenshot")
-local icons_dir = require("gears").filesystem.get_configuration_dir() .."/theme/assets"
+local icons_dir = require("gears").filesystem.get_configuration_dir() .."/theme/assets/"
 local icon = icons_dir .. "dragon-svgrepo-com.svg"
 
 awesomemenu = {

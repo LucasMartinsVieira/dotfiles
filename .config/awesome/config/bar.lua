@@ -7,11 +7,15 @@ require("awful.autofocus")
 -- Vars
 local modkey = "Mod4"
 
--- Widgets
-local volume = require("widgets.volume")
-local updates = require("widgets.updates")
-local widgets = require("widgets.widgets")
-
+-- Widgets 
+local wifi = require("ui.bar.wifi")
+local updates = require("ui.bar.updates")
+local clock = require("ui.bar.clock")
+local keyboard = require("ui.bar.keyboard")
+local user = require("ui.bar.user")
+local menu = require("ui.bar.menu")
+local volume = require("ui.bar.volume")
+local launcher = require("ui.bar.launcher")
 
 --  Wibar
 
@@ -119,7 +123,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Left widgets
     {
-      widgets.awful_icon,
+      menu,
       wibox.widget.textbox(" "),
       s.mytaglist,
       wibox.widget.textbox(" | "),
@@ -131,17 +135,18 @@ awful.screen.connect_for_each_screen(function(s)
     {
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.textbox("   "),
-      volume.volume_icon,
-      volume.volume,
-      updates.updates_icon,
+      volume,
+      wibox.widget.textbox("  "),
+      wifi,
+      wibox.widget.textbox("  "),
+      updates,
       wibox.widget.textbox(" "),
-      updates.updates,
+      -- user,
+      keyboard,
       wibox.widget.textbox(" "),
-      widgets.mykeyboardlayout,
-      wibox.widget.textbox(" "),
-      widgets.mytextclock_icon,
-      wibox.widget.textbox(" "),
-      widgets.mytextclock,
+      clock,
+      wibox.widget.textbox("  "),
+      launcher,
       wibox.widget.textbox("  "),
       wibox.widget.systray(),
     },

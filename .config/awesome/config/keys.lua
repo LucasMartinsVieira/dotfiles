@@ -3,10 +3,12 @@ local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local naughty = require("naughty")
 local applications = require("config.applications")
-local volume = require("widgets.volume")
-local updates = require("widgets.updates")
+local vol = require("lib.volume")
+local volume = require("ui.bar.volume")
 local screenshot = require("lib.screenshot")
+local updates = require("lib.updates")
 
+local menubar = require("menubar")
 
 require("awful.autofocus")
 local modkey = "Mod4"
@@ -17,6 +19,9 @@ local show_current_layout = function()
 			timeout = 1.5,
 		})
 	end
+
+-- Menubar configuration
+menubar.utils.terminal = applications.default.terminal_emulator -- Set the terminal for applications that require it
 
 globalkeys = gears.table.join(
   awful.key({ modkey }, "/", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -137,22 +142,22 @@ globalkeys = gears.table.join(
 
   -- Scripts
   awful.key({ modkey }, "u", function()
-    updates.updates_()
+    awful.util.spawn(updates.num())
   end, { description = "checkupdates", group = "awesome" }),
 
   awful.key({ modkey }, "=", function()
-    awful.util.spawn("amixer -D pulse sset Master 2%+")
-   	volume.show_volume_percent_notification()
-  end, { description = "volume +", group = "awesome" }),
+    awful.util.spawn(vol.increase())
+    volume.get_vol()
+  end, { description = "vol +", group = "awesome" }),
 
   awful.key({ modkey }, "-", function()
-    awful.util.spawn("amixer -D pulse sset Master 2%-")
-   	volume.show_volume_percent_notification()
+    awful.util.spawn(vol.decrease())
+    volume.get_vol()
   end, { description = "volume -", group = "awesome" }),
 
   awful.key({ modkey }, "0", function()
-    awful.util.spawn("amixer -D pulse sset Master toggle")
-   	volume.show_switch_notification()
+    awful.util.spawn(vol.mute())
+    volume.get_vol()
   end, { description = "volume mute/unmute", group = "awesome" }),
 
   -- applications keybindings
