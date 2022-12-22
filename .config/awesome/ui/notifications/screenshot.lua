@@ -1,5 +1,5 @@
-local awful = require "awful"
-local naughty = require "naughty"
+local awful = require("awful")
+local naughty = require("naughty")
 
 -- Some more notif function
 local notify = {}
@@ -11,21 +11,23 @@ notify.screenshot = function(location)
         }
 
         open:connect_signal("invoked", function(n)
-                awful.spawn("feh "..location, true)
+                awful.spawn('xdg-open ' .. location, false)
         end)
 
-        local show = naughty.action {
-                name = "Show"
+        local delete = naughty.action {
+                name = "Delete"
         }
 
-        show:connect_signal("invoked", function(n)
-                awful.spawn("lf "..location, true)
+        delete:connect_signal("invoked", function(n)
+                awful.spawn('rm -rf ' .. location, true)
         end)
 
         naughty.notification {
+                app_name = "Screenshot Tool",
                 title = "Screenshot",
+                icon = location,
                 message = "Screenshot: " .. location,
-                actions = { open, show },
+                actions = { open, delete },
         }
 end
 

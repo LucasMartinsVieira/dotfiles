@@ -1,37 +1,31 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
+--[[
+ ______     __     __     ______     ______     ______     __    __     ______     __     __     __    __    
+/\  __ \   /\ \  _ \ \   /\  ___\   /\  ___\   /\  __ \   /\ "-./  \   /\  ___\   /\ \  _ \ \   /\ "-./  \   
+\ \  __ \  \ \ \/ ".\ \  \ \  __\   \ \___  \  \ \ \/\ \  \ \ \-./\ \  \ \  __\   \ \ \/ ".\ \  \ \ \-./\ \  
+ \ \_\ \_\  \ \__/".~\_\  \ \_____\  \/\_____\  \ \_____\  \ \_\ \ \_\  \ \_____\  \ \__/".~\_\  \ \_\ \ \_\ 
+  \/_/\/_/   \/_/   \/_/   \/_____/   \/_____/   \/_____/   \/_/  \/_/   \/_____/   \/_/   \/_/   \/_/  \/_/ 
+                                                                                                             
+  --]]
+
 pcall(require, "luarocks.loader")
 local gears = require("gears")
 local beautiful = require("beautiful")
 
------ Theme
+-- Theme
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
------ Error Handling
+-- Error Handling
 require("config.errors")
 
------ Auto Start 
+-- Config
 require("config.autostart")
-
------ Keybindings
 require("config.keys")
-
------ Window Rules
 require("config.rules")
-
------ Layout configs
 require("config.layout")
-
------ Tags
 require("config.tags")
-
------ Menu
 require("config.menu")
-
------ Signals
 require("config.signals")
 
------ Bar
-require("config.bar")
-
+-- Widgets
+require("ui")
 require("signals")

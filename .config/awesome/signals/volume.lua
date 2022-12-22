@@ -1,6 +1,5 @@
-local awful = require "awful"
-local gears = require "gears"
-local wibox = require "wibox"
+local awful = require("awful")
+local gears = require("gears")
 
 local vol_sc = [[
 amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | sed -e 's/%//'

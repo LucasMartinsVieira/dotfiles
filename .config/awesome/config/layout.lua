@@ -15,6 +15,6 @@ local l = awful.layout.suit
 awful.layout.layouts = {
   l.tile,
   l.floating,
-  --l.max,
+  l.max,
   l.max.fullscreen,
 }

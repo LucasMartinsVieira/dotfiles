@@ -1,8 +1,9 @@
-local awful = require "awful"
+local awful = require("awful")
+local wibox = require("wibox")
+local gears = require("gears")
+
 local applications = require("config.applications")
 local screenshot = require("lib.screenshot")
-local icons_dir = require("gears").filesystem.get_configuration_dir() .."/theme/assets/"
-local icon = icons_dir .. "dragon-svgrepo-com.svg"
 
 awesomemenu = {
   { "Shutdown", function()  awful.spawn.with_shell("systemctl poweroff") end },
@@ -18,11 +19,16 @@ screenshotmenu = {
 
 mainmenu = awful.menu {
 	items = {
-    { "Awesome", awesomemenu, icon },
-    { "Screenshot", screenshotmenu, icon },
+    { "Awesome", awesomemenu },
+    { "Screenshot", screenshotmenu },
+    { "Applications", applications.default.app_launcher },
 		{ "Browser", applications.default.browser },
-    { "Btop", applications.default.terminal_emulator .. " -e btop"},
 		{ "Terminal", applications.default.terminal_emulator },
-    { "Rofi", applications.default.app_launcher },
+    { "File Manager", applications.default.file_manager },
+    { "Music Player", applications.default.music_player },
 	}
 }
+
+mainmenu.wibox.shape = function (cr, w, h)
+  gears.shape.rounded_rect(cr, w, h, 4)
+end

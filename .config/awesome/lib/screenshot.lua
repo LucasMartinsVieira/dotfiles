@@ -1,8 +1,7 @@
-local awful = require "awful"
-local gears = require "gears"
+local awful = require("awful")
+local gears = require("gears")
 
-local notify = require("ui.notify.notify_screenshot")
-
+local notify = require("ui.notifications.screenshot")
 
 local screenshot = {}
 

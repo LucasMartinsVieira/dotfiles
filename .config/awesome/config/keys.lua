@@ -160,13 +160,25 @@ globalkeys = gears.table.join(
     volume.get_vol()
   end, { description = "volume mute/unmute", group = "awesome" }),
 
+  awful.key({ modkey }, ";", function()
+    awful.util.spawn("playerctl play-pause")
+  end, { description = "Playerctl Play/Pause", group = "awesome" }),
+
+  awful.key({ modkey }, ".", function()
+    awful.util.spawn("playerctl next")
+  end, { description = "Playerctl Next", group = "awesome" }),
+
+  awful.key({ modkey }, ",", function()
+    awful.util.spawn("playerctl previous")
+  end, { description = "Playerctl Previous", group = "awesome" }),
+
   -- applications keybindings
   awful.key({ modkey }, "b", function()
     awful.util.spawn(applications.default.browser)
   end, { description = "Browser", group = "applications" }),
 
   awful.key({ modkey }, "p", function()
-    awful.util.spawn(applications.default.terminal_emulator .. " -e lfrun")
+    awful.util.spawn(applications.default.file_manager)
   end, { description = "Lf", group = "applications" }),
 
   awful.key({ modkey }, "y", function()

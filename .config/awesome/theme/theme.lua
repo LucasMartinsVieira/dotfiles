@@ -76,8 +76,8 @@ end
 -- Menu
 theme.submenu = "  "
 theme.menu_height           = dpi(25)
-theme.menu_width            = dpi(130)
-theme.menu_border_width	    = dpi(2)
+theme.menu_width            = dpi(180)
+theme.menu_border_width	    = dpi(0)
 theme.menu_border_color     = theme.fg_normal
 
 -- Hotkeys Popup

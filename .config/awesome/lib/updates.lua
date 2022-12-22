@@ -1,6 +1,6 @@
-local awful = require "awful"
-local naughty = require "naughty"
-local applications = require "config.applications"
+local awful = require("awful")
+local naughty = require("naughty")
+local applications = require("config.applications")
 
 local updates = {}
 

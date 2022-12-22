@@ -1,5 +1,5 @@
 local awful = require("awful")
-local gears = require ("gears")
+local gears = require("gears")
 
 local upd_sc = [[
 checkupdates | wc -l
