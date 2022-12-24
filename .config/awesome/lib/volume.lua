@@ -1,5 +1,8 @@
 local awful = require("awful")
 local naughty = require("naughty")
+local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 
 local volume = {}
 
@@ -12,6 +15,10 @@ volume.notification = function ()
 		naughty.notification({
 			message = string.format("Volume: %s", out),
 			timeout = 0.5,
+      icon = icons_dir .. "volume.png",
+      icon_size = dpi(20),
+      width = dpi(130),
+      height = dpi(50),
 		})
   end)
 end
@@ -25,6 +32,10 @@ volume.mute_notification = function ()
 		naughty.notification({
 			message = string.format("Volume: %s", out),
 			timeout = 0.5,
+      icon = icons_dir .. "volume.png",
+      icon_size = dpi(20),
+      width = dpi(130),
+      height = dpi(50),
 		})
   end)
 end
