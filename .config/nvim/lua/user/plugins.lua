@@ -21,9 +21,7 @@ return packer.startup(function(use)
   use({ "Mofiqul/dracula.nvim" })
   use({ "bluz71/vim-nightfly-guicolors" })
   use({ "romgrk/doom-one.vim" })
-  use({ "tanvirtin/monokai.nvim" })
   use({ "lunarvim/horizon.nvim" })
-  use({ "sainnhe/everforest" })
 
   -- FZF
   use({ "junegunn/fzf" })
