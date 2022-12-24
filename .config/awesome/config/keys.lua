@@ -9,7 +9,7 @@ local screenshot = require("lib.screenshot")
 local updates = require("lib.updates")
 
 local menubar = require("menubar")
-
+local isDark = true
 require("awful.autofocus")
 local modkey = "Mod4"
 
@@ -187,13 +187,13 @@ globalkeys = gears.table.join(
   end, { description = "toggle Wibar", group = "awesome" }),
 
   awful.key({ modkey }, "x", function()
-    awful.prompt.run({
-      prompt = "Run Lua code: ",
-      textbox = awful.screen.focused().mypromptbox.widget,
-      exe_callback = awful.util.eval,
-      history_path = awful.util.get_cache_dir() .. "/history_eval",
-    })
-  end, { description = "lua execute prompt", group = "awesome" })
+    isDark = not isDark
+     if isDark then
+        awful.spawn("redshift -P -O 5200")
+      else
+        awful.spawn("redshift -P -O 6200")
+      end
+  end, { description = "Switch color temperature", group = "awesome" })
 )
 
 clientkeys = gears.table.join(
