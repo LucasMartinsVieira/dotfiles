@@ -9,7 +9,7 @@ local function worker(user_args)
 
     local args = user_args
 
-    local placement = 'top_right'
+    local placement = 'top'
 
     local styles = {}
     local function rounded_shape(size)

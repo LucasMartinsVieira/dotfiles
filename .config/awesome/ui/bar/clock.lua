@@ -7,7 +7,7 @@ local calendar_widget = require("ui.calendar")
 local calendar = calendar_widget()
 
 local clock = wibox.widget {
-  format = "%H:%M",
+  format = "%a %d %b, %H:%M",
   font = theme.font,
   widget = wibox.widget.textclock
 }

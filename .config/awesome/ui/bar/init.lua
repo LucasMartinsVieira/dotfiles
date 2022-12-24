@@ -126,15 +126,18 @@ awful.screen.connect_for_each_screen(function(s)
       menu,
       wibox.widget.textbox(" "),
       s.mytaglist,
-      wibox.widget.textbox(" | "),
       layout = wibox.layout.fixed.horizontal,
     },
-    s.mytasklist, -- Middle Widgets
+
+    -- Middle Widgets
+    {
+      layout = wibox.layout.ratio.horizontal,
+      wibox.container.place(clock),
+    },
     
     -- Right widgets
     {
       layout = wibox.layout.fixed.horizontal,
-      wibox.widget.textbox("   "),
       wifi,
       wibox.widget.textbox("  "),
       volume,
@@ -144,8 +147,6 @@ awful.screen.connect_for_each_screen(function(s)
       -- user,
       keyboard,
       wibox.widget.textbox(" "),
-      clock,
-      wibox.widget.textbox("  "),
       launcher,
       wibox.widget.textbox("  "),
       wibox.widget.systray(),

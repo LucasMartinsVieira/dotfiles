@@ -9,10 +9,7 @@ require("awful.autofocus")
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
   -- All clients will match this rule.
-  --[[ { rule = { class = "mpv" }, ]]
-  --[[   properties = { maximized = true } }, ]]
-
-  { rule = { class = "vlc" },
+  { rule = { class = "mpv" },
     properties = { maximized = true } },
 
   { rule = { class = "Gimp" },
@@ -25,11 +22,6 @@ awful.rules.rules = {
         floating  = true,
         width     = 1200,
         height    = 800,
-    }},
-
-  { rule = { class = "Gnome-screenshot" },
-    properties = {
-        floating  = true,
     }},
 
   {
