@@ -1,9 +1,41 @@
 local awful = require("awful")
 local gears = require("gears")
-
-local notify = require("ui.notifications.screenshot")
+local naughty = require("naughty")
+local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 
 local screenshot = {}
+
+screenshot.notification = function(location)
+        local open = naughty.action {
+                name = "Open"
+        }
+
+        open:connect_signal("invoked", function(n)
+                awful.spawn('xdg-open ' .. location, false)
+        end)
+
+        local delete = naughty.action {
+                name = "Delete"
+        }
+
+        delete:connect_signal("invoked", function(n)
+                awful.spawn('rm -rf ' .. location, true)
+        end)
+
+        naughty.notification {
+                app_name = "Screenshot Tool",
+                title = "Screenshot",
+                icon = icons_dir .. "camera.png",
+                message = "Smile 📸",
+                ontop = true,
+                actions = { open, delete },
+                width = dpi(200),
+                height = dpi(80),
+        }
+end
+
 
 screenshot.area = function()
   local time = os.date("%y-%m-%d_%H:%M:%S")
@@ -20,7 +52,7 @@ screenshot.area = function()
 		call_now = false,
 		single_shot = true,
 		callback = function()
-			notify.screenshot(location)
+      screenshot.notification(location)
 		end
 	}:start()
 end
@@ -34,7 +66,7 @@ screenshot.full = function()
   ]]
 
   awful.spawn.with_shell(script)
-  notify.screenshot(location)
+  screenshot.notification(location)
 end
 
 return screenshot

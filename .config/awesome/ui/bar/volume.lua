@@ -15,7 +15,7 @@ percentage.font = beautiful.font .. " 18"
 awesome.connect_signal("signal::volume", function(vol, mute)
 	vol = tonumber(vol)
 	if mute or vol == 0 then
-		volume.markup = "<span foreground='"..theme.blue.."'>婢</span>"
+		volume.markup = "<span foreground='"..theme.red.."'>婢</span>"
 		percentage.markup = "Muted"
 	else
 		if vol < 30 then

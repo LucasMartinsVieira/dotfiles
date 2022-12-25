@@ -9,6 +9,10 @@ updates.num = function ()
   checkupdates
   ]]
 
+  local script2 = [[
+  checkupdates | wc -l
+  ]]
+
   local update = naughty.action {
     name = "Update"
   }
@@ -18,13 +22,15 @@ updates.num = function ()
   end)
 
   awful.spawn.easy_async_with_shell(script, function (out)
+    awful.spawn.easy_async_with_shell(script2, function (out1)
     naughty.notification {
-      title = "Updates",
+      title = string.format("Updates: %s", out1),
       message = string.format("%s", out),
       actions = {
         update,
       }
     }
+  end)
   end)
 
 end

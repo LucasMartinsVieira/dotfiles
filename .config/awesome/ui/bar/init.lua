@@ -7,12 +7,12 @@ require("awful.autofocus")
 -- Vars
 local modkey = "Mod4"
 
--- Widgets 
+-- Widgets
 local wifi = require("ui.bar.wifi")
 local updates = require("ui.bar.updates")
 local clock = require("ui.bar.clock")
 local keyboard = require("ui.bar.keyboard")
-local user = require("ui.bar.user")
+--local user = require("ui.bar.user")
 local menu = require("ui.bar.menu")
 local volume = require("ui.bar.volume")
 local launcher = require("ui.bar.launcher")
@@ -20,28 +20,6 @@ local launcher = require("ui.bar.launcher")
 --  Wibar
 
 -- Create a wibox for each screen and add it
-local taglist_buttons = gears.table.join(
-  awful.button({}, 1, function(t)
-    t:view_only()
-  end),
-  awful.button({ modkey }, 1, function(t)
-    if client.focus then
-      client.focus:move_to_tag(t)
-    end
-  end),
-  awful.button({}, 3, awful.tag.viewtoggle),
-  awful.button({ modkey }, 3, function(t)
-    if client.focus then
-      client.focus:toggle_tag(t)
-    end
-  end),
-  awful.button({}, 4, function(t)
-    awful.tag.viewnext(t.screen)
-  end),
-  awful.button({}, 5, function(t)
-    awful.tag.viewprev(t.screen)
-  end)
-)
 
 local function set_wallpaper(s)
   -- Wallpaper
@@ -83,20 +61,27 @@ awful.screen.connect_for_each_screen(function(s)
   s.mytaglist = awful.widget.taglist({
     screen = s,
     filter = awful.widget.taglist.filter.all,
-    buttons = taglist_buttons,
-  })
-
-  -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist({
-    screen = s,
-    filter = awful.widget.tasklist.filter.focused,
     buttons = {
-       awful.button({ }, 1, function (c)
-            c:activate { context = "tasklist", action = "toggle_minimization" }
-        end),
-        awful.button({ }, 3, function() awful.menu.client_list { theme = { width = 250 } } end),
-        awful.button({ }, 4, function() awful.client.focus.byidx(-1) end),
-        awful.button({ }, 5, function() awful.client.focus.byidx( 1) end),
+      awful.button({}, 1, function(t)
+        t:view_only()
+      end),
+      awful.button({ modkey }, 1, function(t)
+        if client.focus then
+          client.focus:move_to_tag(t)
+        end
+      end),
+      awful.button({}, 3, awful.tag.viewtoggle),
+      awful.button({ modkey }, 3, function(t)
+        if client.focus then
+          client.focus:toggle_tag(t)
+        end
+      end),
+      awful.button({}, 4, function(t)
+        awful.tag.viewnext(t.screen)
+      end),
+      awful.button({}, 5, function(t)
+        awful.tag.viewprev(t.screen)
+      end),
     },
   })
 
@@ -126,6 +111,7 @@ awful.screen.connect_for_each_screen(function(s)
       menu,
       wibox.widget.textbox(" "),
       s.mytaglist,
+      --s.mytasklist,
       layout = wibox.layout.fixed.horizontal,
     },
 
@@ -134,7 +120,7 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.ratio.horizontal,
       wibox.container.place(clock),
     },
-    
+
     -- Right widgets
     {
       layout = wibox.layout.fixed.horizontal,
