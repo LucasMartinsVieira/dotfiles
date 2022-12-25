@@ -126,6 +126,7 @@ map gtp gitpush
 
 # Movement
 map gdc cd ~/Documentos
+map gdm cd ~/Documentos/Media
 map gdw cd ~/Downloads
 map gdv cd ~/dev/
 
@@ -145,10 +146,3 @@ map grl cd ~/repos/lucasmartinsvieira/
 map grs cd ~/repos/scripts/
 map grh cd ~/repos/homepage/
 map grc cd ~/repos/clones/
-
-# Media bindings
-map gm. cd ~/Media/
-map gv cd ~/Media/Videos
-map gmm cd ~/Media/Mangas/
-map gmb cd ~/Media/Books/
-map gmf cd ~/Media/Movies/
