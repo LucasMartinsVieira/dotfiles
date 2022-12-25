@@ -23,7 +23,7 @@ explanation() {
   echo "##   the purpose of this script is to install programs that i use for example   ##"
   echo "##                                                                              ##"
   echo "##          Alacritty ,AwesomeWM, Fish, Kitty, Lf, Neovim, Rofi, etc.           ##"
-  echo "##                          And my Rofi/Bash Scripts                            ##"
+  echo "##                          And my Bash Scripts                                 ##"
   echo "##                                                                              ##"
   echo "##################################################################################"
   $SEPARATOR
@@ -213,14 +213,9 @@ script_yes() {
   git clone git@github.com:LucasMartinsVieira/scripts.git
   cd $HOME/repos/scripts
   cp lfrun ~/.local/bin/
-  ln -s ~/repos/scripts/arch-checkupdates ~/.local/bin/arch-checkupdates
-  ln -s ~/repos/scripts/rofi-beats ~/.local/bin/rofi-beats
-  ln -s ~/repos/scripts/rofi-colorscheme ~/.local/bin/rofi-colorscheme
-  ln -s ~/repos/scripts/rofi-files ~/.local/bin/rofi-files
-  ln -s ~/repos/scripts/rofi-maim ~/.local/bin/rofi-maim
-  ln -s ~/repos/scripts/rofi-powermenu ~/.local/bin/rofi-powermenu
-  ln -s ~/repos/scripts/rofi-search ~/.local/bin/rofi-search
-  ln -s ~/repos/scripts/rofi-wallpaper ~/.local/bin/rofi-wallpaper
+  ln -s ~/repos/scripts/colorscheme ~/.local/bin/colorscheme
+  ln -s ~/repos/scripts/files ~/.local/bin/files
+  ln -s ~/repos/scripts/search ~/.local/bin/search
   ln -s ~/repos/scripts/usb ~/.local/bin/usb
   $SEPARATOR
   echo "The scripts instalation finished. The scripts are located in $HOME/.local/bin/"
