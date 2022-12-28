@@ -7,7 +7,7 @@ local theme = require("theme.theme")
 local applications = require("config.applications")
 
 local launcher = wibox.widget.textbox()
-launcher.font = beautiful.font .. " 20"
+launcher.font = beautiful.font .. " 18"
 launcher.markup = ""
 
 launcher:connect_signal("mouse::enter", function()
