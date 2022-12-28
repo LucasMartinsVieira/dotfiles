@@ -1,9 +1,8 @@
 configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
-  display-calc: "Calculator:";
   font: "JetBrains Mono 10";
-  modi: "window,run,drun,calc";
+  modi: "window,run,drun";
 }
 
 @theme "~/.config/rofi/themes/nightfly.rasi"
