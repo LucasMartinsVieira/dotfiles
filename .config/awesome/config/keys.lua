@@ -1,7 +1,8 @@
 local awful = require("awful")
 local gears = require("gears")
-local hotkeys_popup = require("awful.hotkeys_popup")
 local naughty = require("naughty")
+local hotkeys_popup = require("awful.hotkeys_popup")
+local menubar = require("menubar")
 local applications = require("config.applications")
 local vol = require("lib.volume")
 local volume = require("ui.bar.volume")
@@ -57,7 +58,7 @@ globalkeys = gears.table.join(
   -- Standard program
   awful.key({ modkey }, "Return", function()
     awful.spawn(applications.default.terminal_emulator)
-  end, { description = "open a terminal", group = "launcher" }),
+  end, { description = "open a terminal", group = "applications" }),
 
   awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, "Control" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
@@ -100,77 +101,47 @@ globalkeys = gears.table.join(
   
   awful.key({ modkey }, "r", function()
     awful.util.spawn(applications.default.app_launcher)
-  end, { description = "Rofi", group = "Rofi" }),
-
-  awful.key({ modkey }, "c", function()
-    awful.util.spawn("rofi -show calc")
-  end, { description = "Rofi Calc", group = "Rofi" }),
-
-  awful.key({ modkey }, "e", function()
-    awful.util.spawn("rofi -show emoji -theme /usr/share/rofi/themes/Adapta-Nokto.rasi")
-  end, { description = "Rofi Emoji", group = "Rofi" }),
+    --menubar.show()
+  end, { description = "Rofi", group = "applications" }),
 
   awful.key({ modkey }, "i", function()
     awful.util.spawn(screenshot.full())
-  end, { description = "Fullscreen Screenshot", group = "awesome" }),
+  end, { description = "Fullscreen Screenshot", group = "user" }),
   awful.key({ modkey, "Shift" }, "i", function()
     awful.util.spawn(screenshot.area())
-  end, { description = "Area Screenshot", group = "awesome" }),
-  awful.key({ modkey }, "w", function()
-    awful.util.spawn("rofi-wallpaper")
-  end, { description = "Rofi Wallpaper", group = "Rofi" }),
-
-  awful.key({ modkey }, "s", function()
-    awful.util.spawn("rofi-search")
-  end, { description = "Rofi Search", group = "Rofi" }),
-
-  awful.key({ modkey, "Shift" }, "d", function()
-    awful.util.spawn("rofi-powermenu")
-  end, { description = "Rofi Powermenu", group = "Rofi" }),
-
-  awful.key({ modkey, "Shift" }, "b", function()
-    awful.util.spawn("rofi-beats")
-  end, { description = "Rofi Beats", group = "Rofi" }),
-
-  awful.key({ modkey, "Shift" }, "f", function()
-    awful.util.spawn("rofi-files")
-  end, { description = "Rofi Files", group = "Rofi" }),
-
-  awful.key({ modkey, "Shift" }, "t", function()
-    awful.util.spawn("rofi-colorscheme")
-  end, { description = "Rofi Colorcheme", group = "Rofi" }),
+  end, { description = "Area Screenshot", group = "user" }),
 
   -- Scripts
   awful.key({ modkey }, "u", function()
     awful.util.spawn(updates.num())
-  end, { description = "checkupdates", group = "awesome" }),
+  end, { description = "checkupdates", group = "user" }),
 
   awful.key({ modkey }, "=", function()
     awful.util.spawn(vol.increase())
     volume.get_vol()
-  end, { description = "vol +", group = "awesome" }),
+  end, { description = "vol +", group = "user" }),
 
   awful.key({ modkey }, "-", function()
     awful.util.spawn(vol.decrease())
     volume.get_vol()
-  end, { description = "volume -", group = "awesome" }),
+  end, { description = "volume -", group = "user" }),
 
   awful.key({ modkey }, "0", function()
     awful.util.spawn(vol.mute())
     volume.get_vol()
-  end, { description = "volume mute/unmute", group = "awesome" }),
+  end, { description = "volume mute/unmute", group = "user" }),
 
   awful.key({ modkey }, ";", function()
     awful.util.spawn("playerctl play-pause")
-  end, { description = "Playerctl Play/Pause", group = "awesome" }),
+  end, { description = "Playerctl Play/Pause", group = "user" }),
 
   awful.key({ modkey }, ".", function()
     awful.util.spawn("playerctl next")
-  end, { description = "Playerctl Next", group = "awesome" }),
+  end, { description = "Playerctl Next", group = "user" }),
 
   awful.key({ modkey }, ",", function()
     awful.util.spawn("playerctl previous")
-  end, { description = "Playerctl Previous", group = "awesome" }),
+  end, { description = "Playerctl Previous", group = "user" }),
 
   -- applications keybindings
   awful.key({ modkey }, "b", function()
@@ -193,7 +164,7 @@ globalkeys = gears.table.join(
       else
         awful.spawn("redshift -P -O 6200")
       end
-  end, { description = "Switch color temperature", group = "awesome" })
+  end, { description = "Switch color temperature", group = "user" })
 )
 
 clientkeys = gears.table.join(
