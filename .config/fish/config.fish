@@ -12,6 +12,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
+bind \ec 'colorscheme'
+bind \ef 'files'
 
 ### Adding to the $PATH
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
