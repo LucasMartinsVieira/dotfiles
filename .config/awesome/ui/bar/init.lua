@@ -12,6 +12,7 @@ local clock = require("ui.bar.clock")
 local menu = require("ui.bar.menu")
 local volume = require("ui.bar.volume")
 local launcher = require("ui.bar.launcher")
+local power = require("ui.bar.power")
 local task = require("ui.bar.task")
 local tag = require("ui.bar.tag")
 
@@ -40,6 +41,7 @@ local function get_bar(s)
 
     -- Left widgets
     {
+      wibox.widget.textbox(" "),
       menu,
       wibox.widget.textbox(" "),
       tag(s),
@@ -64,6 +66,8 @@ local function get_bar(s)
       updates,
       wibox.widget.textbox("  "),
       launcher,
+      wibox.widget.textbox("  "),
+      power,
       wibox.widget.textbox("  "),
       wibox.widget.systray(),
     },
