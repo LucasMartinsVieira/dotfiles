@@ -25,6 +25,7 @@ theme.yellow = colors.yellow
 theme.blue = colors.blue
 theme.red = colors.red
 theme.green = colors.green
+theme.purple = colors.purple
 
 -- Base colors
 theme.color_bg    = colors.bg_color
@@ -97,7 +98,8 @@ theme.hotkeys_group_margin      = dpi(10)
 theme.layout_floating       =  gcolor.recolor_image(icons_dir .. "layout/floating.png", theme.green)
 theme.layout_max       =  gcolor.recolor_image(icons_dir .. "layout/max.png", theme.yellow)
 theme.layout_tile       =  gcolor.recolor_image(icons_dir .. "layout/tile.png", theme.blue)
-theme.layout_fullscreen = themes_path .. "default/layouts/fullscreenw.png"
+theme.layout_fairv       =  gcolor.recolor_image(icons_dir .. "layout/fair.png", theme.purple)
+theme.layout_fullscreen = gcolor.recolor_image(icons_dir .. "layout/fullscreen.png", theme.red)
 
 --theme.layout_fairh      = themes_path .. "default/layouts/fairhw.png"
 --theme.layout_fairv      = themes_path .. "default/layouts/fairvw.png"

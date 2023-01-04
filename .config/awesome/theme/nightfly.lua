@@ -16,5 +16,6 @@ colors.yellow = "#e3d18a"
 colors.blue   = "#82aaff"
 colors.green  = "#a1cd5e"
 colors.red    = "#fc514e"
+colors.purple = "#ae81ff"
 
 return colors
