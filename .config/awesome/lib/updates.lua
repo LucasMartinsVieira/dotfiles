@@ -1,7 +1,7 @@
 local awful = require("awful")
 local naughty = require("naughty")
 local applications = require("config.applications")
-local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
+local theme = require("theme.theme")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
@@ -29,7 +29,7 @@ updates.num = function ()
     naughty.notification {
       title = string.format("Updates: %s", out1),
       message = string.format("%s", out),
-      icon = icons_dir .. "updates.png",
+      icon = theme.updates,
       icon_size = dpi(25),
       actions = { update }
     }

@@ -1,7 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
 local naughty = require("naughty")
-local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
+local theme = require("theme.theme")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
@@ -27,7 +27,7 @@ screenshot.notification = function(location)
         naughty.notification {
                 app_name = "Screenshot Tool",
                 title = "Screenshot",
-                icon = icons_dir .. "camera.png",
+                icon = theme.camera,
                 message = "Smile 📸",
                 ontop = true,
                 actions = { open, delete },

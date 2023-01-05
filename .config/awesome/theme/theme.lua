@@ -39,6 +39,7 @@ theme.color_fg    = colors.fg_color
 theme.taglist_fg_focus = theme.yellow
 theme.taglist_fg_occupied = theme.blue
 theme.taglist_bg_focus = colors.bg_color
+
 -- Tasklist
 theme.tasklist_bg_focus = colors.bg_color
 theme.tasklist_disable_task_name = true
@@ -94,7 +95,12 @@ theme.hotkeys_font              = theme.font
 theme.hotkeys_description_font  = theme.font
 theme.hotkeys_group_margin      = dpi(10)
 
--- You can use your own layout icons like this:
+-- Icons
+theme.camera = icons_dir .. "camera.png"
+theme.volume = icons_dir .. "volume.png"
+theme.updates = icons_dir .. "updates.png"
+
+-- Layouts
 theme.layout_floating       =  gcolor.recolor_image(icons_dir .. "layout/floating.png", theme.green)
 theme.layout_max       =  gcolor.recolor_image(icons_dir .. "layout/max.png", theme.yellow)
 theme.layout_tile       =  gcolor.recolor_image(icons_dir .. "layout/tile.png", theme.blue)
@@ -117,6 +123,13 @@ theme.layout_fullscreen = gcolor.recolor_image(icons_dir .. "layout/fullscreen.p
 theme.awesome_icon      = theme_assets.awesome_icon(
   theme.menu_height, theme.bg_focus, theme.fg_focus
 )
+
+-- Powermenu
+theme.power = gcolor.recolor_image(icons_dir .. "/powermenu/power.png", theme.red)
+theme.reboot = gcolor.recolor_image(icons_dir .. "/powermenu/reboot.png", theme.blue)
+theme.logout = gcolor.recolor_image(icons_dir .. "/powermenu/logout.png", theme.green)
+theme.lock = gcolor.recolor_image(icons_dir .. "/powermenu/power.png", theme.yellow)
+theme.suspend = gcolor.recolor_image(icons_dir .. "/powermenu/suspend.png", theme.purple)
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
