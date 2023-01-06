@@ -18,7 +18,6 @@ local gcolor = require("gears.color")
 local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
 local theme = {}
 
-
 local colors = require('theme.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
 
 theme.yellow = colors.yellow
@@ -96,6 +95,7 @@ theme.hotkeys_description_font  = theme.font
 theme.hotkeys_group_margin      = dpi(10)
 
 -- Icons
+theme.pfp = icons_dir .. "pfp.png"
 theme.camera = icons_dir .. "camera.png"
 theme.volume = icons_dir .. "volume.png"
 theme.updates = icons_dir .. "updates.png"
@@ -123,13 +123,6 @@ theme.layout_fullscreen = gcolor.recolor_image(icons_dir .. "layout/fullscreen.p
 theme.awesome_icon      = theme_assets.awesome_icon(
   theme.menu_height, theme.bg_focus, theme.fg_focus
 )
-
--- Powermenu
-theme.power = gcolor.recolor_image(icons_dir .. "/powermenu/power.png", theme.red)
-theme.reboot = gcolor.recolor_image(icons_dir .. "/powermenu/reboot.png", theme.blue)
-theme.logout = gcolor.recolor_image(icons_dir .. "/powermenu/logout.png", theme.green)
-theme.lock = gcolor.recolor_image(icons_dir .. "/powermenu/power.png", theme.yellow)
-theme.suspend = gcolor.recolor_image(icons_dir .. "/powermenu/suspend.png", theme.purple)
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
