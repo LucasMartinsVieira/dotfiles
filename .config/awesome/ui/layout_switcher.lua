@@ -5,8 +5,6 @@ local gears = require("gears")
 
 local modkey = "Mod4"
 
-local size = 4
-
 local ll = awful.widget.layoutlist({
   base_layout = wibox.widget({
     spacing = 5,
@@ -25,8 +23,8 @@ local ll = awful.widget.layoutlist({
       widget = wibox.container.margin,
     },
     id = "background_role",
-    forced_width = 24,
-    forced_height = 24,
+    forced_width = 25,
+    forced_height = 25,
     shape = gears.shape.rounded_rect,
     widget = wibox.container.background,
   },
@@ -62,7 +60,7 @@ awful.keygrabber({
     awful.key({
       modifiers = { modkey },
       key = "Tab",
-      group = "Layout Swicther",
+      group = "Layout Switcher",
       description = "Open and Switch to the Next",
       on_press = function()
         awful.layout.set((gears.table.cycle_value(ll.layouts, ll.current_layout, 1)))
@@ -71,7 +69,7 @@ awful.keygrabber({
     awful.key({
       modifiers = { modkey, "Shift" },
       key = "Tab",
-      group = "Layout Swicther",
+      group = "Layout Switcher",
       description = "Open and Switch to the Previous",
       on_press = function()
         awful.layout.set((gears.table.cycle_value(ll.layouts, ll.current_layout, -1)))
