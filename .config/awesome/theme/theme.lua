@@ -100,6 +100,12 @@ theme.camera = icons_dir .. "camera.png"
 theme.volume = icons_dir .. "volume.png"
 theme.updates = icons_dir .. "updates.png"
 
+-- Power Popup
+theme.power = gcolor.recolor_image(icons_dir .. "power/power.png", theme.red)
+theme.reboot = gcolor.recolor_image(icons_dir .. "power/reboot.png", theme.yellow)
+theme.logout = gcolor.recolor_image(icons_dir .. "power/logout.png", theme.blue)
+theme.suspend = gcolor.recolor_image(icons_dir .. "power/suspend.png", theme.green)
+
 -- Layouts
 theme.layout_floating       =  gcolor.recolor_image(icons_dir .. "layout/floating.png", theme.green)
 theme.layout_max       =  gcolor.recolor_image(icons_dir .. "layout/max.png", theme.yellow)
@@ -126,6 +132,6 @@ theme.awesome_icon      = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "/usr/share/icons/kora"
 
 return theme
