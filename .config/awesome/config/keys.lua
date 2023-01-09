@@ -135,8 +135,17 @@ awful.keyboard.append_global_keybindings({
     key = "p",
     description = "Open Exit Screen",
     group = "User",
-    on_press = function ()
+    on_press = function()
       power_popup_show()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Control" },
+    key = "w",
+    description = "Set a Random Wallpaper",
+    group = "User",
+    on_press = function()
+      awful.spawn.with_shell("feh --no-fehbg --bg-scale --randomize --no-xinerama ~/Imagens/Wallpapers/")
     end,
   }),
   awful.key({
