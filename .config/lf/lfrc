@@ -91,7 +91,8 @@ map o fzf_configs
 map mv cut
 
 # Trash cli bindings
-map dd trash
+map dd $trash "$f"
+map sd $doas trash "$f"
 map dc clear_trash
 map dr restore_trash
 map dl list_trash
@@ -138,6 +139,8 @@ map gc cd ~/.config/
 map g/ cd /
 map ge cd /etc/
 map gu cd /usr/
+map gR cd /run/media/
+map gT cd /tmp/
 
 # Repos bindings
 map gr. cd ~/repos/
