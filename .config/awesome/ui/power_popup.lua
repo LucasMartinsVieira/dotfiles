@@ -146,13 +146,6 @@ p:buttons(gears.table.join(
   end)
 ))
 
-function power_popup_show()
-  if p.visible == false then
-    p.visible = true
-  else
-    p.visible = false
-  end
-end
 
 -- Item placement
 p:setup({
@@ -181,6 +174,23 @@ p:setup({
     expand = "none",
     layout = wibox.layout.align.horizontal,
   },
-    expand = "none",
-    layout = wibox.layout.align.vertical,
+  expand = "none",
+  layout = wibox.layout.align.vertical,
 })
+
+function power_popup_show()
+  if p.visible == false then
+    p.visible = true
+    popup_timer:start()
+  else
+    p.visible = false
+  end
+end
+
+popup_timer = gears.timer {
+  timeout = 3.5,
+	single_shot = true,
+  callback = function()
+    p.visible = false
+  end
+}
