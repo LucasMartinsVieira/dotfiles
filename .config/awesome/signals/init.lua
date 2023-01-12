@@ -1,7 +1,8 @@
 req = {
   "volume",
   "updates",
-  "wifi"
+  "wifi",
+  "player"
 }
 
 for _, x in pairs(req) do

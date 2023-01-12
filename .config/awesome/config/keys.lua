@@ -11,6 +11,7 @@ local updates = require("lib.updates")
 local isDark = true
 require("awful.autofocus")
 require("ui.power_popup")
+require("ui.dashboard")
 local modkey = "Mod4"
 
 awful.keyboard.append_global_keybindings({
@@ -129,6 +130,15 @@ awful.keyboard.append_global_keybindings({
     description = "Reload Awesome",
     group = "Awesome",
     on_press = awesome.restart,
+  }),
+  awful.key({
+    modifiers = { modkey, "Control" },
+    key = "d",
+    description = "Open Dashboard",
+    group = "User",
+    on_press = function()
+      dashboard_show()
+    end,
   }),
   awful.key({
     modifiers = { modkey, "Control" },

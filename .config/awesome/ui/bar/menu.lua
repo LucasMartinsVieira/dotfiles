@@ -20,11 +20,7 @@ end)
 
 menu:buttons(gears.table.join(
   awful.button({}, 1, function ()
-      if dashboard.visible == false then
-        dashboard.visible = true
-      else
-        dashboard.visible = false
-      end
+    dashboard_show()
   end)
 ))
 
