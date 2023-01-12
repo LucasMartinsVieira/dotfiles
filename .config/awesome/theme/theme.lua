@@ -28,6 +28,7 @@ theme.purple = colors.purple
 
 -- Base colors
 theme.color_bg    = colors.bg_color
+theme.color_bg_alt = colors.bg_alt
 theme.focus_bg    = colors.bg_focus
 theme.urgent_bg   = colors.bg_urgent
 theme.minimize_bg = colors.bg_minimize
@@ -48,6 +49,7 @@ theme.font = "JetBrains Mono 9"
 
 -- Colors
 theme.bg_normal   = theme.color_bg
+theme.bg_alt      = theme.color_bg_alt
 theme.bg_focus    = theme.focus_bg
 theme.bg_urgent   = theme.urgent_bg
 theme.bg_minimize = theme.minimize_bg

@@ -3,6 +3,7 @@ local colors = {}
 
 -- Bg Colors 
 colors.bg_color    = "#1d1f27"
+colors.bg_alt      = "#33353c"
 colors.bg_focus    = "#afb0af"
 colors.bg_urgent   = "#e95678"
 colors.bg_minimize = "#ff2222"
