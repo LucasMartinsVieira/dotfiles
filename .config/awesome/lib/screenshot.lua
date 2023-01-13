@@ -38,7 +38,7 @@ end
 
 
 screenshot.area = function()
-  local time = os.date("%y-%m-%d_%H:%M:%S")
+  local time = os.date("%y%m%d-%H%M-%S")
 	local location = "~/Imagens/Screenshot/" .. time .. ".png"
 
   local script = [[
@@ -58,7 +58,7 @@ screenshot.area = function()
 end
 
 screenshot.full = function()
-  local time = os.date("%y-%m-%d_%H:%M:%S")
+  local time = os.date("%y%m%d-%H%M-%S")
 	local location = "~/Imagens/Screenshot/" .. time .. ".png"
 
   local script = [[

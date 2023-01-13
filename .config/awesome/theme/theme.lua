@@ -101,6 +101,7 @@ theme.pfp = icons_dir .. "pfp.png"
 theme.camera = icons_dir .. "camera.png"
 theme.volume = icons_dir .. "volume.png"
 theme.updates = icons_dir .. "updates.png"
+theme.album_art = icons_dir .. "album.jpg"
 
 -- Power Popup
 theme.power = gcolor.recolor_image(icons_dir .. "power/power.png", theme.red)
@@ -115,19 +116,6 @@ theme.layout_tile       =  gcolor.recolor_image(icons_dir .. "layout/tile.png", 
 theme.layout_fairv       =  gcolor.recolor_image(icons_dir .. "layout/fair.png", theme.purple)
 theme.layout_fullscreen = gcolor.recolor_image(icons_dir .. "layout/fullscreen.png", theme.red)
 
---theme.layout_fairh      = themes_path .. "default/layouts/fairhw.png"
---theme.layout_fairv      = themes_path .. "default/layouts/fairvw.png"
---theme.layout_magnifier  = themes_path .. "default/layouts/magnifierw.png"
---theme.layout_tilebottom = themes_path .. "default/layouts/tilebottomw.png"
---theme.layout_tileleft   = themes_path .. "default/layouts/tileleftw.png"
---theme.layout_tiletop    = themes_path .. "default/layouts/tiletopw.png"
---theme.layout_spiral     = themes_path .. "default/layouts/spiralw.png"
---theme.layout_dwindle    = themes_path .. "default/layouts/dwindlew.png"
---theme.layout_cornernw   = themes_path .. "default/layouts/cornernww.png"
---theme.layout_cornerne   = themes_path .. "default/layouts/cornernew.png"
---theme.layout_cornersw   = themes_path .. "default/layouts/cornersww.png"
---theme.layout_cornerse   = themes_path .. "default/layouts/cornersew.png"
--- Generate Awesome icon:
 theme.awesome_icon      = theme_assets.awesome_icon(
   theme.menu_height, theme.bg_focus, theme.fg_focus
 )
