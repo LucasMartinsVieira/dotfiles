@@ -15,6 +15,7 @@ local dpi = xresources.apply_dpi
 local gcolor = require("gears.color")
 local helpers = require("helpers")
 local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
+
 local theme = {}
 
 local colors = require('theme.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
@@ -110,6 +111,33 @@ theme.layout_max       =  gcolor.recolor_image(icons_dir .. "layout/max.png", th
 theme.layout_tile       =  gcolor.recolor_image(icons_dir .. "layout/tile.png", theme.blue)
 theme.layout_fairv       =  gcolor.recolor_image(icons_dir .. "layout/fair.png", theme.purple)
 theme.layout_fullscreen = gcolor.recolor_image(icons_dir .. "layout/fullscreen.png", theme.red)
+
+-- Titlebar
+theme.titlebar_bg = theme.bg_alt
+
+theme.titlebar_close_button_normal = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+theme.titlebar_close_button_focus = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+
+theme.titlebar_close_button_normal_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.red)
+theme.titlebar_close_button_focus_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.red)
+
+theme.titlebar_minimize_button_normal = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+theme.titlebar_minimize_button_focus = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+
+theme.titlebar_minimize_button_normal_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.green)
+theme.titlebar_minimize_button_focus_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.green)
+
+theme.titlebar_maximized_button_normal_active = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+theme.titlebar_maximized_button_normal_inactive = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+theme.titlebar_maximized_button_focus_inactive = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+theme.titlebar_maximized_button_normal_active = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+theme.titlebar_maximized_button_focus_active = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.bg_focus)
+
+theme.titlebar_maximized_button_normal_active_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.yellow)
+theme.titlebar_maximized_button_normal_inactive_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.yellow)
+theme.titlebar_maximized_button_focus_inactive_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.yellow)
+theme.titlebar_maximized_button_normal_active_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.yellow)
+theme.titlebar_maximized_button_focus_active_hover = gcolor.recolor_image(icons_dir .. "titlebar.png", theme.yellow)
 
 theme.awesome_icon      = theme_assets.awesome_icon(
   theme.menu_height, theme.bg_focus, theme.fg_focus
