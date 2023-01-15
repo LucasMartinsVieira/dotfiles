@@ -1,8 +1,7 @@
 -- Standard awesome library
-local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
-local beautiful = require("beautiful")
+local helpers = require("helpers")
 require("awful.autofocus")
 
 -- Widgets
@@ -30,9 +29,7 @@ local function get_bar(s)
       left = 6,
       right = 6,
     },
-    shape = function(cr, width, height)
-      gears.shape.rounded_rect(cr, width, height, 4)
-    end,
+    shape = helpers.rrect(4)
   })
 
   -- Add widgets to the wibox

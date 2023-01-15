@@ -1,4 +1,5 @@
 local naughty = require("naughty")
+local beautiful = require("beautiful")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -6,8 +7,11 @@ local naughty = require("naughty")
 if awesome.startup_errors then
   naughty.notify({
     preset = naughty.config.presets.critical,
+    urgency = "critical",
     title = "Oops, there were errors during startup!",
     text = awesome.startup_errors,
+    app_name = 'System Notification',
+    icon = beautiful.awesome_icon,
   })
 end
 
@@ -24,10 +28,12 @@ do
     naughty.notify({
       preset = naughty.config.presets.critical,
       title = "Oops, an error happened!",
+      urgency = "critical",
       text = tostring(err),
+      app_name = 'System Notification',
+      icon = beautiful.awesome_icon,
     })
     in_error = false
   end)
 end
 -- }}}
-

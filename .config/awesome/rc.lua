@@ -14,17 +14,8 @@ local beautiful = require("beautiful")
 -- Theme
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
--- Error Handling
-require("config.errors")
-
 -- Config
-require("config.autostart")
-require("config.keys")
-require("config.rules")
-require("config.layout")
-require("config.tags")
-require("config.menu")
-require("config.signals")
+require("config")
 
 -- Widgets
 require("ui")

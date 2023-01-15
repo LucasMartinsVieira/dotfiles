@@ -1,17 +1,17 @@
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
-local beautiful = require("beautiful")
 local theme = require("theme.theme")
+local helpers = require("helpers")
 
 require("ui.dashboard")
 
 local menu = wibox.widget.textbox()
-menu.font = beautiful.font .. " 30"
+menu.font = theme.font .. " 30"
 menu.markup = ""
 
 menu:connect_signal("mouse::enter", function ()
-  menu.markup = "<span foreground='".. theme.blue .."'></span>"
+  menu.markup = helpers.colorize_text("", theme.blue)
 end)
 
 menu:connect_signal("mouse::leave", function ()

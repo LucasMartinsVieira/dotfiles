@@ -2,6 +2,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
 local theme = require("theme.theme")
+local helpers = require("helpers")
 
 local calendar_widget = {}
 
@@ -12,11 +13,6 @@ local function worker(user_args)
     local placement = 'top'
 
     local styles = {}
-    local function rounded_shape(size)
-        return function(cr, width, height)
-            gears.shape.rounded_rect(cr, width, height, size)
-        end
-    end
 
     styles.month = {
         padding = 10,
@@ -26,14 +22,14 @@ local function worker(user_args)
 
     styles.normal = {
         markup = function(t) return t end,
-        shape = rounded_shape(4)
+        shape = helpers.rrect(4)
     }
 
     styles.focus = {
         fg_color = theme.taglist_fg_focus,
         bg_color = theme.bg_normal,
         markup = function(t) return '<b>' .. t .. '</b>' end,
-        shape = rounded_shape(4)
+        shape = helpers.rrect(4)
     }
 
     styles.header = {
@@ -104,7 +100,7 @@ local function worker(user_args)
     local popup = awful.popup {
         ontop = true,
         visible = false,
-        shape = rounded_shape(8),
+        shape = helpers.rrect(8),
         offset = { y = 5 },
         border_width = 1,
         border_color = theme.bg_normal,

@@ -1,7 +1,5 @@
 local awful = require("awful")
-local wibox = require("wibox")
-local gears = require("gears")
-
+local helpers = require("helpers")
 local applications = require("config.applications")
 local screenshot = require("lib.screenshot")
 
@@ -29,6 +27,4 @@ mainmenu = awful.menu {
 	}
 }
 
-mainmenu.wibox.shape = function (cr, w, h)
-  gears.shape.rounded_rect(cr, w, h, 4)
-end
+mainmenu.wibox.shape = helpers.rrect(4)

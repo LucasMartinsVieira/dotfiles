@@ -4,12 +4,13 @@ local wibox = require("wibox")
 local applications = require("config.applications")
 local theme = require("theme.theme")
 local dpi = require("beautiful").xresources.apply_dpi
+local helpers = require("helpers")
 
 -- Disk
 local disk_icon = wibox.widget({
   font = theme.font .. " 26",
   align = "left",
-  markup = "<span foreground='" .. theme.red .. "'></span>",
+  markup = helpers.colorize_text("", theme.red),
   widget = wibox.widget.textbox(),
 })
 
@@ -23,7 +24,7 @@ local disk_info = wibox.widget({
 local volume_icon = wibox.widget({
   font = theme.font .. " 26",
   align = "left",
-  markup = "<span foreground='" .. theme.blue .. "'>墳</span>",
+  markup = helpers.colorize_text("墳", theme.blue),
   widget = wibox.widget.textbox(),
 })
 
@@ -37,7 +38,7 @@ local volume_info = wibox.widget({
 local updates_icon = wibox.widget({
   font = theme.font .. " 26",
   align = "left",
-  markup = "<span foreground='" .. theme.yellow .. "'></span>",
+  markup = helpers.colorize_text("", theme.yellow),
   widget = wibox.widget.textbox(),
 })
 
@@ -51,7 +52,7 @@ local updates_info = wibox.widget({
 local wifi_icon = wibox.widget({
   font = theme.font .. " 26",
   align = "left",
-  markup = "<span foreground='" .. theme.green .. "'>直</span>",
+  markup = helpers.colorize_text("直", theme.green),
   widget = wibox.widget.textbox(),
 })
 
@@ -65,27 +66,27 @@ local wifi_info = wibox.widget({
 local function get_val()
   awesome.connect_signal("signal::volume", function(vol, muted)
     if muted then
-      volume_icon.markup = "<span foreground='" .. theme.red .. "'>墳</span>"
-      volume_info.markup = "<span foreground='" .. theme.red .. "'>0%</span>"
+      volume_icon.markup = helpers.colorize_text("婢", theme.red)
+      volume_info.markup = helpers.colorize_text("0%", theme.red)
     else
-      volume_icon.markup = "<span foreground='" .. theme.blue .. "'>墳</span>"
-      volume_info.markup = "<span foreground='" .. theme.blue .. "'>" .. tonumber(vol) .. "%" .. "</span>"
+      volume_icon.markup = helpers.colorize_text("墳", theme.blue)
+      volume_info.markup = helpers.colorize_text(tonumber(vol) .. "%", theme.blue)
     end
   end)
 
   awesome.connect_signal("signal::disk", function(disk_perc)
-    disk_info.markup = "<span foreground='" .. theme.red .. "'>" .. tonumber(disk_perc) .. "%" .. "</span>"
+    disk_info.markup = helpers.colorize_text(tonumber(disk_perc) .. "%", theme.red)
   end)
 
   awesome.connect_signal("signal::updates", function(upd)
     upd = tonumber(upd)
 
     if upd == 0 then
-      updates_icon.markup = "<span foreground='" .. theme.yellow .. "'></span>"
+      updates_icon.markup = helpers.colorize_text("", theme.yellow)
     else
-      updates_icon.markup = "<span foreground='" .. theme.yellow .. "'></span>"
+      updates_icon.markup = helpers.colorize_text("", theme.yellow)
     end
-    updates_info.markup = "<span foreground='" .. theme.yellow .. "'>" .. upd .. "</span>"
+     updates_info.markup = helpers.colorize_text(upd, theme.yellow)
   end)
 end
 
@@ -93,11 +94,11 @@ local function get_wifi()
   awesome.connect_signal("signal::wifi", function(net_status, net_stregth)
     local net_stregth = tonumber(net_stregth)
     if net_status == false then
-      wifi_icon.markup = "<span foreground='" .. theme.red .. "'>睊</span>"
+      wifi_icon.markup = helpers.colorize_text("睊", theme.red)
       wifi_info.markup = ""
     else
-      wifi_icon.markup = "<span foreground='" .. theme.green .. "'>直</span>"
-      wifi_info.markup = "<span foreground='" .. theme.green .. "'>" .. net_stregth .. "%" .. "</span>"
+      wifi_icon.markup = helpers.colorize_text("直", theme.green)
+      wifi_info.markup = helpers.colorize_text(net_stregth .. "%", theme.green)
     end
   end)
 end

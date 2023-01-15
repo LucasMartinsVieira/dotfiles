@@ -28,6 +28,7 @@ screenshot.notification = function(location)
                 app_name = "Screenshot Tool",
                 title = "Screenshot",
                 icon = theme.camera,
+                icon_size = dpi(50),
                 message = "Smile 📸",
                 ontop = true,
                 actions = { open, delete },

@@ -3,18 +3,13 @@ local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local theme = require("theme.theme")
+local helpers = require("helpers")
 
 local dpi = beautiful.xresources.apply_dpi
 
 -- Var
 local width = dpi(420)
 local height = awful.screen.focused().geometry.height - dpi(50)
-
-local function round_widget(radius)
-  return function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, radius)
-  end
-end
 
 local function box_widget(widgets, width, height)
 
@@ -27,7 +22,7 @@ local function box_widget(widgets, width, height)
       },
       forced_width = dpi(width),
       forced_height = dpi(height),
-      shape = round_widget(8),
+      shape = helpers.rrect(8),
       bg = theme.color_bg_alt,
       widget = wibox.container.background,
     },
@@ -60,7 +55,7 @@ local dashboard = wibox({
   ontop = true,
   width = width,
   height = height,
-  shape = gears.shape.rounded_rect,
+  shape = helpers.rrect(),
   y = dpi(40),
   x = dpi(10),
   bg = theme.bg_normal,

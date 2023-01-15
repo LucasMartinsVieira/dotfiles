@@ -2,6 +2,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
 local theme = require("theme.theme")
+local helpers = require("helpers")
 local applications = require("config.applications")
 local updt = require("lib.updates")
 
@@ -11,9 +12,9 @@ updates.font = theme.font .. " 20"
 awesome.connect_signal("signal::updates", function(upd)
   upd = tonumber(upd)
   if upd == 0 then
-    updates.markup = "<span foreground='"..theme.yellow.."'></span>"
+    updates.markup = helpers.colorize_text("", theme.yellow)
   else
-    updates.markup = "<span foreground='"..theme.yellow.."'></span>"
+    updates.markup = helpers.colorize_text("", theme.yellow)
   end
 end)
 

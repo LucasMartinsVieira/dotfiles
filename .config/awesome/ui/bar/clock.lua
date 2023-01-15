@@ -1,7 +1,6 @@
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
-local beautiful = require("beautiful")
 local theme = require("theme.theme")
 local calendar_widget = require("ui.calendar")
 local calendar = calendar_widget()

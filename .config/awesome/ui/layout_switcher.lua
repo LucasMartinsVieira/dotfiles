@@ -2,6 +2,7 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 local gears = require("gears")
+local helpers = require("helpers")
 
 local modkey = "Mod4"
 
@@ -25,7 +26,7 @@ local ll = awful.widget.layoutlist({
     id = "background_role",
     forced_width = 25,
     forced_height = 25,
-    shape = gears.shape.rounded_rect,
+    shape = helpers.rrect(6),
     widget = wibox.container.background,
   },
 })
@@ -41,7 +42,7 @@ local layout_popup = awful.popup({
   placement = awful.placement.centered,
   ontop = true,
   visible = false,
-  shape = gears.shape.rounded_rect,
+  shape = helpers.rrect(6),
 })
 
 -- Make sure you remove the default Mod4+Space and Mod4+Shift+Space

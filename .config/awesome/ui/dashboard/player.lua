@@ -3,13 +3,14 @@ local gears = require("gears")
 local wibox = require("wibox")
 local theme = require("theme.theme")
 local dpi = require("beautiful").xresources.apply_dpi
+local helpers = require("helpers")
 
 -- "Album" Art
 local album_art = wibox.widget({
   widget = wibox.widget.imagebox,
   image = theme.album_art,
   resize = true,
-  clip_shape = gears.shape.rounded_rect,
+  clip_shape = helpers.rrect(),
   forced_height = dpi(100),
   forced_width = dpi(100),
 })

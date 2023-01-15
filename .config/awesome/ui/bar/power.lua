@@ -1,17 +1,17 @@
 local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
-local beautiful = require("beautiful")
+local helpers = require("helpers")
 local theme = require("theme.theme")
 
 require("ui.power_popup")
 
 local power = wibox.widget.textbox()
-power.font = beautiful.font .. " 18"
+power.font = theme.font .. " 18"
 power.markup = "⏻"
 
 power:connect_signal("mouse::enter", function()
-  power.markup = "<span foreground='" .. theme.red .. "'>⏻</span>"
+  power.markup = helpers.colorize_text("⏻", theme.red)
 end)
 
 power:connect_signal("mouse::leave", function()

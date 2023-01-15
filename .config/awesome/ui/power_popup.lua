@@ -4,9 +4,9 @@ local wibox = require("wibox")
 local gears = require("gears")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
+local helpers = require("helpers")
 
 -- Buttons
-local button_bg = theme.bg_focus
 local button_size = dpi(42)
 
 -- Powermenu Icons
@@ -37,7 +37,7 @@ local create_button = function(symbol, command)
     align = "center",
     valign = "center",
     resize = true,
-    clip_shape = gears.shape.rounded_rect,
+    clip_shape = helpers.rrect(),
     image = symbol,
     widget = wibox.widget.imagebox(),
   })
@@ -50,7 +50,7 @@ local create_button = function(symbol, command)
     },
     forced_height = button_size,
     forced_width = button_size,
-    clip_shape = gears.shape.rounded_rect,
+    clip_shape = helpers.rrect(),
     widget = wibox.container.background,
   })
 
@@ -127,9 +127,7 @@ p = wibox({
   fg = theme.blue,
   height = dpi(300),
   width = dpi(400),
-  shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, 12)
-  end,
+  shape = helpers.rrect(12),
 })
 
 awful.placement.centered(p)

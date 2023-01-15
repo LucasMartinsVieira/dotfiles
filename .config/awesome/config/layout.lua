@@ -1,13 +1,9 @@
 local awful = require("awful")
-local gears = require("gears")
-
-local scale = true
+local helpers = require("helpers")
 
 -- Rounded Corners
 client.connect_signal("manage", function(c)
-    c.shape = function(cr, w, h)
-        gears.shape.rounded_rect(cr, w, h, 10)
-    end
+    c.shape = helpers.rrect(10)
 end)
 
 -- layouts

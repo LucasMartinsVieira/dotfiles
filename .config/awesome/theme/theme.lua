@@ -12,9 +12,8 @@ local naughty = require("naughty")
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
-local gfs = require("gears.filesystem")
-local themes_path = gfs.get_themes_dir()
 local gcolor = require("gears.color")
+local helpers = require("helpers")
 local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
 local theme = {}
 
@@ -67,17 +66,13 @@ theme.border_normal = theme.color_fg
 theme.border_marked = theme.urgent_bg
 
 -- Notifications 
-naughty.config.defaults.border_width = 0
-naughty.config.defaults.timeout = 5
 theme.notification_spacing    = dpi(4)
 theme.notification_bg         = theme.color_bg
 theme.notification_fg         = theme.color_fg
 theme.notification_max_width  = dpi(1600)
 theme.notification_max_height = dpi(800)
 theme.notification_icon_size  = dpi(60)
-theme.notification_shape = function(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, 4)
-end
+theme.notification_shape = helpers.rrect(4)
 
 -- Menu
 theme.submenu = "    "

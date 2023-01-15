@@ -3,21 +3,20 @@ local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local theme = require("theme.theme")
-
+local helpers = require("helpers")
 local dpi = beautiful.xresources.apply_dpi
 
 -- Profile Pic
 local pfp = wibox.widget.imagebox()
 pfp.image = theme.pfp
---pfp.clip_shape = gears.shape.circle
-pfp.clip_shape = gears.shape.rounded_rect
+pfp.clip_shape = helpers.rrect()
 pfp.forced_width = dpi(130)
 pfp.forced_height = dpi(130)
 
 -- User
 local user = os.getenv("USER")
 local username = wibox.widget.textbox()
-username.markup = "<span foreground='" .. theme.blue .. "'>" .. user:sub(1, 1):upper() .. user:sub(2) .. "</span>"
+username.markup = helpers.colorize_text(user:sub(1, 1):upper() .. user:sub(2), theme.blue )
 username.font = theme.font .. " Bold 16"
 username.align = "left"
 
@@ -27,7 +26,7 @@ hostname.font = theme.font .. " Bold 14"
 hostname.align = "left"
 
 awful.spawn.easy_async_with_shell("cat /etc/hostname", function(stdout)
-  hostname.markup = "<span foreground='" .. theme.yellow .. "'>" .. "@" .. stdout .. "</span>"
+  hostname.markup = helpers.colorize_text("@" .. stdout, theme.yellow)
 end)
 
 -- Uptime
@@ -95,7 +94,7 @@ local create_button = function(symbol, command)
     align = "center",
     valign = "center",
     resize = true,
-    clip_shape = gears.shape.rounded_rect,
+    clip_shape = helpers.rrect(),
     image = symbol,
     widget = wibox.widget.imagebox(),
   })
@@ -108,7 +107,7 @@ local create_button = function(symbol, command)
     },
     forced_height = button_size,
     forced_width = button_size,
-    clip_shape = gears.shape.rounded_rect,
+    clip_shape = helpers.rrect(),
     widget = wibox.container.background,
   })
 

@@ -1,31 +1,31 @@
 local awful = require "awful"
 local gears = require "gears"
 local wibox = require "wibox"
-local beautiful = require "beautiful"
+local helpers = require("helpers")
 local theme = require("theme.theme")
 local vol1 = require("lib.volume")
 
 -- Volume
 local volume = wibox.widget.textbox()
-volume.font = beautiful.font .. " 18"
+volume.font = theme.font .. " 18"
 
 local percentage = wibox.widget.textbox()
-percentage.font = beautiful.font .. " 18"
+percentage.font = theme.font .. " 18"
 
 awesome.connect_signal("signal::volume", function(vol, mute)
 	vol = tonumber(vol)
 	if mute or vol == 0 then
-		volume.markup = "<span foreground='"..theme.red.."'>婢</span>"
+    volume.markup = helpers.colorize_text("婢", theme.red)
 		percentage.markup = "Muted"
 	else
 		if vol < 30 then
-			volume.markup = "<span foreground='"..theme.blue.."'>ﱜ</span>"
+      volume.markup = helpers.colorize_text("ﱜ", theme.blue)
 			percentage.markup = vol .. "%"
 		elseif vol < 60 then
-			volume.markup = "<span foreground='"..theme.blue.."'>奔</span>"
+      volume.markup = helpers.colorize_text("奔", theme.blue)
 			percentage.markup = vol .. "%"
     else
-			volume.markup = "<span foreground='"..theme.blue.."'>墳</span>"
+      volume.markup = helpers.colorize_text("墳", theme.blue)
 			percentage.markup = vol .. "%"
 		end
 	end
