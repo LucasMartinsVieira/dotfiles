@@ -12,10 +12,12 @@ power.markup = "⏻"
 
 power:connect_signal("mouse::enter", function()
   power.markup = helpers.colorize_text("⏻", theme.red)
+  power.font = theme.font .. " 20"
 end)
 
 power:connect_signal("mouse::leave", function()
   power.markup = "⏻"
+  power.font = theme.font .. " 18"
 end)
 
 power:buttons(gears.table.join(

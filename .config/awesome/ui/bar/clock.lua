@@ -5,16 +5,15 @@ local theme = require("theme.theme")
 local calendar_widget = require("ui.calendar")
 local calendar = calendar_widget()
 
-local clock = wibox.widget {
-  format = "%a %d %b, %H:%M",
+local clock = wibox.widget({
+  format = "%H:%M",
+  --format = "%a %d %b, %H:%M",
   font = theme.font,
-  widget = wibox.widget.textclock
-}
+  widget = wibox.widget.textclock,
+})
 
-clock:buttons(gears.table.join(
-  awful.button({}, 1, nil, function ()
-    calendar.toggle()
-  end)
-))
+clock:buttons(gears.table.join(awful.button({}, 1, function()
+  calendar.toggle()
+end)))
 
 return clock

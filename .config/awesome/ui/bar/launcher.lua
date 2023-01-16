@@ -12,10 +12,12 @@ launcher.markup = ""
 
 launcher:connect_signal("mouse::enter", function()
   launcher.markup = helpers.colorize_text("", theme.blue)
+  launcher.font = theme.font .. " 20"
 end)
 
 launcher:connect_signal("mouse::leave", function()
   launcher.markup = ""
+  launcher.font = theme.font .. " 18"
 end)
 
 launcher:buttons(gears.table.join(
