@@ -13,8 +13,22 @@ awesome.connect_signal("signal::updates", function(upd)
   upd = tonumber(upd)
   if upd == 0 then
     updates.markup = helpers.colorize_text("", theme.yellow)
+
+    updates:connect_signal("mouse::enter", function()
+      updates.font = theme.font .. " 22"
+    end)
+    updates:connect_signal("mouse::leave", function()
+      updates.font = theme.font .. " 20"
+    end)
   else
     updates.markup = helpers.colorize_text("", theme.yellow)
+
+    updates:connect_signal("mouse::enter", function()
+      updates.font = theme.font .. " 22"
+    end)
+    updates:connect_signal("mouse::leave", function()
+      updates.font = theme.font .. " 20"
+    end)
   end
 end)
 

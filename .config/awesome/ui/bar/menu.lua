@@ -12,10 +12,12 @@ menu.markup = ""
 
 menu:connect_signal("mouse::enter", function ()
   menu.markup = helpers.colorize_text("", theme.blue)
+  menu.font = theme.font .. " 32"
 end)
 
 menu:connect_signal("mouse::leave", function ()
   menu.markup = ""
+  menu.font = theme.font .. " 30"
 end)
 
 menu:buttons(gears.table.join(

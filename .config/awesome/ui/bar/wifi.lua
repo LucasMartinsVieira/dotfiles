@@ -11,8 +11,22 @@ wifi.font = theme.font .. " 18"
 awesome.connect_signal("signal::wifi", function (net_status)
   if net_status == false then
     wifi.markup = helpers.colorize_text("睊", theme.red)
+
+    wifi:connect_signal("mouse::enter", function()
+      wifi.font = theme.font .. " 20"
+end)
+    wifi:connect_signal("mouse::leave", function()
+      wifi.font = theme.font .. " 18"
+end)
   else
     wifi.markup = helpers.colorize_text("直", theme.green)
+
+    wifi:connect_signal("mouse::enter", function()
+      wifi.font = theme.font .. " 20"
+end)
+    wifi:connect_signal("mouse::leave", function()
+      wifi.font = theme.font .. " 18"
+end)
   end
 end)
 
