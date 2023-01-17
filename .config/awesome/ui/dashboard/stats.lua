@@ -157,6 +157,43 @@ updates:buttons(gears.table.join(
   end)
 ))
 
+-- Hover
+wifi:connect_signal("mouse::enter", function()
+  wifi_icon.font = theme.font .. " 28"
+  wifi_info.font = theme.font .. " 14"
+end)
+wifi:connect_signal("mouse::leave", function()
+  wifi_icon.font = theme.font .. " 26"
+  wifi_info.font = theme.font .. " 12"
+end)
+
+disk:connect_signal("mouse::enter", function()
+  disk_icon.font = theme.font .. " 28"
+  disk_info.font = theme.font .. " 14"
+end)
+disk:connect_signal("mouse::leave", function()
+  disk_icon.font = theme.font .. " 26"
+  disk_info.font = theme.font .. " 12"
+end)
+
+volume:connect_signal("mouse::enter", function()
+  volume_icon.font = theme.font .. " 28"
+  volume_info.font = theme.font .. " 14"
+end)
+volume:connect_signal("mouse::leave", function()
+  volume_icon.font = theme.font .. " 26"
+  volume_info.font = theme.font .. " 12"
+end)
+
+updates:connect_signal("mouse::enter", function()
+  updates_icon.font = theme.font .. " 28"
+  updates_info.font = theme.font .. " 14"
+end)
+updates:connect_signal("mouse::leave", function()
+  updates_icon.font = theme.font .. " 26"
+  updates_info.font = theme.font .. " 12"
+end)
+
 -- function to centralize widgets
 local function center_widget(widget)
   return wibox.widget({

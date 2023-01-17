@@ -27,7 +27,7 @@ tray:buttons(gears.table.join(awful.button({}, 1, function()
   tray_popup_show()
 
   if tray_popup.visible == true then
-    tray.markup = helpers.colorize_text("", theme.green)
+    tray.markup = helpers.colorize_text("", theme.blue)
   else
     tray.markup = ""
   end
@@ -40,7 +40,7 @@ tray.widget = wibox.widget({
         widget = wibox.widget.systray,
         horizontal = false,
         screen = s,
-        base_size = 16,
+        base_size = 22,
       },
       layout = wibox.layout.fixed.horizontal,
     },
