@@ -32,7 +32,6 @@ theme.color_bg_alt = colors.bg_alt
 theme.focus_bg    = colors.bg_focus
 theme.urgent_bg   = colors.bg_urgent
 theme.minimize_bg = colors.bg_minimize
-theme.systray_bg  = colors.bg_systray
 theme.color_fg    = colors.fg_color
 
 -- Taglist
@@ -53,7 +52,6 @@ theme.bg_alt      = theme.color_bg_alt
 theme.bg_focus    = theme.focus_bg
 theme.bg_urgent   = theme.urgent_bg
 theme.bg_minimize = theme.minimize_bg
-theme.bg_systray  = theme.systray_bg
 
 theme.fg_normal   = theme.color_fg
 theme.fg_focus    = theme.color_fg
@@ -74,6 +72,11 @@ theme.notification_max_width  = dpi(1600)
 theme.notification_max_height = dpi(800)
 theme.notification_icon_size  = dpi(60)
 theme.notification_shape = helpers.rrect(4)
+
+-- Systray
+theme.bg_systray = theme.bg_normal
+theme.systray_max_rows = 7
+theme.systray_icon_spacing = dpi(12)
 
 -- Menu
 theme.submenu = "    "

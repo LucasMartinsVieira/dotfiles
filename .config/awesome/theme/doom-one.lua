@@ -7,7 +7,6 @@ colors.bg_alt      = "#3d4148"
 colors.bg_focus    = "#3f444a"
 colors.bg_urgent   = "#ff6c6b"
 colors.bg_minimize = "#282c34"
-colors.bg_systray  = "#282c34"
  
 -- Fg Colors
 colors.fg_color   = "#bbc2cf"
