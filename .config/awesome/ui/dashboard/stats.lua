@@ -8,56 +8,70 @@ local helpers = require("helpers")
 
 -- Disk
 local disk_icon = wibox.widget({
-  font = theme.font .. " 26",
+  font = theme.font .. " 22",
   align = "left",
   markup = helpers.colorize_text("", theme.red),
   widget = wibox.widget.textbox(),
 })
 
 local disk_info = wibox.widget({
-  font = theme.font .. " 12",
+  font = theme.font .. " 11",
   align = "left",
   widget = wibox.widget.textbox(),
 })
 
 -- Volume
 local volume_icon = wibox.widget({
-  font = theme.font .. " 26",
+  font = theme.font .. " 22",
   align = "left",
   markup = helpers.colorize_text("墳", theme.blue),
   widget = wibox.widget.textbox(),
 })
 
 local volume_info = wibox.widget({
-  font = theme.font .. " 12",
+  font = theme.font .. " 11",
   align = "left",
   widget = wibox.widget.textbox(),
 })
 
 -- Updates
 local updates_icon = wibox.widget({
-  font = theme.font .. " 26",
+  font = theme.font .. " 22",
   align = "left",
   markup = helpers.colorize_text("", theme.yellow),
   widget = wibox.widget.textbox(),
 })
 
 local updates_info = wibox.widget({
-  font = theme.font .. " 12",
+  font = theme.font .. " 11",
   align = "left",
   widget = wibox.widget.textbox(),
 })
 
 -- Wifi
 local wifi_icon = wibox.widget({
-  font = theme.font .. " 26",
+  font = theme.font .. " 22",
   align = "left",
   markup = helpers.colorize_text("直", theme.green),
   widget = wibox.widget.textbox(),
 })
 
 local wifi_info = wibox.widget({
-  font = theme.font .. " 12",
+  font = theme.font .. " 11",
+  align = "left",
+  widget = wibox.widget.textbox(),
+})
+
+-- Battery
+local battery_icon = wibox.widget({
+  font = theme.font .. " 22",
+  align = "left",
+  markup = helpers.colorize_text("", theme.green),
+  widget = wibox.widget.textbox(),
+})
+
+local battery_info = wibox.widget({
+  font = theme.font .. " 11",
   align = "left",
   widget = wibox.widget.textbox(),
 })
@@ -89,6 +103,28 @@ local function get_val()
      updates_info.markup = helpers.colorize_text(upd, theme.yellow)
   end)
 end
+
+awesome.connect_signal("signal::battery", function(bat_level)
+  bat_level = tonumber(bat_level)
+
+  if bat_level <= 20 then
+    battery_icon.markup = helpers.colorize_text("", theme.red)
+    battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.red)
+  elseif bat_level <= 40 then
+    battery_icon.markup = helpers.colorize_text("", theme.green)
+    battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
+  elseif bat_level <= 60 then
+    battery_icon.markup = helpers.colorize_text("", theme.green)
+    battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
+  elseif bat_level <= 80 then
+    battery_icon.markup = helpers.colorize_text("", theme.green)
+    battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
+    else
+    battery_icon.markup = helpers.colorize_text("", theme.green)
+    battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
+  end
+
+end)
 
 local function get_wifi()
   awesome.connect_signal("signal::wifi", function(net_status, net_stregth)
@@ -128,6 +164,7 @@ local wifi = grouping_widgets(wifi_icon, wifi_info)
 local disk = grouping_widgets(disk_icon, disk_info)
 local volume = grouping_widgets(volume_icon, volume_info)
 local updates = grouping_widgets(updates_icon, updates_info)
+local battery = grouping_widgets(battery_icon, battery_info)
 
 -- Buttons
 volume:buttons(gears.table.join(
@@ -159,39 +196,48 @@ updates:buttons(gears.table.join(
 
 -- Hover
 wifi:connect_signal("mouse::enter", function()
-  wifi_icon.font = theme.font .. " 28"
-  wifi_info.font = theme.font .. " 14"
+  wifi_icon.font = theme.font .. " 24"
+  wifi_info.font = theme.font .. " 13"
 end)
 wifi:connect_signal("mouse::leave", function()
-  wifi_icon.font = theme.font .. " 26"
-  wifi_info.font = theme.font .. " 12"
+  wifi_icon.font = theme.font .. " 22"
+  wifi_info.font = theme.font .. " 11"
 end)
 
 disk:connect_signal("mouse::enter", function()
-  disk_icon.font = theme.font .. " 28"
-  disk_info.font = theme.font .. " 14"
+  disk_icon.font = theme.font .. " 24"
+  disk_info.font = theme.font .. " 13"
 end)
 disk:connect_signal("mouse::leave", function()
-  disk_icon.font = theme.font .. " 26"
-  disk_info.font = theme.font .. " 12"
+  disk_icon.font = theme.font .. " 22"
+  disk_info.font = theme.font .. " 11"
 end)
 
 volume:connect_signal("mouse::enter", function()
-  volume_icon.font = theme.font .. " 28"
-  volume_info.font = theme.font .. " 14"
+  volume_icon.font = theme.font .. " 24"
+  volume_info.font = theme.font .. " 13"
 end)
 volume:connect_signal("mouse::leave", function()
-  volume_icon.font = theme.font .. " 26"
-  volume_info.font = theme.font .. " 12"
+  volume_icon.font = theme.font .. " 22"
+  volume_info.font = theme.font .. " 11"
 end)
 
 updates:connect_signal("mouse::enter", function()
-  updates_icon.font = theme.font .. " 28"
-  updates_info.font = theme.font .. " 14"
+  updates_icon.font = theme.font .. " 24"
+  updates_info.font = theme.font .. " 13"
 end)
 updates:connect_signal("mouse::leave", function()
-  updates_icon.font = theme.font .. " 26"
-  updates_info.font = theme.font .. " 12"
+  updates_icon.font = theme.font .. " 22"
+  updates_info.font = theme.font .. " 11"
+end)
+
+battery:connect_signal("mouse::enter", function()
+  battery_icon.font = theme.font .. " 24"
+  battery_info.font = theme.font .. " 13"
+end)
+battery:connect_signal("mouse::leave", function()
+  battery_icon.font = theme.font .. " 22"
+  battery_info.font = theme.font .. " 11"
 end)
 
 -- function to centralize widgets
@@ -212,6 +258,7 @@ end
 return center_widget(wibox.widget({
   wifi,
   disk,
+  battery,
   volume,
   updates,
   spacing = dpi(18),

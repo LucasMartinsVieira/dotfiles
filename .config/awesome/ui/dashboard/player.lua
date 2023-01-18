@@ -62,6 +62,28 @@ previous:buttons(gears.table.join(awful.button({}, 1, function()
   awful.spawn("playerctl previous")
 end)))
 
+-- Hover
+toggle:connect_signal("mouse::enter", function()
+  toggle.font = theme.font .. " 20"
+end)
+toggle:connect_signal("mouse::leave", function()
+  toggle.font = theme.font .. " 18"
+end)
+
+next:connect_signal("mouse::enter", function()
+  next.font = theme.font .. " 24"
+end)
+next:connect_signal("mouse::leave", function()
+  next.font = theme.font .. " 22"
+end)
+
+previous:connect_signal("mouse::enter", function()
+  previous.font = theme.font .. " 24"
+end)
+previous:connect_signal("mouse::leave", function()
+  previous.font = theme.font .. " 22"
+end)
+
 -- Data
 awesome.connect_signal("signal::player", function(t, a, s, l)
   if not s:match("Playing") then

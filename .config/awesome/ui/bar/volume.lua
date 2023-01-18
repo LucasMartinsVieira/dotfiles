@@ -25,7 +25,7 @@ awesome.connect_signal("signal::volume", function(vol, mute)
       volume.font = theme.font .. " 18"
     end)
   else
-    if vol < 30 then
+    if vol <= 30 then
       volume.markup = helpers.colorize_text("ﱜ", theme.blue)
       percentage.markup = vol .. "%"
 
@@ -35,7 +35,7 @@ awesome.connect_signal("signal::volume", function(vol, mute)
       volume:connect_signal("mouse::leave", function()
         volume.font = theme.font .. " 18"
       end)
-    elseif vol < 60 then
+    elseif vol <= 60 then
       volume.markup = helpers.colorize_text("奔", theme.blue)
       percentage.markup = vol .. "%"
 

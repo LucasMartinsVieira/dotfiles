@@ -8,6 +8,7 @@ local updt = require("lib.updates")
 
 local updates = wibox.widget.textbox()
 updates.font = theme.font .. " 20"
+updates.markup = helpers.colorize_text("", theme.yellow)
 
 awesome.connect_signal("signal::updates", function(upd)
   upd = tonumber(upd)

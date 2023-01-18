@@ -15,6 +15,7 @@ local power = require("ui.bar.power")
 local task = require("ui.bar.task")
 local tag = require("ui.bar.tag")
 local tray = require("ui.bar.tray")
+local battery = require("ui.bar.battery")
 
 --  Wibar
 local function get_bar(s)
@@ -63,13 +64,14 @@ local function get_bar(s)
       wibox.widget.textbox("  "),
       updates,
       wibox.widget.textbox("  "),
+      battery,
+      wibox.widget.textbox("  "),
       tray,
       wibox.widget.textbox("  "),
       launcher,
       wibox.widget.textbox("  "),
       power,
       wibox.widget.textbox("  "),
-      --wibox.widget.systray(),
     },
   })
 end
