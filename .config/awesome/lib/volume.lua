@@ -13,6 +13,7 @@ volume.notification = function ()
 
   awful.spawn.easy_async_with_shell(script, function(out)
 		naughty.notification({
+      app_name = "Volume Tool",
 			message = string.format("Volume: %s", out),
 			timeout = 0.5,
       icon = theme.volume,
@@ -30,6 +31,7 @@ volume.mute_notification = function ()
   
   awful.spawn.easy_async_with_shell(script, function(out)
 		naughty.notification({
+      app_name = "Volume Tool",
 			message = string.format("Volume: %s", out),
 			timeout = 0.5,
       icon = theme.volume,
@@ -42,7 +44,7 @@ end
 
 volume.increase = function ()
   local script = [[
-  amixer -D pulse sset Master 2%+
+  amixer -D pulse sset Master 5%+
   ]]
 
   awful.spawn(script, false)
@@ -51,7 +53,7 @@ end
 
 volume.decrease = function ()
   local script = [[
-  amixer -D pulse sset Master 2%-
+  amixer -D pulse sset Master 5%-
   ]]
 
   awful.spawn(script, false)

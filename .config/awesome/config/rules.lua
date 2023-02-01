@@ -9,8 +9,8 @@ require("awful.autofocus")
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
   -- All clients will match this rule.
-  { rule = { class = "mpv" },
-    properties = { maximized = true } },
+  --[[ { rule = { class = "mpv" }, ]]
+  --[[   properties = { maximized = true } }, ]]
 
   { rule = { class = "Gimp" },
     properties = {

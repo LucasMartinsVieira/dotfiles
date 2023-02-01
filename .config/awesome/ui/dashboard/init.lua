@@ -35,11 +35,13 @@ end
 local profile_widget = require("ui.dashboard.profile")
 local player_widget = require("ui.dashboard.player")
 local stats_widget = require("ui.dashboard.stats")
+--local notifications_widget = require("ui.dashboard.notification_center2")
 
 -- Combine Widgets
 local profile = box_widget(profile_widget, 380, 210)
 local player = box_widget(player_widget, 380, 150)
 local stats = box_widget(stats_widget, 380, 100)
+--local notifications = box_widget(notifications_widget, 380, 300)
 
 -- Spacing
 local space = function(height)
@@ -67,6 +69,7 @@ dashboard:setup({
     profile,
     player,
     stats,
+    --notifications,
     spacing = dpi(20),
     layout = wibox.layout.fixed.vertical,
   },

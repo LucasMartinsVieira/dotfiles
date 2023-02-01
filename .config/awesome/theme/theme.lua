@@ -13,7 +13,7 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local gcolor = require("gears.color")
-local helpers = require("helpers")
+--local helpers = require("helpers")
 local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme/assets/"
 
 local theme = {}
@@ -64,15 +64,6 @@ theme.border_width  = dpi(2)
 theme.border_normal = theme.color_fg
 theme.border_marked = theme.urgent_bg
 
--- Notifications 
-theme.notification_spacing    = dpi(4)
-theme.notification_bg         = theme.color_bg
-theme.notification_fg         = theme.color_fg
-theme.notification_max_width  = dpi(1600)
-theme.notification_max_height = dpi(800)
-theme.notification_icon_size  = dpi(60)
-theme.notification_shape = helpers.rrect(4)
-
 -- Systray
 theme.bg_systray = theme.bg_normal
 theme.systray_max_rows = 7
@@ -101,6 +92,7 @@ theme.camera = icons_dir .. "camera.png"
 theme.volume = icons_dir .. "volume.png"
 theme.updates = icons_dir .. "updates.png"
 theme.album_art = icons_dir .. "album.jpg"
+theme.notifications = gcolor.recolor_image(icons_dir .. "notifications.svg", theme.yellow)
 
 -- Power Popup
 theme.power = gcolor.recolor_image(icons_dir .. "power/power.png", theme.red)

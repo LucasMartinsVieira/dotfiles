@@ -12,6 +12,7 @@ local isDark = true
 require("awful.autofocus")
 require("ui.power_popup")
 require("ui.dashboard")
+require("ui.notification_center")
 local modkey = "Mod4"
 
 awful.keyboard.append_global_keybindings({
@@ -151,6 +152,15 @@ awful.keyboard.append_global_keybindings({
   }),
   awful.key({
     modifiers = { modkey, "Control" },
+    key = "n",
+    description = "Notification Center",
+    group = "User",
+    on_press = function()
+      notifs_toggle()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Control" },
     key = "w",
     description = "Set a Random Wallpaper",
     group = "User",
@@ -220,7 +230,7 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
-    modifiers = { modkey, "Control" },
+    modifiers = { modkey, "Shift" },
     key = "n",
     description = "Restored Minimized",
     group = "Client",

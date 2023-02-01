@@ -67,7 +67,15 @@ screenshot.full = function()
   ]]
 
   awful.spawn.with_shell(script)
-  screenshot.notification(location)
+	gears.timer {
+		timeout = 1,
+		autostart = false,
+		call_now = false,
+		single_shot = true,
+		callback = function()
+      screenshot.notification(location)
+		end
+	}:start()
 end
 
 return screenshot

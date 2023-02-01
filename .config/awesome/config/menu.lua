@@ -1,7 +1,6 @@
 local awful = require("awful")
 local helpers = require("helpers")
 local applications = require("config.applications")
-local screenshot = require("lib.screenshot")
 
 awesomemenu = {
   { "Shutdown", function()  awful.spawn.with_shell("systemctl poweroff") end },
@@ -10,15 +9,9 @@ awesomemenu = {
   { "Quit", function() awesome.quit() end },
 }
 
-screenshotmenu = {
-  { "Choose Area", function() screenshot.area() end },
-  { "Fullscreen", function() screenshot.full() end },
-}
-
 mainmenu = awful.menu {
 	items = {
     { "Awesome", awesomemenu },
-    { "Screenshot", screenshotmenu },
     { "Applications", applications.default.app_launcher },
 		{ "Browser", applications.default.browser },
 		{ "Terminal", applications.default.terminal_emulator },
