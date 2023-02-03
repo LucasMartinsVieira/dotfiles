@@ -7,6 +7,7 @@ local helpers = require("helpers")
 
 local wifi = wibox.widget.textbox()
 wifi.font = theme.font .. " 18"
+helpers.add_hover_cursor(wifi, "hand1")
 
 awesome.connect_signal("signal::wifi", function (net_status)
   if net_status == false then

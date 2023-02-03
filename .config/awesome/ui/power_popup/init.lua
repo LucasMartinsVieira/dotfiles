@@ -186,7 +186,7 @@ function power_popup_show()
 end
 
 popup_timer = gears.timer {
-  timeout = 3.5,
+  timeout = 16,
 	single_shot = true,
   callback = function()
     p.visible = false

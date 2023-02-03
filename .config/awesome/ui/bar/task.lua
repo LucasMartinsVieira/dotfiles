@@ -19,6 +19,5 @@ return function(s)
       end),
     },
   })
-
   return task
 end

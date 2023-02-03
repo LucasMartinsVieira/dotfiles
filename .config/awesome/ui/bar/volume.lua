@@ -8,6 +8,7 @@ local vol1 = require("lib.volume")
 -- Volume
 local volume = wibox.widget.textbox()
 volume.font = theme.font .. " 18"
+helpers.add_hover_cursor(volume, "hand1")
 
 local percentage = wibox.widget.textbox()
 percentage.font = theme.font .. " 18"

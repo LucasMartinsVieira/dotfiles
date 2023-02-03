@@ -9,6 +9,7 @@ require("ui.dashboard")
 local menu = wibox.widget.textbox()
 menu.font = theme.font .. " 30"
 menu.markup = ""
+helpers.add_hover_cursor(menu, "hand1")
 
 menu:connect_signal("mouse::enter", function ()
   menu.markup = helpers.colorize_text("", theme.blue)

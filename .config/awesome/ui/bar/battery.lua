@@ -7,6 +7,7 @@ local helpers = require("helpers")
 -- Battery
 local battery = wibox.widget.textbox()
 battery.font = theme.font .. " 20"
+helpers.add_hover_cursor(battery, "hand1")
 
 -- Hover Effect
 battery:connect_signal("mouse::enter", function()

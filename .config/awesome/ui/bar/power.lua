@@ -9,6 +9,7 @@ require("ui.power_popup")
 local power = wibox.widget.textbox()
 power.font = theme.font .. " 18"
 power.markup = "⏻"
+helpers.add_hover_cursor(power, "hand1")
 
 power:connect_signal("mouse::enter", function()
   power.markup = helpers.colorize_text("⏻", theme.red)

@@ -8,6 +8,7 @@ local helpers = require("helpers")
 local tray = wibox.widget.textbox()
 tray.font = theme.font .. " 18"
 tray.markup = ""
+helpers.add_hover_cursor(tray, "hand1")
 
 tray:connect_signal("mouse::enter", function()
   if tray_popup.visible == false then

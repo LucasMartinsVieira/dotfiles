@@ -35,13 +35,13 @@ end
 local profile_widget = require("ui.dashboard.profile")
 local player_widget = require("ui.dashboard.player")
 local stats_widget = require("ui.dashboard.stats")
---local notifications_widget = require("ui.dashboard.notification_center2")
+local powerbar_widget = require("ui.dashboard.powerbar")
 
 -- Combine Widgets
 local profile = box_widget(profile_widget, 380, 210)
 local player = box_widget(player_widget, 380, 150)
 local stats = box_widget(stats_widget, 380, 100)
---local notifications = box_widget(notifications_widget, 380, 300)
+local powerbar = box_widget(powerbar_widget, 380, 100)
 
 -- Spacing
 local space = function(height)
@@ -69,7 +69,7 @@ dashboard:setup({
     profile,
     player,
     stats,
-    --notifications,
+    powerbar,
     spacing = dpi(20),
     layout = wibox.layout.fixed.vertical,
   },
@@ -88,7 +88,7 @@ function dashboard_show()
 end
 
 dashboard.timer = gears.timer {
-  timeout = 10,
+  timeout = 16,
 	single_shot = true,
   callback = function()
     dashboard.visible = false

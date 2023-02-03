@@ -16,6 +16,7 @@ local task = require("ui.bar.task")
 local tag = require("ui.bar.tag")
 local tray = require("ui.bar.tray")
 local battery = require("ui.bar.battery")
+local notification = require("ui.bar.notification")
 
 --  Wibar
 local function get_bar(s)
@@ -65,6 +66,8 @@ local function get_bar(s)
       updates,
       wibox.widget.textbox("  "),
       battery,
+      wibox.widget.textbox("  "),
+      notification,
       wibox.widget.textbox("  "),
       tray,
       wibox.widget.textbox("  "),

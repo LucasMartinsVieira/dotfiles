@@ -2,6 +2,7 @@ local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 local theme = require("theme.theme")
+local helpers = require("helpers")
 local calendar_widget = require("ui.calendar")
 local calendar = calendar_widget()
 
@@ -11,6 +12,7 @@ local clock = wibox.widget({
   font = theme.font .. " 10",
   widget = wibox.widget.textclock,
 })
+helpers.add_hover_cursor(clock, "hand1")
 
 clock:connect_signal("mouse::enter", function()
   clock.font = theme.font .. " 11"

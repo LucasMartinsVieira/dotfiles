@@ -9,6 +9,7 @@ local applications = require("config.applications")
 local launcher = wibox.widget.textbox()
 launcher.font = theme.font .. " 18"
 launcher.markup = ""
+helpers.add_hover_cursor(launcher, "hand1")
 
 launcher:connect_signal("mouse::enter", function()
   launcher.markup = helpers.colorize_text("", theme.blue)
