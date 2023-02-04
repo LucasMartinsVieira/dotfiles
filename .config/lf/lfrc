@@ -127,7 +127,6 @@ map gtp gitpush
 
 # Movement
 map gdc cd ~/Documentos
-map gdm cd ~/Documentos/Media
 map gdw cd ~/Downloads
 map gdv cd ~/dev/
 
@@ -141,6 +140,16 @@ map ge cd /etc/
 map gu cd /usr/
 map gR cd /run/media/
 map gT cd /tmp/
+
+# Media Bindings
+map gm. cd ~/Media/
+map gmc cd ~/Media/Courses/
+map gmm cd ~/Media/Movies/
+map gmb cd ~/Media/Books/
+map gmv cd ~/Media/Videos/
+map gma cd ~/Media/Animes/
+map gms cd ~/Media/Series/
+map gmM cd ~/Media/Mangas/
 
 # Repos bindings
 map gr. cd ~/repos/

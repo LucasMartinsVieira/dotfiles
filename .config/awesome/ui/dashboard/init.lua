@@ -52,7 +52,7 @@ local space = function(height)
 end
 
 -- Dashboard
-local dashboard = wibox({
+dashboard = wibox({
   visible = false,
   ontop = true,
   width = width,
