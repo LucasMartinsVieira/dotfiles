@@ -11,8 +11,8 @@ local album_art = wibox.widget({
   image = theme.album_art,
   resize = true,
   clip_shape = helpers.rrect(),
-  forced_height = dpi(100),
-  forced_width = dpi(100),
+  forced_height = dpi(115),
+  forced_width = dpi(115),
 })
 
 -- Title

@@ -9,7 +9,8 @@ local dpi = beautiful.xresources.apply_dpi
 
 -- Var
 local width = dpi(420)
-local height = awful.screen.focused().geometry.height - dpi(50)
+local height = awful.screen.focused().geometry.height - dpi(120)
+--local height = awful.screen.focused().geometry.height - dpi(50)
 
 local function box_widget(widgets, width, height)
 
@@ -35,12 +36,14 @@ end
 local profile_widget = require("ui.dashboard.profile")
 local player_widget = require("ui.dashboard.player")
 local stats_widget = require("ui.dashboard.stats")
+local weather_widget = require("ui.dashboard.weather")
 local powerbar_widget = require("ui.dashboard.powerbar")
 
 -- Combine Widgets
 local profile = box_widget(profile_widget, 380, 210)
-local player = box_widget(player_widget, 380, 150)
+local player = box_widget(player_widget, 380, 170)
 local stats = box_widget(stats_widget, 380, 100)
+local weather = box_widget(weather_widget, 380, 225)
 local powerbar = box_widget(powerbar_widget, 380, 100)
 
 -- Spacing
@@ -69,8 +72,9 @@ dashboard:setup({
     profile,
     player,
     stats,
+    weather,
     powerbar,
-    spacing = dpi(20),
+    spacing = dpi(25),
     layout = wibox.layout.fixed.vertical,
   },
   margins = { top = dpi(20), bottom = dpi(20) },

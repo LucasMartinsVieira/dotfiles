@@ -7,7 +7,7 @@ local dpi = xresources.apply_dpi
 local helpers = require("helpers")
 
 -- Buttons
-local button_size = dpi(36)
+local button_size = dpi(40)
 
 -- Powermenu Icons
 local power_icon = theme.power
