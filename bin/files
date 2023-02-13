@@ -1,0 +1,35 @@
+#!/bin/bash
+
+declare -A edit_list
+edit_list[Alacritty]="$HOME/.config/alacritty/alacritty.yml"
+edit_list[Awesome]="$HOME/.config/awesome/rc.lua"
+edit_list[Bash]="$HOME/.bashrc"
+edit_list[Fish]="$HOME/.config/fish/config.fish"
+edit_list[Kitty]="$HOME/.config/kitty/kitty.conf"
+edit_list[Neovim]="$HOME/.config/nvim/init.lua"
+edit_list[Picom]="$HOME/.config/picom/picom.conf"
+edit_list[Lf]="$HOME/.config/lf/lfrc"
+edit_list[Qutebrowser]="$HOME/.config/qutebrowser/config.py"
+edit_list[Zathura]="$HOME/.config/zathura/zathurarc"
+edit_list[Neofetch]="$HOME/.config/neofetch/config.conf"
+edit_list[Rofi]="$HOME/.config/rofi/config.rasi"
+
+EDITOR="nvim"
+
+main() {
+  declare -A _clean_list
+  for i in "${!edit_list[@]}"; do
+    [[ -f ${edit_list["${i}"]} ]] && _clean_list["${i}"]=${edit_list["${i}"]}
+  done
+
+  choice=$(printf '%s\n' "${!_clean_list[@]}" | sort | fzf --header="Options" "$@")
+
+  if [ "$choice" ]; then
+    cfg=$(printf '%s\n' "${_clean_list["${choice}"]}")
+    $EDITOR "$cfg"
+  else
+      echo "Program terminated." && exit 0
+  fi
+}
+
+main 

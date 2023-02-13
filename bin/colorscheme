@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+ROFI="rofi -dmenu -i -p"
+ROFI="fzf --header"
+
+declare -A colorschemes
+
+colorschemes[Dracula]="dracula"
+colorschemes[Doom One]="doom-one"
+colorschemes[Nightfly]="nightfly"
+colorschemes[Horizon]="horizon"
+
+choice=$(printf '%s\n' "${!colorschemes[@]}" | sort | ${ROFI}='Choose a colorscheme' "${@}")
+config="${colorschemes["${choice}"]}"
+
+if [ "$choice" ]; then
+  # Set the theme for Kitty
+  sed -i "s|^include ./themes/.*.conf|include ./themes/$config.conf|g" "$HOME"/.config/kitty/kitty.conf
+  # Set the therme for Alacritty
+  sed -i "s|^- ~/.config/alacritty/themes/.*.yml|- ~/.config/alacritty/themes/$config.yml|g" "$HOME/.config/alacritty/alacritty.yml"
+  # Set the theme for Nvim
+  sed -i "s/^local colorscheme = '.*'/local colorscheme = '$config'/g" "$HOME"/.config/nvim/lua/user/colorscheme.lua                                                                                     
+  # Set the theme for Rofi
+  sed -i 's|^@theme "~/.config/rofi/themes/.*.rasi"|@theme "~/.config/rofi/themes/'$config'.rasi"|g' "$HOME/.config/rofi/config.rasi"
+  # Set the theme for AwesomeWM
+  sed -i "s|^local colors = require('theme.*')|local colors = require('theme.$config')|g" "$HOME"/.config/awesome/theme/theme.lua
+  # Restart Awesome
+  awesome-client 'awesome.restart()';
+  else
+   echo "Program terminated." && exit 0
+fi

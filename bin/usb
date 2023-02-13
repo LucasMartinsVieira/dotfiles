@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# TODO: Add a umount/mount all functions
+
+# Help message
+help() {
+     printf 'usb [options]\n
+    -h\tDisplays this help menu
+    -m\tMount usb drive
+    -M\tMount All usb drives
+    -u\tUmount usb drive
+    -U\tUmount All usb drives\n'
+}
+
+# Mount Function
+mount() {
+  #mountable="$(lsblk -lp | awk '/^\/dev\/sd.*part $/ { print $1 " ("$4")" }')"
+  mountable="$(lsblk -lp | grep -v -e sda -e rom -e NAME | awk '{ print $1 }')"
+  [ "$mountable" = "" ] && exit 1
+  choice="$(printf '%s\n' "quit" "$mountable"  | fzf --header="Mount options" || exit 1)"
+  [ "$choice" = "quit" ] && exit 0
+  makedir="$(printf "$choice" | sed -e 's/(//' -e 's/)//' | awk -F '/' '{ print $3 }' | awk '{ print $1 }')"
+  drive="$(printf "$choice" | awk '{ print $1 }')"
+  mkdir -p "/tmp/usb-$makedir" && doas mount "$drive" "/tmp/usb-$makedir"
+  printf "USB was mounted at /tmp/usb-$makedir"
+}
+
+mountall() {
+  printf "Function in development"
+}
+# Umount Function
+umount() {
+  mount=$(lsblk -lp | grep "/tmp")
+  [ "$mount" = "" ] && exit 1
+  umount_choice="$(printf '%s\n' "$mount" "quit" | awk '{ print $1 }' | fzf --header="Umount options" || exit 1)"
+  [ "$umount_choice" = "quit" ] && exit 1
+  doas umount "$umount_choice"
+}
+
+umountall() {
+  printf "Function in development"
+
+  mount=$(lsblk -lp | grep "/tmp")
+  [ "$mount" = "" ] && exit 1
+}
+
+# Environment Variables
+while getopts "hmMuU" arg 2>/dev/null; do
+    case "${arg}" in
+        h) help ;;
+        m) mount ;;
+        M) mountall ;;
+        u) umount ;;
+        U) umountall ;;
+        *) help 
+    esac
+done

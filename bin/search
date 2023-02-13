@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+BROWSER="xdg-open"
+
+declare -A websearch
+
+websearch[Ali Express]="https://pt.aliexpress.com/wholesale?catId=0&SearchText="
+websearch[Amazon]="https://www.amazon.com.br/s?k="
+websearch[Arch AUR]="https://aur.archlinux.org/packages?O=0&K="
+websearch[Arch Pkg]="https://archlinux.org/packages/?sort=&q="
+websearch[Arch Wiki]="https://wiki.archlinux.org/index.php?search="
+websearch[Bing]="https://www.bing.com/search?q="
+websearch[Duckduckgo]="https://duckduckgo.com/?q="
+websearch[Ecosia]="https://www.ecosia.org/search?q="
+websearch[GitHub]="https://github.com/search?q="
+websearch[Google]="https://www.google.com/search?q="
+websearch[Google Images]="https://www.google.com/search?hl=en&tbm=isch&q="
+websearch[Google News]="https://news.google.com/search?q="
+websearch[Letterboxd]="https://letterboxd.com/search/"
+websearch[Mercado Livre]="https://lista.mercadolivre.com.br/"
+websearch[Odysse]="https://odysee.com/$/search?q="
+websearch[Reedit]="https://www.reddit.com/search/?q="
+websearch[Stackoverflow]="https://stackoverflow.com/search?q="
+websearch[Translate]="https://translate.google.com/?sl=auto&tl=en&text="
+websearch[Twitter]="https://twitter.com/search?q="
+websearch[Wikipedia]="https://pt.wikipedia.org/wiki/"
+websearch[Wiktionary]="https://pt.wiktionary.org/w/index.php?search="
+websearch[Youtube]="https://www.youtube.com/results?search_query="
+websearch[Brave]="https://search.brave.com/search?q="
+
+main(){
+
+engine=$(printf '%s\n' "${!websearch[@]}" | sort | fzf --header='Choose The Search Engine' "$@") || exit 1
+url="${websearch["${engine}"]}"
+
+read -p "Searching in ${engine}: " query || exit
+
+${BROWSER} "${url}${query}"
+}
+main

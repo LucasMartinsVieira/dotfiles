@@ -1,0 +1,76 @@
+#!/bin/bash
+
+TRASHBIN="$HOME/.local/share/Trash/files/"
+TRASHCACHE="$HOME/.local/share/Trash/info/"
+MVCMD="mv $* $TRASHBIN"
+
+if [ ! -d "$TRASHBIN" ]; then
+  mkdir -p "$TRASHBIN"
+fi
+
+trash() {
+  $MVCMD
+  echo "The files were directed to the trash bin"
+  echo
+  echo "The trash bin location is: $TRASHBIN"
+}
+
+empty() {
+  if [[ $(ls "$TRASHBIN" | wc -l) -gt 0 ]]; then
+    read -rp "Empty the trash bin? (y/N): " confirm
+    case $confirm in
+       [Yy]* ) rm -rf "${TRASHBIN:?}/"* && rm -rf "${TRASHCACHE:?/}"* && echo "Trash bin has been emptied"
+         ;;
+       [Nn]* ) echo "User choose not to empty the trash bin"
+         ;;
+       * ) echo "User choose not to empty the trash bin"
+    esac
+  else
+    echo "Trash is empty"
+  fi
+}
+
+list() {
+    if [[ $(ls "$TRASHBIN" | wc -l) -gt 0 ]]; then
+    echo 
+    echo "Trash can list:"
+    echo "---------------"
+    ls -a "$TRASHBIN"
+    echo 
+    echo "Total Files: $(ls "$TRASHBIN" | wc -l)"
+    echo 
+  else
+    echo "Trash is empty"
+  fi
+}
+
+help() {
+  echo "Usage trash [options]"
+  echo "      trash [-b] <file>"
+  echo ""
+  echo "  -h Prints this help message"
+  echo "  -e Empty your trash can"
+  echo "  -l List files in your trash can"
+  echo "  -b Put the file(s) in your trash folder"
+  echo ""
+}
+
+while getopts elbh opt; do
+    case "${opt}" in
+        h)
+          help
+          ;;
+        e)
+          empty
+          ;;
+        l)
+          list 
+          ;;
+        b)
+          trash
+          ;;
+        *)
+          help
+          ;;
+    esac
+done

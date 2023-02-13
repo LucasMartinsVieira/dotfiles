@@ -1,0 +1,6 @@
+[submodule "cfg/awesome/user_vars/cfg/awesome/lib/bling"]
+	path = cfg/awesome/user_vars/cfg/awesome/lib/bling
+	url = https://github.com/BlingCorp/bling
+[submodule "cfg/awesome/lib/bling"]
+	path = cfg/awesome/lib/bling
+	url = https://github.com/BlingCorp/bling
