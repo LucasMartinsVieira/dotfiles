@@ -38,9 +38,6 @@ return packer.startup(function(use)
   -- indent Blankline
   use("lukas-reineke/indent-blankline.nvim")
 
-  -- Vim wiki
-  use({ "vimwiki/vimwiki" })
-
   -- Dashboard (Alpha)
   use({
     "goolord/alpha-nvim",
@@ -76,8 +73,9 @@ return packer.startup(function(use)
   use({ "honza/vim-snippets" })
 
   -- LSP
-  use({ "neovim/nvim-lspconfig", requires = "williamboman/nvim-lsp-installer" })
+  use({ "neovim/nvim-lspconfig" })
   use({ "williamboman/mason.nvim" })
+  use({ "williamboman/mason-lspconfig.nvim" })
 
   -- Better lights on syntax
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

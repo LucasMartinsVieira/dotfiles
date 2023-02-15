@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/home/lucas/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/lucas/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
   ["mason.nvim"] = {
     loaded = true,
     path = "/home/lucas/.local/share/nvim/site/pack/packer/start/mason.nvim",
@@ -189,11 +194,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lucas/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/lucas/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -264,11 +264,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lucas/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://github.com/honza/vim-snippets"
-  },
-  vimwiki = {
-    loaded = true,
-    path = "/home/lucas/.local/share/nvim/site/pack/packer/start/vimwiki",
-    url = "https://github.com/vimwiki/vimwiki"
   },
   ["winbar.nvim"] = {
     loaded = true,
