@@ -23,14 +23,21 @@ return packer.startup(function(use)
   use({ "romgrk/doom-one.vim" })
   use({ "lunarvim/horizon.nvim" })
 
-  -- FZF
-  use({ "junegunn/fzf" })
+  -- Telescope
+  use({ "nvim-telescope/telescope.nvim" })
+  use({ "nvim-telescope/telescope-project.nvim" })
 
-  -- Winbar
-  use({ "fgheng/winbar.nvim" })
+  -- Bufferline
+  use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' })
 
   -- ToggleTerm
   use({ "akinsho/toggleterm.nvim" })
+
+  -- Neoscroll
+  use({ "karb94/neoscroll.nvim" })
+
+  -- Navic
+  use({ "SmiteshP/nvim-navic" })
 
   -- AutoPairs
   use({ "jiangmiao/auto-pairs" })
@@ -45,6 +52,12 @@ return packer.startup(function(use)
       require("alpha").setup(require("alpha.themes.dashboard").config)
     end,
   })
+
+  -- Illuminate
+  use({ "RRethy/vim-illuminate" })
+
+  -- Fidget
+  use({"j-hui/fidget.nvim"})
 
   -- Markdown preview
   use({

@@ -1,15 +1,15 @@
 local opts = { noremap = true, silent = true }
 
 local function nmap(key, map)
-  vim.api.nvim_set_keymap("n", key, map, opts)
+	vim.api.nvim_set_keymap("n", key, map, opts)
 end
 
 local function imap(key, map)
-  vim.api.nvim_set_keymap("i", key, map, opts)
+	vim.api.nvim_set_keymap("i", key, map, opts)
 end
 
 local function vmap(key, map)
-  vim.api.nvim_set_keymap("v", key, map, opts)
+	vim.api.nvim_set_keymap("v", key, map, opts)
 end
 
 local keymap = vim.api.nvim_set_keymap
@@ -36,6 +36,14 @@ nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>")
 nmap("<M-1>", "<CMD>ToggleTerm direction=horizontal<CR>")
 nmap("<M-2>", "<CMD>ToggleTerm size=40 direction=vertical<CR>")
 nmap("<M-3>", "<CMD>ToggleTerm direction=float<CR>")
+
+-- Telescope
+nmap("<space>ff", "<CMD>Telescope find_files<CR>")
+nmap("<space>fb", "<CMD>Telescope buffers<CR>")
+nmap("<space>fm", "<CMD>Telescope man_pages<CR>")
+nmap("<space>fg", "<CMD>Telescope live_grep<CR>")
+nmap("<space>fc", "<CMD>Telescope colorscheme<CR>")
+nmap("<space>fk", "<CMD>Telescope keymaps<CR>")
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>")
