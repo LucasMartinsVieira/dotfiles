@@ -1,0 +1,81 @@
+local servers = {
+  "bashls",
+  "clangd",
+  "html",
+  "jsonls",
+  "tsserver",
+  "gopls",
+  "cssls",
+  "lua_ls",
+  "marksman",
+  "pyright",
+  "rust_analyzer",
+  "taplo",
+  "yamlls",
+}
+
+local settings = {
+  ui = {
+    border = "rounded",
+    icons = {
+      package_installed = "✓",
+      package_pending = "⟳",
+      package_uninstalled = "✗",
+    },
+  },
+  log_level = vim.log.levels.INFO,
+  max_concurrent_installers = 4,
+}
+
+return {
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+  },
+  cmd = "Mason",
+  keys = { { "<leader>lm", "<CMD>Mason<CR>", desc = "Mason" } },
+  config = function()
+    local mason = require("mason")
+    local lspconfig = require("mason-lspconfig")
+    mason.setup(settings)
+    lspconfig.setup({
+      ensure_installed = servers,
+      automatic_installation = true,
+    })
+
+    lspconfig.setup_handlers({
+      function(server_name)
+        lspconfig[server_name].setup({
+          capabilities = require("plugins.lsp.handlers").capabilities,
+          on_attach = require("plugins.lsp.handlers").on_attach,
+          --settings = require("plugins.lsp.settings.")[server_name],
+        })
+
+        if server_name == "lua_ls" then
+          settings.lua_ls = require("user.lsp.settings.lua_ls")
+        end
+
+        -- if server_name == "rust_analyzer" then
+        --   settings.rust_analyzer = require("plugins.lsp.settings.rust")
+        -- end
+        --
+        -- if server_name == "tsserver" then
+        --   settings.tsserver = require("plugins.lsp.settings.tsserver")
+        -- end
+        --
+        -- if server_name == "pyright" then
+        --   settings.pyright = require("plugins.lsp.settings.pyright")
+        -- end
+        --
+        -- if server_name == "jsonls" then
+        --   settings.jsonls = require("plugins.lsp.settings.jsonls")
+        -- end
+        --
+        -- if server_name == "yamlls" then
+        --   settings.jsonls = require("plugins.lsp.settings.yamlls")
+        -- end
+      end,
+    })
+  end,
+}
