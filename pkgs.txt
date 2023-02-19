@@ -1,7 +1,7 @@
 alacritty
 btop
 curl
-discord
+/iscord
 epub-thumbnailer-git
 exa
 fd
@@ -13,6 +13,7 @@ gimp
 git
 imagemagick
 kitty
+lazygit
 lf
 lxappearance-gtk3
 lxsession

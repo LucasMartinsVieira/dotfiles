@@ -3,6 +3,10 @@ return {
 		"akinsho/bufferline.nvim",
 		version = "v3.*",
 
+    keys = {
+      { "<space>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
+    },
+
 		opts = {
 			options = {
 				numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
