@@ -5,7 +5,7 @@ return {
 	},
 	cmd = { "NvimTreeToggle" },
 	keys = {
-		{ "<space>e", "<CMD>NvimTreeToggle<CR>", desc = "File Manager" },
+		{ "<space>e", "<CMD>NvimTreeToggle<CR>", desc = "Explorer" },
 	},
 
 	config = function()

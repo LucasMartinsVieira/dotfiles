@@ -10,6 +10,12 @@ return {
 		{ "<space>fc", "<CMD>Telescope colorscheme<CR>", desc = "Find Colorscheme" },
 		{ "<space>fk", "<CMD>Telescope find_files<CR>", desc = "Find Keymaps" },
 		{ "<space>fm", "<CMD>Telescope find_files<CR>", desc = "Find Man Pages" },
+
+    -- Git Commands
+		{ "<space>gs", "<CMD>Telescope git_status<CR>", desc = "Telescope Git Status" },
+		{ "<space>gc", "<CMD>Telescope git_commits<CR>", desc = "Telescope Git Commits" },
+		{ "<space>gf", "<CMD>Telescope git_files<CR>", desc = "Telescope Git Files" },
+		{ "<space>gb", "<CMD>Telescope git_branches<CR>", desc = "Telescope Git Branches" },
 	},
 	opts = {
 		defaults = {

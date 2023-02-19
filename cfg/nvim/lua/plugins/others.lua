@@ -1,24 +1,24 @@
 return {
 	{
 		"bluz71/vim-nightfly-guicolors",
-		lazy = true,
+    priority = 1000,
 	},
 	{
 		"lunarvim/horizon.nvim",
-		lazy = true,
+    lazy = true,
 	},
 	{
 		"Mofiqul/dracula.nvim",
-		lazy = true,
+    lazy = true,
 	},
 	{
 		"romgrk/doom-one.vim",
-		lazy = true,
+    lazy = true,
 	},
-	{
-		"j-hui/fidget.nvim",
-		config = true,
-	},
+	-- {
+	-- 	"j-hui/fidget.nvim",
+	-- 	config = true,
+	-- },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile" },

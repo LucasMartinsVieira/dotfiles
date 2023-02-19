@@ -17,8 +17,8 @@ local keymap = vim.api.nvim_set_keymap
 -- Normal --
 
 -- Basics
-nmap("<space>w", "<CMD>w<CR>")
-nmap("<space>q", "<CMD>q<CR>")
+nmap("<space>w", "<CMD>wa<CR>")
+nmap("<space>q", "<CMD>qa<CR>")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
@@ -32,24 +32,6 @@ nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>")
 nmap("<M-1>", "<CMD>ToggleTerm direction=horizontal<CR>")
 nmap("<M-2>", "<CMD>ToggleTerm size=40 direction=vertical<CR>")
 nmap("<M-3>", "<CMD>ToggleTerm direction=float<CR>")
-
--- Telescope
--- nmap("<space>ff", "<CMD>Telescope find_files<CR>")
--- nmap("<space>fb", "<CMD>Telescope buffers<CR>")
--- nmap("<space>fm", "<CMD>Telescope man_pages<CR>")
--- nmap("<space>fg", "<CMD>Telescope live_grep<CR>")
--- nmap("<space>fc", "<CMD>Telescope colorscheme<CR>")
--- nmap("<space>fk", "<CMD>Telescope keymaps<CR>")
-
--- Lsp
-nmap("<space>lm", "<CMD>Mason<CR>")
-nmap("<space>lf", "<CMD>Format<CR>")
-
--- Trouble
--- nmap("<space>xx", "<CMD>TroubleToggle document_diagnostics<CR>")
--- nmap("<space>xX", "<CMD>TroubleToggle workspace_diagnostics<CR>")
--- nmap("<space>xL", "<CMD>TroubleToggle loclist<CR>")
--- nmap("<space>xQ", "<CMD>TroubleToggle quickfix<CR>")
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>")
