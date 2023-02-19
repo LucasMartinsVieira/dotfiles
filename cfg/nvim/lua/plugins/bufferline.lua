@@ -3,9 +3,7 @@ return {
 		"akinsho/bufferline.nvim",
 		version = "v3.*",
 
-    keys = {
-      { "<space>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
-    },
+    event = { "BufReadPost", "BufNewFile" },
 
 		opts = {
 			options = {
