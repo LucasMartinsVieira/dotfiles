@@ -18,7 +18,9 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Basics
 nmap("<space>w", "<CMD>wa<CR>", "[W]rite")
-nmap("<space>q", "<CMD>qa<CR>", "[Q]uit")
+nmap("<space>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "[Q]uit")
+nmap("<space>Ss", "<CMD>split<CR>", "[S]plit")
+nmap("<space>Sv", "<CMD>vsplit<CR>", "V[s]plit")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
@@ -26,6 +28,11 @@ nmap("<space>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file"
 nmap("<space>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>", "[C]onfig options.lua file")
 nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
 nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
+
+-- Options
+nmap("<space>or", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative Numbers")
+nmap("<space>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", "Spell")
+nmap("<space>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursor Line")
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>", "Go Left")

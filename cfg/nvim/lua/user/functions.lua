@@ -29,6 +29,11 @@ function M.smart_quit()
   end
 end
 
+function M.toggle_option(option)
+  local value = not vim.api.nvim_get_option_value(option, {})
+  vim.opt[option] = value
+end
+
 M.lazygit_toggle = function()
   local Terminal = require("toggleterm.terminal").Terminal
   local lazygit = Terminal:new {
