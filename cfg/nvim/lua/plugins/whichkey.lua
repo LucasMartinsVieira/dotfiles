@@ -27,8 +27,6 @@ return {
 				["<space>x"] = { name = "+Diagnostics" },
 				["<space>b"] = { name = "+[B]uffer" },
 				["<space>l"] = { name = "+[L]sp" },
-				["<space>w"] = { name = "[W]rite" },
-				["<space>q"] = { name = "[Q]uit" },
 				["<space>s"] = { name = "[S]ubstitute Text" },
 				["<space>c"] = { name = "+[C]onfig" },
 			}

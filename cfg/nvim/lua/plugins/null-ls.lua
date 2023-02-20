@@ -1,6 +1,9 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  keys = {
+    { "<space>lf", "<CMD>lua vim.lsp.buf.format()<CR>", desc = "Format" },
+  },
+
   config = function()
     local null_ls = require("null-ls")
     local formatting = null_ls.builtins.formatting

@@ -15,10 +15,6 @@ return {
 		"romgrk/doom-one.vim",
     lazy = true,
 	},
-	-- {
-	-- 	"j-hui/fidget.nvim",
-	-- 	config = true,
-	-- },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile" },

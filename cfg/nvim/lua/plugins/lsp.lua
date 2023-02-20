@@ -8,24 +8,32 @@ return {
 		-- Useful status updates for LSP
 		"j-hui/fidget.nvim",
 	},
-
 	event = { "BufReadPost", "BufNewFile" },
 	cmd = { "Mason", "LspInfo" },
 	keys = {
 		{ "<space>lm", "<CMD>Mason<CR>", desc = "Mason" },
 		{ "<space>li", "<CMD>LspInfo<CR>", desc = "Lsp Info" },
-		{ "<space>lf", "<CMD>lua vim.lsp.buf.format()<CR>", desc = "Format" },
 	},
 	config = function()
+		local function attach_navic(client, bufnr)
+			vim.g.navic_silence = true
+			local status_ok, navic = pcall(require, "nvim-navic")
+			if not status_ok then
+				return
+			end
+			navic.attach(client, bufnr)
+		end
 		-- LSP settings.
 		--  This function gets run when an LSP connects to a particular buffer.
-		local on_attach = function(_, bufnr)
+		-- local on_attach = function(_, client, bufnr)
+		local on_attach = function(client, bufnr)
 			-- NOTE: Remember that lua is a real programming language, and as such it is possible
 			-- to define small helper and utility functions so you don't have to repeat yourself
 			-- many times.
 			--
 			-- In this case, we create a function that lets us more easily define mappings specific
 			-- for LSP related items. It sets the mode, buffer and description for us each time.
+			attach_navic(client, bufnr)
 			local nmap = function(keys, func, desc)
 				if desc then
 					desc = "LSP: " .. desc
@@ -110,23 +118,23 @@ return {
 				end
 
 				if server_name == "rust_analyzer" then
-					require("lspconfig")["lua_ls"].settings = require("user.lsp.rust")
+					require("lspconfig")["rust_analyzer"].settings = require("user.lsp.rust")
 				end
 
 				if server_name == "tsserver" then
-					require("lspconfig")["lua_ls"].settings = require("user.lsp.tsserver")
+					require("lspconfig")["tsserver"].settings = require("user.lsp.tsserver")
 				end
 
 				if server_name == "pyright" then
-					require("lspconfig")["lua_ls"].settings = require("user.lsp.pyright")
+					require("lspconfig")["pyright"].settings = require("user.lsp.pyright")
 				end
 
 				if server_name == "jsonls" then
-					require("lspconfig")["lua_ls"].settings = require("user.lsp.jsonls")
+					require("lspconfig")["jsonls"].settings = require("user.lsp.jsonls")
 				end
 
 				if server_name == "yamlls" then
-					require("lspconfig")["lua_ls"].settings = require("user.lsp.yamlls")
+					require("lspconfig")["yamlls"].settings = require("user.lsp.yamlls")
 				end
 			end,
 		})

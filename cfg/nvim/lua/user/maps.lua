@@ -1,15 +1,15 @@
 local opts = { noremap = true, silent = true }
 
-local function nmap(key, map)
-	vim.api.nvim_set_keymap("n", key, map, opts)
+local nmap = function(keys, func, desc)
+  vim.keymap.set("n", keys, func, { desc = desc })
 end
 
 local function imap(key, map)
-	vim.api.nvim_set_keymap("i", key, map, opts)
+  vim.api.nvim_set_keymap("i", key, map, opts)
 end
 
 local function vmap(key, map)
-	vim.api.nvim_set_keymap("v", key, map, opts)
+  vim.api.nvim_set_keymap("v", key, map, opts)
 end
 
 local keymap = vim.api.nvim_set_keymap
@@ -17,38 +17,32 @@ local keymap = vim.api.nvim_set_keymap
 -- Normal --
 
 -- Basics
-nmap("<space>w", "<CMD>wa<CR>")
-nmap("<space>q", "<CMD>qa<CR>")
+nmap("<space>w", "<CMD>wa<CR>", "[W]rite")
+nmap("<space>q", "<CMD>qa<CR>", "[Q]uit")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
-nmap("<space>ci", "<CMD>e ~/.config/nvim/init.lua<CR>")
-nmap("<space>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>")
-nmap("<space>cp", "<CMD>e ~/.config/nvim/lua/user/plugins.lua<CR>")
-nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>")
-nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>")
-
--- Terminal
-nmap("<M-1>", "<CMD>ToggleTerm direction=horizontal<CR>")
-nmap("<M-2>", "<CMD>ToggleTerm size=40 direction=vertical<CR>")
-nmap("<M-3>", "<CMD>ToggleTerm direction=float<CR>")
+nmap("<space>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
+nmap("<space>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>", "[C]onfig options.lua file")
+nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
+nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
 
 -- Navegação entre janelas
-nmap("<C-h>", "<C-w>h<CR>")
-nmap("<C-j>", "<C-w>j<CR>")
-nmap("<C-k>", "<C-w>k<CR>")
-nmap("<C-l>", "<C-w>l<CR>")
+nmap("<C-h>", "<C-w>h<CR>", "Go Left")
+nmap("<C-j>", "<C-w>j<CR>", "Go Down")
+nmap("<C-k>", "<C-w>k<CR>", "Go Up")
+nmap("<C-l>", "<C-w>l<CR>", "Go Right")
 
 -- Redimensionar janela
-nmap("<M-k>", "<CMD>resize -2<CR>")
-nmap("<M-j>", "<CMD>resize +2<CR>")
-nmap("<M-l>", "<CMD>vertical resize -2<CR>")
-nmap("<M-h>", "<CMD>vertical resize +2<CR>")
+nmap("<M-S-k>", "<CMD>resize -2<CR>")
+nmap("<M-S-j>", "<CMD>resize +2<CR>")
+nmap("<M-S-l>", "<CMD>vertical resize -2<CR>")
+nmap("<M-S-h>", "<CMD>vertical resize +2<CR>")
 
 -- Navegar arquivos (buffers)
-nmap("<S-l>", "<CMD>bnext<CR>")
-nmap("<S-h>", "<CMD>bprevious<CR>")
-nmap("<S-d>", "<CMD>bdelete<CR>")
+nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Next")
+nmap("<S-h>", "<CMD>bprevious<CR>", "Buffer Previous")
+nmap("<S-d>", "<CMD>bdelete<CR>", "Buffer Delete")
 
 -- Insert --
 

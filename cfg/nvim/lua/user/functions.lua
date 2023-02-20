@@ -49,4 +49,84 @@ M.lazygit_toggle = function()
   lazygit:toggle()
 end
 
+M.lua_terminal = function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lua = Terminal:new {
+    cmd = "lua",
+    hidden = true,
+    direction = "float",
+    float_opts = {
+      border = "none",
+      width = 100000,
+      height = 100000,
+    },
+    on_open = function(_)
+      vim.cmd "startinsert!"
+    end,
+    on_close = function(_) end,
+    count = 99,
+  }
+  lua:toggle()
+end
+
+M.python_terminal = function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local python = Terminal:new {
+    cmd = "python",
+    hidden = true,
+    direction = "float",
+    float_opts = {
+      border = "none",
+      width = 100000,
+      height = 100000,
+    },
+    on_open = function(_)
+      vim.cmd "startinsert!"
+    end,
+    on_close = function(_) end,
+    count = 99,
+  }
+  python:toggle()
+end
+
+M.node_terminal = function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local node = Terminal:new {
+    cmd = "node",
+    hidden = true,
+    direction = "float",
+    float_opts = {
+      border = "none",
+      width = 100000,
+      height = 100000,
+    },
+    on_open = function(_)
+      vim.cmd "startinsert!"
+    end,
+    on_close = function(_) end,
+    count = 99,
+  }
+  node:toggle()
+end
+
+M.htop_terminal = function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local htop = Terminal:new {
+    cmd = "htop",
+    hidden = true,
+    direction = "float",
+    float_opts = {
+      border = "none",
+      width = 100000,
+      height = 100000,
+    },
+    on_open = function(_)
+      vim.cmd "startinsert!"
+    end,
+    on_close = function(_) end,
+    count = 99,
+  }
+  htop:toggle()
+end
+
 return M

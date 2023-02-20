@@ -1,7 +1,7 @@
 alacritty
-btop
+htop
 curl
-/iscord
+discord
 epub-thumbnailer-git
 exa
 fd

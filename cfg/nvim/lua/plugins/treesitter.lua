@@ -28,8 +28,6 @@ return {
         "markdown",
         "rust",
         "python",
-        "query",
-        "regex",
         "javascript",
         "typescript",
         "vim",

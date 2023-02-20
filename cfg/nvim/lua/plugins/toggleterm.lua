@@ -10,6 +10,10 @@ return {
     { "<space>tt", "<CMD>ToggleTerm<CR>",                                    desc = "Terminal Horizontal" },
     { "<space>tf", "<CMD>ToggleTerm direction=float<CR>",                    desc = "Terminal Float" },
     { "<space>tv", "<CMD>ToggleTerm size=40 direction=vertical<CR>",         desc = "Terminal Vertical" },
+    { "<space>tl", "<cmd>lua require 'user.functions'.lua_terminal()<cr>", desc = "Lua" },
+    { "<space>tn", "<cmd>lua require 'user.functions'.node_terminal()<cr>", desc = "Node" },
+    { "<space>tp", "<cmd>lua require 'user.functions'.python_terminal()<cr>", desc = "Python" },
+    { "<space>th", "<cmd>lua require 'user.functions'.htop_terminal()<cr>", desc = "Htop" },
     { "<space>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
   },
   config = function()
