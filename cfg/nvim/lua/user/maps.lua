@@ -19,8 +19,8 @@ local keymap = vim.api.nvim_set_keymap
 -- Basics
 nmap("<space>w", "<CMD>wa<CR>", "[W]rite")
 nmap("<space>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "[Q]uit")
-nmap("<space>Ss", "<CMD>split<CR>", "[S]plit")
-nmap("<space>Sv", "<CMD>vsplit<CR>", "V[s]plit")
+nmap("<space>h", "<CMD>split<CR>", "Split")
+nmap("<space>v", "<CMD>vsplit<CR>", "[V]split")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys

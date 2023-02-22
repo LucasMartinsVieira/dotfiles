@@ -26,12 +26,10 @@ return {
 				["<space>g"] = { name = "+[G]it" },
 				["<space>t"] = { name = "+[T]erminal" },
 				["<space>x"] = { name = "+Diagnostics" },
-				["<space>b"] = { name = "+[B]uffer" },
 				["<space>l"] = { name = "+[L]sp" },
 				["<space>s"] = { name = "[S]ubstitute Text" },
 				["<space>c"] = { name = "+[C]onfig" },
 				["<space>o"] = { name = "+[O]ptions" },
-				["<space>S"] = { name = "+[S]plits" },
 			}
 
 			wk.register(keymaps)

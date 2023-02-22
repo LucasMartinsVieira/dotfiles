@@ -8,6 +8,7 @@ return {
 	},
 
 	config = function()
+    local icons = require("user.icons")
 		require("todo-comments").setup({
 			signs = true, -- show icons in the signs column
 			sign_priority = 8, -- sign priority
@@ -19,12 +20,12 @@ return {
 					alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
 					-- signs = false, -- configure signs for some keywords individually
 				},
-				TODO = { icon = " ", color = "info" },
-				HACK = { icon = " ", color = "warning" },
-				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-				PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-				NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-				TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+				TODO = { icon = icons.ui.Check, color = "info" },
+				HACK = { icon = icons.ui.Fire, color = "warning" },
+				WARN = { icon = icons.diagnostics.warning, color = "warning", alt = { "WARNING", "XXX" } },
+				PERF = { icon = icons.ui.Dashboard, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+				NOTE = { icon = icons.ui.Note, color = "hint", alt = { "INFO" } },
+				TEST = { icon = icons.ui.Clock, color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 			},
 			gui_style = {
 				fg = "NONE", -- The gui style to use for the fg highlight group.

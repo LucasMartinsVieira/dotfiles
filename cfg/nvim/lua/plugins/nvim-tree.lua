@@ -9,6 +9,7 @@ return {
 	},
 
 	config = function()
+    local icons = require("user.icons")
 		require("nvim-tree").setup({
 			disable_netrw = true,
 			hijack_netrw = true,
@@ -25,10 +26,11 @@ return {
 			diagnostics = {
 				enable = true,
 				icons = {
-					hint = "",
-					info = "",
-					warning = "",
-					error = "",
+					-- hint = "",
+					hint = icons.diagnostics.hint,
+					info = icons.diagnostics.information,
+					warning = icons.diagnostics.warning,
+					error = icons.diagnostics.error,
 				},
 			},
 			update_focused_file = {
@@ -107,20 +109,20 @@ return {
 						default = "",
 						symlink = "",
 						git = {
-							unstaged = "",
-							staged = "S",
-							unmerged = "",
-							renamed = "➜",
-							deleted = "",
-							untracked = "U",
-							ignored = "◌",
+							unstaged = icons.git.unstaged,
+							staged = icons.git.staged,
+							unmerged = icons.git.unmerged,
+							renamed = icons.git.renamed,
+							deleted = icons.git.deleted,
+							untracked = icons.git.untracked,
+							ignored = icons.git.ignored,
 						},
 						folder = {
-							default = "",
-							open = "",
-							empty = "",
-							empty_open = "",
-							symlink = "",
+							default = icons.documents.default,
+							open = icons.documents.open,
+							empty = icons.documents.empty,
+							empty_open = icons.documents.empty_open,
+							symlink = icons.documents.symlink,
 						},
 					},
 				},

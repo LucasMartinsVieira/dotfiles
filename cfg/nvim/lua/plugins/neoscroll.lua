@@ -12,8 +12,9 @@ return {
 		-- t['<C-e>'] = {'scroll', { '0.10', 'false', '100'}}
 		-- t['H'] = {'scroll', {'-0.10', 'true', '100'}}
 		-- t['L'] = {'scroll', { '0.10', 'true', '100'}}
-      t["<c-k>"] = { "scroll", { "-vim.wo.scroll", "true", "280" } }
-      t["<c-j>"] = { "scroll", { "vim.wo.scroll", "true", "280" } }
+      -- t["<c-k>"] = { "scroll", { "-vim.wo.scroll", "true", "280" } }
+      t["<c-k>"] = { "scroll", { "-vim.wo.scroll", "true", "300" } }
+      t["<c-j>"] = { "scroll", { "vim.wo.scroll", "true", "300" } }
 		-- t['zt']    = {'zt', {'250'}}
 		-- t['zz']    = {'zz', {'250'}}
 		-- t['zb']    = {'zb', {'250'}}

@@ -42,14 +42,15 @@ return {
 				vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
 			end
 
-			nmap("<space>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-			nmap("<space>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+			nmap("<space>lr", vim.lsp.buf.rename, "Rename")
+			nmap("<space>la", vim.lsp.buf.code_action, "Code Action")
+			nmap("<space>ld", vim.lsp.buf.type_definition, "Type Definition")
+			nmap("<space>ls", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
+			nmap("<space>lS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
 
 			nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 			nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 			nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-			nmap("<space>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-			nmap("<space>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
 			-- See `:help K` for why this keymap
 			nmap("K", vim.lsp.buf.hover, "Hover Documentation")

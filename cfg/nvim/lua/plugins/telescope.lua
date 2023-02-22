@@ -6,7 +6,7 @@ return {
       config = function()
         require("telescope").load_extension("neoclip")
         require("neoclip").setup({
-          preview = false,
+          preview = true,
         })
       end
     },
@@ -18,6 +18,7 @@ return {
   },
   cmd = "Telescope",
   keys = {
+    { "<space>b", "<CMD>Telescope buffers<CR>",      desc = "[B]uffers" },
     { "<space>ff", "<CMD>Telescope find_files<CR>",   desc = "Find Files" },
     { "<space>fb", "<CMD>Telescope buffers<CR>",      desc = "Find Buffers" },
     { "<space>fg", "<CMD>Telescope live_grep<CR>",    desc = "Find Words" },

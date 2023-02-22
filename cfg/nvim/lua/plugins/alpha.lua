@@ -44,13 +44,14 @@ return {
 		-- 	[[       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ]],
 		-- }
 
+    local icons = require("user.icons")
 		dashboard.section.buttons.val = {
-			button("f", "  Find file", "<CMD>Telescope find_files<CR>"),
-			button("n", "  New file", "<CMD>ene!<BAR>startinsert<CR>"),
-			button("e", "  File Tree", "<CMD>NvimTreeToggle<CR>"),
-			button("c", "  Config", "<CMD>e ~/.config/nvim/init.lua<CR>"),
-			button("u", "  Update", "<CMD>Lazy sync<CR>"),
-			button("q", "  Quit", "<CMD>q<CR>"),
+			button("f", icons.ui.Search .. " Find file", "<CMD>Telescope find_files<CR>"),
+			button("n", icons.ui.NewFile .. " New file", "<CMD>ene!<BAR>startinsert<CR>"),
+			button("e", icons.ui.Tree .. " File Tree", "<CMD>NvimTreeToggle<CR>"),
+			button("c", icons.ui.Gear .. " Config", "<CMD>e ~/.config/nvim/init.lua<CR>"),
+			button("u", icons.ui.CloudDownload .. " Update", "<CMD>Lazy sync<CR>"),
+			button("q", icons.ui.SignOut .. " Quit", "<CMD>q<CR>"),
 		}
 		local function footer()
 			return "https://github.com/LucasMartinsVieira"
