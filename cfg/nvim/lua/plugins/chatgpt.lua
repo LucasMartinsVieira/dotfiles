@@ -1,3 +1,5 @@
+local icons = require("user.icons")
+
 return {
   "jackMort/ChatGPT.nvim",
   cmd = { "ChatGPT", "ChatGPTActAs" },
@@ -6,7 +8,6 @@ return {
     { "<space>ap", "<CMD>ChatGPTActAs<CR>", desc = "ChatGPT Prompts" },
   },
   config = function()
-    local icons = require("user.icons")
     require("chatgpt").setup({
       welcome_message = "WELCOME_MESSAGE", -- set to "" if you don't like the fancy godot robot
       loading_text = "loading",
@@ -41,7 +42,7 @@ return {
         },
       },
       chat_input = {
-        prompt = "  ",
+        prompt = icons.ui.ChevronRight,
         border = {
           highlight = "FloatBorder",
           style = "rounded",

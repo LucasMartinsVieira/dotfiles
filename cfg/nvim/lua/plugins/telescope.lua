@@ -11,6 +11,12 @@ return {
       end
     },
     {
+      "nvim-telescope/telescope-project.nvim",
+      config = function()
+        require("telescope").load_extension("project")
+      end
+    },
+    {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       cond = vim.fn.executable("make") == 1,
@@ -18,14 +24,17 @@ return {
   },
   cmd = "Telescope",
   keys = {
-    { "<space>b", "<CMD>Telescope buffers<CR>",      desc = "[B]uffers" },
+    { "<space>b",  "<CMD>Telescope buffers<CR>",      desc = "[B]uffers" },
     { "<space>ff", "<CMD>Telescope find_files<CR>",   desc = "Find Files" },
+    { "<space>fr", "<CMD>Telescope oldfiles<CR>",     desc = "Find Recent Files" },
+    { "<space>fp", "<CMD>Telescope project<CR>",     desc = "Find Projects" },
     { "<space>fb", "<CMD>Telescope buffers<CR>",      desc = "Find Buffers" },
-    { "<space>fg", "<CMD>Telescope live_grep<CR>",    desc = "Find Words" },
+    { "<space>fw", "<CMD>Telescope live_grep<CR>",    desc = "Find Word" },
     { "<space>fc", "<CMD>Telescope colorscheme<CR>",  desc = "Find Colorscheme", },
-    { "<space>fk", "<CMD>Telescope find_files<CR>",   desc = "Find Keymaps" },
-    { "<space>fm", "<CMD>Telescope find_files<CR>",   desc = "Find Man Pages" },
+    { "<space>fk", "<CMD>Telescope Keymaps<CR>",   desc = "Find Keymaps" },
+    { "<space>fm", "<CMD>Telescope man_pages<CR>",   desc = "Find Man Pages" },
     { "<space>fC", "<CMD>Telescope neoclip<CR>",      desc = "Find Clip Board" },
+    { "<space>fh", "<CMD>Telescope help_tags<CR>",      desc = "Find Help" },
 
     -- Git Commands
     { "<space>gs", "<CMD>Telescope git_status<CR>",   desc = "Telescope Git Status" },
@@ -96,7 +105,18 @@ return {
           override_file_sorter = true, -- override the file sorter
           case_mode = "smart_case", -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
-        }
+        },
+        project = {
+          base_dirs = {
+            { '~/dev/', max_depth = 4 },
+
+          },
+          hidden_files = true, -- default: false
+          theme = "dropdown",
+          order_by = "asc",
+          search_by = "title",
+          sync_with_nvim_tree = true, -- default false
+        },
       },
     })
   end,

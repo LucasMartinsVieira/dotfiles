@@ -41,6 +41,7 @@ return {
     Circle = "",
     BigCircle = "",
     BigUnfilledCircle = "",
+    Separator = "│",
     Close = "",
     NewFile = "",
     Search = "",

@@ -46,9 +46,9 @@ return {
 
     local icons = require("user.icons")
 		dashboard.section.buttons.val = {
-			button("f", icons.ui.Search .. " Find file", "<CMD>Telescope find_files<CR>"),
+			button("f", icons.ui.Telescope .. " Find File", "<CMD>Telescope find_files<CR>"),
 			button("n", icons.ui.NewFile .. " New file", "<CMD>ene!<BAR>startinsert<CR>"),
-			button("e", icons.ui.Tree .. " File Tree", "<CMD>NvimTreeToggle<CR>"),
+			button("r", icons.ui.History .. " Recent Files", "<CMD>Telescope oldfiles<CR>"),
 			button("c", icons.ui.Gear .. " Config", "<CMD>e ~/.config/nvim/init.lua<CR>"),
 			button("u", icons.ui.CloudDownload .. " Update", "<CMD>Lazy sync<CR>"),
 			button("q", icons.ui.SignOut .. " Quit", "<CMD>q<CR>"),
