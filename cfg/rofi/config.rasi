@@ -1,7 +1,7 @@
 configuration {
-  display-drun: "Applications:";
-  display-window: "Windows:";
-  display-emoji: "Emoji";
+  display-drun: "";
+  display-window: "";
+  display-emoji: "";
   font: "JetBrains Mono 10";
   modi: "window,run,drun,emoji";
 }
