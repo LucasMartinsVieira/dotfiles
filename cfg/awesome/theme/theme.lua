@@ -87,7 +87,8 @@ theme.hotkeys_description_font  = theme.font
 theme.hotkeys_group_margin      = dpi(10)
 
 -- Icons
-theme.pfp = icons_dir .. "pfp.png"
+-- theme.pfp = icons_dir .. "pfp.png"
+theme.pfp = icons_dir .. "profile.jpg"
 theme.camera = icons_dir .. "camera.png"
 theme.volume = icons_dir .. "volume.png"
 theme.updates = icons_dir .. "updates.png"
