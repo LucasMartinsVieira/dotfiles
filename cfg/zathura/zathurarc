@@ -1,0 +1,57 @@
+# Clipboard
+set selection-clipboard clipboard
+
+# Startup Options
+set adjust-open "best-fit"
+set recolor true
+
+# Remaps
+map r reload
+map J zoom out
+map K zoom in
+map i recolor
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+set font "JetBrainsMono Nerd Font 9"
+
+# Nightfly color theme
+
+set notification-error-bg       "#fc514e" # Red
+set notification-error-fg       "#acb4c2" # Foreground
+set notification-warning-bg     "#ecc48d" # Yellow
+set notification-warning-fg     "#b2ceee" # Selection
+set notification-bg             "#011627" # Background
+set notification-fg             "#acb4c2" # Foreground
+
+set completion-bg               "#011627" # Background
+set completion-fg               "#080808" # Comment
+set completion-group-bg         "#011627" # Background
+set completion-group-fg         "#080808" # Comment
+set completion-highlight-bg     "#b2ceee" # Selection
+set completion-highlight-fg     "#acb4c2" # Foreground
+set index-bg                    "#011627" # Background
+set index-fg                    "#acb4c2" # Foreground
+set index-active-bg             "#080808" # Current Line
+set index-active-fg             "#acb4c2" # Foreground
+
+set inputbar-bg                 "#011627" # Background
+set inputbar-fg                 "#acb4c2" # Foreground
+set statusbar-bg                "#011627" # Background
+set statusbar-fg                "#acb4c2" # Foreground
+
+set highlight-color             "#ecc48d" # Yellow
+set highlight-active-color      "#82aaff" # Blue
+
+set default-bg                  "#011627" # Background
+set default-fg                  "#acb4c2" # Foreground
+
+set render-loading              true
+set render-loading-fg           "#011627" # Background
+set render-loading-bg           "#acb4c2" # Foreground
+
+# Recolor mode settings
+
+set recolor-lightcolor          "#011627" # Background
+set recolor-darkcolor           "#acb4c2" # Foreground
