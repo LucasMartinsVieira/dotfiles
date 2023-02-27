@@ -3,8 +3,6 @@ if status is-interactive
   setxkbmap br
 end
 
-set TERM kitty
-
 ### Setting variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -21,6 +19,7 @@ fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
 ### EXPORT
 set EDITOR nvim                  # Set the $EDITOR to nvim
 set fish_greeting                # Disable Fish's intro message
+set TERM kitty
 
 ### Alias ###
 alias beats="rofi-beats"
