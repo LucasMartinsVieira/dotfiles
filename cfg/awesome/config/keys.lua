@@ -1,8 +1,10 @@
 local awful = require("awful")
 local gears = require("gears")
 local naughty = require("naughty")
+local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local applications = require("config.applications")
+local user_likes = require("user_vars")
 local vol = require("lib.volume")
 local volume = require("ui.bar.volume")
 local screenshot = require("lib.screenshot")
@@ -18,7 +20,7 @@ local modkey = "Mod4"
 awful.keyboard.append_global_keybindings({
   awful.key({
     modifiers = { modkey },
-    key = "/",
+    key = "s",
     description = "Show Help",
     group = "Awesome",
     on_press = hotkeys_popup.show_help,
@@ -133,7 +135,7 @@ awful.keyboard.append_global_keybindings({
     on_press = awesome.restart,
   }),
   awful.key({
-    modifiers = { modkey, "Control" },
+    modifiers = { modkey, "Shift" },
     key = "d",
     description = "Open Dashboard",
     group = "User",
@@ -142,7 +144,7 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
-    modifiers = { modkey, "Control" },
+    modifiers = { modkey, "Shift" },
     key = "p",
     description = "Open Exit Screen",
     group = "User",
@@ -151,7 +153,7 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
-    modifiers = { modkey, "Control" },
+    modifiers = { modkey, "Shift" },
     key = "n",
     description = "Notification Center",
     group = "User",
@@ -165,7 +167,8 @@ awful.keyboard.append_global_keybindings({
     description = "Set a Random Wallpaper",
     group = "User",
     on_press = function()
-      awful.spawn.with_shell("feh --no-fehbg --bg-scale --randomize --no-xinerama ~/Imagens/Wallpapers/")
+      local feh_cmd = "feh --no-fehbg --bg-scale --randomize --no-xinerama"
+      awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
     end,
   }),
   awful.key({
@@ -245,10 +248,11 @@ awful.keyboard.append_global_keybindings({
   awful.key({
     modifiers = { modkey },
     key = "r",
-    description = "Rofi",
+    description = "Application Launcher",
     group = "Applications",
     on_press = function()
       awful.util.spawn(applications.default.app_launcher)
+      -- menubar.show()
     end,
   }),
   awful.key({

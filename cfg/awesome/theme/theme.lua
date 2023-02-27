@@ -76,11 +76,20 @@ theme.menu_width            = dpi(180)
 theme.menu_border_width	    = dpi(0)
 theme.menu_border_color     = theme.fg_normal
 
+-- Menubar
+theme.menubar_fg_normal    = theme.fg_normal
+theme.menubar_bg_normal    = theme.bg_normal
+theme.menubar_border_width = dpi(2)
+theme.menubar_border_color = theme.blue
+theme.menubar_fg_focus     = theme.fg_focus
+theme.menubar_bg_focus     = theme.bg_focus
+theme.menubar_font         = theme.font
+
 -- Hotkeys Popup
-theme.hotkeys_bg                = "#011627"
-theme.hotkeys_fg                = "#c3ccdc"
-theme.hotkeys_border_color      = "#ffffff"
-theme.hotkeys_modifiers_fg      = "#ecc48d"
+theme.hotkeys_bg                = theme.bg_normal
+theme.hotkeys_fg                = theme.fg_normal
+theme.hotkeys_border_color      = theme.blue
+theme.hotkeys_modifiers_fg      = theme.yellow
 theme.hotkeys_border_width      = dpi(2)
 theme.hotkeys_font              = theme.font
 theme.hotkeys_description_font  = theme.font
