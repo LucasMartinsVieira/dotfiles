@@ -1,27 +1,39 @@
 format = """
-[](#DA627D)\
-[](bg:#DA627D fg:#DA627D)\
+[](#cf87e8)\
+$username\
+[](bg:#ff5454 fg:#cf87e8)\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:#ff5454 bg:#cf87e9)\
 $git_branch\
-[](fg:#FCA17D bg:#86BBD8)\
-[](fg:#86BBD8 bg:#06969A)\
-[](fg:#06969A bg:#33658A)\
-[ ](fg:#33658A)\
+[](fg:#cf87e9 bg:#e3c78a)\
+[](fg:#e3c78a bg:#79dac8)\
+[](fg:#79dac8 bg:#80a0ff)\
+[ ](fg:#80a0ff)\
 """
 
 # Disable the blank line at the start of the prompt
-add_newline = true
+# add_newline = false
 
-[line_break]
-disabled = true
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = true
+style_user = "bg:#cf87e8"
+style_root = "bg:#cf87e8"
+format = '[$user ]($style)'
+disabled = false
 
 [directory]
-style = "bg:#DA627D"
+style = "bg:#ff5454"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
 [git_branch]
-style = "bg:#FCA17D"
-format = '[ $branch ]($style)'
+symbol = ""
+style = "bg:#cf87e9"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#cf87e8"
+format = '[$all_status$ahead_behind ]($style)'
