@@ -17,12 +17,12 @@ bind \ef 'files'
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
 
 ### EXPORT
-set EDITOR nvim                  # Set the $EDITOR to nvim
+source $HOME/.config/fish/api.fish
+set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
+set -Ux TERM kitty
 set fish_greeting                # Disable Fish's intro message
-set TERM kitty
 
 ### Alias ###
-alias beats="rofi-beats"
 
 ### Git Aliases ###
 alias ga="git add"

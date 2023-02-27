@@ -42,7 +42,7 @@ return {
         },
       },
       chat_input = {
-        prompt = icons.ui.ChevronRight,
+        prompt = icons.ui.ChevronRight .. " ",
         border = {
           highlight = "FloatBorder",
           style = "rounded",
