@@ -1,6 +1,6 @@
 return {
   {
-    "bluz71/vim-nightfly-guicolors",
+    "LucasMartinsVieira/vim-nightfly-colors",
     priority = 1000,
   },
   {
@@ -16,7 +16,8 @@ return {
     lazy = true,
   },
   {
-    "LunarVim/lunar.nvim",
+    "LucasMartinsVieira/vim-moonfly-colors",
+    name = "moonfly",
     lazy = true,
   },
   {
