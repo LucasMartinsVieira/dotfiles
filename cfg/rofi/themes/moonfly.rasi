@@ -15,15 +15,15 @@ configuration {
 }
 
 * {
-     color0:   #282c34; /*color: preto */
-     color1:   #bbc2cf; /*color: white */
-     color2:   #447fde; /*color: blue+ */
-     color3:   #3071db; /*color: blue */
-     color4:   #ff6c6b; /*color: red */
-     color5:   #da8548; /*color: orange */
-     color6:   #da8548; /*color: yellow */
-     color7:   #98be65; /*color: green */
-     color8:   #c678dd; /*color: pink */
+     color0:   #080808; /*color: preto */
+     color1:   #b2b2b2; /*color: white */
+     color2:   #80a0ff; /*color: blue+ */
+     color3:   #80a0ff; /*color: blue */
+     color4:   #ff5454; /*color: red */
+     color5:   #e3c78a; /*color: orange */
+     color6:   #e3c78a; /*color: yellow */
+     color7:   #8cc85f; /*color: green */
+     color8:   #cf87e8; /*color: pink */
 
     background:   @color0;
     background-alt:   @color0;

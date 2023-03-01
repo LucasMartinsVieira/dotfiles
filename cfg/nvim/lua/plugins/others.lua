@@ -4,20 +4,16 @@ return {
     priority = 1000,
   },
   {
+    "LucasMartinsVieira/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = true,
+  },
+  {
     "lunarvim/horizon.nvim",
     lazy = true,
   },
   {
     "Mofiqul/dracula.nvim",
-    lazy = true,
-  },
-  {
-    "romgrk/doom-one.vim",
-    lazy = true,
-  },
-  {
-    "LucasMartinsVieira/vim-moonfly-colors",
-    name = "moonfly",
     lazy = true,
   },
   {

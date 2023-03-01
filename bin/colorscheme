@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-ROFI="rofi -dmenu -i -p"
 ROFI="fzf --header"
 
 declare -A colorschemes
 
 colorschemes[Dracula]="dracula"
-colorschemes[Doom One]="doom-one"
+colorschemes[Moonfly]="moonfly"
 colorschemes[Nightfly]="nightfly"
 colorschemes[Horizon]="horizon"
 
