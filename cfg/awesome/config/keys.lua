@@ -135,7 +135,7 @@ awful.keyboard.append_global_keybindings({
     on_press = awesome.restart,
   }),
   awful.key({
-    modifiers = { modkey, "Shift" },
+    modifiers = { modkey, "Control" },
     key = "d",
     description = "Open Dashboard",
     group = "User",
@@ -144,7 +144,7 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
-    modifiers = { modkey, "Shift" },
+    modifiers = { modkey, "Control" },
     key = "p",
     description = "Open Exit Screen",
     group = "User",
@@ -153,7 +153,7 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
-    modifiers = { modkey, "Shift" },
+    modifiers = { modkey, "Control" },
     key = "n",
     description = "Notification Center",
     group = "User",

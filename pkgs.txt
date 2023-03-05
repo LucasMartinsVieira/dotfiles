@@ -26,6 +26,7 @@ nerd-fonts-inconsolata
 noto-fonts
 noto-fonts-emoji
 nvim-packer-git
+npm
 opendoas
 pacman-contrib
 pamixer
@@ -38,7 +39,9 @@ rofi
 rofi-calc
 rofi-emoji
 rustup
+shellcheck
 starship
+stylua
 sxiv
 transmission-gtk
 trash-cli
