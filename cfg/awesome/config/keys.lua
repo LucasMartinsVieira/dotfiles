@@ -255,6 +255,18 @@ awful.keyboard.append_global_keybindings({
       -- menubar.show()
     end,
   }),
+
+  -- This will only work if you have the 'colorscheme' program in your $PATH and you need rofi installed
+  awful.key({
+    modifiers = { modkey },
+    key = "c",
+    description = "Change Colorscheme",
+    group = "User",
+    on_press = function()
+      awful.util.spawn("colorscheme")
+    end,
+  }),
+
   awful.key({
     modifiers = { modkey },
     key = "e",

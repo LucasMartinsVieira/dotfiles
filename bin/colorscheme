@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-ROFI="fzf --header"
+# ROFI="fzf --header"
+ROFI="rofi -show -dmenu -p"
 
 declare -A colorschemes
 
@@ -9,7 +10,7 @@ colorschemes[Moonfly]="moonfly"
 colorschemes[Nightfly]="nightfly"
 colorschemes[Horizon]="horizon"
 
-choice=$(printf '%s\n' "${!colorschemes[@]}" | sort | ${ROFI}='Choose a colorscheme' "${@}")
+choice=$(printf '%s\n' "${!colorschemes[@]}" | sort | ${ROFI} 'Choose a colorscheme' "${@}")
 config="${colorschemes["${choice}"]}"
 
 if [ "$choice" ]; then

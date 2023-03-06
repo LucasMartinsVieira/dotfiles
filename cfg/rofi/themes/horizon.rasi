@@ -38,7 +38,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       700px;
+    width:                       420px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -82,7 +82,7 @@ inputbar {
 prompt {
     enabled:                     true;
     background-color:            inherit;
-    text-color:                  inherit;
+    text-color:                  @selected;
 }
 textbox-prompt-colon {
     enabled:                     true;
@@ -96,15 +96,15 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    /* placeholder:                 "Search..."; */
     placeholder-color:           inherit;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     2;
-    lines:                       8;
+    columns:                     1;
+    lines:                       4;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
