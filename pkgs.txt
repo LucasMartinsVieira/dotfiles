@@ -2,6 +2,7 @@ alacritty
 htop
 curl
 discord
+deno
 epub-thumbnailer-git
 exa
 fd
@@ -39,6 +40,7 @@ rofi
 rofi-calc
 rofi-emoji
 rustup
+rust-analyzer
 shellcheck
 starship
 stylua

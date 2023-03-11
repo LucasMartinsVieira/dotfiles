@@ -172,6 +172,15 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
+    modifiers = { modkey, "Shift" },
+    key = "w",
+    description = "Set a Wallpaper",
+    group = "User",
+    on_press = function()
+      awful.spawn.with_shell("wallpaper " .. tostring(user_likes.user.wallpapers_dir))
+    end,
+  }),
+  awful.key({
     modifiers = { modkey, "Control" },
     key = "q",
     description = "Quit Awesome",

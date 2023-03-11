@@ -216,6 +216,7 @@ script_yes() {
   ln -s ~/repos/dotfiles/bin/search ~/.local/bin/search
   ln -s ~/repos/dotfiles/bin/usb ~/.local/bin/usb
   ln -s ~/repos/dotfiles/bin/cht ~/.local/bin/cht
+  ln -s ~/repos/dotfiles/bin/wallpaper ~/.local/bin/wallpaper
   $SEPARATOR
   echo "The scripts instalation finished. The scripts are located in $HOME/.local/bin/"
   $SEPARATOR

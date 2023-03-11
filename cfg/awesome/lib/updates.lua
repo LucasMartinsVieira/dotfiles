@@ -7,9 +7,9 @@ local dpi = xresources.apply_dpi
 
 local updates = {}
 
-updates.num = function ()
+updates.num = function()
   local script = [[
-  checkupdates
+  checkupdates ; paru -Qua
   ]]
 
   local script2 = [[
@@ -24,20 +24,19 @@ updates.num = function ()
     awful.spawn(applications.default.terminal_emulator .. " -e paru -Syu --noconfirm", true)
   end)
 
-  awful.spawn.easy_async_with_shell(script, function (out)
-    awful.spawn.easy_async_with_shell(script2, function (out1)
-    naughty.notification {
-      app_name = "Updates Tool",
-      title = string.format("Updates: %s", out1),
-      message = string.format("%s", out),
-      icon = theme.updates,
-      ontop = true,
-      icon_size = dpi(20),
-      actions = { update },
-    }
+  awful.spawn.easy_async_with_shell(script, function(out)
+    awful.spawn.easy_async_with_shell(script2, function(out1)
+      naughty.notification {
+        app_name = "Updates Tool",
+        title = string.format("Updates: %s", out1),
+        message = string.format("%s", out),
+        icon = theme.updates,
+        ontop = true,
+        icon_size = dpi(20),
+        actions = { update },
+      }
+    end)
   end)
-  end)
-
 end
 
 return updates
