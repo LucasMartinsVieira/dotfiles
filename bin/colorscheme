@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ROFI="fzf --header"
-ROFI="rofi -show -dmenu -p"
+ROFI="rofi -show -dmenu -i -l 4 -p"
 
 declare -A colorschemes
 
