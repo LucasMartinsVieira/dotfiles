@@ -29,6 +29,7 @@ return {
       generator = {
         fn = function(params)
           local diagnostics = {}
+
           -- sources have access to a params object
           -- containing info about the current file and editor state
           for i, line in ipairs(params.content) do
