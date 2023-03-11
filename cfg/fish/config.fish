@@ -18,6 +18,7 @@ fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
 
 ### EXPORT
 source $HOME/.config/fish/api.fish
+source $HOME/.config/fish/lf_icons.fish
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty
 set fish_greeting                # Disable Fish's intro message
