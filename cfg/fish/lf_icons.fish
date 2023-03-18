@@ -167,7 +167,8 @@ ex=:\
 *LICENSE=:\
 *.bashrc=:\
 *Makefile=:\
-*.gitconfig=:\
-*.gitignore=:\
-*.gitmodules=:\
+*.gitconfig=:\
+*.gitignore=:\
+*.gitmodules=:\
+*package.json=:\
 "
