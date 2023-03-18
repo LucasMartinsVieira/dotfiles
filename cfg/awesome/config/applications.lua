@@ -6,6 +6,5 @@ return {
     browser = "librewolf",
     terminal_emulator = "kitty",
     file_manager = "kitty lf",
-    music_player = "amberol"
   },
 }

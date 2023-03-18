@@ -16,7 +16,6 @@ mainmenu = awful.menu {
 		{ "Browser", applications.default.browser },
 		{ "Terminal", applications.default.terminal_emulator },
     { "File Manager", applications.default.file_manager },
-    { "Music Player", applications.default.music_player },
 	}
 }
 
