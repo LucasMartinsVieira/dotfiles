@@ -1,0 +1,14 @@
+#!/bin/bash
+
+RCLUA="$HOME/.config/awesome/rc.lua"
+
+if [ -f "$RCLUA" ]; then
+  # echo "$RCLUA exists."
+  mv ~/.config/awesome/rc.lua ~/.config/awesome/rc.txt
+  awesome-client 'awesome.restart()'
+  sleep 1; clear
+else
+  mv ~/.config/awesome/rc.txt ~/.config/awesome/rc.lua
+  awesome-client 'awesome.restart()'
+  sleep 1; clear
+fi

@@ -10,7 +10,7 @@ SET_BG="feh --bg-scale --no-fehbg --no-xinerama"
 set() {
   wallpaper="$(sxiv -t -o "${WALLPAPER_DIR}")"
   ${SET_BG} "$wallpaper"
-  notify-send "Wallpaper has been updated" -i "$wallpaper"
+  notify-send --app-name="Wallpaper Tool" "Wallpaper has been updated" -i "$wallpaper"
 }
 
 random() {
