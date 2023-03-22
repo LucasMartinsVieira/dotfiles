@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Name: cht
+# Dependencies: fzf, curl, bat
+# Description: A simple way to search help with https://github.com/chubin/cheat.sh using fzf :)
+
 declare -a languages=( 
   "javascript"
   "rust"

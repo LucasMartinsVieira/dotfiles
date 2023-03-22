@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Name: trash
+# Description: A simple 'trash' program
+
 TRASHBIN="$HOME/.local/share/Trash/files/"
 TRASHCACHE="$HOME/.local/share/Trash/info/"
 MVCMD="mv $* $TRASHBIN"

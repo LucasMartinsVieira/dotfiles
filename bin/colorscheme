@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Name: colorscheme
+# Dependencies: rofi
+# Description: A simple way to switch themes in programs
+
 # ROFI="fzf --header"
 ROFI="rofi -show -dmenu -i -l 4 -p"
 

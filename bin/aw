@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Name: aw
+# Description: A simple way to turn awesomewm into his vanilla version :)
+
 RCLUA="$HOME/.config/awesome/rc.lua"
 
 if [ -f "$RCLUA" ]; then

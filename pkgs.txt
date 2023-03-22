@@ -68,6 +68,7 @@ ttf-opensans
 ueberzug
 wget
 xclip
+xdotool
 xkeyboard-config
 xorg
 xorg-setxkbmap

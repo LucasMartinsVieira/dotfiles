@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# Name: bookmark
+# Dependencies: Rofi, Xclip
+# Description: A simple scripts to handle bookmarks :)
+
+# Variables
+ROFI="rofi -dmenu -i -p"
+
+declare -A applications
+applications[Github]="https://github.com/lucasmartinsvieira"
+applications[ChatGPT]="https://chat.openai.com/"
+applications[Chess.com]="https://www.chess.com/"
+applications[LinkedIn]="https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2F&fromSignIn=true"
+applications[Youtube]="https://www.youtube.com/"
+applications[Whatsapp]="https://web.whatsapp.com/"
+applications[Google News]="https://news.google.com/"
+applications[TickTick]="https://ticktick.com/webapp/#p/inbox/tasks"
+applications[Twitter]="https://twitter.com/home"
+applications[Letterboxd]="https://letterboxd.com/"
+applications[Reedit]="https://www.reddit.com/"
+applications[Pinterest]="https://br.pinterest.com/"
+
+declare -A college
+college[Sava]="https://estudante.estacio.br/disciplinas"
+college[Sia]="https://sia.estacio.br/"
+college[Simulados]="https://simulado.estacio.br/alunos/"
+college[Vagas]="https://www.encontresuavaga.com.br/"
+
+declare -A linux
+linux[Arch Wiki]="https://wiki.archlinux.org/"
+linux[AwesomeWM]="awesomewm.org/"
+linux[Color Hex]="https://www.color-hex.com/"
+linux[Nerd Fonts]="https://www.nerdfonts.com/"
+
+declare -A others
+others[One Piece Ex]="https://onepieceex.net/"
+others[NBA Bite]="https://nbabite.to/"
+others[Libgen]="https://libgen.is/"
+others[Typing.com]="https://www.typing.com/"
+
+declare -A entrepreneurship
+entrepreneurship[Liga Cripto]="https://www.youtube.com/@LigaCrypto"
+entrepreneurship[Info Money]="https://www.infomoney.com.br/"
+entrepreneurship[Coin Market Cap]="https://coinmarketcap.com/"
+entrepreneurship[Trading View]="https://www.tradingview.com/"
+
+applications() {
+   opts=$(printf '%s\n' "${!applications[@]}" | sort | $ROFI 'Choose The Bookmark' "$@")
+   cmd=$(xdotool type "${applications[${opts}]}")
+}
+
+college() {
+   opts=$(printf '%s\n' "${!college[@]}" | sort | $ROFI 'Choose The Bookmark' "$@")
+   cmd=$(xdotool type "${college[${opts}]}")
+}
+
+linux() {
+   opts=$(printf '%s\n' "${!linux[@]}" | sort | $ROFI 'Choose The Bookmark' "$@")
+   cmd=$(xdotool type "${linux[${opts}]}")
+}
+
+others() {
+   opts=$(printf '%s\n' "${!others[@]}" | sort | $ROFI 'Choose The Bookmark' "$@")
+   cmd=$(xdotool type "${others[${opts}]}")
+}
+
+entrepreneurship() {
+   opts=$(printf '%s\n' "${!entrepreneurship[@]}" | sort | $ROFI 'Choose The Bookmark' "$@")
+   cmd=$(xdotool type "${entrepreneurship[${opts}]}")
+}
+
+main() {
+  options=$(printf "Applications\nCollege\nLinux\nOthers\nEntrepreneurship" | sort | $ROFI "Choose a option")
+
+  case $options in
+    Applications) applications "$@"
+      ;;
+    College) college "$@"
+      ;;
+    Linux) linux "$@"
+      ;;
+    Others) others "$@"
+      ;;
+    Entrepreneurship) entrepreneurship "$@"
+      ;;
+    *) exit 1
+      ;;
+  esac
+}
+
+main "$@"

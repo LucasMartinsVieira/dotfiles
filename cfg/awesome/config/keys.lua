@@ -119,66 +119,11 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
-    modifiers = { modkey },
-    key = "Return",
-    description = "Open a Terminal",
-    group = "Applications",
-    on_press = function()
-      awful.spawn(applications.default.terminal_emulator)
-    end,
-  }),
-  awful.key({
     modifiers = { modkey, "Control" },
     key = "r",
     description = "Reload Awesome",
     group = "Awesome",
     on_press = awesome.restart,
-  }),
-  awful.key({
-    modifiers = { modkey, "Control" },
-    key = "d",
-    description = "Open Dashboard",
-    group = "User",
-    on_press = function()
-      dashboard_show()
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey, "Control" },
-    key = "p",
-    description = "Open Exit Screen",
-    group = "User",
-    on_press = function()
-      power_popup_show()
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey, "Control" },
-    key = "n",
-    description = "Notification Center",
-    group = "User",
-    on_press = function()
-      notifs_toggle()
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey, "Control" },
-    key = "w",
-    description = "Set a Random Wallpaper",
-    group = "User",
-    on_press = function()
-      local feh_cmd = "feh --no-fehbg --bg-scale --randomize --no-xinerama"
-      awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey, "Shift" },
-    key = "w",
-    description = "Set a Wallpaper",
-    group = "User",
-    on_press = function()
-      awful.spawn.with_shell("wallpaper " .. tostring(user_likes.user.wallpapers_dir))
-    end,
   }),
   awful.key({
     modifiers = { modkey, "Control" },
@@ -254,121 +199,8 @@ awful.keyboard.append_global_keybindings({
       end
     end,
   }),
-  awful.key({
-    modifiers = { modkey },
-    key = "r",
-    description = "Application Launcher",
-    group = "Applications",
-    on_press = function()
-      awful.util.spawn(applications.default.app_launcher)
-      -- menubar.show()
-    end,
-  }),
 
-  -- This will only work if you have the 'colorscheme' program in your $PATH and you need rofi installed
-  awful.key({
-    modifiers = { modkey },
-    key = "c",
-    description = "Change Colorscheme",
-    group = "User",
-    on_press = function()
-      awful.util.spawn("colorscheme")
-    end,
-  }),
-
-  awful.key({
-    modifiers = { modkey },
-    key = "e",
-    description = "Rofi-Emoji",
-    group = "User",
-    on_press = function()
-      awful.util.spawn("rofi -show emoji")
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = "i",
-    description = "Fullscreen Screenshot",
-    group = "User",
-    on_press = function()
-      awful.util.spawn(screenshot.full())
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey, "Shift" },
-    key = "i",
-    description = "Area Screenshot",
-    group = "User",
-    on_press = function()
-      awful.util.spawn(screenshot.area())
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = "u",
-    description = "Checkupdates",
-    group = "User",
-    on_press = function()
-      awful.util.spawn(updates.num())
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = "=",
-    description = "Volume +",
-    group = "User",
-    on_press = function()
-      awful.util.spawn(vol.increase())
-      volume.get_vol()
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = "-",
-    description = "Volume -",
-    group = "User",
-    on_press = function()
-      awful.util.spawn(vol.decrease())
-      volume.get_vol()
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = "0",
-    description = "Mute/Desmute",
-    group = "User",
-    on_press = function()
-      awful.util.spawn(vol.mute())
-      volume.get_vol()
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = ";",
-    description = "Playerctl Play-Pause",
-    group = "User",
-    on_press = function()
-      awful.util.spawn("playerctl play-pause")
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = ".",
-    description = "Playerctl Next",
-    group = "User",
-    on_press = function()
-      awful.util.spawn("playerctl next")
-    end,
-  }),
-  awful.key({
-    modifiers = { modkey },
-    key = ",",
-    description = "Playerctl Previous",
-    group = "User",
-    on_press = function()
-      awful.util.spawn("playerctl previous")
-    end,
-  }),
+  -- Applications
   awful.key({
     modifiers = { modkey },
     key = "b",
@@ -389,19 +221,193 @@ awful.keyboard.append_global_keybindings({
   }),
   awful.key({
     modifiers = { modkey },
-    key = "y",
-    description = "Toggle Wibar",
-    group = "Awesome",
+    key = "Return",
+    description = "Open a Terminal",
+    group = "Applications",
     on_press = function()
-      visibility = not visibility
-      awful.screen.focused().mywibox.visible = visibility
+      awful.spawn(applications.default.terminal_emulator)
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = "r",
+    description = "Application Launcher",
+    group = "Applications",
+    on_press = function()
+      awful.util.spawn(applications.default.app_launcher)
+      -- menubar.show()
+    end,
+  }),
+
+  -- Scripts
+
+  -- This will only work if you have the 'colorscheme' program in your $PATH and you need rofi installed
+  awful.key({
+    modifiers = { modkey },
+    key = "c",
+    description = "Change Colorscheme",
+    group = "Scripts",
+    on_press = function()
+      awful.util.spawn("colorscheme")
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Shift" },
+    key = "w",
+    description = "Set a Wallpaper",
+    group = "Scripts",
+    on_press = function()
+      awful.spawn.with_shell("wallpaper " .. tostring(user_likes.user.wallpapers_dir))
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Shift" },
+    key = "b",
+    description = "Bookmarks",
+    group = "Scripts",
+    on_press = function()
+      awful.util.spawn("bookmark")
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = "e",
+    description = "Rofi-Emoji",
+    group = "Scripts",
+    on_press = function()
+      awful.util.spawn("rofi -show emoji")
+    end,
+  }),
+
+  -- UI
+  awful.key({
+    modifiers = { modkey, "Control" },
+    key = "d",
+    description = "Open Dashboard",
+    group = "Ui",
+    on_press = function()
+      dashboard_show()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Control" },
+    key = "n",
+    description = "Notification Center",
+    group = "Ui",
+    on_press = function()
+      notifs_toggle()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Control" },
+    key = "p",
+    description = "Open Exit Screen",
+    group = "Ui",
+    on_press = function()
+      power_popup_show()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Control" },
+    key = "w",
+    description = "Set a Random Wallpaper",
+    group = "Ui",
+    on_press = function()
+      local feh_cmd = "feh --no-fehbg --bg-scale --randomize --no-xinerama"
+      awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
+    end,
+  }),
+
+  -- Others
+  awful.key({
+    modifiers = { modkey },
+    key = "i",
+    description = "Fullscreen Screenshot",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(screenshot.full())
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey, "Shift" },
+    key = "i",
+    description = "Area Screenshot",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(screenshot.area())
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = "u",
+    description = "Checkupdates",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(updates.num())
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = "=",
+    description = "Volume +",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(vol.increase())
+      volume.get_vol()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = "-",
+    description = "Volume -",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(vol.decrease())
+      volume.get_vol()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = "0",
+    description = "Mute/Desmute",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(vol.mute())
+      volume.get_vol()
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = ";",
+    description = "Playerctl Play-Pause",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn("playerctl play-pause")
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = ".",
+    description = "Playerctl Next",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn("playerctl next")
+    end,
+  }),
+  awful.key({
+    modifiers = { modkey },
+    key = ",",
+    description = "Playerctl Previous",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn("playerctl previous")
     end,
   }),
   awful.key({
     modifiers = { modkey },
     key = "x",
     description = "Switch Color Temperature",
-    group = "User",
+    group = "Others",
     on_press = function()
       isDark = not isDark
       if isDark then
@@ -412,6 +418,17 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
 })
+
+  awful.key({
+    modifiers = { modkey },
+    key = "y",
+    description = "Toggle Wibar",
+    group = "Awesome",
+    on_press = function()
+      visibility = not visibility
+      awful.screen.focused().mywibox.visible = visibility
+    end,
+  })
 
 client.connect_signal("request::default_keybindings", function()
   awful.keyboard.append_client_keybindings({
