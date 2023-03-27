@@ -20,12 +20,12 @@ applications[Twitter]="https://twitter.com/home"
 applications[Letterboxd]="https://letterboxd.com/"
 applications[Reedit]="https://www.reddit.com/"
 applications[Pinterest]="https://br.pinterest.com/"
-
-declare -A college
-college[Sava]="https://estudante.estacio.br/disciplinas"
-college[Sia]="https://sia.estacio.br/"
-college[Simulados]="https://simulado.estacio.br/alunos/"
-college[Vagas]="https://www.encontresuavaga.com.br/"
+declare -A studying
+studying[Sava]="https://estudante.estacio.br/disciplinas"
+studying[Sia]="https://sia.estacio.br/"
+studying[Simulados]="https://simulado.estacio.br/alunos/"
+studying[Vagas]="https://www.encontresuavaga.com.br/"
+studying[Udemy]="https://www.udemy.com/"
 
 declare -A linux
 linux[Arch Wiki]="https://wiki.archlinux.org/"
@@ -50,9 +50,9 @@ applications() {
    cmd=$(xdotool type "${applications[${opts}]}")
 }
 
-college() {
-   opts=$(printf '%s\n' "${!college[@]}" | sort | $ROFI 'Choose The Bookmark' "$@")
-   cmd=$(xdotool type "${college[${opts}]}")
+studying() {
+   opts=$(printf '%s\n' "${!studying[@]}" | sort | $ROFI 'Choose The Bookmark' "$@")
+   cmd=$(xdotool type "${studying[${opts}]}")
 }
 
 linux() {
@@ -71,12 +71,12 @@ entrepreneurship() {
 }
 
 main() {
-  options=$(printf "Applications\nCollege\nLinux\nOthers\nEntrepreneurship" | sort | $ROFI "Choose a option")
+  options=$(printf "Applications\nStudying\nLinux\nOthers\nEntrepreneurship" | sort | $ROFI "Choose a option")
 
   case $options in
     Applications) applications "$@"
       ;;
-    College) college "$@"
+    Studying) studying "$@"
       ;;
     Linux) linux "$@"
       ;;
