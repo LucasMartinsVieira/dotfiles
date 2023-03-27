@@ -170,18 +170,15 @@ local battery = grouping_widgets(battery_icon, battery_info)
 volume:buttons(gears.table.join(
   awful.button({}, 1, function()
     require("lib.volume").mute()
-    require("ui.bar.volume").get_vol()
   end),
   awful.button({}, 3, function()
     awful.spawn("pavucontrol")
   end),
   awful.button({}, 4, function()
     require("lib.volume").increase()
-    require("ui.bar.volume").get_vol()
   end),
   awful.button({}, 5, function()
     require("lib.volume").decrease()
-    require("ui.bar.volume").get_vol()
   end)
 ))
 

@@ -48,7 +48,6 @@ volume.increase = function ()
   ]]
 
   awful.spawn(script, false)
-  volume.notification()
 end
 
 volume.decrease = function ()
@@ -57,7 +56,6 @@ volume.decrease = function ()
   ]]
 
   awful.spawn(script, false)
-  volume.notification()
 end
 
 volume.mute = function ()
@@ -66,7 +64,6 @@ volume.mute = function ()
   ]]
   
   awful.spawn(script, false)
-  volume.mute_notification()
 end
 
 return volume
