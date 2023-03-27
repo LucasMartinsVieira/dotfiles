@@ -57,9 +57,10 @@ alias yta-vorbis="yt-dlp --extract-audio --audio-format vorbis"
 alias yta-wav="yt-dlp --extract-audio --audio-format wav"
 alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 
-# Apps
+# Programs
 alias v="nvim"
 alias lf="lfrun"
+alias lg="lazygit"
 
 # Alias for cd
 alias ..="cd .."

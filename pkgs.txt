@@ -69,3 +69,4 @@ ttf-nerd-fonts-symbols-common
 ttf-opensans
 gnu-free-fonts
 ttf-ubuntu-mono-nerd
+ttf-roboto-mono-nerd
