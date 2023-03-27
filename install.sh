@@ -11,19 +11,22 @@ BLUE='\033[1;36m'         # Blue
 RED='\033[0;31m'          # Red
 NC='\033[0m'              # No Color
 
-
 export NEWT_COLORS="
-root=,blue
+root=,black
 window=,black
-shadow=,blue
+shadow=,black
 border=blue,black
-title=blue,black
-textbox=blue,black
-radiolist=black,black
-label=black,blue
-checkbox=black,blue
-compactbutton=black,blue
-button=black,red"
+title=cyan,black
+textbox=white,black
+radiolist=white,green
+label=white,black
+checkbox=white,black
+actcheckbox=black,blue
+compactbutton=white,black
+button=black,blue
+entry=white,black
+actlistbox=white,blue
+listbox=white,black"
 
 # Welcome Message.
 welcome() {
@@ -79,7 +82,7 @@ select choice in "${AUR_HELPERS[@]}"; do
 done
 }
 
-aur_helper
+printf "Choose an Aur Helper\n\n"; sleep 1; aur_helper
 
 optinal_packages() {
   whiptail --title "Optinal Packages!" --msgbox "Now you will have the option to installing optional packages" 15 60
@@ -148,7 +151,7 @@ exitorinstall() {
         # Otherwise, pacman is not going to like how we feed it.
         programs=$(echo "$result" | sed 's/" /\n/g' | sed 's/"//g')
         echo "$programs"
-        $choice --needed --noconfirm  -S "$programs" || \
+        $choice --needed --noconfirm  -Sy "$programs" || \
         echo "Failed to install required packages."
     else
         echo "User selected Cancel."
@@ -210,8 +213,7 @@ internet() {
     checkboxes["thunderbird"]="thunderbird"
     checkboxes["mailspring"]="mailspring"
     checkboxes["mangal-bin"]="mangal"
-    checkboxes["transmission-gtk"]="transmission"
-    checkboxes["transmission-gtk"]="transmission"
+    checkboxes["transmission-gtk"]="transmission-gtk"
     checkboxes["spotify"]="spotify"
     checkboxes["discord"]="discord"
 
