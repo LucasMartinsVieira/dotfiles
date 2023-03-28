@@ -70,3 +70,5 @@ ttf-opensans
 gnu-free-fonts
 ttf-ubuntu-mono-nerd
 ttf-roboto-mono-nerd
+bluez
+bluez-tools

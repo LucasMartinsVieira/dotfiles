@@ -9,7 +9,7 @@ local updates = {}
 
 updates.num = function()
   local script = [[
-  checkupdates ; paru -Qua
+  checkupdates
   ]]
 
   local script2 = [[
