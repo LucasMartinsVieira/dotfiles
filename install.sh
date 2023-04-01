@@ -242,11 +242,25 @@ internet
 games
 
 scripts() {
-  if (whiptail --title "Scripts" --yesno "Do you want my rofi/bash scripts?" 15 60); then
-    script_yes
-  else
-    change_shell
-  fi
+while true; do
+    read -p "Do you want my Rofi/Bash scripts? (y/N)" yn
+    case $yn in
+        [Yy]* ) script_yes
+                break;;
+        [Nn]* ) echo "You choose not to get my Rofi/Bash scripts." \
+          && $SEPARATOR\
+          && change_shell;
+                break;;
+        * ) echo "You choose not to get my Rofi/Bash scripts." && change_shell
+        break;;
+    esac
+  done
+
+  # if (whiptail --title "Scripts" --yesno "Do you want my rofi/bash scripts?" 15 60); then
+  #   script_yes
+  # else
+  #   change_shell
+  # fi
 }
 
 script_yes() {
@@ -426,20 +440,44 @@ finish() {
 }
 
 change_shell() {
-  if (whiptail --title "Fish Shell" --yesno "Do you want to change your user shell to Fish?" 15 60); then
-    chsh -s /bin/fish && finish
-  else
-    finish
-  fi
+  printf 'Set default user shell (enter number): \n'
+  SHELLS=("fish" "bash" "zsh" "quit")
+  select choice in "${SHELLS[@]}"; do
+    case $choice in
+         fish | bash | zsh)
+         doas chsh $USER -s "/bin/$choice" && \
+            echo -e "$choice has been set as your default USER shell. \
+                    \nLogging out is required for this take effect."
+            finish
+            break
+            ;;
+         quit)
+            echo "User quit without changing shell."
+            finish
+            break
+            ;;
+         *)
+            echo "invalid option $REPLY"
+            ;;
+    esac
+  done
 }
 
 configs_yes_no() {
-  if (whiptail --title "Config Files" --yesno "Do you want my config files?" 15 60); then
-    printf "If you choose yes in the following prompts it will create a symlink in ~/repos/dotfiles/ to ~/.config/\n"
-    configs
-  else
-    scripts
-  fi
+$SEPARATOR
+  while true; do
+    read -p "Do you want my config files? (y/N)" yn
+    case $yn in
+      [Yy]* ) configs;
+                break;;
+        [Nn]* ) echo "You choose not to get my config files.";
+                scripts
+                break;;
+        * ) echo "You choose not to get my config files.";
+           scripts
+        break;;
+    esac
+  done
 }
 
 configs_yes_no
