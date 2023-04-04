@@ -61,7 +61,7 @@ ttf-fira-code
 ttf-fira-mono
 ttf-fira-sans
 ttf-hack
-ttf-jetbrains-mono-nerd
+ttf-jetbrains-mono
 ttf-liberation
 ttf-ms-fonts
 ttf-nerd-fonts-symbols-2048-em
