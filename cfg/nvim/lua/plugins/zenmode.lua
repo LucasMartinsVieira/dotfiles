@@ -1,6 +1,6 @@
 return {
   "folke/zen-mode.nvim",
-  enabled = false,
+  enabled = true,
   cmd = "ZenMode",
   keys = {
     { "<space>z", "<CMD>ZenMode<CR>", desc = "[Z]en Mode" },
@@ -13,14 +13,14 @@ return {
         -- * an absolute number of cells when > 1
         -- * a percentage of the width / height of the editor when <= 1
         -- * a function that returns the width or the height
-        width = 130, -- width of the Zen window
+        width = 105, -- width of the Zen window
         height = 1, -- height of the Zen window
         -- by default, no options are changed for the Zen window
         -- uncomment any of the options below, or add other vim.wo options you want to apply
         options = {
           -- signcolumn = "no", -- disable signcolumn
           number = false, -- disable number column
-          -- relativenumber = false, -- disable relative numbers
+          relativenumber = false, -- disable relative numbers
           cursorline = false, -- disable cursorline
           -- cursorcolumn = false, -- disable cursor column
           -- foldcolumn = "0", -- disable fold column

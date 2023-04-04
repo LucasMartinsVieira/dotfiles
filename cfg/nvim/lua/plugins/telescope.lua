@@ -24,17 +24,17 @@ return {
   },
   cmd = "Telescope",
   keys = {
-    { "<space>b",  "<CMD>Telescope buffers<CR>",      desc = "[B]uffers" },
+    { "<space>bb", "<CMD>Telescope buffers<CR>",      desc = "Buffers" },
     { "<space>ff", "<CMD>Telescope find_files<CR>",   desc = "Find Files" },
     { "<space>fr", "<CMD>Telescope oldfiles<CR>",     desc = "Find Recent Files" },
-    { "<space>fp", "<CMD>Telescope project<CR>",     desc = "Find Projects" },
+    { "<space>fp", "<CMD>Telescope project<CR>",      desc = "Find Projects" },
     { "<space>fb", "<CMD>Telescope buffers<CR>",      desc = "Find Buffers" },
     { "<space>fw", "<CMD>Telescope live_grep<CR>",    desc = "Find Word" },
     { "<space>fc", "<CMD>Telescope colorscheme<CR>",  desc = "Find Colorscheme", },
-    { "<space>fk", "<CMD>Telescope Keymaps<CR>",   desc = "Find Keymaps" },
-    { "<space>fm", "<CMD>Telescope man_pages<CR>",   desc = "Find Man Pages" },
+    { "<space>fk", "<CMD>Telescope Keymaps<CR>",      desc = "Find Keymaps" },
+    { "<space>fm", "<CMD>Telescope man_pages<CR>",    desc = "Find Man Pages" },
     { "<space>fC", "<CMD>Telescope neoclip<CR>",      desc = "Find Clip Board" },
-    { "<space>fh", "<CMD>Telescope help_tags<CR>",      desc = "Find Help" },
+    { "<space>fh", "<CMD>Telescope help_tags<CR>",    desc = "Find Help" },
 
     -- Git Commands
     { "<space>gs", "<CMD>Telescope git_status<CR>",   desc = "Telescope Git Status" },

@@ -1,7 +1,7 @@
 return {
   "folke/noice.nvim",
   event = "VimEnter",
-  enabled = false,
+  enabled = true,
   config = function()
     require("noice").setup({
       lsp = {

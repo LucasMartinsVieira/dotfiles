@@ -30,6 +30,7 @@ return {
 				["<space>s"] = { name = "[S]ubstitute Text" },
 				["<space>c"] = { name = "+[C]onfig" },
 				["<space>o"] = { name = "+[O]ptions" },
+				["<space>b"] = { name = "+[B]uffers" },
 			}
 
 			wk.register(keymaps)

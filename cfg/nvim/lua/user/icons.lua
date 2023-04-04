@@ -82,6 +82,7 @@ return {
     deleted = "",
     untracked = "U",
     ignored = "◌",
+    conflict  = "",
   },
   documents = {
     default = "",
