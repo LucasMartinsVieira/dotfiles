@@ -1,39 +1,19 @@
 format = """
-[](#cf87e8)\
-$username\
-[](bg:#ff5454 fg:#cf87e8)\
 $directory\
-[](fg:#ff5454 bg:#cf87e9)\
 $git_branch\
-[](fg:#cf87e9 bg:#e3c78a)\
-[](fg:#e3c78a bg:#79dac8)\
-[](fg:#79dac8 bg:#80a0ff)\
-[ ](fg:#80a0ff)\
-"""
-
-# Disable the blank line at the start of the prompt
-# add_newline = false
-
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
-[username]
-show_always = true
-style_user = "bg:#cf87e8"
-style_root = "bg:#cf87e8"
-format = '[$user ]($style)'
-disabled = false
+$line_break\
+$character"""
 
 [directory]
-style = "bg:#ff5454"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
+read_only = " "
+format = ' [$path]($style)[$read_only]($read_only_style) '
+
+[docker_context]
+symbol = " "
 
 [git_branch]
-symbol = ""
-style = "bg:#cf87e9"
-format = '[ $symbol $branch ]($style)'
+symbol = " "
 
-[git_status]
-style = "bg:#cf87e8"
-format = '[$all_status$ahead_behind ]($style)'
+[character]
+success_symbol = '[ ](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = "[ ](bold red)"
