@@ -134,10 +134,10 @@ M.deno_terminal = function()
   deno:toggle()
 end
 
-M.htop_terminal = function()
+M.btop_terminal = function()
   local Terminal = require("toggleterm.terminal").Terminal
-  local htop = Terminal:new {
-    cmd = "htop",
+  local btop = Terminal:new {
+    cmd = "btop",
     hidden = true,
     direction = "float",
     float_opts = {
@@ -151,7 +151,7 @@ M.htop_terminal = function()
     on_close = function(_) end,
     count = 99,
   }
-  htop:toggle()
+  btop:toggle()
 end
 
 return M

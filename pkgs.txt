@@ -1,5 +1,5 @@
 alacritty
-htop
+btop
 curl
 epub-thumbnailer-git
 exa
@@ -9,6 +9,7 @@ ffmpegthumbnailer
 fish
 fzf
 gimp
+go
 git
 imagemagick
 kitty

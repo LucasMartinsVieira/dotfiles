@@ -15,7 +15,7 @@ return {
     { "<space>tn", "<cmd>lua require 'user.functions'.node_terminal()<cr>",   desc = "Node" },
     { "<space>td", "<cmd>lua require 'user.functions'.deno_terminal()<cr>",   desc = "Deno" },
     { "<space>tp", "<cmd>lua require 'user.functions'.python_terminal()<cr>", desc = "Python" },
-    { "<space>th", "<cmd>lua require 'user.functions'.htop_terminal()<cr>",   desc = "Htop" },
+    { "<space>tb", "<cmd>lua require 'user.functions'.btop_terminal()<cr>",   desc = "Btop" },
     { "<space>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>",  desc = "LazyGit" },
   },
   config = function()

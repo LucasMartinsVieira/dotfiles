@@ -24,6 +24,13 @@ awful.rules.rules = {
         height    = 800,
     }},
 
+  { rule = { class = "transmission-gtk" },
+    properties = {
+        floating  = true,
+        width     = 800,
+        height    = 800,
+    }},
+
   {
     rule = {},
     properties = {

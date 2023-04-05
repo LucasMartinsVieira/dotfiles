@@ -1,7 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local main_disk = "/dev/sda3"
+local main_disk = "/dev/nvme0n1p3"
 
 local function get_disk()
   local script = [[

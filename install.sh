@@ -195,6 +195,7 @@ devstuff() {
     checkboxes["stylua"]="stylua"
     checkboxes["shellcheck"]="shellcheck"
     checkboxes["rust-analyzer"]="rust-analyzer"
+    checkboxes["gopls"]="gopls"
 
     programchoices && selectedprograms && exitorinstall
 }
@@ -255,16 +256,11 @@ while true; do
         break;;
     esac
   done
-
-  # if (whiptail --title "Scripts" --yesno "Do you want my rofi/bash scripts?" 15 60); then
-  #   script_yes
-  # else
-  #   change_shell
-  # fi
 }
 
 script_yes() {
   mkdir -p $HOME/repos/
+  mkdir -p ~/.local/bin/
   # cd $HOME/repos/dotfiles/
   cp ~/repos/dotfiles/bin/lfrun ~/.local/bin/
   ln -s ~/repos/dotfiles/bin/colorscheme ~/.local/bin/colorscheme
@@ -381,6 +377,21 @@ $SEPARATOR
         [Nn]* ) echo "You choose not to get my Neovim config.";
                 break;;
         * ) echo "You choose not to get my Neovim config.";
+        break;;
+    esac
+  done
+$SEPARATOR
+
+  while true; do
+    # Picom
+    read -p "Do you want my Picom config? (y/N)" yn
+    case $yn in
+        [Yy]* ) mkdir -p ~/.config/backup_config; cp -r ~/.config/picom/ ~/.config/backup_config; \
+          rm -rf ~/.config/picom; ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
+                break;;
+        [Nn]* ) echo "You choose not to get my AwesomeWM config.";
+                break;;
+        * ) echo "You choose not to get my AwesomeWm config.";
         break;;
     esac
   done
