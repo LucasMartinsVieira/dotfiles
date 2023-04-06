@@ -15,7 +15,6 @@ require("awful.autofocus")
 require("ui.power_popup")
 require("ui.dashboard")
 require("ui.notification_center")
-require("ui.volume_center")
 local modkey = "Mod4"
 
 awful.keyboard.append_global_keybindings({
@@ -354,7 +353,7 @@ awful.keyboard.append_global_keybindings({
     group = "Others",
     on_press = function()
       awful.util.spawn(vol.increase())
-      volume_center_show()
+      vol.notification()
     end,
   }),
   awful.key({
@@ -364,7 +363,7 @@ awful.keyboard.append_global_keybindings({
     group = "Others",
     on_press = function()
       awful.util.spawn(vol.decrease())
-      volume_center_show()
+      vol.notification()
     end,
   }),
   awful.key({
@@ -374,7 +373,7 @@ awful.keyboard.append_global_keybindings({
     group = "Others",
     on_press = function()
       awful.util.spawn(vol.mute())
-      volume_center_show()
+      vol.mute_notification()
     end,
   }),
   awful.key({

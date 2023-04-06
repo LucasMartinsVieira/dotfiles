@@ -1,10 +1,9 @@
-  local awful = require("awful")
-  local gears = require("gears")
-  local wibox = require("wibox")
-  local helpers = require("helpers")
-  local theme = require("theme.theme")
-  local vol1 = require("lib.volume")
-  require("ui.volume_center")
+local awful = require("awful")
+local gears = require("gears")
+local wibox = require("wibox")
+local helpers = require("helpers")
+local theme = require("theme.theme")
+local vol1 = require("lib.volume")
 
 -- Volume
 local volume = wibox.widget.textbox()
@@ -85,19 +84,18 @@ end
 volume:buttons(gears.table.join(
   awful.button({}, 1, function()
     awful.spawn(vol1.mute())
-      volume_center_show()
+    vol1.mute_notification()
   end),
   awful.button({}, 3, function()
     awful.spawn("pavucontrol")
-      volume_center_show()
   end),
   awful.button({}, 4, function()
     awful.spawn(vol1.increase())
-      volume_center_show()
+    vol1.notification()
   end),
   awful.button({}, 5, function()
     awful.spawn(vol1.decrease())
-    volume.get_vol()
+    vol1.notification()
   end)
 ))
 
