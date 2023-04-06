@@ -101,6 +101,7 @@ theme.pfp = icons_dir .. "profile.jpg"
 theme.camera = icons_dir .. "camera.png"
 theme.volume = icons_dir .. "volume.png"
 theme.updates = icons_dir .. "updates.png"
+theme.brightness = icons_dir .. "brightness.png"
 theme.album_art = icons_dir .. "album.jpg"
 theme.notifications = gcolor.recolor_image(icons_dir .. "notifications.svg", theme.yellow)
 

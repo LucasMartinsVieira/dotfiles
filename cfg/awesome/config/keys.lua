@@ -379,7 +379,7 @@ awful.keyboard.append_global_keybindings({
   awful.key({
     modifiers = { modkey },
     key = ";",
-    description = "Playerctl Play-Pause",
+    description = "Playerctl Play/Pause",
     group = "Others",
     on_press = function()
       awful.util.spawn("playerctl play-pause")

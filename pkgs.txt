@@ -1,8 +1,10 @@
 alacritty
 btop
+brightnessctl
 curl
 epub-thumbnailer-git
 exa
+exfatprogs
 fd
 feh
 ffmpegthumbnailer
@@ -25,6 +27,7 @@ opendoas
 openssh
 pacman-contrib
 pamixer
+playerctl
 pavucontrol
 picom
 poppler
@@ -36,9 +39,11 @@ rofi-emoji
 rustup
 starship
 sxiv
+syncthing
 trash-cli
 tree-sitter
 ueberzug
+udisks2
 wget
 xclip
 xdotool
