@@ -7,54 +7,54 @@ local vol1 = require("lib.volume")
 
 -- Volume
 local volume = wibox.widget.textbox()
-volume.font = theme.font .. " 18"
+volume.font = theme.font .. " 24"
 helpers.add_hover_cursor(volume, "hand1")
 
 local percentage = wibox.widget.textbox()
-percentage.font = theme.font .. " 18"
+percentage.font = theme.font .. " 22"
 
 awesome.connect_signal("signal::volume", function(vol, mute)
   vol = tonumber(vol)
   if mute or vol == 0 then
-    volume.markup = helpers.colorize_text("婢", theme.red)
+    volume.markup = helpers.colorize_text("󰝟", theme.red)
     percentage.markup = "Muted"
 
     volume:connect_signal("mouse::enter", function()
-      volume.font = theme.font .. " 20"
+      volume.font = theme.font .. " 26"
     end)
     volume:connect_signal("mouse::leave", function()
-      volume.font = theme.font .. " 18"
+      volume.font = theme.font .. " 24"
     end)
   else
     if vol <= 30 then
-      volume.markup = helpers.colorize_text("ﱜ", theme.blue)
+      volume.markup = helpers.colorize_text("󰕿", theme.blue)
       percentage.markup = vol .. "%"
 
       volume:connect_signal("mouse::enter", function()
-        volume.font = theme.font .. " 20"
+        volume.font = theme.font .. " 26"
       end)
       volume:connect_signal("mouse::leave", function()
-        volume.font = theme.font .. " 18"
+        volume.font = theme.font .. " 24"
       end)
     elseif vol <= 60 then
-      volume.markup = helpers.colorize_text("奔", theme.blue)
+      volume.markup = helpers.colorize_text("󰖀", theme.blue)
       percentage.markup = vol .. "%"
 
       volume:connect_signal("mouse::enter", function()
-        volume.font = theme.font .. " 20"
+        volume.font = theme.font .. " 26"
       end)
       volume:connect_signal("mouse::leave", function()
-        volume.font = theme.font .. " 18"
+        volume.font = theme.font .. " 24"
       end)
     else
-      volume.markup = helpers.colorize_text("墳", theme.blue)
+      volume.markup = helpers.colorize_text("󰕾", theme.blue)
       percentage.markup = vol .. "%"
 
       volume:connect_signal("mouse::enter", function()
-        volume.font = theme.font .. " 20"
+        volume.font = theme.font .. " 26"
       end)
       volume:connect_signal("mouse::leave", function()
-        volume.font = theme.font .. " 18"
+        volume.font = theme.font .. " 24"
       end)
     end
   end

@@ -1,8 +1,4 @@
-# Dotfiles :sparkles:
-
-<!-- <div align="center"> -->
-<!-- <h1>✨ My Dotfiles.</h1> -->
-<!-- </div> -->
+# :sparkles: My Dotfiles
 
 <!-- <div align="center"> -->
 <!--     <img src="https://awesomewm.org/images/awesome-logo.svg"> -->
@@ -13,6 +9,7 @@
 - [Info](#Info)
 - [Notes](#Notes)
 - [Setup](#Setup)
+  - [Services](#services)
 - [Configurations](#Configurations)
   - [AwesomeWM](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/awesome)
   - [Neovim](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/nvim)
@@ -50,6 +47,30 @@ git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.gi
 cd dotfiles/
 ./install.sh
 ```
+
+### Services
+
+<details close>
+    <summary><samp><b>optional services</b></samp></summary>
+
+<br>
+
+```bash
+# Enable internet connection
+systemctl enable NetworkManager
+
+# Enable virtual machine
+systemctl enable libvirtd
+
+# Enable printing
+systemctl enable cups
+
+# Enable bluetooth
+systemctl enable bluetooth
+
+```
+
+</details>
 
 ## Configurations
 
