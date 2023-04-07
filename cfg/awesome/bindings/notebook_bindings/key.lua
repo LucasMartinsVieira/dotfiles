@@ -1,6 +1,7 @@
 local awful = require("awful")
 local vol = require("lib.volume")
 local brightness = require("lib.brightness")
+local user_likes = require("user_vars")
 
 local mod = require("bindings.mod")
 
@@ -50,6 +51,15 @@ awful.keyboard.append_global_keybindings({
   }),
   awful.key({
     modifiers = {},
+    key = "XF86AudioStop",
+    description = "Playerctk Pause",
+    group = "Notebook",
+    on_press = function()
+      awful.util.spawn("playerctl pause")
+    end,
+  }),
+  awful.key({
+    modifiers = {},
     key = "XF86AudioNext",
     description = "Playerctk Next",
     group = "Notebook",
@@ -88,4 +98,34 @@ awful.keyboard.append_global_keybindings({
       brightness.notification()
     end,
   }),
+
+  -- Others
+  awful.key({
+    modifiers = {},
+    key = "XF86Calculator",
+    description = "Calculator",
+    group = "Notebook",
+    on_press = function()
+      awful.util.spawn(user_likes.apps.terminal_emulator .. " qalc")
+    end,
+  }),
+  awful.key({
+    modifiers = {},
+    key = "XF86AudioMicMute",
+    description = "Audio Mic",
+    group = "Notebook",
+    on_press = function()
+      awful.util.spawn("notify-send --app-name=firefox lucas")
+    end,
+  }),
+  awful.key({
+    modifiers = {},
+    key = "XF86RFKill",
+    description = "Airplane",
+    group = "Notebook",
+    on_press = function()
+      awful.util.spawn("notify-send --app-name=firefox lucas2")
+    end,
+  }),
+
 })
