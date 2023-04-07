@@ -11,6 +11,11 @@ return {
   user = {
     -- Your Wallpapers directory
     wallpapers_dir = "",
+
+    -- Your main disk
+    main_disk = ""
+  },
+  apps = {
+
   },
 }
-
