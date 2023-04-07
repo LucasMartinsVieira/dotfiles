@@ -1,6 +1,6 @@
 local awful = require("awful")
 local helpers = require("helpers")
-local applications = require("config.applications")
+local user_likes = require("user_vars")
 
 awesomemenu = {
   { "Shutdown", function()  awful.spawn.with_shell("systemctl poweroff") end },
@@ -12,10 +12,10 @@ awesomemenu = {
 mainmenu = awful.menu {
 	items = {
     { "Awesome", awesomemenu },
-    { "Applications", applications.default.app_launcher },
-		{ "Browser", applications.default.browser },
-		{ "Terminal", applications.default.terminal_emulator },
-    { "File Manager", applications.default.file_manager },
+    { "Applications", user_likes.apps.app_launcher },
+		{ "Browser", user_likes.apps.browser },
+		{ "Terminal", user_likes.apps.terminal_emulator },
+    { "File Manager", user_likes.apps.file_manager },
 	}
 }
 

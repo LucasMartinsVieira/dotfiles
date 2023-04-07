@@ -1,7 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
-local applications = require("config.applications")
+local user_likes = require("user_vars")
 local theme = require("theme.theme")
 local dpi = require("beautiful").xresources.apply_dpi
 local helpers = require("helpers")
@@ -184,7 +184,7 @@ volume:buttons(gears.table.join(
 
 updates:buttons(gears.table.join(
   awful.button({}, 1, function()
-    awful.spawn(applications.default.terminal_emulator .. " -e paru -Syu --noconfirm")
+    awful.spawn(user_likes.apps.terminal_emulator .. " -e paru -Syu --noconfirm")
   end),
   awful.button({}, 3, function()
     require("lib.updates").num()

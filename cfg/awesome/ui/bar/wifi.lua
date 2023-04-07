@@ -1,7 +1,7 @@
 local awful = require "awful"
 local gears = require "gears"
 local wibox = require "wibox"
-local applications = require("config.applications")
+local user_likes = require("user_vars")
 local theme = require "theme.theme"
 local helpers = require("helpers")
 
@@ -33,7 +33,7 @@ end)
 
 wifi:buttons(gears.table.join(
   awful.button({}, 1, function ()
-    awful.spawn(applications.default.terminal_emulator .. " -e nmtui")
+    awful.spawn(user_likes.apps.terminal_emulator .. " -e nmtui")
   end)
 ))
 

@@ -1,6 +1,6 @@
 local awful = require("awful")
 local naughty = require("naughty")
-local applications = require("config.applications")
+local user_likes = require("user_vars")
 local theme = require("theme.theme")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -21,7 +21,7 @@ updates.num = function()
   }
 
   update:connect_signal("invoked", function(n)
-    awful.spawn(applications.default.terminal_emulator .. " -e paru -Syu --noconfirm", true)
+    awful.spawn(user_likes.apps.terminal_emulator .. " -e paru -Syu --noconfirm", true)
   end)
 
   awful.spawn.easy_async_with_shell(script, function(out)

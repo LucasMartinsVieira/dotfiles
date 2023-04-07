@@ -11,11 +11,14 @@ return {
   user = {
     -- Your Wallpapers directory
     wallpapers_dir = "",
-
     -- Your main disk
-    main_disk = ""
+    main_disk = "",
   },
   apps = {
-
+    -- Default Applications
+    app_launcher = "rofi -show drun -show-icons",
+    browser = "librewolf",
+    terminal_emulator = "kitty",
+    file_manager = "kitty lf",
   },
 }

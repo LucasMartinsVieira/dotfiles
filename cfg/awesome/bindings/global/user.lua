@@ -1,5 +1,4 @@
 local awful = require("awful")
-local applications = require("config.applications")
 local user_likes = require("user_vars")
 local vol = require("lib.volume")
 local screenshot = require("lib.screenshot")
@@ -20,7 +19,7 @@ awful.keyboard.append_global_keybindings({
     description = "Browser",
     group = "Applications",
     on_press = function()
-      awful.util.spawn(applications.default.browser)
+      awful.util.spawn(user_likes.apps.browser)
     end,
   }),
   awful.key({
@@ -29,7 +28,7 @@ awful.keyboard.append_global_keybindings({
     description = "File Manager",
     group = "Applications",
     on_press = function()
-      awful.util.spawn(applications.default.file_manager)
+      awful.util.spawn(user_likes.apps.file_manager)
     end,
   }),
   awful.key({
@@ -38,7 +37,7 @@ awful.keyboard.append_global_keybindings({
     description = "Open a Terminal",
     group = "Applications",
     on_press = function()
-      awful.spawn(applications.default.terminal_emulator)
+      awful.spawn(user_likes.apps.terminal_emulator)
     end,
   }),
   awful.key({
@@ -47,7 +46,7 @@ awful.keyboard.append_global_keybindings({
     description = "Application Launcher",
     group = "Applications",
     on_press = function()
-      awful.util.spawn(applications.default.app_launcher)
+      awful.util.spawn(user_likes.apps.app_launcher)
       -- menubar.show()
     end,
   }),
