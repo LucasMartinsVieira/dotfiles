@@ -115,7 +115,7 @@ awful.keyboard.append_global_keybindings({
     description = "Audio Mic",
     group = "Notebook",
     on_press = function()
-      awful.util.spawn("notify-send --app-name=firefox lucas")
+      awful.util.spawn("notify-send --app-name=firefox MicKey")
     end,
   }),
   awful.key({
@@ -124,8 +124,7 @@ awful.keyboard.append_global_keybindings({
     description = "Airplane",
     group = "Notebook",
     on_press = function()
-      awful.util.spawn("notify-send --app-name=firefox lucas2")
+      awful.util.spawn("notify-send --app-name=firefox AirplaneKey")
     end,
   }),
-
 })

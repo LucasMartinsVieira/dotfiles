@@ -13,7 +13,6 @@ local height = awful.screen.focused().geometry.height - dpi(120)
 --local height = awful.screen.focused().geometry.height - dpi(50)
 
 local function box_widget(widgets, width, height)
-
   return wibox.widget({
     {
       {
@@ -37,22 +36,14 @@ local profile_widget = require("ui.dashboard.profile")
 local player_widget = require("ui.dashboard.player")
 local stats_widget = require("ui.dashboard.stats")
 local weather_widget = require("ui.dashboard.weather")
-local powerbar_widget = require("ui.dashboard.powerbar")
+local services_widget = require("ui.dashboard.services")
 
 -- Combine Widgets
-local profile = box_widget(profile_widget, 380, 210)
+local profile = box_widget(profile_widget, 380, 200)
 local player = box_widget(player_widget, 380, 170)
 local stats = box_widget(stats_widget, 380, 100)
 local weather = box_widget(weather_widget, 380, 225)
-local powerbar = box_widget(powerbar_widget, 380, 100)
-
--- Spacing
-local space = function(height)
-  return wibox.widget({
-    forced_height = dpi(height),
-    layout = wibox.layout.align.horizontal,
-  })
-end
+local services = box_widget(services_widget, 380, 130)
 
 -- Dashboard
 dashboard = wibox({
@@ -73,14 +64,14 @@ dashboard:setup({
     player,
     stats,
     weather,
-    powerbar,
+    -- powerbar,
+    services,
     spacing = dpi(25),
     layout = wibox.layout.fixed.vertical,
   },
   margins = { top = dpi(20), bottom = dpi(20) },
   widget = wibox.container.margin,
 })
-
 
 function dashboard_show()
   if dashboard.visible == false then

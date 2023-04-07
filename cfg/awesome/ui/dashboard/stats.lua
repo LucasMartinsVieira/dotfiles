@@ -141,9 +141,10 @@ awesome.connect_signal("signal::battery", function(bat_level)
 end)
 
 local function get_wifi()
-  awesome.connect_signal("signal::wifi", function(net_status, net_stregth)
+  awesome.connect_signal("signal::wifi", function(net_stregth)
     local net_stregth = tonumber(net_stregth)
-    if net_status == false then
+
+    if net_stregth == 0 then
       wifi_icon.markup = helpers.colorize_text("睊", theme.red)
       wifi_info.markup = ""
     else
