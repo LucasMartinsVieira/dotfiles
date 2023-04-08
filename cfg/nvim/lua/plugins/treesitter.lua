@@ -20,6 +20,7 @@ return {
       ensure_installed = {
         "bash",
         -- "help",
+        "regex",
         "c",
         "html",
         "javascript",

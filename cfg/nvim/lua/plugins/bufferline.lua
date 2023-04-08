@@ -3,8 +3,8 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		version = "v3.*",
-
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufNewFile" },
+    -- enabled = false,
 
 		opts = {
 			options = {
