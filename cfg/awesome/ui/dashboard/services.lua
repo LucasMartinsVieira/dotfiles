@@ -1,5 +1,6 @@
 local awful = require("awful")
 local gears = require("gears")
+local naughty = require("naughty")
 local theme = require("theme.theme")
 local wibox = require("wibox")
 local helpers = require("helpers")
@@ -46,13 +47,13 @@ local bluetooth = wibox.widget({
   widget = wibox.container.background,
 })
 
-local airplane = wibox.widget({
+local notify = wibox.widget({
   {
     {
-      id = "airplane",
+      id = "notify",
       widget = wibox.widget.textbox,
-      font = theme.font .. " 30",
-      markup = "󰀝",
+      font = theme.font .. " 28",
+      markup = "",
       halign = "center",
       align = "center",
     },
@@ -65,10 +66,7 @@ local airplane = wibox.widget({
   widget = wibox.container.background,
 })
 
-
--- wifi: 睊 直
 -- bluetooth: 󰂲 󰂯
--- airplane: 󰀞 󰀝
 
 -- Wifi
 awesome.connect_signal("signal::wifi", function(net_stregth)
@@ -93,12 +91,35 @@ awesome.connect_signal("signal::wifi", function(net_stregth)
   end)))
 end)
 
+-- Notify
+awesome.connect_signal("signal::dnd", function(dnd_status)
+  if dnd_status then
+    notify.fg = off
+    notify:get_children_by_id("notify")[1].markup = ""
+  else
+    notify.fg = on
+    notify:get_children_by_id("notify")[1].markup = ""
+  end
+
+  notify:buttons(gears.table.join(awful.button({}, 1, function()
+    if dnd_status then
+      notify.fg = off
+      notify:get_children_by_id("notify")[1].markup = ""
+      naughty.toggle()
+    else
+      notify.fg = on
+      notify:get_children_by_id("notify")[1].markup = ""
+      naughty.toggle()
+    end
+  end)))
+end)
+
 return wibox.widget({
   {
     {
       wifi,
       bluetooth,
-      airplane,
+      notify,
       spacing = dpi(12),
       layout = wibox.layout.flex.horizontal,
     },

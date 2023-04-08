@@ -4,7 +4,8 @@ req = {
   "wifi",
   "disk",
   "uptime",
-  "battery"
+  "battery",
+  "dnd"
 }
 
 for _, x in pairs(req) do
