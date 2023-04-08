@@ -66,8 +66,6 @@ local notify = wibox.widget({
   widget = wibox.container.background,
 })
 
--- bluetooth: 󰂲 󰂯
-
 -- Wifi
 awesome.connect_signal("signal::wifi", function(net_stregth)
   if net_stregth == 0 then
@@ -87,6 +85,29 @@ awesome.connect_signal("signal::wifi", function(net_stregth)
       wifi.fg = off
       wifi:get_children_by_id("wifi")[1].markup = "直"
       awful.spawn.with_shell("nmcli radio wifi off")
+    end
+  end)))
+end)
+
+-- Bluetooth
+awesome.connect_signal("signal::bluetooth", function(bluetooth_status)
+  if bluetooth_status then
+    bluetooth.fg = on
+    bluetooth:get_children_by_id("bluetooth")[1].markup = "󰂯"
+  else
+    bluetooth.fg = off
+    bluetooth:get_children_by_id("bluetooth")[1].markup = "󰂲"
+  end
+
+  bluetooth:buttons(gears.table.join(awful.button({}, 1, function()
+    if bluetooth_status then
+      bluetooth.fg = off
+      bluetooth:get_children_by_id("bluetooth")[1].markup = "󰂲"
+      awful.spawn.with_shell("bluetoothctl power off")
+    else
+      bluetooth.fg = on
+      bluetooth:get_children_by_id("bluetooth")[1].markup = "󰂯"
+      awful.spawn.with_shell("bluetoothctl power on")
     end
   end)))
 end)
