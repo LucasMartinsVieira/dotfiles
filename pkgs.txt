@@ -32,6 +32,8 @@ pavucontrol
 picom
 poppler
 pulseaudio
+pulseaudio-alsa
+pulseaudio-bluetooth
 redshift
 rofi
 rofi-calc
