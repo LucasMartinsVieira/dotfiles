@@ -81,3 +81,5 @@ ttf-roboto-mono-nerd
 bluez
 bluez-tools
 zsh
+libvirt
+virt-manager

@@ -20,11 +20,18 @@ awful.rules.rules = {
   { rule = { class = "Sxiv" },
     properties = {
         floating  = true,
-        width     = 1200,
+        width     = 800,
         height    = 800,
     }},
 
   { rule = { class = "transmission-gtk" },
+    properties = {
+        floating  = true,
+        width     = 600,
+        height    = 600,
+    }},
+
+  { rule = { class = "Virt-manager" },
     properties = {
         floating  = true,
         width     = 800,
