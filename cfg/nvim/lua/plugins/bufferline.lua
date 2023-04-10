@@ -1,10 +1,11 @@
 local icons = require("user.icons")
+
 return {
 	{
 		"akinsho/bufferline.nvim",
 		version = "v3.*",
     event = { "BufNewFile" },
-    -- enabled = false,
+    enabled = false,
 
 		opts = {
 			options = {
@@ -125,6 +126,7 @@ return {
 				},
 			},
 		},
+
 		config = function(_, opts)
 			require("bufferline").setup(opts)
 		end,
