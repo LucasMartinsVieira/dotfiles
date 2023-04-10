@@ -171,4 +171,6 @@ ex=:\
 *.gitignore=:\
 *.gitmodules=:\
 *package.json=:\
+*.jsx=:\
+*.tsx=:\
 "

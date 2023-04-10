@@ -123,6 +123,7 @@ cmd gitcommit ${{
 map gta gitadd
 map gtc gitcommit
 map gtp gitpush
+map gtg $lazygit
 
 # Movement
 map gdc cd ~/Documentos
