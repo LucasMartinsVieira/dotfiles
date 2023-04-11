@@ -17,3 +17,7 @@ require("user.options")
 require("user.maps")
 require("user.colorscheme")
 require("user.winbar")
+
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

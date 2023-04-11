@@ -41,10 +41,10 @@ nmap("<C-k>", "<C-w>k<CR>", "Go Up")
 nmap("<C-l>", "<C-w>l<CR>", "Go Right")
 
 -- Redimensionar janela
-nmap("<M-S-k>", "<CMD>resize -2<CR>")
-nmap("<M-S-j>", "<CMD>resize +2<CR>")
-nmap("<M-S-l>", "<CMD>vertical resize -2<CR>")
-nmap("<M-S-h>", "<CMD>vertical resize +2<CR>")
+nmap("<M-k>", "<CMD>resize -2<CR>")
+nmap("<M-j>", "<CMD>resize +2<CR>")
+nmap("<M-l>", "<CMD>vertical resize -2<CR>")
+nmap("<M-h>", "<CMD>vertical resize +2<CR>")
 
 -- Navegar arquivos (buffers)
 nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Next")
