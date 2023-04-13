@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-  setxkbmap br
+  # setxkbmap br
+  # neofetch
 end
 
 ### Setting variables
@@ -61,6 +62,7 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 alias v="nvim"
 alias lf="lfrun"
 alias lg="lazygit"
+alias tldrf="tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
 
 # Alias for cd
 alias ..="cd .."
