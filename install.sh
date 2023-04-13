@@ -154,7 +154,7 @@ exitorinstall() {
 		# Otherwise, pacman is not going to like how we feed it.
 		programs=$(echo "$result" | sed 's/" /\n/g' | sed 's/"//g')
 		echo "$programs"
-		$choice --needed --noconfirm -Sy "$programs" ||
+		$choice --needed --ask 4 -Sy "$programs" ||
 			echo "Failed to install required packages."
 	else
 		echo "User selected Cancel."
@@ -176,29 +176,6 @@ browsers() {
 	checkboxes["qutebrowser"]="qutebrowser"
 	checkboxes["ungoogled-chromium-bin"]="ungoogled-chromium"
 	checkboxes["luakit"]="luakit"
-
-	programchoices && selectedprograms && exitorinstall
-}
-
-devstuff() {
-	local title="Development Programs"
-	local text="Development programs available for installation.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them."
-
-	# Create an array with KEY/VALUE pairs.
-	# The first ["KEY] is the name of the package to install.
-	# The second ="VALUE" is the executable binary.
-	local -A checkboxes
-	checkboxes["deno"]="deno"
-	checkboxes["docker"]="docker"
-	checkboxes["docker-compose"]="docker-compose"
-	checkboxes["nodejs"]="node"
-	checkboxes["npm"]="npm"
-	checkboxes["lazygit"]="lazygit"
-	checkboxes["prettier"]="prettier"
-	checkboxes["stylua"]="stylua"
-	checkboxes["shellcheck"]="shellcheck"
-	checkboxes["rust-analyzer"]="rust-analyzer"
-	checkboxes["gopls"]="gopls"
 
 	programchoices && selectedprograms && exitorinstall
 }
@@ -241,7 +218,6 @@ games() {
 }
 
 browsers
-devstuff
 internet
 games
 
