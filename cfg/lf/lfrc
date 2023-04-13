@@ -129,6 +129,7 @@ map gtg $lazygit
 map gdc cd ~/Documentos
 map gdw cd ~/Downloads
 map gdv cd ~/dev/
+map gdr cd ~/repos/
 
 map gi. cd ~/Imagens/
 map giw cd ~/Imagens/Wallpapers/
@@ -150,11 +151,3 @@ map gmv cd ~/Media/Videos/
 map gma cd ~/Media/Animes/
 map gms cd ~/Media/Series/
 map gmM cd ~/Media/Mangas/
-
-# Repos bindings
-map gr. cd ~/repos/
-map grd cd ~/repos/dotfiles/
-map grl cd ~/repos/lucasmartinsvieira/
-map grs cd ~/repos/scripts/
-map grh cd ~/repos/homepage/
-map grc cd ~/repos/clones/
