@@ -24,10 +24,10 @@ nmap("<space>v", "<CMD>vsplit<CR>", "[V]split")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
-nmap("<space>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
-nmap("<space>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>", "[C]onfig options.lua file")
-nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
-nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
+-- nmap("<space>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
+-- nmap("<space>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>", "[C]onfig options.lua file")
+-- nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
+-- nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
 
 -- Options
 nmap("<space>or", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative Numbers")

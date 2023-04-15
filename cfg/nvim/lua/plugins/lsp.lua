@@ -86,23 +86,6 @@ return {
 
       vim.diagnostic.config(config)
 
-      -- Borders in LSP help popup
-      -- vim.lsp.handlers["textDocument/hover"] =
-      --     vim.lsp.with(
-      --       vim.lsp.handlers.hover,
-      --       {
-      --         border = "single"
-      --       }
-      --     )
-      --
-      -- vim.lsp.handlers["textDocument/signatureHelp"] =
-      --     vim.lsp.with(
-      --       vim.lsp.handlers.signature_help,
-      --       {
-      --         border = "single"
-      --       }
-      --     )
-
       nmap("<space>lr", vim.lsp.buf.rename, "Rename")
       nmap("<space>la", vim.lsp.buf.code_action, "Code Action")
       nmap("<space>ld", vim.lsp.buf.type_definition, "Type Definition")
