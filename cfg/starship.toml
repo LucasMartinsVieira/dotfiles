@@ -1,6 +1,9 @@
 format = """
 $directory\
 $git_branch\
+$rust\
+$nodejs\
+$lua\
 $line_break\
 $character"""
 
@@ -13,6 +16,22 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+
+[nodejs]
+symbol = ""
+format = 'via [$symbol($version )]($style)'
+
+[deno]
+symbol = "🦕 "
+format = 'via [$symbol($version )]($style)'
+
+[rust]
+symbol = ""
+format = 'via [$symbol($version )]($style)'
+
+[lua]
+symbol = "🌙 "
+format = 'via [$symbol($version )]($style)'
 
 [character]
 success_symbol = '[ ](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
