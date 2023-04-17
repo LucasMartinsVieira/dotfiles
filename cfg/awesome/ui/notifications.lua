@@ -14,8 +14,8 @@ naughty.connect_signal('request::display', function (n)
     naughty.layout.box {
         notification = n,
         position = 'top_right',
-        border_width = 0,
-        border_color = theme.bg_normal,
+        border_width = 3,
+        border_color = theme.purple,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         shape = helpers.rrect(2),
