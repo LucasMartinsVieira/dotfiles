@@ -1,15 +1,31 @@
 format = """
+$username\
+$hostname\
 $directory\
 $git_branch\
 $rust\
 $nodejs\
 $lua\
 $line_break\
-$character"""
+$character
+"""
+
+[username]
+style_user = "green bold"
+style_root = "red bold"
+format = " [$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = 'on [$hostname](bold purple) '
+trim_at = "."
+disabled = false
 
 [directory]
 read_only = " "
-format = ' [$path]($style)[$read_only]($read_only_style) '
+format = '[$path]($style)[$read_only]($read_only_style) '
 
 [docker_context]
 symbol = " "
@@ -18,7 +34,7 @@ symbol = " "
 symbol = " "
 
 [nodejs]
-symbol = ""
+symbol = " "
 format = 'via [$symbol($version )]($style)'
 
 [deno]
@@ -26,7 +42,7 @@ symbol = "🦕 "
 format = 'via [$symbol($version )]($style)'
 
 [rust]
-symbol = ""
+symbol = " "
 format = 'via [$symbol($version )]($style)'
 
 [lua]
