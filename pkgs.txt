@@ -31,9 +31,11 @@ playerctl
 pavucontrol
 picom
 poppler
-pulseaudio
-pulseaudio-alsa
-pulseaudio-bluetooth
+pipewire
+pipewire-alsa
+pipewire-audio
+pipewire-pulse
+pipewire-jack
 redshift
 rofi
 rofi-calc
