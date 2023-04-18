@@ -3,7 +3,7 @@ return {
   enabled = true,
   cmd = "ZenMode",
   keys = {
-    { "<space>z", "<CMD>ZenMode<CR>", desc = "[Z]en Mode" },
+    { "<space>z", "<CMD>ZenMode<CR>", desc = "Zen Mode" },
   },
   config = function()
     require("zen-mode").setup({

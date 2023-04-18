@@ -5,7 +5,7 @@ return {
   },
   cmd = { "NvimTreeToggle" },
   keys = {
-    { "<space>e", "<CMD>NvimTreeToggle<CR>", desc = "[E]xplorer" },
+    { "<space>e", "<CMD>NvimTreeToggle<CR>", desc = "Explorer" },
   },
   config = function()
     local function on_attach(bufnr)

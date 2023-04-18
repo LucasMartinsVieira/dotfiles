@@ -21,7 +21,7 @@ return {
 				mode = { "n", "v" },
 				["]"] = { name = "+next" },
 				["["] = { name = "+prev" },
-				["<space>f"] = { name = "+File" },
+				["<space>f"] = { name = "+Find" },
 				["<space>a"] = { name = "+Ai" },
 				["<space>g"] = { name = "+Git" },
 				["<space>t"] = { name = "+Terminal" },
@@ -31,6 +31,7 @@ return {
 				["<space>r"] = { name = "+Rust" },
 				["<space>o"] = { name = "+Options" },
 				["<space>b"] = { name = "+Buffers" },
+				["<space>j"] = { name = "+JavaScript/Typescript" },
 				["<space>s"] = { name = "Substitute Text" },
 			}
 
