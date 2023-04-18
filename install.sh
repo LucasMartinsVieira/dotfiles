@@ -464,8 +464,14 @@ configs() {
 			  cp -r ~/.config/picom/ ~/.config/backup_config
 			  rm -rf ~/.config/picom
 			  ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
+        killall picom
+        sleep 2
+        picom &
 			else
 				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom/
+        killall picom
+        sleep 2
+        picom &
 			fi
 			break
 			;;
