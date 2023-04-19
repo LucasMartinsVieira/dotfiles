@@ -2,7 +2,6 @@
 
 # Variables
 BACKUP_DIR="$HOME/.config/backup_config"
-AUR_HELPERS=("paru" "yay" "Neither_of_them")
 SEPARATOR="echo"""
 
 # Colors :
@@ -44,10 +43,27 @@ explanation() {
 	echo -e "${GREEN}############################################${NC}"
 	echo -e "${GREEN}## Installing 'whiptail' if not installed ##${NC}"
 	echo -e "${GREEN}############################################${NC}"
-	doas pacman -S base-devel libnewt --needed --noconfirm
+	doas pacman -S libnewt --needed --noconfirm
 }
 
 explanation
+
+check_folder() {
+	if ! [ -d "$HOME/repos/dotfiles/" ]; then
+		echo -e "${RED}For this script work properly you need run him from $HOME/repos/dotfiles/${NC}"
+    $SEPARATOR
+		echo -e "${BLUE}assuming you've cloned the repository to $HOME:${NC}"
+		echo -e "${BLUE}Run these commands:${NC}"
+		echo -e "${GREEN}mkdir -p ~/repos${NC}"
+		echo -e "${GREEN}mv ~/dotfiles ~/repos${NC}"
+    $SEPARATOR
+    echo -e "${BLUE}For the config of AwesomeWM work properly you need to clone the submodules${NC}"
+    echo -e "${GREEN}git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.git ~/repos/dotfiles${NC}"
+		exit 0
+	fi
+}
+
+check_folder
 
 beginning() {
 	whiptail --title "Installing Packages!" --msgbox "Installing essential packages (you can see them in 'pkgs.txt') and after them you will have the option of installing optinal packages" 15 60
@@ -55,36 +71,12 @@ beginning() {
 
 beginning
 
-aur_helper() {
-	select choice in "${AUR_HELPERS[@]}"; do
-		case $choice in
-		paru)
-			$choice -Syu - --needed --noconfirm <pkgs.txt && scripts
-			break
-			;;
-		yay)
-			$choice -Syu - --needed --noconfirm <pkgs.txt && scripts
-			break
-			;;
-		Neither_of_them)
-			echo "You need an AUR Helper to run this script. Install either paru or yay."
-			$SEPARATOR
-			echo "Paru"
-			echo "https://github.com/Morganamilo/paru"
-			echo "Yay"
-			echo "https://github.com/Jguer/yay"
-			exit 1
-			;;
-		*)
-			echo "invalid option $REPLY"
-			;;
-		esac
-	done
+packages() {
+	echo -e "${BLUE}Installing Packages With Paru${NC}"
+	paru --needed --ask 4 -Sy - <pkgs.txt && scripts
 }
 
-printf "Choose an Aur Helper\n\n"
-sleep 1
-aur_helper
+packages
 
 optinal_packages() {
 	whiptail --title "Optinal Packages!" --msgbox "Now you will have the option to installing optional packages" 15 60
@@ -154,7 +146,7 @@ exitorinstall() {
 		# Otherwise, pacman is not going to like how we feed it.
 		programs=$(echo "$result" | sed 's/" /\n/g' | sed 's/"//g')
 		echo "$programs"
-		$choice --needed --ask 4 -Sy "$programs" ||
+		paru --needed --ask 4 -Sy "$programs" ||
 			echo "Failed to install required packages."
 	else
 		echo "User selected Cancel."
