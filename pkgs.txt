@@ -85,3 +85,4 @@ bluez-tools
 zsh
 libvirt
 virt-manager
+qemu

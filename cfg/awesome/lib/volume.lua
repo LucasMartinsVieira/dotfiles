@@ -44,7 +44,7 @@ end
 
 volume.increase = function ()
   local script = [[
-  amixer -D pulse sset Master 5%+
+  amixer -D pulse sset Master 2%+
   ]]
 
   awful.spawn(script, false)
@@ -52,7 +52,7 @@ end
 
 volume.decrease = function ()
   local script = [[
-  amixer -D pulse sset Master 5%-
+  amixer -D pulse sset Master 2%-
   ]]
 
   awful.spawn(script, false)
