@@ -1,3 +1,4 @@
+awesome-git
 alacritty
 btop
 brightnessctl
@@ -15,6 +16,7 @@ go
 git
 imagemagick
 kitty
+librewolf-bin
 lf
 lxappearance-gtk3
 lxsession
