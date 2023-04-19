@@ -74,6 +74,7 @@ beginning
 packages() {
 	echo -e "${BLUE}Installing Packages With Paru${NC}"
 	paru --needed --ask 4 -Sy - < pkgs.txt && scripts
+  paru -S librewolf-bin awesome-git
 }
 
 packages
