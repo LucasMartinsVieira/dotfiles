@@ -58,7 +58,7 @@ check_folder() {
 		echo -e "${GREEN}mv ~/dotfiles ~/repos${NC}"
     $SEPARATOR
     echo -e "${BLUE}For the config of AwesomeWM work properly you need to clone the submodules${NC}"
-    echo -e "${GREEN}git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.git ~/repos/dotfiles${NC}"
+    echo -e "${GREEN}git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.git ~/repos/dotfiles/${NC}"
 		exit 0
 	fi
 }
@@ -73,7 +73,7 @@ beginning
 
 packages() {
 	echo -e "${BLUE}Installing Packages With Paru${NC}"
-	paru --needed --ask 4 -Sy - <pkgs.txt && scripts
+	paru --needed --ask 4 -Sy - < pkgs.txt && scripts
 }
 
 packages
@@ -370,9 +370,9 @@ configs() {
 				mkdir -p ~/.config/backup_config
 				cp -r ~/.config/kitty/ ~/.config/backup_config
 				rm -rf ~/.config/kitty/
-				ln -s ~/repos/dotfiles/cfg/kitty/ ~/.config/kitty/
+				ln -s ~/repos/dotfiles/cfg/kitty/ ~/.config/kitty
 			else
-				ln -s ~/repos/dotfiles/cfg/kitty/ ~/.config/kitty/
+				ln -s ~/repos/dotfiles/cfg/kitty/ ~/.config/kitty
 			fi
 			break
 			;;
@@ -396,14 +396,15 @@ configs() {
 			if [ -d "$HOME/.config/lf/" ]; then
 				mkdir -p ~/.config/backup_config
 				cp -r ~/.config/lf/ ~/.config/backup_config
-				rm -rf ~/.config/lf
+				rm -rf ~/.config/lf/
 				ln -s ~/repos/dotfiles/cfg/lf/ ~/.config/lf
-				cp -r ~/.config/lf-ueberzug/ ~/.config/backup_config
-				rm -rf ~/.config/lf-ueberzug
+
+				cp -r ~/.config/kitty/ ~/.config/backup_config
+				rm -rf ~/.config/lf-ueberzug/
 				ln -s ~/repos/dotfiles/cfg/lf-ueberzug/ ~/.config/lf-ueberzug
 			else
-				ln -s ~/repos/dotfiles/cfg/lf/ ~/.config/lf/
-				ln -s ~/repos/dotfiles/cfg/lf-ueberzug/ ~/.config/lf-ueberzug/
+				ln -s ~/repos/dotfiles/cfg/lf/ ~/.config/lf
+				ln -s ~/repos/dotfiles/cfg/lf-ueberzug/ ~/.config/lf-ueberzug
 			fi
 			break
 			;;
@@ -427,10 +428,10 @@ configs() {
 			if [ -d "$HOME/.config/nvim/" ]; then
 				mkdir -p ~/.config/backup_config
 				cp -r ~/.config/nvim/ ~/.config/backup_config
-				rm -rf ~/.config/nvim
+				rm -rf ~/.config/nvim/
 				ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim
 			else
-				ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim/
+				ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim
 			fi
 			break
 			;;
@@ -454,7 +455,7 @@ configs() {
 			if [ -d "$HOME/.config/picom/" ]; then
 				mkdir -p ~/.config/backup_config
 				cp -r ~/.config/picom/ ~/.config/backup_config
-				rm -rf ~/.config/picom
+				rm -rf ~/.config/picom/
 				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
 				if [ $(pgrep picom) ]; then
 					killall picom
@@ -491,10 +492,10 @@ configs() {
 			if [ -d "$HOME/.config/zathura/" ]; then
 				mkdir -p ~/.config/backup_config
 				cp -r ~/.config/zathura/ ~/.config/backup_config
-				rm -rf ~/.config/zathura
+				rm -rf ~/.config/zathura/
 				ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura
 			else
-				ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura/
+				ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura
 			fi
 			break
 			;;
