@@ -41,9 +41,9 @@ welcome
 read
 
 explanation() {
-	echo -e "${GREEN}#############################################################${NC}"
-	echo -e "${GREEN}## Installing 'whiptail' and 'base-devel' if not installed ##${NC}"
-	echo -e "${GREEN}#############################################################${NC}"
+	echo -e "${GREEN}############################################${NC}"
+	echo -e "${GREEN}## Installing 'whiptail' if not installed ##${NC}"
+	echo -e "${GREEN}############################################${NC}"
 	doas pacman -S base-devel libnewt --needed --noconfirm
 }
 
@@ -374,7 +374,7 @@ configs() {
 		read -p "Do you want my Kitty config? (y/N)" yn
 		case $yn in
 		[Yy]*)
-			if [ -f "$HOME/.config/kitty/" ]; then
+			if [ -d "$HOME/.config/kitty/" ]; then
 				mkdir -p ~/.config/backup_config
 				cp -r ~/.config/kitty/ ~/.config/backup_config
 				rm -rf ~/.config/kitty/
@@ -401,7 +401,7 @@ configs() {
 		read -p "Do you want my LF config? (y/N)" yn
 		case $yn in
 		[Yy]*)
-			if [ -f "$HOME/.config/lf/" ]; then
+			if [ -d "$HOME/.config/lf/" ]; then
 				mkdir -p ~/.config/backup_config
 				cp -r ~/.config/lf/ ~/.config/backup_config
 				rm -rf ~/.config/lf
@@ -432,11 +432,11 @@ configs() {
 		read -p "Do you want my Neovim config? (y/N)" yn
 		case $yn in
 		[Yy]*)
-			if [ -f "$HOME/.config/nvim/" ]; then
-			  mkdir -p ~/.config/backup_config
-			  cp -r ~/.config/nvim/ ~/.config/backup_config
-			  rm -rf ~/.config/nvim
-			  ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim
+			if [ -d "$HOME/.config/nvim/" ]; then
+				mkdir -p ~/.config/backup_config
+				cp -r ~/.config/nvim/ ~/.config/backup_config
+				rm -rf ~/.config/nvim
+				ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim
 			else
 				ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim/
 			fi
@@ -459,19 +459,23 @@ configs() {
 		read -p "Do you want my Picom config? (y/N)" yn
 		case $yn in
 		[Yy]*)
-			if [ -f "$HOME/.config/nvim/" ]; then
-			  mkdir -p ~/.config/backup_config
-			  cp -r ~/.config/picom/ ~/.config/backup_config
-			  rm -rf ~/.config/picom
-			  ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
-        killall picom
-        sleep 2
-        picom &
+			if [ -d "$HOME/.config/picom/" ]; then
+				mkdir -p ~/.config/backup_config
+				cp -r ~/.config/picom/ ~/.config/backup_config
+				rm -rf ~/.config/picom
+				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
+				if [ $(pgrep picom) ]; then
+					killall picom
+					sleep 1
+					picom &
+				fi
 			else
 				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom/
-        killall picom
-        sleep 2
-        picom &
+				if [ $(pgrep picom) ]; then
+					killall picom
+					sleep 1
+					picom &
+				fi
 			fi
 			break
 			;;
@@ -492,11 +496,11 @@ configs() {
 		read -p "Do you want my Zathura config? (y/N)" yn
 		case $yn in
 		[Yy]*)
-			if [ -f "$HOME/.config/nvim/" ]; then
-			  mkdir -p ~/.config/backup_config
-			  cp -r ~/.config/zathura/ ~/.config/backup_config
-			  rm -rf ~/.config/zathura
-			  ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura
+			if [ -d "$HOME/.config/zathura/" ]; then
+				mkdir -p ~/.config/backup_config
+				cp -r ~/.config/zathura/ ~/.config/backup_config
+				rm -rf ~/.config/zathura
+				ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura
 			else
 				ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura/
 			fi
@@ -519,10 +523,14 @@ configs() {
 		read -p "Do you want my Rofi config? (y/N)" yn
 		case $yn in
 		[Yy]*)
-			mkdir -p ~/.config/backup_config
-			cp -r ~/.config/rofi/ ~/.config/backup_config
-			rm -rf ~/.config/rofi
-			ln -s ~/repos/dotfiles/cfg/rofi/ ~/.config/rofi
+			if [ -d "$HOME/.config/rofi/" ]; then
+				mkdir -p ~/.config/backup_config
+				cp -r ~/.config/rofi/ ~/.config/backup_config
+				rm -rf ~/.config/rofi
+				ln -s ~/repos/dotfiles/cfg/rofi/ ~/.config/rofi
+			else
+				ln -s ~/repos/dotfiles/cfg/rofi/ ~/.config/rofi
+			fi
 			break
 			;;
 		[Nn]*)
@@ -554,7 +562,7 @@ backup() {
 			;;
 		*)
 			echo "You choose not to delete the backup."
-        break
+			break
 			;;
 		esac
 	done
