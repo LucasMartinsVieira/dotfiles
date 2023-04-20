@@ -1,4 +1,5 @@
 local awful = require("awful")
+local naughty = require("naughty")
 local user_likes = require("user_vars")
 local vol = require("lib.volume")
 local screenshot = require("lib.screenshot")
@@ -127,6 +128,15 @@ awful.keyboard.append_global_keybindings({
     on_press = function()
       local feh_cmd = "feh --no-fehbg --bg-scale --randomize --no-xinerama"
       awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
+    end,
+  }),
+  awful.key({
+    modifiers = { mod.super, mod.alt },
+    key = "n",
+    description = "Toggle notifications on/off",
+    group = "Ui",
+    on_press = function()
+      naughty.toggle()
     end,
   }),
 

@@ -11,6 +11,12 @@ notification.font = theme.font .. " 20"
 notification.markup = "󰂚"
 helpers.add_hover_cursor(notification, "hand1")
 
+awesome.connect_signal("signal::dnd", function(dnd_status)
+  if dnd_status then
+    notification.markup = "󰂛"
+  end
+end)
+
 notification:connect_signal("mouse::enter", function()
   if notifs.visible == false then
     notification.markup = helpers.colorize_text("󰂚", theme.blue)

@@ -66,6 +66,11 @@ local notify = wibox.widget({
   widget = wibox.container.background,
 })
 
+-- Hover Cursor
+helpers.add_hover_cursor(wifi, "hand1")
+helpers.add_hover_cursor(bluetooth, "hand1")
+helpers.add_hover_cursor(notify, "hand1")
+
 -- Wifi
 awesome.connect_signal("signal::wifi", function(net_stregth)
   if net_stregth == 0 then
