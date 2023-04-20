@@ -1,5 +1,6 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local gears = require("gears")
 local ruled = require("ruled")
 local theme = require("theme.theme")
 local dpi = require("beautiful").xresources.apply_dpi
@@ -16,7 +17,8 @@ client.connect_signal("request::titlebars", function(c)
   })
 
   titlebar.widget = {
-    { -- Left
+    {
+      -- Left
       {
         awful.titlebar.widget.closebutton(c),
         awful.titlebar.widget.minimizebutton(c),
@@ -30,8 +32,22 @@ client.connect_signal("request::titlebars", function(c)
     {
       --nil,
       layout = wibox.layout.flex.horizontal,
+      -- buttons for the titlebar
+      buttons = gears.table.join(
+        awful.button({}, 1, function()
+          client.focus = c
+          c:raise()
+          awful.mouse.client.move(c)
+        end),
+        awful.button({}, 3, function()
+          client.focus = c
+          c:raise()
+          awful.mouse.client.resize(c)
+        end)
+      ),
     },
-    { -- Right
+    {
+      -- Right
       {
         {
           --awful.titlebar.widget.iconwidget(c),

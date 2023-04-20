@@ -41,9 +41,7 @@ I have an [install script](https://github.com/LucasMartinsVieira/dotfiles/blob/m
 
 ```
 cd
-mkdir repos
-cd repos
-git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.git
+git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.git ~/repos/dotfiles/
 cd dotfiles/
 ./install.sh
 ```

@@ -39,15 +39,6 @@ welcome
 
 read
 
-explanation() {
-	echo -e "${GREEN}############################################${NC}"
-	echo -e "${GREEN}## Installing 'whiptail' if not installed ##${NC}"
-	echo -e "${GREEN}############################################${NC}"
-	doas pacman -S libnewt --needed --noconfirm
-}
-
-explanation
-
 check_folder() {
 	if ! [ -d "$HOME/repos/dotfiles/" ]; then
 		echo -e "${RED}For this script work properly you need run him from $HOME/repos/dotfiles/${NC}"
@@ -64,6 +55,15 @@ check_folder() {
 }
 
 check_folder
+
+explanation() {
+	echo -e "${GREEN}############################################${NC}"
+	echo -e "${GREEN}## Installing 'whiptail' if not installed ##${NC}"
+	echo -e "${GREEN}############################################${NC}"
+	doas pacman -S libnewt --needed --noconfirm
+}
+
+explanation
 
 beginning() {
 	whiptail --title "Installing Packages!" --msgbox "Installing essential packages (you can see them in 'pkgs.txt') and after them you will have the option of installing optinal packages" 15 60
@@ -458,13 +458,16 @@ configs() {
 				cp -r ~/.config/picom/ ~/.config/backup_config
 				rm -rf ~/.config/picom/
 				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
+
 				if [ $(pgrep picom) ]; then
 					killall picom
 					sleep 1
 					picom &
 				fi
+
 			else
 				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom/
+
 				if [ $(pgrep picom) ]; then
 					killall picom
 					sleep 1
