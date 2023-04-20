@@ -61,8 +61,8 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 # Programs
 alias v="nvim"
 alias lf="lfrun"
-alias lg="lazygit"
-alias tldrf="tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
+alias g="lazygit"
+alias t="tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
 
 # Alias for cd
 alias ..="cd .."
