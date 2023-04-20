@@ -18,7 +18,7 @@ local icons_dir = require("gears").filesystem.get_configuration_dir() .. "/theme
 
 local theme = {}
 
-local colors = require('theme.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
+local colors = require('theme.colors.nightfly') -- This has to be in single quotes for rofi-colorscheme to work
 
 theme.yellow = colors.yellow
 theme.blue = colors.blue

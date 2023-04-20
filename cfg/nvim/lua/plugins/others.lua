@@ -9,7 +9,7 @@ return {
     lazy = true,
   },
   {
-    "lunarvim/horizon.nvim",
+    "lunarvim/lunar.nvim",
     lazy = true,
   },
   {

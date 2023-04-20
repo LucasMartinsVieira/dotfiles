@@ -12,7 +12,7 @@ declare -A colorschemes
 colorschemes[Dracula]="dracula"
 colorschemes[Moonfly]="moonfly"
 colorschemes[Nightfly]="nightfly"
-colorschemes[Horizon]="horizon"
+colorschemes[Lunar]="lunar"
 
 choice=$(printf '%s\n' "${!colorschemes[@]}" | sort | ${ROFI} 'Choose a colorscheme' "${@}")
 config="${colorschemes["${choice}"]}"
@@ -27,7 +27,8 @@ if [ "$choice" ]; then
   # Set the theme for Rofi
   sed -i 's|^@theme "~/.config/rofi/themes/.*.rasi"|@theme "~/.config/rofi/themes/'$config'.rasi"|g' "$HOME/.config/rofi/config.rasi"
   # Set the theme for AwesomeWM
-  sed -i "s|^local colors = require('theme.*')|local colors = require('theme.$config')|g" "$HOME"/.config/awesome/theme/theme.lua
+  # sed -i "s|^local colors = require('theme.*')|local colors = require('theme.$config')|g" "$HOME"/.config/awesome/theme/theme.lua
+  sed -i "s|^local colors = require('theme.colors.*')|local colors = require('theme.colors.$config')|g" "$HOME"/.config/awesome/theme/theme.lua
   # Restart Awesome
   awesome-client 'awesome.restart()';
   else
