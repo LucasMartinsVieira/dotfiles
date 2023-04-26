@@ -25,7 +25,7 @@ essencial_pkgs() {
 	echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
 	echo -e "${BLUE}###########################################${NC}"
 
-  paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rust-analyzer rustup fd exa zoxide fzf tealdeer bat
+  paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tealdeer bat ripgrep
 
   sleep 3;
   tldr --update
@@ -68,6 +68,7 @@ npm_packages() {
 }
 
 rust_tools() {
+  rustup default stable
   rustup component add rustfmt
   rustup component add clippy
 

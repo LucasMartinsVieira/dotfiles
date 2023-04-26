@@ -64,7 +64,7 @@ zathura-cb
 zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
-nerd-fonts-inconsolata
+ttt-inconsolata-nerd
 noto-fonts
 noto-fonts-emoji
 ttf-dejavu
