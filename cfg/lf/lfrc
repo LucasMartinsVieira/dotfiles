@@ -107,7 +107,7 @@ map Z $zathura "$f"
 map az zip
 map at tar
 map ag targz
-map ab targz
+map ab tarbz
 map au unarchive
 
 # Git
