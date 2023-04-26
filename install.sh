@@ -74,7 +74,7 @@ beginning
 packages() {
 	echo -e "${BLUE}Installing Packages With Paru${NC}"
 	paru --needed --ask 4 -Sy - < pkgs.txt && scripts
-  paru -S librewolf-bin awesome-git
+  paru -S --noconfirm --needed librewolf-bin awesome-git
 }
 
 packages
@@ -466,7 +466,7 @@ configs() {
 				fi
 
 			else
-				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom/
+				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
 
 				if [ $(pgrep picom) ]; then
 					killall picom
