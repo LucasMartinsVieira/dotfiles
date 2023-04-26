@@ -130,6 +130,8 @@ awful.keyboard.append_global_keybindings({
       awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
     end,
   }),
+
+  -- On/Off
   awful.key({
     modifiers = { mod.super, mod.alt },
     key = "n",
