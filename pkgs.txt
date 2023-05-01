@@ -39,6 +39,7 @@ pipewire-audio
 pipewire-pulse
 pipewire-jack
 redshift
+ripgrep
 rofi
 rofi-calc
 rofi-emoji

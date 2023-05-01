@@ -1,5 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+
   # setxkbmap br
   # neofetch
 end
@@ -13,15 +14,17 @@ export XDG_CACHE_HOME="$HOME/.cache"
 bind \es 'fish_commandline_prepend doas'
 bind \ec 'colorscheme'
 bind \ef 'files'
+bind \el 'lfcd'
 
 ### Adding to the $PATH
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
 
 ### EXPORT
-source $HOME/.config/fish/api.fish
-source $HOME/.config/fish/lf_icons.fish
+source $HOME/.config/fish/api.bash
+source $HOME/.config/lf/lf_icons
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty
+set -Ux BROWSER librewolf
 set fish_greeting                # Disable Fish's intro message
 
 ### Alias ###
@@ -31,6 +34,7 @@ alias ga="git add"
 alias gs="git status"
 alias gc="git commit"
 alias gp="git push"
+alias gP="git push"
 alias gd="git diff"
 alias gl="git log"
 

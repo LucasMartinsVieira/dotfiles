@@ -86,72 +86,71 @@ optinal_packages() {
 optinal_packages
 
 max() {
-	echo -e "$1\n$2" | sort -n | tail -1
+    echo -e "$1\n$2" | sort -n | tail -1
 }
 
 getbiggestword() {
-	echo "$@" | sed "s/ /\n/g" | wc -L
+    echo "$@" | sed "s/ /\n/g" | wc -L
 }
 
 replicate() {
-	local n="$1"
-	local x="$2"
-	local str
+    local n="$1"
+    local x="$2"
+    local str
 
-	for _ in $(seq 1 "$n"); do
-		str="$str$x"
-	done
-	echo "$str"
+    for _ in $(seq 1 "$n"); do
+        str="$str$x"
+    done
+    echo "$str"
 }
 
 programchoices() {
-	choices=()
-	local maxlen
-	maxlen="$(getbiggestword "${!checkboxes[@]}")"
-	linesize="$(max "$maxlen" 42)"
-	local spacer
-	spacer="$(replicate "$((linesize - maxlen))" " ")"
+    choices=()
+    local maxlen; maxlen="$(getbiggestword "${!checkboxes[@]}")"
+    linesize="$(max "$maxlen" 42)"
+    local spacer; spacer="$(replicate "$((linesize - maxlen))" " ")"
 
-	for key in "${!checkboxes[@]}"; do
-		# A portable way to check if a command exists in $PATH and is executable.
-		# If it doesn't exist, we set the tick box to OFF.
-		# If it exists, then we set the tick box to ON.
-		if ! command -v "${checkboxes[$key]}" >/dev/null; then
-			# $spacer length is defined in the individual window functions based
-			# on the needed length to make the checkbox wide enough to fit window.
-			choices+=("${key}" "${spacer}" "OFF")
-		else
-			choices+=("${key}" "${spacer}" "ON")
-		fi
-	done
+    for key in "${!checkboxes[@]}"
+    do
+        # A portable way to check if a command exists in $PATH and is executable.
+        # If it doesn't exist, we set the tick box to OFF.
+        # If it exists, then we set the tick box to ON.
+        if ! command -v "${checkboxes[$key]}" > /dev/null; then
+            # $spacer length is defined in the individual window functions based
+            # on the needed length to make the checkbox wide enough to fit window.
+            choices+=("${key}" "${spacer}" "OFF")
+        else
+            choices+=("${key}" "${spacer}" "ON")
+        fi
+    done
 }
 
 selectedprograms() {
-	result=$(
-		# Creates the whiptail checklist. Also, we use a nifty
-		# trick to swap stdout and stderr.
-		whiptail --title "$title" \
-			--checklist "$text" 22 "$((linesize + 16))" 12 \
-			"${choices[@]}" \
-			3>&2 2>&1 1>&3
-	)
+    result=$(
+        # Creates the whiptail checklist. Also, we use a nifty
+        # trick to swap stdout and stderr.
+        whiptail --title "$title"                               \
+                 --checklist "$text" 22 "$((linesize + 16))" 12 \
+                 "${choices[@]}"                                \
+                 3>&2 2>&1 1>&3
+    )
 }
 
 exitorinstall() {
-	local exitstatus="$?"
-	# Check the exit status, if 0 we will install the selected
-	# packages. A command which exits with zero (0) has succeeded.
-	# A non-zero (1-255) exit status indicates failure.
-	if [ "$exitstatus" = 0 ]; then
-		# Take the results and remove the "'s and add new lines.
-		# Otherwise, pacman is not going to like how we feed it.
-		programs=$(echo "$result" | sed 's/" /\n/g' | sed 's/"//g')
-		echo "$programs"
-		paru --needed --ask 4 -Sy "$programs" ||
-			echo "Failed to install required packages."
-	else
-		echo "User selected Cancel."
-	fi
+    exitstatus=$?
+    # Check the exit status, if 0 we will install the selected
+    # packages. A command which exits with zero (0) has succeeded.
+    # A non-zero (1-255) exit status indicates failure.
+    if [ $exitstatus = 0 ]; then
+        # Take the results and remove the "'s and add new lines.
+        # Otherwise, pacman is not going to like how we feed it.
+        programs=$(echo $result | sed 's/" /\n/g' | sed 's/"//g' )
+        echo $programs
+        paru --needed --ask 4 -Sy "$programs" || \
+        echo "Failed to install required packages."
+    else
+        echo "User selected Cancel."
+    fi
 }
 
 browsers() {

@@ -141,6 +141,7 @@ map ge cd /etc/
 map gu cd /usr/
 map gR cd /run/media/
 map gT cd /tmp/
+map gM cd /mnt/
 
 # Media Bindings
 map gm. cd ~/Media/
