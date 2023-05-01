@@ -1,6 +1,7 @@
 local awful = require("awful")
 local vol = require("lib.volume")
 local brightness = require("lib.brightness")
+local screenshot = require("lib.screenshot")
 local user_likes = require("user_vars")
 
 local mod = require("bindings.mod")
@@ -125,6 +126,15 @@ awful.keyboard.append_global_keybindings({
     group = "Notebook",
     on_press = function()
       awful.util.spawn("notify-send --app-name=firefox AirplaneKey")
+    end,
+  }),
+  awful.key({
+    modifiers = {},
+    key = "Print",
+    description = "Screenshot",
+    group = "Notebook",
+    on_press = function()
+      awful.util.spawn(screenshot.full())
     end,
   }),
 })
