@@ -350,11 +350,11 @@ configs() {
 			break
 			;;
 		[Nn]*)
-			echo "You choose not to get my fish config."
+			echo "You choose not to get my zsh config."
 			break
 			;;
 		*)
-			echo "You choose not to get my fish config."
+			echo "You choose not to get my zsh config."
 			break
 			;;
 		esac

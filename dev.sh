@@ -25,7 +25,7 @@ essencial_pkgs() {
 	echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
 	echo -e "${BLUE}###########################################${NC}"
 
-  paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tealdeer bat ripgrep fd
+  paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tealdeer bat ripgrep fd github-cli
 
   sleep 3;
   tldr --update
