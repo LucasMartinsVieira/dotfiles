@@ -38,7 +38,6 @@ final() {
 	echo -e "${GREEN}##################################${NC}"
 }
 
-
 js_tools() {
   doas npm install -g browser-sync
   doas npm i -g vscode-langservers-extracted
@@ -67,6 +66,28 @@ npm_packages() {
 	done
 }
 
+zapzsh() {
+	while true; do
+    read -p "Install Zap zsh?(y/N)" yn
+
+		case $yn in
+		[Yy]*)
+			zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+			break
+			;;
+		[Nn]*)
+			echo "You choose not to install Zap zsh." &&
+				$SEPARATOR && npm_packages
+			break
+			;;
+		*)
+			echo "You choose not to install Zap zsh." && $SEPARATOR && npm_packages
+			break
+			;;
+		esac
+	done
+}
+
 rust_tools() {
   rustup default stable
   rustup component add rustfmt
@@ -88,11 +109,11 @@ rust() {
 			;;
 		[Nn]*)
 			echo "You choose not to install Rust Development tools." &&
-				$SEPARATOR && npm_packages
+				$SEPARATOR && zapzsh
 			break
 			;;
 		*)
-			echo "You choose not to install Rust Development tools." && $SEPARATOR && npm_packages
+			echo "You choose not to install Rust Development tools." && $SEPARATOR && zapzsh
 			break
 			;;
 		esac

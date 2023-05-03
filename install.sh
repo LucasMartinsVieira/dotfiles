@@ -334,6 +334,33 @@ configs() {
 	done
 	$SEPARATOR
 
+	# Zsh
+	while true; do
+		read -p "Do you want my zsh config? (y/N)" yn
+		case $yn in
+		[Yy]*)
+			if [ -f "$HOME/.zshrc" ]; then
+				mkdir -p ~/.config/backup_config
+				cp -r ~/.zshrc ~/.config/backup_config
+				rm -rf ~/.zshrc
+				ln -s ~/repos/dotfiles/home/.zshrc ~/.zshrc
+			else
+				ln -s ~/repos/dotfiles/home/.zshrc ~/.zshrc
+			fi
+			break
+			;;
+		[Nn]*)
+			echo "You choose not to get my fish config."
+			break
+			;;
+		*)
+			echo "You choose not to get my fish config."
+			break
+			;;
+		esac
+	done
+	$SEPARATOR
+
 	# Starship
 	while true; do
 		read -p "Do you want my Starship config? (y/N)" yn

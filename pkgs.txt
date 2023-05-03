@@ -47,6 +47,7 @@ rustup
 starship
 sxiv
 syncthing
+sshfs
 trash-cli
 tree-sitter
 ueberzug
