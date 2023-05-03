@@ -10,6 +10,21 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+# Use lf to switch directories
+function lfcd
+    set tmp (mktemp)
+    lf -last-dir-path=$tmp $argv
+    if test -f "$tmp"
+        set dir (cat $tmp)
+        rm -f $tmp
+        if test -d "$dir"
+            if test "$dir" != (pwd)
+                cd $dir
+            end
+        end
+    end
+end
+
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
 bind \ec 'colorscheme'
@@ -20,8 +35,9 @@ bind \el 'lfcd'
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
 
 ### EXPORT
-source $HOME/.config/fish/api.bash
+source $HOME/.config/openai.bash
 source $HOME/.config/lf/lf_icons
+
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty
 set -Ux BROWSER librewolf
