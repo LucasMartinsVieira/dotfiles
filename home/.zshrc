@@ -46,9 +46,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-bindkey -s '\el' '^ulfcd\n'
-bindkey -s '\ec' '^uqalc\n'
-bindkey -s '\ef' '^ufiles\n'
+bindkey -s '\ef' '^ulfcd\n'
 
 # History in cache directory:
 HISTSIZE=10000000

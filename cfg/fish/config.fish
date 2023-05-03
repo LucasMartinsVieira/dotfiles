@@ -1,14 +1,18 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
-  # setxkbmap br
-  # neofetch
+  # neofech
 end
+
+fish_vi_key_bindings
 
 ### Setting variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+### "bat" as manpager
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 # Use lf to switch directories
 function lfcd
@@ -27,9 +31,7 @@ end
 
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
-bind \ec 'colorscheme'
-bind \ef 'files'
-bind \el 'lfcd'
+bind -M insert \ef 'lfcd'
 
 ### Adding to the $PATH
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
@@ -79,10 +81,13 @@ alias yta-wav="yt-dlp --extract-audio --audio-format wav"
 alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 
 # Programs
-alias v="nvim"
 alias lf="lfrun"
-alias g="lazygit"
-alias t="tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
+
+abbr v "nvim (fzf)"
+abbr f "feh (fzf)"
+abbr m "mpv (fzf)" 
+abbr g "lazygit"
+abbr t "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
 
 # Alias for cd
 alias ..="cd .."
