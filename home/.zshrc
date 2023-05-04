@@ -51,7 +51,6 @@ bindkey -s '\ef' '^ulfcd\n'
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
