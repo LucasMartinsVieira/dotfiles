@@ -89,6 +89,9 @@ abbr m "mpv (fzf)"
 abbr g "lazygit"
 abbr t "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
 
+abbr scr "ffmpeg -f x11grab -s 1920x1080 -i :0.0 out.mkv"
+abbr wbr "ffmpeg -y -i /dev/video0 webcam.mkv"
+
 # Alias for cd
 alias ..="cd .."
 alias .2="cd ../.."
