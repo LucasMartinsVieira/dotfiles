@@ -8,9 +8,9 @@ local helpers = require("helpers")
 
 -- Disk
 local disk_icon = wibox.widget({
-  font = theme.font .. " 22",
+  font = theme.font .. " 18",
   align = "left",
-  markup = helpers.colorize_text("", theme.red),
+  markup = helpers.colorize_text(" ", theme.red),
   widget = wibox.widget.textbox(),
 })
 
@@ -22,9 +22,9 @@ local disk_info = wibox.widget({
 
 -- Volume
 local volume_icon = wibox.widget({
-  font = theme.font .. " 22",
+  font = theme.font .. " 18",
   align = "left",
-  markup = helpers.colorize_text("墳", theme.blue),
+  markup = helpers.colorize_text("󰕾 ", theme.blue),
   widget = wibox.widget.textbox(),
 })
 
@@ -36,9 +36,9 @@ local volume_info = wibox.widget({
 
 -- Updates
 local updates_icon = wibox.widget({
-  font = theme.font .. " 26",
+  font = theme.font .. " 16",
   align = "left",
-  markup = helpers.colorize_text("", theme.yellow),
+  markup = helpers.colorize_text(" ", theme.yellow),
   widget = wibox.widget.textbox(),
 })
 
@@ -50,9 +50,9 @@ local updates_info = wibox.widget({
 
 -- Wifi
 local wifi_icon = wibox.widget({
-  font = theme.font .. " 22",
+  font = theme.font .. " 18",
   align = "left",
-  markup = helpers.colorize_text("直", theme.green),
+  markup = helpers.colorize_text("󰖩 ", theme.green),
   widget = wibox.widget.textbox(),
 })
 
@@ -64,9 +64,9 @@ local wifi_info = wibox.widget({
 
 -- Battery
 local battery_icon = wibox.widget({
-  font = theme.font .. " 22",
+  font = theme.font .. " 16",
   align = "left",
-  markup = helpers.colorize_text("󰁹", theme.green),
+  markup = helpers.colorize_text("󰁹 ", theme.green),
   widget = wibox.widget.textbox(),
 })
 
@@ -80,10 +80,10 @@ local battery_info = wibox.widget({
 local function get_val()
   awesome.connect_signal("signal::volume", function(vol, muted)
     if muted then
-      volume_icon.markup = helpers.colorize_text("婢", theme.red)
+      volume_icon.markup = helpers.colorize_text("󰝟 ", theme.red)
       volume_info.markup = helpers.colorize_text("0%", theme.red)
     else
-      volume_icon.markup = helpers.colorize_text("墳", theme.blue)
+      volume_icon.markup = helpers.colorize_text("󰕾 ", theme.blue)
       volume_info.markup = helpers.colorize_text(tonumber(vol) .. "%", theme.blue)
     end
   end)
@@ -96,9 +96,9 @@ local function get_val()
     upd = tonumber(upd)
 
     if upd == 0 then
-      updates_icon.markup = helpers.colorize_text("", theme.yellow)
+      updates_icon.markup = helpers.colorize_text("󰅤 ", theme.yellow)
     else
-      updates_icon.markup = helpers.colorize_text("", theme.yellow)
+      updates_icon.markup = helpers.colorize_text(" ", theme.yellow)
     end
      updates_info.markup = helpers.colorize_text(upd, theme.yellow)
   end)
@@ -108,34 +108,34 @@ awesome.connect_signal("signal::battery", function(bat_level)
   bat_level = tonumber(bat_level)
 
   if bat_level <= 10 then
-    battery_icon.markup = helpers.colorize_text("󰁺", theme.red)
+    battery_icon.markup = helpers.colorize_text("󰁺 ", theme.red)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.red)
   elseif bat_level <= 20 then
-    battery_icon.markup = helpers.colorize_text("󰁻", theme.red)
+    battery_icon.markup = helpers.colorize_text("󰁻 ", theme.red)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.red)
   elseif bat_level <= 30 then
-    battery_icon.markup = helpers.colorize_text("󰁼", theme.red)
+    battery_icon.markup = helpers.colorize_text("󰁼 ", theme.red)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.red)
   elseif bat_level <= 40 then
-    battery_icon.markup = helpers.colorize_text("󰁽", theme.green)
+    battery_icon.markup = helpers.colorize_text("󰁽 ", theme.green)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
   elseif bat_level <= 50 then
-    battery_icon.markup = helpers.colorize_text("󰁾", theme.green)
+    battery_icon.markup = helpers.colorize_text("󰁾 ", theme.green)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
   elseif bat_level <= 60 then
-    battery_icon.markup = helpers.colorize_text("󰁿", theme.green)
+    battery_icon.markup = helpers.colorize_text("󰁿 ", theme.green)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
   elseif bat_level <= 70 then
-    battery_icon.markup = helpers.colorize_text("󰂀", theme.green)
+    battery_icon.markup = helpers.colorize_text("󰂀 ", theme.green)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
   elseif bat_level <= 80 then
-    battery_icon.markup = helpers.colorize_text("󰂁", theme.green)
+    battery_icon.markup = helpers.colorize_text("󰂁 ", theme.green)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
   elseif bat_level <= 90 then
-    battery_icon.markup = helpers.colorize_text("󰂂", theme.green)
+    battery_icon.markup = helpers.colorize_text("󰂂 ", theme.green)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
   else
-    battery_icon.markup = helpers.colorize_text("󰁹", theme.green)
+    battery_icon.markup = helpers.colorize_text("󰁹 ", theme.green)
     battery_info.markup = helpers.colorize_text(bat_level .. "%", theme.green)
   end
 end)
@@ -145,10 +145,10 @@ local function get_wifi()
     local net_stregth = tonumber(net_stregth)
 
     if net_stregth == 0 then
-      wifi_icon.markup = helpers.colorize_text("睊", theme.red)
+      wifi_icon.markup = helpers.colorize_text("󰖪 ", theme.red)
       wifi_info.markup = ""
     else
-      wifi_icon.markup = helpers.colorize_text("直", theme.green)
+      wifi_icon.markup = helpers.colorize_text("󰖩 ", theme.green)
       wifi_info.markup = helpers.colorize_text(net_stregth .. "%", theme.green)
     end
   end)
@@ -170,7 +170,7 @@ local function grouping_widgets(icon, info)
   return wibox.widget({
     icon,
     info,
-    spacing = dpi(8),
+    spacing = dpi(-2),
     layout = wibox.layout.fixed.horizontal,
   })
 end

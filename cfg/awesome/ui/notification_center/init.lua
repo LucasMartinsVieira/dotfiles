@@ -19,8 +19,8 @@ local notif_header = wibox.widget({
 
 -- Clear button
 local clear = wibox.widget({
-  markup = "",
-  font = theme.font .. " 24",
+  markup = "󰎟",
+  font = theme.font .. " 26",
   align = "center",
   valign = "center",
   widget = wibox.widget.textbox,

@@ -14,13 +14,17 @@ local wifi = wibox.widget({
     {
       id = "wifi",
       widget = wibox.widget.textbox,
-      font = theme.font .. " 30",
-      markup = "直",
+      font = theme.font .. " 22",
+      markup = "󰖩",
       halign = "center",
       align = "center",
     },
     widget = wibox.container.margin,
-    margins = dpi(5),
+    -- margins = dpi(5),
+    margins = {
+      left = dpi(2),
+      right = dpi(8),
+    },
   },
   fg = on,
   bg = theme.bg_normal,
@@ -33,7 +37,7 @@ local bluetooth = wibox.widget({
     {
       id = "bluetooth",
       widget = wibox.widget.textbox,
-      font = theme.font .. " 30",
+      font = theme.font .. " 22",
       markup = "󰂯",
       halign = "center",
       align = "center",
@@ -52,13 +56,17 @@ local notify = wibox.widget({
     {
       id = "notify",
       widget = wibox.widget.textbox,
-      font = theme.font .. " 28",
-      markup = "",
+      font = theme.font .. " 22",
+      markup = "󰂞",
       halign = "center",
       align = "center",
     },
     widget = wibox.container.margin,
-    margins = dpi(5),
+    -- margins = dpi(5),
+    margins = {
+      left = dpi(2),
+      right = dpi(8),
+    },
   },
   fg = on,
   bg = theme.bg_normal,
@@ -75,20 +83,20 @@ helpers.add_hover_cursor(notify, "hand1")
 awesome.connect_signal("signal::wifi", function(net_stregth)
   if net_stregth == 0 then
     wifi.fg = off
-    wifi:get_children_by_id("wifi")[1].markup = "睊"
+    wifi:get_children_by_id("wifi")[1].markup = "󰖪"
   else
     wifi.fg = on
-    wifi:get_children_by_id("wifi")[1].markup = "直"
+    wifi:get_children_by_id("wifi")[1].markup = "󰖩"
   end
 
   wifi:buttons(gears.table.join(awful.button({}, 1, function()
     if net_stregth == 0 then
       wifi.fg = on
-      wifi:get_children_by_id("wifi")[1].markup = "睊"
+      wifi:get_children_by_id("wifi")[1].markup = "󰖪"
       awful.spawn.with_shell("nmcli radio wifi on")
     else
       wifi.fg = off
-      wifi:get_children_by_id("wifi")[1].markup = "直"
+      wifi:get_children_by_id("wifi")[1].markup = "󰖩"
       awful.spawn.with_shell("nmcli radio wifi off")
     end
   end)))
@@ -121,20 +129,20 @@ end)
 awesome.connect_signal("signal::dnd", function(dnd_status)
   if dnd_status then
     notify.fg = off
-    notify:get_children_by_id("notify")[1].markup = ""
+    notify:get_children_by_id("notify")[1].markup = "󰪑"
   else
     notify.fg = on
-    notify:get_children_by_id("notify")[1].markup = ""
+    notify:get_children_by_id("notify")[1].markup = "󰂟"
   end
 
   notify:buttons(gears.table.join(awful.button({}, 1, function()
     if dnd_status then
       notify.fg = off
-      notify:get_children_by_id("notify")[1].markup = ""
+      notify:get_children_by_id("notify")[1].markup = "󰪑"
       naughty.toggle()
     else
       notify.fg = on
-      notify:get_children_by_id("notify")[1].markup = ""
+      notify:get_children_by_id("notify")[1].markup = "󰂟"
       naughty.toggle()
     end
   end)))

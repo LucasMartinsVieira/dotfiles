@@ -7,27 +7,27 @@ local helpers = require("helpers")
 require("ui.notification_center")
 
 local notification = wibox.widget.textbox()
-notification.font = theme.font .. " 20"
-notification.markup = "󰂚"
+notification.font = theme.font .. " 14"
+notification.markup = "󰂚 "
 helpers.add_hover_cursor(notification, "hand1")
 
 awesome.connect_signal("signal::dnd", function(dnd_status)
   if dnd_status then
-    notification.markup = "󰂛"
+    notification.markup = "󰂛 "
   end
 end)
 
 notification:connect_signal("mouse::enter", function()
   if notifs.visible == false then
-    notification.markup = helpers.colorize_text("󰂚", theme.blue)
-    notification.font = theme.font .. " 22"
+    notification.markup = helpers.colorize_text("󰂚 ", theme.blue)
+    notification.font = theme.font .. " 16"
   end
 end)
 
 notification:connect_signal("mouse::leave", function()
   if notifs.visible == false then
-    notification.markup = "󰂚"
-    notification.font = theme.font .. " 20"
+    notification.markup = "󰂚 "
+    notification.font = theme.font .. " 14"
   end
 end)
 
@@ -35,9 +35,9 @@ notification:buttons(gears.table.join(awful.button({}, 1, function()
   notifs_toggle()
 
   if notifs.visible == true then
-    notification.markup = helpers.colorize_text("󰂞", theme.blue)
+    notification.markup = helpers.colorize_text("󰂞 ", theme.blue)
   else
-    notification.markup = "󰂚"
+    notification.markup = "󰂚 "
   end
 end)))
 

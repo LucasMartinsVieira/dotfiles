@@ -7,29 +7,29 @@ local user_likes = require("user_vars")
 local updt = require("lib.updates")
 
 local updates = wibox.widget.textbox()
-updates.font = theme.font .. " 20"
-updates.markup = helpers.colorize_text("", theme.yellow)
+updates.font = theme.font .. " 16"
+updates.markup = helpers.colorize_text(" ", theme.yellow)
 helpers.add_hover_cursor(updates, "hand1")
 
 awesome.connect_signal("signal::updates", function(upd)
   upd = tonumber(upd)
   if upd == 0 then
-    updates.markup = helpers.colorize_text("", theme.yellow)
+    updates.markup = helpers.colorize_text("󰅤 ", theme.yellow)
 
     updates:connect_signal("mouse::enter", function()
-      updates.font = theme.font .. " 22"
+      updates.font = theme.font .. " 18"
     end)
     updates:connect_signal("mouse::leave", function()
-      updates.font = theme.font .. " 20"
+      updates.font = theme.font .. " 16"
     end)
   else
-    updates.markup = helpers.colorize_text("", theme.yellow)
+    updates.markup = helpers.colorize_text(" ", theme.yellow)
 
     updates:connect_signal("mouse::enter", function()
-      updates.font = theme.font .. " 22"
+      updates.font = theme.font .. " 18"
     end)
     updates:connect_signal("mouse::leave", function()
-      updates.font = theme.font .. " 20"
+      updates.font = theme.font .. " 16"
     end)
   end
 end)

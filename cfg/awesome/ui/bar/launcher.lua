@@ -8,16 +8,16 @@ local user_likes = require("user_vars")
 
 local launcher = wibox.widget.textbox()
 launcher.font = theme.font .. " 18"
-launcher.markup = ""
+launcher.markup = "󰍉 "
 helpers.add_hover_cursor(launcher, "hand1")
 
 launcher:connect_signal("mouse::enter", function()
-  launcher.markup = helpers.colorize_text("", theme.blue)
+  launcher.markup = helpers.colorize_text("󰍉 ", theme.blue)
   launcher.font = theme.font .. " 20"
 end)
 
 launcher:connect_signal("mouse::leave", function()
-  launcher.markup = ""
+  launcher.markup = "󰍉 "
   launcher.font = theme.font .. " 18"
 end)
 

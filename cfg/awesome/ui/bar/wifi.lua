@@ -6,27 +6,27 @@ local theme = require("theme.theme")
 local helpers = require("helpers")
 
 local wifi = wibox.widget.textbox()
-wifi.font = theme.font .. " 18"
+wifi.font = theme.font .. " 14"
 helpers.add_hover_cursor(wifi, "hand1")
 
 awesome.connect_signal("signal::wifi", function(net_strengh)
   net_strengh = tonumber(net_strengh)
 
   if net_strengh == 0 then
-    wifi.markup = helpers.colorize_text("睊", theme.red)
+    wifi.markup = helpers.colorize_text("󰖪 ", theme.red)
     wifi:connect_signal("mouse::enter", function()
-      wifi.font = theme.font .. " 20"
+      wifi.font = theme.font .. " 16"
     end)
     wifi:connect_signal("mouse::leave", function()
-      wifi.font = theme.font .. " 18"
+      wifi.font = theme.font .. " 14"
     end)
   else
-    wifi.markup = helpers.colorize_text("直", theme.green)
+    wifi.markup = helpers.colorize_text("󰖩 ", theme.green)
     wifi:connect_signal("mouse::enter", function()
-      wifi.font = theme.font .. " 20"
+      wifi.font = theme.font .. " 16"
     end)
     wifi:connect_signal("mouse::leave", function()
-      wifi.font = theme.font .. " 18"
+      wifi.font = theme.font .. " 14"
     end)
   end
 end)

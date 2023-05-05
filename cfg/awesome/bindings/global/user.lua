@@ -235,9 +235,9 @@ awful.keyboard.append_global_keybindings({
     on_press = function()
       isDark = not isDark
       if isDark then
-        awful.spawn("redshift -P -O 4800")
+        awful.spawn("redshift -P -O 4500")
       else
-        awful.spawn("redshift -P -O 5800")
+        awful.spawn("redshift -P -O 5200")
       end
     end,
   }),

@@ -21,7 +21,7 @@ local feh_cmd = "feh --no-fehbg --bg-scale --randomize --no-xinerama"
 awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
 
 -- Changes color temperature
-awful.spawn.with_shell("redshift -P -O 4800")
+awful.spawn.with_shell("redshift -P -O 4500")
 
 -- Monitor Config
 -- awful.spawn.with_shell(
