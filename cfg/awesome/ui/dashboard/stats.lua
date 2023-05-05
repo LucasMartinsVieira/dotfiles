@@ -206,52 +206,6 @@ updates:buttons(gears.table.join(
   end)
 ))
 
--- Hover
-wifi:connect_signal("mouse::enter", function()
-  wifi_icon.font = theme.font .. " 24"
-  wifi_info.font = theme.font .. " 14"
-end)
-wifi:connect_signal("mouse::leave", function()
-  wifi_icon.font = theme.font .. " 22"
-  wifi_info.font = theme.font .. " 12"
-end)
-
-disk:connect_signal("mouse::enter", function()
-  disk_icon.font = theme.font .. " 24"
-  disk_info.font = theme.font .. " 14"
-end)
-disk:connect_signal("mouse::leave", function()
-  disk_icon.font = theme.font .. " 22"
-  disk_info.font = theme.font .. " 12"
-end)
-
-volume:connect_signal("mouse::enter", function()
-  volume_icon.font = theme.font .. " 24"
-  volume_info.font = theme.font .. " 14"
-end)
-volume:connect_signal("mouse::leave", function()
-  volume_icon.font = theme.font .. " 22"
-  volume_info.font = theme.font .. " 12"
-end)
-
-updates:connect_signal("mouse::enter", function()
-  updates_icon.font = theme.font .. " 28"
-  updates_info.font = theme.font .. " 14"
-end)
-updates:connect_signal("mouse::leave", function()
-  updates_icon.font = theme.font .. " 26"
-  updates_info.font = theme.font .. " 12"
-end)
-
-battery:connect_signal("mouse::enter", function()
-  battery_icon.font = theme.font .. " 24"
-  battery_info.font = theme.font .. " 14"
-end)
-battery:connect_signal("mouse::leave", function()
-  battery_icon.font = theme.font .. " 22"
-  battery_info.font = theme.font .. " 12"
-end)
-
 -- function to centralize widgets
 local function center_widget(widget)
   return wibox.widget({
