@@ -19,12 +19,13 @@ show_always = true
 
 [hostname]
 ssh_only = false
+ssh_symbol = "🌐 "
 format = 'on [$hostname](bold purple) '
 trim_at = "."
 disabled = false
 
 [directory]
-read_only = " "
+read_only = " 󰌾"
 format = '[$path]($style)[$read_only]($read_only_style) '
 
 [docker_context]

@@ -29,9 +29,9 @@ power:buttons(gears.table.join(awful.button({}, 1, function()
   power_popup_show()
 
   if p.visible == true then
-    power.markup = helpers.colorize_text(" ⏻ ", theme.red)
+    power.markup = helpers.colorize_text("⏻ ", theme.red)
   else
-    power.markup = " ⏻ "
+    power.markup = "⏻ "
   end
 end)))
 

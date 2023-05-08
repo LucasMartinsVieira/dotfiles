@@ -27,7 +27,7 @@
 - **Shell:** [Fish](https://fishshell.com/)
 - **Terminal:** [Kitty](https://github.com/kovidgoyal/kitty)
 - **Editor:** [Neovim](https://github.com/neovim/neovim)
-- **Font:** [Jet Brains Mono NF](https://archlinux.org/packages/community/any/ttf-jetbrains-mono-nerd/)
+- **Font:** [Jet Brains Mono](https://archlinux.org/packages/community/any/ttf-jetbrains-mono/)
 - **Application Launcher:** [Rofi](https://github.com/davatorium/rofi)
 
 ## Notes
@@ -49,13 +49,13 @@ cd dotfiles/
 ### Services
 
 <details close>
-    <summary><samp><b>optional services</b></samp></summary>
+    <summary><samp><b>services</b></samp></summary>
 
 <br>
 
 ```bash
-# Enable internet connection
-systemctl enable NetworkManager
+# Enable ssh connections
+systemctl enable sshd.service
 
 # Enable virtual machine
 systemctl enable libvirtd
@@ -65,7 +65,6 @@ systemctl enable cups
 
 # Enable bluetooth
 systemctl enable bluetooth
-
 ```
 
 </details>
@@ -96,7 +95,7 @@ This repo is under the [MIT Licence](https://github.com/LucasMartinsVieira/dotfi
 
 ## Credits
 
-Some parts of my configurations are based on (mainly awesomewm):
+Some parts of my configurations are based on:
 
 - [rklyz](https://github.com/rklyz/MyRice)
 - [niraj998](https://github.com/niraj998/awesome)
