@@ -60,9 +60,10 @@ theme.fg_minimize = theme.color_fg
 
 -- Gaps
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(2)
-theme.border_normal = theme.color_fg
-theme.border_marked = theme.urgent_bg
+theme.border_width  = dpi(3)
+theme.border_color_normal = theme.color_fg
+theme.border_color_active = theme.purple
+theme.border_color_marked = theme.red
 
 -- Systray
 theme.bg_systray = theme.bg_normal

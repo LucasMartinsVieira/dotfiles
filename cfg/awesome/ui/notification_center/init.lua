@@ -19,7 +19,7 @@ local notif_header = wibox.widget({
 
 -- Clear button
 local clear = wibox.widget({
-  markup = "󰎟",
+  markup = "󰎟 ",
   font = theme.font .. " 26",
   align = "center",
   valign = "center",
@@ -40,7 +40,7 @@ local empty = wibox.widget({
       layout = wibox.layout.align.horizontal,
       nil,
       {
-        markup = helpers.colorize_text("󰵚", theme.blue),
+        markup = helpers.colorize_text(" 󰂞 ", theme.blue),
         font = theme.font .. " 45",
         align = "center",
         valign = "center",
@@ -259,7 +259,7 @@ local notif_center = wibox.widget({
       layout = wibox.layout.align.horizontal,
     },
     left = dpi(5),
-    right = dpi(5),
+    right = dpi(-12),
     bottom = dpi(15),
     top = dpi(5),
     layout = wibox.container.margin,

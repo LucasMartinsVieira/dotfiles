@@ -2,6 +2,7 @@ local awful = require("awful")
 local naughty = require("naughty")
 local user_likes = require("user_vars")
 local vol = require("lib.volume")
+local brightness = require("lib.brightness")
 local screenshot = require("lib.screenshot")
 local updates = require("lib.updates")
 
@@ -198,6 +199,26 @@ awful.keyboard.append_global_keybindings({
     on_press = function()
       awful.util.spawn(vol.mute())
       vol.mute_notification()
+    end,
+  }),
+  awful.key({
+    modifiers = { mod.super, mod.shift },
+    key = "=",
+    description = "Brightness +",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(brightness.increase())
+      brightness.notification()
+    end,
+  }),
+  awful.key({
+    modifiers = { mod.super, mod.shift },
+    key = "-",
+    description = "Brightness -",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(brightness.decrease())
+      brightness.notification()
     end,
   }),
   awful.key({
