@@ -43,6 +43,7 @@ ripgrep
 rofi
 rofi-calc
 rofi-emoji
+rofi-pass
 rustup
 starship
 sxiv

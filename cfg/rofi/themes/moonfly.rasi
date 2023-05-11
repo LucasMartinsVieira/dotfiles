@@ -102,7 +102,7 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     1;
+    columns:                     2;
     lines:                       6;
     cycle:                       true;
     dynamic:                     true;
@@ -112,7 +112,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     5px;
+    spacing:                     10px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;

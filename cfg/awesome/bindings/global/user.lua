@@ -92,6 +92,15 @@ awful.keyboard.append_global_keybindings({
       awful.util.spawn("rofi -show emoji")
     end,
   }),
+  awful.key({
+    modifiers = { mod.super, mod.shift },
+    key = "p",
+    description = "Rofi-Pass",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn("rofi-pass")
+    end,
+  }),
 
   -- UI
   awful.key({
