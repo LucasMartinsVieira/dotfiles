@@ -67,7 +67,6 @@ zathura-cb
 zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
-ttt-inconsolata-nerd
 noto-fonts
 noto-fonts-emoji
 ttf-dejavu
@@ -78,13 +77,11 @@ ttf-fira-sans
 ttf-hack
 ttf-jetbrains-mono
 ttf-liberation
-ttf-ms-fonts
-ttf-nerd-fonts-symbols-2048-em
-ttf-nerd-fonts-symbols-common
 ttf-opensans
 gnu-free-fonts
 ttf-ubuntu-mono-nerd
 ttf-roboto-mono-nerd
+ttf-sourcecodepro-nerd
 bluez
 bluez-tools
 zsh

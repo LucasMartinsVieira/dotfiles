@@ -48,18 +48,19 @@ set fish_greeting                # Disable Fish's intro message
 ### Alias ###
 
 ### Git Aliases ###
-alias ga="git add"
-alias gs="git status"
-alias gc="git commit"
-alias gp="git push"
-alias gP="git push"
-alias gd="git diff"
-alias gl="git log"
+abbr ga "git add"
+abbr gs "git status"
+abbr gc "git commit"
+abbr gC "git checkout"
+abbr gp "git push"
+abbr gP "git push"
+abbr gd "git diff"
+abbr gl "git log"
 
 # confirm before overwriting something
-alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
+# alias cp="cp -i"
+# alias mv='mv -i'
+# alias rm='rm -i'
 
 # adding flags
 alias df='df -h'                          
