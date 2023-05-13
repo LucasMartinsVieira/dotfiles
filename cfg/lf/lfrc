@@ -3,6 +3,8 @@ set hidden true
 set ignorecase true
 set icons true
 set drawbox true
+set mouse true
+set cursorpreviewfmt
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
 
