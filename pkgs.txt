@@ -33,11 +33,10 @@ playerctl
 pavucontrol
 picom
 poppler
-pipewire
-pipewire-alsa
-pipewire-audio
-pipewire-pulse
-pipewire-jack
+pulseaudio
+pulseaudio-alsa
+pulseaudio-bluetooth
+pulseaudio-jack
 redshift
 ripgrep
 rofi
