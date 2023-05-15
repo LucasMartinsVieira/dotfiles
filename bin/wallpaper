@@ -8,7 +8,7 @@ WALLPAPER_DIR="$1"
 SET_BG="feh --bg-scale --no-fehbg --no-xinerama"
 
 set() {
-  wallpaper="$(sxiv -t -o "${WALLPAPER_DIR}")"
+  wallpaper="$(sxiv -tofb "${WALLPAPER_DIR}")"
   ${SET_BG} "$wallpaper"
   notify-send --app-name="Wallpaper Tool" "Wallpaper has been updated" -i "$wallpaper"
 }

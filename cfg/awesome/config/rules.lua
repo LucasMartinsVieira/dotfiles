@@ -17,12 +17,12 @@ awful.rules.rules = {
       floating = true,
     } },
 
-  { rule = { class = "Sxiv" },
-    properties = {
-        floating  = true,
-        width     = 800,
-        height    = 800,
-    }},
+  -- { rule = { class = "Sxiv" },
+  --   properties = {
+  --       floating  = true,
+  --       width     = 800,
+  --       height    = 800,
+  --   }},
 
   { rule = { class = "transmission-gtk" },
     properties = {

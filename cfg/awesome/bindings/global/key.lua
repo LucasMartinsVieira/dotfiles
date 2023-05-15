@@ -27,6 +27,20 @@ awful.keyboard.append_global_keybindings({
   }),
   awful.key({
     modifiers = { mod.super },
+    key = "Left",
+    description = "View Previous",
+    group = "Tag",
+    on_press = awful.tag.viewprev,
+  }),
+  awful.key({
+    modifiers = { mod.super },
+    key = "Right",
+    description = "View Next",
+    group = "Tag",
+    on_press = awful.tag.viewnext,
+  }),
+  awful.key({
+    modifiers = { mod.super },
     key = "Escape",
     description = "Go Back",
     group = "Tag",
