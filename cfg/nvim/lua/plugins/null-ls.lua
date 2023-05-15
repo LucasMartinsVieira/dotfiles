@@ -3,7 +3,6 @@ return {
   keys = {
     { "<space>lf", "<CMD>lua vim.lsp.buf.format()<CR>", desc = "Format" },
   },
-
   config = function()
     local null_ls = require("null-ls")
     local formatting = null_ls.builtins.formatting
@@ -20,6 +19,7 @@ return {
         formatting.rustfmt,
         formatting.shfmt,
         diagnostics.shellcheck,
+        diagnostics.eslint,
       },
     })
 
