@@ -17,7 +17,7 @@ return {
   apps = {
     -- Default Applications
     app_launcher = "rofi -show drun -show-icons",
-    browser = "librewolf",
+    browser = "brave",
     terminal_emulator = "kitty",
     file_manager = "kitty lf",
   },

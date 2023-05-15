@@ -2,6 +2,7 @@ alsa-lib
 alsa-utils
 alacritty
 btop
+brave-bin
 brightnessctl
 curl
 epub-thumbnailer-git
