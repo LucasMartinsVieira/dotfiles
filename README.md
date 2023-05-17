@@ -1,8 +1,8 @@
 # :sparkles: My Dotfiles
 
-<!-- <div align="center"> -->
-<!--     <img src="https://awesomewm.org/images/awesome-logo.svg"> -->
-<!-- </div> -->
+![GitHub top language](https://img.shields.io/github/languages/top/lucasmartinsvieira/dotfiles)
+![GitHub last commit](https://img.shields.io/github/last-commit/lucasmartinsvieira/dotfiles)
+![GitHub](https://img.shields.io/github/license/lucasmartinsvieira/dotfiles)
 
 ## Table of Contents
 
@@ -13,10 +13,7 @@
 - [Configurations](#Configurations)
   - [AwesomeWM](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/awesome)
   - [Neovim](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/nvim)
-  - [Kitty](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/kitty)
-  - [Lf](https://github.com/LucasMartinsVieira/dotfiles/tree/main/cfg/lf)
-  - [Rofi](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/rofi)
-  - [Zathura](https://github.com/LucasMartinsVieira/dotfiles/tree/main/cfg/zathura)
+  - [Scripts](https://github.com/LucasMartinsVieira/dotfiles/blob/main/bin)
 - [Licence](#Licence)
 - [Credits](#Credits)
 
@@ -33,7 +30,7 @@
 ## Notes
 
  - I use ```doas``` instead of ```sudo``` you may want to change that.
- - To get the latest weather updates you need [openweathermap](https://openweathermap.org/) api key.
+ - To get the latest weather updates you need a [openweathermap](https://openweathermap.org/) api key.
  
 ## Setup
 
@@ -73,21 +70,9 @@ systemctl enable bluetooth
 
 More infos about the config.
 
-<details close>
-    <summary><samp><b>more info</b></samp></summary>
-
-<br>
-
 - [AwesomeWM](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/awesome)
 - [Neovim](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/nvim)
-- [Kitty](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/kitty)
-- [Lf](https://github.com/LucasMartinsVieira/dotfiles/tree/main/cfg/lf)
-- [Rofi](https://github.com/LucasMartinsVieira/dotfiles/blob/main/cfg/rofi)
-- [Zathura](https://github.com/LucasMartinsVieira/dotfiles/tree/main/cfg/zathura)
-
-<br>
-
-</details>
+- [Scripts](https://github.com/LucasMartinsVieira/dotfiles/blob/main/bin)
 
 ## Licence
 
