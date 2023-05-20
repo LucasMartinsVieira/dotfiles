@@ -37,8 +37,14 @@ bind -M insert \ef 'lfcd'
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
 
 ### EXPORT
-source $HOME/.config/openai.bash
-source $HOME/.config/lf/lf_icons
+
+if test -f "$HOME/.config/openai.bash"
+  source $HOME/.config/openai.bash
+end
+
+if test -f "$HOME/.config/lf/lf_icons"
+  source $HOME/.config/lf/lf_icons
+end
 
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty
@@ -90,8 +96,8 @@ abbr m "mpv (fzf)"
 abbr g "lazygit"
 abbr t "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
 
-abbr scr "ffmpeg -f x11grab -s 1920x1080 -i :0.0 out.mkv"
-abbr wbr "ffmpeg -y -i /dev/video0 webcam.mkv"
+abbr scr "ffmpeg -f x11grab -s 1920x1080 -i :0.0"
+abbr wbr "ffmpeg -y -i /dev/video0"
 
 # Alias for cd
 alias ..="cd .."

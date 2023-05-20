@@ -29,6 +29,7 @@ cmd unarchive ${{
       *.zip) unzip "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar.xz) tar -xJvf "$f" ;;
       *.tar) tar -xvf "$f" ;;
       *) echo "Unsupported format" ;;
   esac
@@ -38,6 +39,7 @@ cmd zip %zip -r "$f" "$f"
 cmd tar %tar cvf "$f.tar" "$f"
 cmd targz %tar cvzf "$f.tar.gz" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
+cmd tarxz %tar cJvf "$f.tar.xz" "$f"
 
 # Wallpaper 
 cmd setwallpaper $feh --bg-scale --no-fehbg "$f"
@@ -112,6 +114,7 @@ map az zip
 map at tar
 map ag targz
 map ab tarbz
+map ax tarxz
 map au unarchive
 
 # Git
