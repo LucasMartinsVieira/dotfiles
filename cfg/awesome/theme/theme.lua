@@ -34,17 +34,18 @@ theme.urgent_bg   = colors.bg_urgent
 theme.minimize_bg = colors.bg_minimize
 theme.color_fg    = colors.fg_color
 
+-- Font
+theme.font = "JetBrains Mono 9"
+
 -- Taglist
 theme.taglist_fg_focus = theme.yellow
 theme.taglist_fg_occupied = theme.blue
 theme.taglist_bg_focus = colors.bg_color
 
 -- Tasklist
-theme.tasklist_bg_focus = colors.bg_color
+theme.tasklist_bg_focus          = colors.bg_color
 theme.tasklist_disable_task_name = true
 
--- Font
-theme.font = "JetBrains Mono 9"
 
 -- Colors
 theme.bg_normal   = theme.color_bg
