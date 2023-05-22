@@ -46,6 +46,8 @@ if test -f "$HOME/.config/lf/lf_icons"
   source $HOME/.config/lf/lf_icons
 end
 
+set -Ux FZF_DEFAULT_OPTS "--layout=reverse --height 40%"
+
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty
 set -Ux BROWSER librewolf
