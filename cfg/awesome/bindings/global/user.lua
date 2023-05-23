@@ -172,6 +172,15 @@ awful.keyboard.append_global_keybindings({
     end,
   }),
   awful.key({
+    modifiers = { mod.super, mod.ctrl },
+    key = "i",
+    description = "Window Screenshot",
+    group = "Others",
+    on_press = function()
+      awful.util.spawn(screenshot.window())
+    end,
+  }),
+  awful.key({
     modifiers = { mod.super },
     key = "u",
     description = "Checkupdates",

@@ -78,4 +78,24 @@ screenshot.full = function()
 	}:start()
 end
 
+screenshot.window = function()
+  local time = os.date("%y%m%d-%H%M-%S")
+	local location = "~/Imagens/Screenshot/" .. time .. ".png"
+
+  local script = [[
+  maim --window $(xdotool getactivewindow) | tee ]] .. location .. [[ | xclip -selection clipboard -t image/png
+  ]]
+
+  awful.spawn.with_shell(script)
+	gears.timer {
+		timeout = 1,
+		autostart = false,
+		call_now = false,
+		single_shot = true,
+		callback = function()
+      screenshot.notification(location)
+		end
+	}:start()
+end
+
 return screenshot
