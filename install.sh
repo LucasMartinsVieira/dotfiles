@@ -35,26 +35,21 @@ welcome() {
 	echo -e "${BLUE}##         https://github.com/lucasmartinsvieira        ##${NC}"
 	echo -e "${BLUE}##########################################################${NC}"
 }
-welcome
-
-read
 
 check_folder() {
 	if ! [ -d "$HOME/repos/dotfiles/" ]; then
 		echo -e "${RED}For this script work properly you need run him from $HOME/repos/dotfiles/${NC}"
-    $SEPARATOR
+		$SEPARATOR
 		echo -e "${BLUE}assuming you've cloned the repository to $HOME:${NC}"
 		echo -e "${BLUE}Run these commands:${NC}"
 		echo -e "${GREEN}mkdir -p ~/repos${NC}"
 		echo -e "${GREEN}mv ~/dotfiles ~/repos${NC}"
-    $SEPARATOR
-    echo -e "${BLUE}For the config of AwesomeWM work properly you need to clone the submodules${NC}"
-    echo -e "${GREEN}git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.git ~/repos/dotfiles/${NC}"
+		$SEPARATOR
+		echo -e "${BLUE}For the config of AwesomeWM work properly you need to clone the submodules${NC}"
+		echo -e "${GREEN}git clone --recurse-submodules https://github.com/LucasMartinsVieira/dotfiles.git ~/repos/dotfiles/${NC}"
 		exit 0
 	fi
 }
-
-check_folder
 
 explanation() {
 	echo -e "${GREEN}############################################${NC}"
@@ -63,155 +58,15 @@ explanation() {
 	doas pacman -S libnewt --needed --noconfirm
 }
 
-explanation
-
 beginning() {
 	whiptail --title "Installing Packages!" --msgbox "Installing essential packages (you can see them in 'pkgs.txt') and after them you will have the option of installing optinal packages" 15 60
 }
 
-beginning
-
 packages() {
-	echo -e "${BLUE}Installing Packages With Paru${NC}"
-	paru --needed --ask 4 -Sy - < pkgs.txt && scripts
-  paru -S --noconfirm --needed librewolf-bin awesome-git
+	echo -e "${BLUE}Installing Packages From pkgs.txt With Paru${NC}"
+	paru --needed --ask 4 -Sy - <pkgs.txt
+	paru -S --noconfirm --needed librewolf-bin awesome-git
 }
-
-packages
-
-optinal_packages() {
-	whiptail --title "Optinal Packages!" --msgbox "Now you will have the option to installing optional packages" 15 60
-}
-
-optinal_packages
-
-max() {
-    echo -e "$1\n$2" | sort -n | tail -1
-}
-
-getbiggestword() {
-    echo "$@" | sed "s/ /\n/g" | wc -L
-}
-
-replicate() {
-    local n="$1"
-    local x="$2"
-    local str
-
-    for _ in $(seq 1 "$n"); do
-        str="$str$x"
-    done
-    echo "$str"
-}
-
-programchoices() {
-    choices=()
-    local maxlen; maxlen="$(getbiggestword "${!checkboxes[@]}")"
-    linesize="$(max "$maxlen" 42)"
-    local spacer; spacer="$(replicate "$((linesize - maxlen))" " ")"
-
-    for key in "${!checkboxes[@]}"
-    do
-        # A portable way to check if a command exists in $PATH and is executable.
-        # If it doesn't exist, we set the tick box to OFF.
-        # If it exists, then we set the tick box to ON.
-        if ! command -v "${checkboxes[$key]}" > /dev/null; then
-            # $spacer length is defined in the individual window functions based
-            # on the needed length to make the checkbox wide enough to fit window.
-            choices+=("${key}" "${spacer}" "OFF")
-        else
-            choices+=("${key}" "${spacer}" "ON")
-        fi
-    done
-}
-
-selectedprograms() {
-    result=$(
-        # Creates the whiptail checklist. Also, we use a nifty
-        # trick to swap stdout and stderr.
-        whiptail --title "$title"                               \
-                 --checklist "$text" 22 "$((linesize + 16))" 12 \
-                 "${choices[@]}"                                \
-                 3>&2 2>&1 1>&3
-    )
-}
-
-exitorinstall() {
-    exitstatus=$?
-    # Check the exit status, if 0 we will install the selected
-    # packages. A command which exits with zero (0) has succeeded.
-    # A non-zero (1-255) exit status indicates failure.
-    if [ $exitstatus = 0 ]; then
-        # Take the results and remove the "'s and add new lines.
-        # Otherwise, pacman is not going to like how we feed it.
-        programs=$(echo $result | sed 's/" /\n/g' | sed 's/"//g' )
-        echo $programs
-        paru --needed --ask 4 -Sy "$programs" || \
-        echo "Failed to install required packages."
-    else
-        echo "User selected Cancel."
-    fi
-}
-
-browsers() {
-	local title="Web Browsers"
-	local text="Select one or more web browsers to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them."
-
-	# Create an array with KEY/VALUE pairs.
-	# The first ["KEY] is the name of the package to install.
-	# The second ="VALUE" is the executable binary.
-	local -A checkboxes
-	checkboxes["brave-bin"]="brave"
-	checkboxes["chromium"]="chromium"
-	checkboxes["firefox"]="firefox"
-	checkboxes["librewolf-bin"]="librewolf"
-	checkboxes["qutebrowser"]="qutebrowser"
-	checkboxes["ungoogled-chromium-bin"]="ungoogled-chromium"
-	checkboxes["luakit"]="luakit"
-
-	programchoices && selectedprograms && exitorinstall
-}
-
-internet() {
-	local title="Internet Related Programs"
-	local text="Internet related programs available for installation.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them."
-
-	# Create an array with KEY/VALUE pairs.
-	# The first ["KEY] is the name of the package to install.
-	# The second ="VALUE" is the executable binary.
-	local -A checkboxes
-	checkboxes["ani-cli"]="ani-cli"
-	checkboxes["geary"]="geary"
-	checkboxes["telegram-desktop"]="telegram"
-	checkboxes["thunderbird"]="thunderbird"
-	checkboxes["mailspring"]="mailspring"
-	checkboxes["mangal-bin"]="mangal"
-	checkboxes["transmission-gtk"]="transmission-gtk"
-	checkboxes["spotify"]="spotify"
-	checkboxes["discord"]="discord"
-
-	programchoices && selectedprograms && exitorinstall
-}
-
-games() {
-	local title="Games"
-	local text="Gaming programs available for installation.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them."
-
-	# Create an array with KEY/VALUE pairs.
-	# The first ["KEY] is the name of the package to install.
-	# The second ="VALUE" is the executable binary.
-	local -A checkboxes
-	checkboxes["steam"]="steam"
-	checkboxes["gnuchess"]="gnuchess"
-	checkboxes["lutris"]="lutris"
-	checkboxes["heroic-games-launcher-bin"]="heroic-games-launcher"
-
-	programchoices && selectedprograms && exitorinstall
-}
-
-browsers
-internet
-games
 
 scripts() {
 	while true; do
@@ -222,12 +77,11 @@ scripts() {
 			break
 			;;
 		[Nn]*)
-			echo "You choose not to get my Rofi/Bash scripts." &&
-				$SEPARATOR && change_shell
+			echo "You choose not to get my Rofi/Bash scripts." && $SEPARATOR
 			break
 			;;
 		*)
-			echo "You choose not to get my Rofi/Bash scripts." && change_shell
+			echo "You choose not to get my Rofi/Bash scripts." && $SEPARATOR
 			break
 			;;
 		esac
@@ -252,294 +106,68 @@ script_yes() {
 	$SEPARATOR
 	change_shell
 }
-configs() {
-	#alacritty
-	while true; do
-		read -p "Do you want my alacritty config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/alacritty/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/alacritty/ ~/.config/backup_config
-				rm -rf ~/.config/alacritty
-				ln -s ~/repos/dotfiles/cfg/alacritty/ ~/.config/alacritty
-			else
-				ln -s ~/repos/dotfiles/cfg/alacritty/ ~/.config/alacritty
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my alacritty config."
-			break
-			;;
-		*)
-			echo "You choose not to get my alacritty config."
-			break
-			;;
-		esac
+
+get_programs() {
+	CONFIG_DIRS=$(find ~/repos/dotfiles/cfg/ -maxdepth 1 -type d | sed "s#$HOME/repos/dotfiles/cfg/##" | sort)
+	CONFIG_FILES=$(find ~/repos/dotfiles/cfg/ -maxdepth 1 -type f | sed "s#$HOME/repos/dotfiles/cfg/##" | sort)
+}
+
+link_directories() {
+	choices=()
+	title="Configs"
+	text="Choose the configs you want in your system."
+	spacer=$(for i in $(seq 1 38); do echo -n " "; done)
+
+	for key in $CONFIG_DIRS; do
+		choices+=("${key}" "${spacer}" "OFF")
 	done
-	$SEPARATOR
 
-	# Awesome
-	while true; do
-		read -p "Do you want my awesome config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/awesome/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/awesome/ ~/.config/backup_config
-				rm -rf ~/.config/awesome/
-				ln -s ~/repos/dotfiles/cfg/awesome/ ~/.config/awesome
-			else
-				ln -s ~/repos/dotfiles/cfg/awesome/ ~/.config/awesome
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my awesome config."
-			break
-			;;
-		*)
-			echo "You choose not to get my awesome config."
-			break
-			;;
-		esac
+	result=$(whiptail --title "$title" \
+		--checklist "$text" 20 78 12 \
+		"${choices[@]}" \
+		3>&2 2>&1 1>&3)
+
+	programs=$(echo $result | sed 's/" /\n/g' | sed 's/"//g')
+
+	for link in $programs; do
+		if [ -d "$HOME/.config/$link/" ]; then
+			mkdir -p ~/.config/backup_config
+			cp -r ~/.config/$link/ ~/.config/backup_config
+			rm -rf ~/.config/$link/
+			ln -s ~/repos/dotfiles/cfg/$link/ ~/.config/$link
+		else
+			ln -s ~/repos/dotfiles/cfg/$link/ ~/.config/$link
+		fi
 	done
-	$SEPARATOR
+}
 
-	# Fish
-	while true; do
-		read -p "Do you want my fish config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/fish/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/fish/ ~/.config/backup_config
-				rm -rf ~/.config/fish/
-				ln -s ~/repos/dotfiles/cfg/fish/ ~/.config/fish
-			else
-				ln -s ~/repos/dotfiles/cfg/fish/ ~/.config/fish
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my fish config."
-			break
-			;;
-		*)
-			echo "You choose not to get my fish config."
-			break
-			;;
-		esac
+link_files() {
+	choices=()
+	title="Configs"
+	text="Choose the configs you want in your system."
+	spacer=$(for i in $(seq 1 38); do echo -n " "; done)
+
+	for key in $CONFIG_FILES; do
+		choices+=("${key}" "${spacer}" "OFF")
 	done
-	$SEPARATOR
 
-	# Starship
-	while true; do
-		read -p "Do you want my Starship config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -f "$HOME/.config/starship.toml" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/starship.toml ~/.config/backup_config
-				rm -rf ~/.config/starship.toml
-				ln -s ~/repos/dotfiles/cfg/starship.toml ~/.config/starship.toml
-			else
-				ln -s ~/repos/dotfiles/cfg/starship.toml ~/.config/starship.toml
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my starship config."
-			break
-			;;
-		*)
-			echo "You choose not to get my starship config."
-			break
-			;;
-		esac
+	result=$(whiptail --title "$title" \
+		--checklist "$text" 20 78 12 \
+		"${choices[@]}" \
+		3>&2 2>&1 1>&3)
+
+	programs=$(echo $result | sed 's/" /\n/g' | sed 's/"//g')
+
+	for link in $programs; do
+		if [ -f "$HOME/.config/$link" ]; then
+			mkdir -p ~/.config/backup_config
+			cp -r ~/.config/$link ~/.config/backup_config
+			rm -rf ~/.config/$link
+			ln -s ~/repos/dotfiles/cfg/$link ~/.config/$ln_files
+		else
+			ln -s ~/repos/dotfiles/cfg/$link ~/.config/$ln_files
+		fi
 	done
-	$SEPARATOR
-
-	# Kitty
-	while true; do
-		read -p "Do you want my Kitty config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/kitty/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/kitty/ ~/.config/backup_config
-				rm -rf ~/.config/kitty/
-				ln -s ~/repos/dotfiles/cfg/kitty/ ~/.config/kitty
-			else
-				ln -s ~/repos/dotfiles/cfg/kitty/ ~/.config/kitty
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my kitty config."
-			break
-			;;
-		*)
-			echo "You choose not to get my kitty config."
-			break
-			;;
-		esac
-	done
-	$SEPARATOR
-
-	# LF
-	while true; do
-		read -p "Do you want my LF config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/lf/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/lf/ ~/.config/backup_config
-				rm -rf ~/.config/lf/
-				ln -s ~/repos/dotfiles/cfg/lf/ ~/.config/lf
-
-				cp -r ~/.config/kitty/ ~/.config/backup_config
-				rm -rf ~/.config/lf-ueberzug/
-				ln -s ~/repos/dotfiles/cfg/lf-ueberzug/ ~/.config/lf-ueberzug
-			else
-				ln -s ~/repos/dotfiles/cfg/lf/ ~/.config/lf
-				ln -s ~/repos/dotfiles/cfg/lf-ueberzug/ ~/.config/lf-ueberzug
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my lf config."
-			break
-			;;
-		*)
-			echo "You choose not to get my lf config."
-			break
-			;;
-		esac
-	done
-	$SEPARATOR
-
-	# Neovim
-	while true; do
-		read -p "Do you want my Neovim config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/nvim/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/nvim/ ~/.config/backup_config
-				rm -rf ~/.config/nvim/
-				ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim
-			else
-				ln -s ~/repos/dotfiles/cfg/nvim/ ~/.config/nvim
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my Neovim config."
-			break
-			;;
-		*)
-			echo "You choose not to get my Neovim config."
-			break
-			;;
-		esac
-	done
-	$SEPARATOR
-
-	# Picom
-	while true; do
-		read -p "Do you want my Picom config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/picom/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/picom/ ~/.config/backup_config
-				rm -rf ~/.config/picom/
-				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
-
-				if [ $(pgrep picom) ]; then
-					killall picom
-					sleep 1
-					picom &
-				fi
-
-			else
-				ln -s ~/repos/dotfiles/cfg/picom/ ~/.config/picom
-
-				if [ $(pgrep picom) ]; then
-					killall picom
-					sleep 1
-					picom &
-				fi
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my picom config."
-			break
-			;;
-		*)
-			echo "You choose not to get my picom config."
-			break
-			;;
-		esac
-	done
-	$SEPARATOR
-
-	# Zathura
-	while true; do
-		read -p "Do you want my Zathura config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/zathura/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/zathura/ ~/.config/backup_config
-				rm -rf ~/.config/zathura/
-				ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura
-			else
-				ln -s ~/repos/dotfiles/cfg/zathura/ ~/.config/zathura
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my zathura config."
-			break
-			;;
-		*)
-			echo "You choose not to get my zathura config."
-			break
-			;;
-		esac
-	done
-	$SEPARATOR
-
-	# Rofi
-	while true; do
-		read -p "Do you want my Rofi config? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			if [ -d "$HOME/.config/rofi/" ]; then
-				mkdir -p ~/.config/backup_config
-				cp -r ~/.config/rofi/ ~/.config/backup_config
-				rm -rf ~/.config/rofi
-				ln -s ~/repos/dotfiles/cfg/rofi/ ~/.config/rofi
-			else
-				ln -s ~/repos/dotfiles/cfg/rofi/ ~/.config/rofi
-			fi
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my Rofi config."
-			break
-			;;
-		*)
-			echo "You choose not to get my Rofi config."
-			break
-			;;
-		esac
-	done
-	check && $SEPARATOR && scripts
 }
 
 # Backup function.
@@ -594,12 +222,10 @@ change_shell() {
 			doas chsh $USER -s "/bin/$choice" &&
 				echo -e "$choice has been set as your default USER shell. \
                     \nLogging out is required for this take effect."
-			finish
 			break
 			;;
 		quit)
 			echo "User quit without changing shell."
-			finish
 			break
 			;;
 		*)
@@ -609,27 +235,19 @@ change_shell() {
 	done
 }
 
-configs_yes_no() {
-	$SEPARATOR
-	while true; do
-		read -p "Do you want my config files? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			configs
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my config files."
-			scripts
-			break
-			;;
-		*)
-			echo "You choose not to get my config files."
-			scripts
-			break
-			;;
-		esac
-	done
+configs() {
+	get_programs && link_directories
+	get_programs && link_files
 }
 
-configs_yes_no
+welcome
+read -r
+check_folder
+explanation
+beginning
+packages
+configs
+check
+scripts
+change_shell
+finish
