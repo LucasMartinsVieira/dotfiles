@@ -96,7 +96,7 @@ abbr v "nvim (fzf)"
 abbr f "feh (fzf)"
 abbr m "mpv (fzf)" 
 abbr g "lazygit"
-abbr t "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
+abbr t "tldr --list | fzf --preview 'tldr {1} --color=always' --height "75%" --preview-window=right,75% | xargs tldr"
 
 abbr scr "ffmpeg -f x11grab -s 1920x1080 -i :0.0"
 abbr wbr "ffmpeg -y -i /dev/video0"
