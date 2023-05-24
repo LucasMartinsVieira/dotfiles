@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# INFO: An script for setting up my desktop.
+
+# TODO: Add a function like the one for creating symbolic links for configs files, but for the bash scripts.
+# TODO: Change echo's for Whiptail windows in change_shell & scripts functions.
+
 # Variables
 BACKUP_DIR="$HOME/.config/backup_config"
 SEPARATOR="echo"""
@@ -36,6 +41,7 @@ welcome() {
 	echo -e "${BLUE}##########################################################${NC}"
 }
 
+# Checking if the cloned repo is in: $HOME/repos/dotfiles/
 check_folder() {
 	if ! [ -d "$HOME/repos/dotfiles/" ]; then
 		echo -e "${RED}For this script work properly you need run him from $HOME/repos/dotfiles/${NC}"
@@ -62,12 +68,14 @@ beginning() {
 	whiptail --title "Installing Packages!" --msgbox "Installing essential packages (you can see them in 'pkgs.txt') and after them you will have the option of installing optinal packages" 15 60
 }
 
+# Installing packages that are listed in pkgs.txt (installing with paru)
 packages() {
 	echo -e "${BLUE}Installing Packages From pkgs.txt With Paru${NC}"
 	paru --needed --ask 4 -Sy - <pkgs.txt
 	paru -S --noconfirm --needed librewolf-bin awesome-git
 }
 
+# Creating Symbolic Links from the repo folder to $HOME/.local/bin/
 scripts() {
 	while true; do
 		read -p "Do you want my Rofi/Bash scripts? (y/N)" yn
@@ -91,7 +99,6 @@ scripts() {
 script_yes() {
 	mkdir -p $HOME/repos/
 	mkdir -p ~/.local/bin/
-	# cd $HOME/repos/dotfiles/
 	cp ~/repos/dotfiles/bin/lfrun ~/.local/bin/
 	ln -s ~/repos/dotfiles/bin/colorscheme ~/.local/bin/colorscheme
 	ln -s ~/repos/dotfiles/bin/files ~/.local/bin/files
@@ -104,9 +111,9 @@ script_yes() {
 	$SEPARATOR
 	echo -e "${GREEN}The scripts instalation finished. The scripts are located in $HOME/.local/bin/${NC}"
 	$SEPARATOR
-	change_shell
 }
 
+# The following 6 functions is for a Whiptail window for creating symbolic links from the repo's folder to ~/.config/
 get_programs() {
 	CONFIG_DIRS=$(find ~/repos/dotfiles/cfg/ -maxdepth 1 -type d | sed "s#$HOME/repos/dotfiles/cfg/##" | sort)
 	CONFIG_FILES=$(find ~/repos/dotfiles/cfg/ -maxdepth 1 -type f | sed "s#$HOME/repos/dotfiles/cfg/##" | sort)
@@ -204,15 +211,7 @@ check() {
 	fi
 }
 
-finish() {
-	$SEPARATOR
-	echo -e "${BLUE}Config files are stored in $HOME/repos/dotfiles/cfg/${NC}"
-	echo -e "${BLUE}Scripts are stored in $HOME/repos/dotfiles/bin/${NC}"
-	echo -e "${RED}If you remove the folder '$HOME/repos/dotfiles/' you will loose the Configs and the Scripts${NC}"
-	$SEPARATOR
-	echo -e "${GREEN}Script finished :)\n${NC}"
-}
-
+# Function to change the $USER default shell to Bash, Fish or Zsh
 change_shell() {
 	printf 'Set default user shell (enter number): \n'
 	SHELLS=("fish" "bash" "zsh" "quit")
@@ -221,7 +220,7 @@ change_shell() {
 		fish | bash | zsh)
 			doas chsh $USER -s "/bin/$choice" &&
 				echo -e "$choice has been set as your default USER shell. \
-                    \nLogging out is required for this take effect."
+                    \nLogging out is required for this take effect." 
 			break
 			;;
 		quit)
@@ -235,6 +234,17 @@ change_shell() {
 	done
 }
 
+# Just a finish messsage
+finish() {
+	$SEPARATOR
+	echo -e "${BLUE}Config files are stored in $HOME/repos/dotfiles/cfg/${NC}"
+	echo -e "${BLUE}Scripts are stored in $HOME/repos/dotfiles/bin/${NC}"
+	echo -e "${RED}If you remove the folder '$HOME/repos/dotfiles/' you will loose the Configs and the Scripts${NC}"
+	$SEPARATOR
+	echo -e "${GREEN}Script finished :)\n${NC}"
+}
+
+# Grouping the functions for the whiptail window config files symbolic links
 configs() {
 	get_programs && link_directories
 	get_programs && link_files
