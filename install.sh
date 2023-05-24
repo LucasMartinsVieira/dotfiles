@@ -2,9 +2,6 @@
 
 # INFO: An script for setting up my desktop.
 
-# TODO: Add a function like the one for creating symbolic links for configs files, but for the bash scripts.
-# TODO: Change echo's for Whiptail windows in change_shell & scripts functions.
-
 # Variables
 BACKUP_DIR="$HOME/.config/backup_config"
 SEPARATOR="echo"""
@@ -77,40 +74,18 @@ packages() {
 
 # Creating Symbolic Links from the repo folder to $HOME/.local/bin/
 scripts() {
-	while true; do
-		read -p "Do you want my Rofi/Bash scripts? (y/N)" yn
-		case $yn in
-		[Yy]*)
-			script_yes
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to get my Rofi/Bash scripts." && $SEPARATOR
-			break
-			;;
-		*)
-			echo "You choose not to get my Rofi/Bash scripts." && $SEPARATOR
-			break
-			;;
-		esac
-	done
-}
+	SCRIPTS_FOLDER=$(find $HOME/repos/dotfiles/bin/ -maxdepth 1 -type f | grep -v "README.md" | sed "s#$HOME/repos/dotfiles/bin/##g" | sort)
 
-script_yes() {
-	mkdir -p $HOME/repos/
-	mkdir -p ~/.local/bin/
-	cp ~/repos/dotfiles/bin/lfrun ~/.local/bin/
-	ln -s ~/repos/dotfiles/bin/colorscheme ~/.local/bin/colorscheme
-	ln -s ~/repos/dotfiles/bin/files ~/.local/bin/files
-	ln -s ~/repos/dotfiles/bin/search ~/.local/bin/search
-	ln -s ~/repos/dotfiles/bin/usb ~/.local/bin/usb
-	ln -s ~/repos/dotfiles/bin/cht ~/.local/bin/cht
-	ln -s ~/repos/dotfiles/bin/wallpaper ~/.local/bin/wallpaper
-	ln -s ~/repos/dotfiles/bin/aw ~/.local/bin/aw
-	ln -s ~/repos/dotfiles/bin/bookmark ~/.local/bin/bookmark
-	$SEPARATOR
-	echo -e "${GREEN}The scripts instalation finished. The scripts are located in $HOME/.local/bin/${NC}"
-	$SEPARATOR
+	if (whiptail --title "Bash Scripts" --yesno "Do you want my bash scripts?" 8 78); then
+		for key in $SCRIPTS_FOLDER; do
+      mkdir -p ~/.local/bin/
+			ln -s ~/repos/dotfiles/bin/$key ~/.local/bin/$key
+		done
+
+		$SEPARATOR
+		echo -e "${GREEN}The scripts instalation finished. The scripts are located in $HOME/.local/bin/${NC}"
+		$SEPARATOR
+	fi
 }
 
 # The following 6 functions is for a Whiptail window for creating symbolic links from the repo's folder to ~/.config/
@@ -211,27 +186,31 @@ check() {
 	fi
 }
 
-# Function to change the $USER default shell to Bash, Fish or Zsh
+# Function to change the $USER default shell
 change_shell() {
-	printf 'Set default user shell (enter number): \n'
-	SHELLS=("fish" "bash" "zsh" "quit")
-	select choice in "${SHELLS[@]}"; do
-		case $choice in
-		fish | bash | zsh)
-			doas chsh $USER -s "/bin/$choice" &&
-				echo -e "$choice has been set as your default USER shell. \
-                    \nLogging out is required for this take effect." 
-			break
-			;;
-		quit)
-			echo "User quit without changing shell."
-			break
-			;;
-		*)
-			echo "invalid option $REPLY"
-			;;
-		esac
+	shells=$(grep -ve "^#" -e "^$" -e "/usr/bin/" /etc/shells)
+
+	choices=()
+	title="Choose $USER Default Shell"
+	text="Choose a Shell"
+	spacer=$(for i in $(seq 1 38); do echo -n " "; done)
+
+	for key in $shells; do
+		choices+=("${key}" "${spacer}" "OFF")
 	done
+
+	result=$(whiptail --title "$title" \
+		--radiolist "$text" 20 78 12 \
+		"${choices[@]}" \
+		3>&2 2>&1 1>&3 || echo "$USER choose not to change shell")
+
+	programs=$(printf "%s" "$result")
+
+	if ! [ "$programs" == "$USER choose not to change shell" ]; then
+		doas chsh "$USER" -s "$result"
+	else
+		echo "$USER choose not to change his default shell"
+	fi
 }
 
 # Just a finish messsage
@@ -239,6 +218,7 @@ finish() {
 	$SEPARATOR
 	echo -e "${BLUE}Config files are stored in $HOME/repos/dotfiles/cfg/${NC}"
 	echo -e "${BLUE}Scripts are stored in $HOME/repos/dotfiles/bin/${NC}"
+	echo -e "${BLUE}If you have installed the scripts. They are located in $HOME/.local/bin/${NC}"
 	echo -e "${RED}If you remove the folder '$HOME/repos/dotfiles/' you will loose the Configs and the Scripts${NC}"
 	$SEPARATOR
 	echo -e "${GREEN}Script finished :)\n${NC}"
