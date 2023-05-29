@@ -1,6 +1,6 @@
 return {
   "folke/zen-mode.nvim",
-  enabled = true,
+  enabled = false,
   cmd = "ZenMode",
   keys = {
     { "<space>z", "<CMD>ZenMode<CR>", desc = "Zen Mode" },

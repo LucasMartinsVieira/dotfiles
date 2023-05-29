@@ -2,15 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     {
-      "AckslD/nvim-neoclip.lua",
-      config = function()
-        require("telescope").load_extension("neoclip")
-        require("neoclip").setup({
-          preview = true,
-        })
-      end
-    },
-    {
       "nvim-telescope/telescope-project.nvim",
       config = function()
         require("telescope").load_extension("project")
@@ -33,7 +24,6 @@ return {
     { "<space>fc", "<CMD>Telescope colorscheme<CR>",  desc = "Find Colorscheme", },
     { "<space>fk", "<CMD>Telescope Keymaps<CR>",      desc = "Find Keymaps" },
     { "<space>fm", "<CMD>Telescope man_pages<CR>",    desc = "Find Man Pages" },
-    { "<space>fC", "<CMD>Telescope neoclip<CR>",      desc = "Find Clip Board" },
     { "<space>fh", "<CMD>Telescope help_tags<CR>",    desc = "Find Help" },
 
     -- Git Commands

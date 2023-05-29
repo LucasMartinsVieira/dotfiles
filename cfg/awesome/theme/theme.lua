@@ -61,8 +61,8 @@ theme.fg_minimize = theme.color_fg
 
 -- Gaps
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(3)
-theme.border_color_normal = theme.color_fg
+theme.border_width  = dpi(4)
+theme.border_color_normal = theme.color_bg
 theme.border_color_active = theme.red
 theme.border_color_marked = theme.red
 

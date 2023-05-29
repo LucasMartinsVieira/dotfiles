@@ -89,7 +89,7 @@ awful.keyboard.append_global_keybindings({
     description = "Rofi-Emoji",
     group = "Scripts",
     on_press = function()
-      awful.util.spawn("rofi -show emoji")
+      awful.util.spawn("rofi -show emoji -theme /usr/share/rofi/themes/Monokai.rasi")
     end,
   }),
   awful.key({

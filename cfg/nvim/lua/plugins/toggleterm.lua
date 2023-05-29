@@ -7,8 +7,7 @@ return {
   "akinsho/toggleterm.nvim",
   cmd = { "ToggleTerm" },
   keys = {
-    { "<C-t>",     "<CMD>ToggleTerm<CR>",                                     desc = "Terminal" },
-    { "<space>tt", "<CMD>ToggleTerm<CR>",                                     desc = "Terminal Horizontal" },
+    { "<space>tt", "<CMD>ToggleTerm direction=horizontal<CR>",                desc = "Terminal Horizontal" },
     { "<space>tf", "<CMD>ToggleTerm direction=float<CR>",                     desc = "Terminal Float" },
     { "<space>tv", "<CMD>ToggleTerm size=40 direction=vertical<CR>",          desc = "Terminal Vertical" },
     { "<space>tl", "<cmd>lua require 'user.functions'.lua_terminal()<cr>",    desc = "Lua" },
