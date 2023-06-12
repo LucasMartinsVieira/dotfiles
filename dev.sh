@@ -39,7 +39,7 @@ final() {
 }
 
 js_tools() {
-  doas npm install -g browser-sync
+  doas npm install -g live-server
   doas npm i -g vscode-langservers-extracted
 
 	echo -e "${GREEN}JavaScript tools installed.${NC}"

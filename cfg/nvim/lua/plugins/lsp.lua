@@ -7,8 +7,11 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
 
-    -- Useful status updates for LSP
-    "j-hui/fidget.nvim",
+    {
+      -- Useful status updates for LSP
+      "j-hui/fidget.nvim",
+      tag = "legacy"
+    },
 
     -- Additional lua configuration, makes nvim stuff amazing
     "folke/neodev.nvim",
@@ -16,7 +19,7 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   cmd = { "Mason", "LspInfo" },
   keys = {
-    { "<space>lm", "<CMD>Mason<CR>", desc = "Mason" },
+    { "<space>lm", "<CMD>Mason<CR>",   desc = "Mason" },
     { "<space>li", "<CMD>LspInfo<CR>", desc = "Lsp Info" },
   },
   config = function()
@@ -50,9 +53,9 @@ return {
       -- Custom Icons for LSP Diagnostics
       local signs = {
         { name = "DiagnosticSignError", text = icons.diagnostics.error },
-        { name = "DiagnosticSignWarn", text = icons.diagnostics.warning },
-        { name = "DiagnosticSignHint", text = icons.diagnostics.hint },
-        { name = "DiagnosticSignInfo", text = icons.diagnostics.information },
+        { name = "DiagnosticSignWarn",  text = icons.diagnostics.warning },
+        { name = "DiagnosticSignHint",  text = icons.diagnostics.hint },
+        { name = "DiagnosticSignInfo",  text = icons.diagnostics.information },
       }
 
       for _, sign in ipairs(signs) do
@@ -176,12 +179,12 @@ return {
 
         if server_name == "rust_analyzer" then
           require("lspconfig")["rust_analyzer"].settings =
-            require("user.lsp.rust")
+              require("user.lsp.rust")
         end
 
         if server_name == "tsserver" then
           require("lspconfig")["tsserver"].settings =
-            require("user.lsp.tsserver")
+              require("user.lsp.tsserver")
         end
 
         if server_name == "pyright" then

@@ -34,4 +34,7 @@ return {
       { "<space>C", "<CMD>ColorizerToggle<CR>", desc = "Colorizer Toggle" },
     },
   },
+  {
+    "psliwka/vim-smoothie",
+  },
 }

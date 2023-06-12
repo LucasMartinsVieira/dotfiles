@@ -1,7 +1,7 @@
 return {
   "folke/noice.nvim",
   event = "VimEnter",
-  enabled = false,
+  enabled = true,
   config = function()
     require("noice").setup({
       lsp = {
@@ -25,6 +25,12 @@ return {
         enabled = true,
         view = "notify",
         opts = {},
+      },
+      routes = {
+        {
+          view = "notify",
+          filter = { event = "msg_showmode" },
+        },
       },
     })
   end,

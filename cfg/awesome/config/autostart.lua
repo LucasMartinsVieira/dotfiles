@@ -24,5 +24,5 @@ awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir
 awful.spawn.with_shell("redshift -P -O 4500")
 
 -- Monitor Config
--- awful.spawn.with_shell(
-  -- "xrandr --output LVDS-1 --off --output VGA-1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI-1 --off --output DP-1 --off")
+awful.spawn.with_shell(
+"xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal")

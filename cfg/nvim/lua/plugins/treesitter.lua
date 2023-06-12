@@ -7,6 +7,8 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
+      "windwp/nvim-ts-autotag",
+      "HiPhish/nvim-ts-rainbow2",
     },
     keys = {
       { "<c-space>", desc = "Increment selection" },
@@ -43,6 +45,15 @@ return {
           scope_incremental = "<nop>",
           node_decremental = "<bs>",
         },
+      },
+      -- Auto closing html tags
+      autotag = {
+        enable = true,
+      },
+      rainbow = {
+        enable = true,
+        extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+        max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
       },
     },
     ---@param opts TSConfig

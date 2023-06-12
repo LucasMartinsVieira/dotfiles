@@ -21,6 +21,7 @@ nmap("<space>w", "<CMD>wa<CR>", "Write")
 nmap("<space>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "Quit")
 nmap("<space>h", "<CMD>split<CR>", "Split")
 nmap("<space>v", "<CMD>vsplit<CR>", "Vsplit")
+nmap("<space>/", "<CMD>noh<CR>", "")
 keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
@@ -70,5 +71,5 @@ vmap("<", "<gv")
 vmap(">", ">gv")
 
 -- Moves selected
-vmap("<A-j>", "<CMD>m +2<CR>gv")
 vmap("<A-k>", "<CMD>m -2<CR>gv")
+vmap("<A-j>", "<CMD>m +2<CR>gv")

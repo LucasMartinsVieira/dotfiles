@@ -1,9 +1,9 @@
 return {
   "folke/zen-mode.nvim",
-  enabled = false,
+  enabled = true,
   cmd = "ZenMode",
   keys = {
-    { "<space>z", "<CMD>ZenMode<CR>", desc = "Zen Mode" },
+    { "<space>zz", "<CMD>ZenMode<CR>", desc = "Zen Mode" },
   },
   config = function()
     require("zen-mode").setup({

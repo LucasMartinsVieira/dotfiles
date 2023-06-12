@@ -34,12 +34,16 @@ return {
     -- Typescript/JavaScript
     "jose-elias-alvarez/typescript.nvim",
     keys = {
-      { "<space>ji", "<CMD>TypescriptAddMissingImports<CR>", desc = "Add Missing Imports" },
-      { "<space>jo", "<CMD>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
-      { "<space>ju", "<CMD>TypescriptRemoveUnused<CR>", desc = "Remove Unused" },
-      { "<space>jr", "<CMD>TypescriptRenameFile<CR>", desc = "Rename File" },
-      { "<space>jf", "<CMD>TypescriptFixAll<CR>", desc = "Fix All" },
+      { "<space>ji", "<CMD>TypescriptAddMissingImports<CR>",    desc = "Add Missing Imports" },
+      { "<space>jo", "<CMD>TypescriptOrganizeImports<CR>",      desc = "Organize Imports" },
+      { "<space>ju", "<CMD>TypescriptRemoveUnused<CR>",         desc = "Remove Unused" },
+      { "<space>jr", "<CMD>TypescriptRenameFile<CR>",           desc = "Rename File" },
+      { "<space>jf", "<CMD>TypescriptFixAll<CR>",               desc = "Fix All" },
       { "<space>jg", "<CMD>TypescriptGoToSourceDefinition<CR>", desc = "Go To Source Definition" },
     },
+  },
+  -- Json
+  {
+    "b0o/schemastore.nvim"
   }
 }
