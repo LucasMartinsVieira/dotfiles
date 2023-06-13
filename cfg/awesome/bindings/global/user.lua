@@ -80,7 +80,16 @@ awful.keyboard.append_global_keybindings({
     description = "Bookmarks",
     group = "Scripts",
     on_press = function()
-      awful.util.spawn("bookmark")
+      awful.util.spawn("bookmark -b")
+    end,
+  }),
+  awful.key({
+    modifiers = { mod.super, mod.ctrl },
+    key = "b",
+    description = "Add Bookmark",
+    group = "Scripts",
+    on_press = function()
+      awful.util.spawn("bookmark -B")
     end,
   }),
   awful.key({

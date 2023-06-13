@@ -48,16 +48,16 @@ nmap("<M-l>", "<CMD>vertical resize -2<CR>")
 nmap("<M-h>", "<CMD>vertical resize +2<CR>")
 
 -- Navegar arquivos (buffers)
-nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Next")
+nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Previous")
 nmap("<S-h>", "<CMD>bprevious<CR>", "Buffer Previous")
 nmap("<S-d>", "<CMD>bdelete<CR>", "Buffer Delete")
+
+nmap("<space>bn", "<CMD>bnext<CR>", "Buffer Next")
+nmap("<space>bp", "<CMD>bprevious<CR>", "Buffer Previous")
 nmap("<space>bd", "<CMD>bdelete<CR>", "Buffer Delete")
 
 nmap("]b", "<CMD>bnext<CR>", "Buffer Previous")
 nmap("[b", "<CMD>bprevious<CR>", "Buffer Previous")
-
-nmap(".b", "<CMD>BufferLineMoveNext<CR>", "Move Buffer Next")
-nmap(",b", "<CMD>BufferLineMovePrev<CR>", "Move Buffer Prev")
 
 -- Insert --
 

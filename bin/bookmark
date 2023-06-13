@@ -1,7 +1,25 @@
 #!/bin/bash
 
-# FILE=$1
 FILE=$HOME/repos/dotfiles/home/bookmarks
 
-BOOKMARKS=$(grep -E "^https?://[A-Za-z0-9]*[A-Za-z0-9]" "$FILE" | rofi -dmenu -i -p "Choose a Bookmark: ")
-xdotool type "$BOOKMARKS"
+bookmarks() {
+	BOOKMARKS=$(grep -E "^https?://[A-Za-z0-9]*[A-Za-z0-9]" "$FILE" | rofi -dmenu -i -p "Choose a Bookmark: ")
+	xdotool type "$BOOKMARKS"
+}
+
+bookmark_add() {
+  XCLIP_CMD=$(xclip -o)
+
+  if grep -q "$XCLIP_CMD" "$FILE"; then
+    notify-send "Oops" "Bookmarked is already added"
+  else
+    notify-send "Bookmark added" "Bookmark added to $FILE"
+    echo "$XCLIP_CMD" >> "$FILE"
+  fi
+}
+
+if [ "$1" == '-b' ]; then
+  bookmarks
+elif [ "$1" == '-B' ]; then
+  bookmark_add
+fi
