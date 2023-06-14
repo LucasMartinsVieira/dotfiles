@@ -145,7 +145,7 @@ awful.keyboard.append_global_keybindings({
     description = "Set a Random Wallpaper",
     group = "Ui",
     on_press = function()
-      local feh_cmd = "feh --no-fehbg --bg-scale --randomize --no-xinerama"
+      local feh_cmd = "feh --no-fehbg --bg-scale --randomize"
       awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
     end,
   }),

@@ -5,7 +5,7 @@
 ROFI="rofi -dmenu -i"
 # WALLPAPER_DIR="${HOME}/Imagens/Wallpapers"
 WALLPAPER_DIR="$1"
-SET_BG="feh --bg-scale --no-fehbg --no-xinerama"
+SET_BG="feh --bg-scale --no-fehbg"
 
 set() {
   wallpaper="$(sxiv -tofb "${WALLPAPER_DIR}")"

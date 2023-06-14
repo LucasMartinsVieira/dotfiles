@@ -16,8 +16,7 @@ awful.spawn.with_shell("xset s off -dpms")
 awful.spawn.with_shell("picom")
 
 -- Set a Random Wallpaper
--- awful.spawn.with_shell("feh --no-fehbg --bg-scale --randomize --no-xinerama ~/Imagens/Wallpapers/")
-local feh_cmd = "feh --no-fehbg --bg-scale --randomize --no-xinerama"
+local feh_cmd = "feh --no-fehbg --bg-scale --randomize"
 awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
 
 -- Changes color temperature
