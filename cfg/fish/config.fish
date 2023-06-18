@@ -106,6 +106,9 @@ alias ..="cd .."
 alias .2="cd ../.."
 alias .3="cd ../../.."
 
+# ASDF
+source /opt/asdf-vm/asdf.fish
+
 # File Extraction 
 
 function ex --description "Extract bundled & compressed files"

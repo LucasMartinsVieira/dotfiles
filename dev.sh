@@ -8,116 +8,91 @@ BLUE='\033[1;36m'  # Blue
 RED='\033[0;31m'   # Red
 NC='\033[0m'       # No Color
 
-# Welcome Message.
 welcome() {
 	echo -e "${BLUE}##########################################################${NC}"
 	echo -e "${BLUE}##       Welcome to LucasMartinsVieira dev script       ##${NC}"
 	echo -e "${BLUE}##               Press enter to continue                ##${NC}"
 	echo -e "${BLUE}##         https://github.com/lucasmartinsvieira        ##${NC}"
 	echo -e "${BLUE}##########################################################${NC}"
+
+	read -r
 }
-welcome
 
-read
-
-essencial_pkgs() {
+packages() {
 	echo -e "${BLUE}###########################################${NC}"
 	echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
 	echo -e "${BLUE}###########################################${NC}"
 
-  paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tealdeer bat ripgrep fd github-cli
+	paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tealdeer bat ripgrep fd github-cli shfmt insomnia-bin
 
-  sleep 3;
-  tldr --update
-  rust
+	sleep 3
+	tldr --update
+}
+
+git_config() {
+	git config --global user.name "LucasMartinsVieira"
+	git config --global user.email "lucasmartvieira03@outlook.com"
+}
+
+gh_cli() {
+	gh auth login
+}
+
+asdf_config() {
+	paru -Sy asdf-vm --needed --noconfirm
+}
+
+rust() {
+	rustup default stable
+	rustup component add rustfmt
+	rustup component add clippy
+
+	cargo install cargo-watch
+}
+
+javascript() {
+	doas npm install -g live-server
+	doas npm i -g vscode-langservers-extracted
 }
 
 final() {
 	echo -e "${GREEN}##################################${NC}"
-  echo -e "${GREEN}##     End of the Script :)     ##${NC}"
+	echo -e "${GREEN}##     End of the Script :)     ##${NC}"
 	echo -e "${GREEN}##################################${NC}"
 }
 
-js_tools() {
-  doas npm install -g live-server
-  doas npm i -g vscode-langservers-extracted
-
-	echo -e "${GREEN}JavaScript tools installed.${NC}"
+all() {
+	welcome
+	packages
+	git_config
+	gh_cli
+	asdf_config
+	rust
+	javascript
+	final
 }
 
-npm_packages() {
-	while true; do
-    read -p "Install JavaScript Development tools?(y/N)" yn
-		case $yn in
-		[Yy]*)
-			js_tools
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to install npm Development tools." &&
-				$SEPARATOR && final
-			break
-			;;
-		*)
-			echo "You choose not to install npm Development tools." && $SEPARATOR && final
-			break
-			;;
-		esac
-	done
+help() {
+	echo -e "${BLUE}Available Options${NC}"
+	echo -e "p) packages ;;"
+	echo -e "g) git_config ;;"
+	echo -e "G) gh_cli ;;"
+	echo -e "a) asdf_config ;;"
+	echo -e "r) rust ;;"
+	echo -e "j) javascript ;;"
+	echo -e "A) all ;;"
 }
 
-zapzsh() {
-	while true; do
-    read -p "Install Zap zsh?(y/N)" yn
-
-		case $yn in
-		[Yy]*)
-			zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to install Zap zsh." &&
-				$SEPARATOR && npm_packages
-			break
-			;;
-		*)
-			echo "You choose not to install Zap zsh." && $SEPARATOR && npm_packages
-			break
-			;;
-		esac
-	done
-}
-
-rust_tools() {
-  rustup default stable
-  rustup component add rustfmt
-  rustup component add clippy
-
-  cargo install cargo-watch
-
-	echo -e "${GREEN}Rustup tools installed.${NC}"
-  npm_packages
-}
-
-rust() {
-	while true; do
-    read -p "Install Rust Development tools?(y/N)" yn
-		case $yn in
-		[Yy]*)
-			rust_tools
-			break
-			;;
-		[Nn]*)
-			echo "You choose not to install Rust Development tools." &&
-				$SEPARATOR && zapzsh
-			break
-			;;
-		*)
-			echo "You choose not to install Rust Development tools." && $SEPARATOR && zapzsh
-			break
-			;;
-		esac
-	done
-}
-
-essencial_pkgs
+while getopts "hpgGarjA" arg 2>/dev/null; do
+	case "${arg}" in
+	h) help ;;
+	p) packages ;;
+	g) git_config ;;
+	G) gh_cli ;;
+	a) asdf_config ;;
+	r) rust ;;
+	j) javascript ;;
+	A) all ;;
+	*) help ;;
+	esac
+done

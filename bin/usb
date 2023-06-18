@@ -28,13 +28,13 @@ mount() {
 
 mountall() {
   mountable="$(lsblk -lp | grep "part $" | awk '{ print $1, "(" $4 ")" }')"
-  [ -z "$mountable" ] && [ -f $HOME/.cache/usbmount ] && rm -rf ~/.cache/usbmount && exit 0
+  [ -z "$mountable" ] && [ -f "$HOME"/.cache/usbmount ] && rm -rf ~/.cache/usbmount && exit 0
 
   until [ -z "$mountable" ]; do
      choice=$(echo "$mountable" | awk '{ print $1 }')
-     echo "$choice" > $HOME/.cache/usbmount
-     partition=$(cat $HOME/.cache/usbmount | sed -n '1p')
-     makedir=$(cat $HOME/.cache/usbmount | sed -n '1p' | sed -e 's#/dev/##')
+     echo "$choice" > "$HOME"/.cache/usbmount
+     partition=$(cat "$HOME"/.cache/usbmount | sed -n '1p')
+     makedir=$(cat "$HOME"/.cache/usbmount | sed -n '1p' | sed -e 's#/dev/##')
      doas mount --mkdir "$partition" "/mnt/usb-$makedir"
      echo "Partition $partition mounted"
      mountall
@@ -52,13 +52,13 @@ umount() {
 
 umountall() {
   mount=$(lsblk -lp | grep "/mnt")
-  [ -z "$mount" ] && [ -f $HOME/.cache/usbumount ] && rm -rf ~/.cache/usbumount && exit 0
+  [ -z "$mount" ] && [ -f "$HOME"/.cache/usbumount ] && rm -rf ~/.cache/usbumount && exit 0
 
   until [ -z "$mount" ]; do
      choice=$(echo "$mount" | awk '{ print $1 }')
-     echo "$choice" > $HOME/.cache/usbumount
-     partition=$(cat $HOME/.cache/usbumount | sed -n '1p')
-     makedir=$(cat $HOME/.cache/usbumount | sed -n '1p' | sed -e 's#/dev/##')
+     echo "$choice" > "$HOME"/.cache/usbumount
+     partition=$(cat "$HOME"/.cache/usbumount | sed -n '1p')
+     makedir=$(cat "$HOME"/.cache/usbumount | sed -n '1p' | sed -e 's#/dev/##')
      doas umount "$partition"
      echo "Partition $partition unmounted"
      umountall
