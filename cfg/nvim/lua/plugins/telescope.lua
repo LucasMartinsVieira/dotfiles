@@ -2,9 +2,20 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     {
-      "nvim-telescope/telescope-project.nvim",
+      "ahmedkhalf/project.nvim",
       config = function()
-        require("telescope").load_extension("project")
+        require("project_nvim").setup({
+          manual_mode = false,
+          detection_methods = { "lsp", "pattern" },
+          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+          ignore_lsp = {},
+          exclude_dirs = {},
+          show_hidden = false,
+          silent_chdir = true,
+          scope_chdir = 'global',
+          datapath = vim.fn.stdpath("data"),
+          require('telescope').load_extension('projects')
+        })
       end
     },
     {
@@ -18,7 +29,7 @@ return {
     { "<space>bb", "<CMD>Telescope buffers<CR>",      desc = "Buffers" },
     { "<space>ff", "<CMD>Telescope find_files<CR>",   desc = "Find Files" },
     { "<space>fr", "<CMD>Telescope oldfiles<CR>",     desc = "Find Recent Files" },
-    { "<space>fp", "<CMD>Telescope project<CR>",      desc = "Find Projects" },
+    { "<space>fp", "<CMD>Telescope projects<CR>",     desc = "Find Projects" },
     { "<space>fb", "<CMD>Telescope buffers<CR>",      desc = "Find Buffers" },
     { "<space>fw", "<CMD>Telescope live_grep<CR>",    desc = "Find Word" },
     { "<space>fc", "<CMD>Telescope colorscheme<CR>",  desc = "Find Colorscheme", },
@@ -90,23 +101,19 @@ return {
       },
       extensions = {
         fzf = {
-          fuzzy = true, -- false will only do exact matching
+          fuzzy = true,                   -- false will only do exact matching
           override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+          override_file_sorter = true,    -- override the file sorter
+          case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
         },
-        project = {
-          base_dirs = {
-            { '~/dev/', max_depth = 4 },
-
-          },
-          hidden_files = true, -- default: false
-          theme = "dropdown",
-          order_by = "asc",
-          search_by = "title",
-          sync_with_nvim_tree = true, -- default false
-        },
+        -- project = {
+        --   hidden_files = true, -- default: false
+        --   theme = "dropdown",
+        --   order_by = "asc",
+        --   search_by = "title",
+        --   sync_with_nvim_tree = true, -- default false
+        -- },
       },
     })
   end,

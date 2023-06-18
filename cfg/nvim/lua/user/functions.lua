@@ -59,12 +59,7 @@ M.lua_terminal = function()
   local lua = Terminal:new {
     cmd = "lua",
     hidden = true,
-    direction = "float",
-    float_opts = {
-      border = "none",
-      width = 100000,
-      height = 100000,
-    },
+    direction = "horizontal",
     on_open = function(_)
       vim.cmd "startinsert!"
     end,
@@ -74,37 +69,12 @@ M.lua_terminal = function()
   lua:toggle()
 end
 
-M.python_terminal = function()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local python = Terminal:new {
-    cmd = "python",
-    hidden = true,
-    direction = "float",
-    float_opts = {
-      border = "none",
-      width = 100000,
-      height = 100000,
-    },
-    on_open = function(_)
-      vim.cmd "startinsert!"
-    end,
-    on_close = function(_) end,
-    count = 99,
-  }
-  python:toggle()
-end
-
 M.node_terminal = function()
   local Terminal = require("toggleterm.terminal").Terminal
   local node = Terminal:new {
     cmd = "node",
     hidden = true,
-    direction = "float",
-    float_opts = {
-      border = "none",
-      width = 100000,
-      height = 100000,
-    },
+    direction = "horizontal",
     on_open = function(_)
       vim.cmd "startinsert!"
     end,
@@ -119,12 +89,7 @@ M.deno_terminal = function()
   local deno = Terminal:new {
     cmd = "deno",
     hidden = true,
-    direction = "float",
-    float_opts = {
-      border = "none",
-      width = 100000,
-      height = 100000,
-    },
+    direction = "horizontal",
     on_open = function(_)
       vim.cmd "startinsert!"
     end,

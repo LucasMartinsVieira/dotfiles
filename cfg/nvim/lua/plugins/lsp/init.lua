@@ -20,7 +20,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "Mason", "LspInfo" },
     keys = {
-      { "<space>lm", "<CMD>Mason<CR>", desc = "Mason" },
+      { "<space>lm", "<CMD>Mason<CR>",   desc = "Mason" },
       { "<space>li", "<CMD>LspInfo<CR>", desc = "Lsp Info" },
     },
     config = function()
@@ -36,9 +36,6 @@ return {
       --  This function gets run when an LSP connects to a particular buffer.
       -- local on_attach = function(_, client, bufnr)
       local on_attach = function(client, bufnr)
-        -- NOTE: Remember that lua is a real programming language, and as such it is possible
-        -- to define small helper and utility functions so you don't have to repeat yourself
-        -- many times.
         --
         -- In this case, we create a function that lets us more easily define mappings specific
         -- for LSP related items. It sets the mode, buffer and description for us each time.
@@ -54,8 +51,8 @@ return {
         -- Custom Icons for LSP Diagnostics
         local signs = {
           { name = "DiagnosticSignError", text = icons.diagnostics.error },
-          { name = "DiagnosticSignWarn", text = icons.diagnostics.warning },
-          { name = "DiagnosticSignHint", text = icons.diagnostics.hint },
+          { name = "DiagnosticSignWarn",  text = icons.diagnostics.warning },
+          { name = "DiagnosticSignHint",  text = icons.diagnostics.hint },
           {
             name = "DiagnosticSignInfo",
             text = icons.diagnostics.information,
@@ -93,36 +90,19 @@ return {
 
         vim.diagnostic.config(config)
 
+        local telescope = require('telescope.builtin')
+
         nmap("<space>lr", vim.lsp.buf.rename, "Rename")
         nmap("<space>la", vim.lsp.buf.code_action, "Code Action")
         nmap("<space>ld", vim.lsp.buf.type_definition, "Type Definition")
-        nmap(
-          "<space>ls",
-          require("telescope.builtin").lsp_document_symbols,
-          "Document Symbols"
-        )
-        nmap(
-          "<space>lS",
-          require("telescope.builtin").lsp_dynamic_workspace_symbols,
-          "Workspace Symbols"
-        )
+        nmap("<space>ls", telescope.lsp_document_symbols,"Document Symbols")
+        nmap("<space>lS", telescope.lsp_dynamic_workspace_symbols, "Workspace Symbols")
 
-        nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-        nmap(
-          "gr",
-          require("telescope.builtin").lsp_references,
-          "[G]oto [R]eferences"
-        )
-        nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-
-        -- See `:help K` for why this keymap
         nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-        -- nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
-
-        -- Lesser used LSP functionality
+        nmap("gr", telescope.lsp_references, "[G]oto [R]eferences")
+        nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+        nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
         nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-        -- Diagnostic keymaps
         nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
         nmap("]d", vim.diagnostic.goto_next, "Goto Next Diagnostic")
         nmap("gl", vim.diagnostic.open_float, "Open Floating Diagnostic")
@@ -133,25 +113,19 @@ return {
         end, { desc = "Format current buffer with LSP" })
       end
 
-      -- Enable the following language servers
-      --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-      --
-      --  Add any additional override configuration in the following tables. They will be passed to
-      --  the `settings` field of the server config. You must look up that documentation yourself.
       local servers = {
         "bashls",
         "clangd",
         "html",
         "jsonls",
         "tsserver",
-        "gopls",
         "cssls",
         "lua_ls",
         "marksman",
         "pyright",
         "rust_analyzer",
-        "taplo",
         "yamlls",
+        "tailwindcss",
       }
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -178,30 +152,30 @@ return {
           })
 
           if server_name == "lua_ls" then
-            require("lspconfig")["lua_ls"].settings = require("user.lsp.lua_ls")
+            require("lspconfig")["lua_ls"].settings = require("plugins.lsp.languages.lua_ls")
           end
 
           if server_name == "rust_analyzer" then
             require("lspconfig")["rust_analyzer"].settings =
-              require("user.lsp.rust")
+                require("plugins.lsp.languages.rust")
           end
 
           if server_name == "tsserver" then
             require("lspconfig")["tsserver"].settings =
-              require("user.lsp.tsserver")
+                require("plugins.lsp.languages.tsserver")
           end
 
           if server_name == "pyright" then
             require("lspconfig")["pyright"].settings =
-              require("user.lsp.pyright")
+                require("plugins.lsp.languages.pyright")
           end
 
           if server_name == "jsonls" then
-            require("lspconfig")["jsonls"].settings = require("user.lsp.jsonls")
+            require("lspconfig")["jsonls"].settings = require("plugins.lsp.languages.jsonls")
           end
 
           if server_name == "yamlls" then
-            require("lspconfig")["yamlls"].settings = require("user.lsp.yamlls")
+            require("lspconfig")["yamlls"].settings = require("plugins.lsp.languages.yamlls")
           end
         end,
       })
@@ -226,65 +200,6 @@ return {
           require("lsp-inlayhints").on_attach(client, args.buf)
         end,
       })
-    end,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    keys = {
-      { "<space>lf", "<CMD>lua vim.lsp.buf.format()<CR>", desc = "Format" },
-    },
-    config = function()
-      local null_ls = require("null-ls")
-      local formatting = null_ls.builtins.formatting
-      local diagnostics = null_ls.builtins.diagnostics
-      null_ls.setup({
-        debug = false,
-        sources = {
-          formatting.prettier.with({
-            extra_filetypes = { "toml", "solidity" },
-            extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-          }),
-          formatting.black.with({ extra_args = { "--fast" } }),
-          formatting.stylua,
-          formatting.rustfmt,
-          formatting.shfmt,
-          diagnostics.shellcheck,
-          diagnostics.eslint,
-        },
-      })
-
-      local unwrap = {
-        method = null_ls.methods.DIAGNOSTICS,
-        filetypes = { "rust" },
-        generator = {
-          fn = function(params)
-            local diagnostics = {}
-
-            -- sources have access to a params object
-            -- containing info about the current file and editor state
-            for i, line in ipairs(params.content) do
-              local col, end_col = line:find("unwrap()")
-              if col and end_col then
-                -- null-ls fills in undefined positions
-                -- and converts source diagnostics into the required format
-                table.insert(diagnostics, {
-                  row = i,
-                  col = col,
-                  end_col = end_col,
-                  source = "unwrap",
-                  message = "hey "
-                    .. os.getenv("USER")
-                    .. ", don't forget to handle this",
-                  severity = 2,
-                })
-              end
-            end
-            return diagnostics
-          end,
-        },
-      }
-
-      null_ls.register(unwrap)
     end,
   },
 }

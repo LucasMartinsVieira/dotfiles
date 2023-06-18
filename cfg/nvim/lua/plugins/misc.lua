@@ -22,4 +22,18 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = true,
   },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    cmd = { "ColorizerToggle" },
+    keys = {
+      { "<space>C", "<CMD>ColorizerToggle<CR>", desc = "Colorizer Toggle" },
+    },
+  },
+  {
+    "psliwka/vim-smoothie",
+  },
 }
