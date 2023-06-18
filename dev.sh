@@ -23,7 +23,7 @@ packages() {
 	echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
 	echo -e "${BLUE}###########################################${NC}"
 
-	paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tealdeer bat ripgrep fd github-cli shfmt insomnia-bin
+	paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tealdeer bat ripgrep fd github-cli shfmt insomnia-bin jq
 
 	sleep 3
 	tldr --update
@@ -40,6 +40,17 @@ gh_cli() {
 
 asdf_config() {
 	paru -Sy asdf-vm --needed --noconfirm
+	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+
+	response=$(curl -s https://nodejs.org/dist/index.json)
+	version=$(echo "$response" | jq -r 'map(select(.lts))[0].version')
+	echo "The current LTS version of Node.js is: $version"
+
+	read -rp "Which version of nodejs you want to use? " node_version
+
+	asdf install nodejs "$node_version"
+	asdf global nodejs "$node_version"
+	echo "$node_version"
 }
 
 rust() {

@@ -39,12 +39,14 @@ return {
               "graphql",
               "handlebars",
             },
-            extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+            -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
           }),
+
           formatting.black.with({ extra_args = { "--fast" } }),
           formatting.stylua,
           formatting.rustfmt,
           formatting.shfmt,
+          formatting.eslint_d,
 
           -- Code Actions
           code_actions.eslint_d.with({
@@ -104,6 +106,7 @@ return {
       local servers = {
         "stylua",
         "eslint_d",
+        "eslint",
         "rustfmt",
         "jq",
         "shfmt",
