@@ -42,10 +42,13 @@ asdf_config() {
 	paru -Sy asdf-vm --needed --noconfirm
 	asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
-	response=$(curl -s https://nodejs.org/dist/index.json)
-	version=$(echo "$response" | jq -r 'map(select(.lts))[0].version')
-	echo "The current LTS version of Node.js is: $version"
+	response_node=$(curl -s https://nodejs.org/dist/index.json)
+	version_lts_node=$(echo "$response_node" | jq -r 'map(select(.lts))[0].version')
+	version_latest_node=$(echo "$response_node" | jq -r 'map(select(.version))[0].version')
 
+	echo "The current LTS version of Node.js is: $version_lts_node"
+	echo "The current LATEST version of Node.js is: $version_latest_node"
+  echo ""
 	read -rp "Which version of nodejs you want to use? " node_version
 
 	asdf install nodejs "$node_version"
