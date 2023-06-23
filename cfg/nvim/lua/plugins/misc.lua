@@ -30,7 +30,7 @@ return {
     "norcalli/nvim-colorizer.lua",
     cmd = { "ColorizerToggle" },
     keys = {
-      { "<space>C", "<CMD>ColorizerToggle<CR>", desc = "Colorizer Toggle" },
+      { "<leader>C", "<CMD>ColorizerToggle<CR>", desc = "Colorizer Toggle" },
     },
   },
   {

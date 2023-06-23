@@ -9,8 +9,8 @@ return {
     },
     config = true,
     keys = {
-      { "<space>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView Open" },
-      { "<space>gD", "<cmd>DiffviewClose<cr>", desc = "DiffView Close" },
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView Open" },
+      { "<leader>gD", "<cmd>DiffviewClose<cr>", desc = "DiffView Close" },
     },
   },
 

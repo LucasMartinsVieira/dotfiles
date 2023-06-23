@@ -21,7 +21,7 @@ return {
     Number = "",
     String = "",
     Snippet = "",
-    Text = '󰯂',
+    Text = '󰉿',
     Color = " ",
     File = " ",
     Reference = "",

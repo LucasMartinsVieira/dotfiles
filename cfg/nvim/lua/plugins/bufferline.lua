@@ -4,10 +4,10 @@ return {
   enabled = true,
   event = "VeryLazy",
   keys = {
-    -- { "<space>bp", "<Cmd>BufferLineTogglePin<CR>",            desc = "Toggle pin", },
-    -- { "<space>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-    { "<space>bN", "<Cmd>BufferLineMoveNext<CR>", desc = "Move Buffer Next" },
-    { "<space>bP", "<Cmd>BufferLineMovePrev<CR>", desc = "Move Buffer Prev" },
+    -- { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",            desc = "Toggle pin", },
+    -- { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
+    { "<leader>bN", "<Cmd>BufferLineMoveNext<CR>", desc = "Move Buffer Next" },
+    { "<leader>bP", "<Cmd>BufferLineMovePrev<CR>", desc = "Move Buffer Prev" },
   },
   config = function()
     local icons = require("user.icons")

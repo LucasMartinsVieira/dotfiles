@@ -7,7 +7,6 @@ return {
       -- Automatically install LSPs to stdpath for neovim
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-
       {
         -- Useful status updates for LSP
         "j-hui/fidget.nvim",
@@ -16,12 +15,27 @@ return {
 
       -- Additional lua configuration, makes nvim stuff amazing
       "folke/neodev.nvim",
+
+      "glepnir/lspsaga.nvim",
     },
     event = { "BufReadPost", "BufNewFile" },
-    cmd = { "Mason", "LspInfo" },
+    cmd = { "LspInfo" },
     keys = {
-      { "<space>lm", "<CMD>Mason<CR>",   desc = "Mason" },
-      { "<space>li", "<CMD>LspInfo<CR>", desc = "Lsp Info" },
+      { "<leader>li", "<CMD>LspInfo<CR>", desc = "Connected Language Servers" },
+      { "<leader>lk", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "Connected Language Servers" },
+      { "<leader>lK", "<CMD>lua vim.lsp.buf.signature_help()<CR>", desc = "Signature Help" },
+      { "<leader>lw", "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", desc = "Add Workspace Folder" },
+      { "<leader>lW", "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", desc = "Remove Workspace Folder" },
+      { "<leader>ll", "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", desc = "List Workspace Folders" },
+      { "<leader>lt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", desc = "Type Definition" },
+      { "<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", desc = "Go To Definition" },
+      { "<leader>lD", "<CMD>lua vim.lsp.buf.declaration()<CR>", desc = "Go To declaration" },
+      { "<leader>lr", "<CMD>Lspsaga rename<CR>", desc = "Rename" },
+      { "<leader>lR", "<CMD>lua vim.lsp.buf.references()<CR>", desc = "References" },
+      { "<leader>la", "<CMD>Lspsaga code_action<CR>", desc = "Code Action" },
+      { "<leader>le", "<CMD>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostics" },
+      { "<leader>ln", "<CMD>Lspsaga diagnostic_jump_next<CR>", desc = "Go To Next Diagnostic" },
+      { "<leader>lN", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "Go To Previous Diagnostic" },
     },
     config = function()
       local function attach_navic(client, bufnr)
@@ -51,8 +65,8 @@ return {
         -- Custom Icons for LSP Diagnostics
         local signs = {
           { name = "DiagnosticSignError", text = icons.diagnostics.error },
-          { name = "DiagnosticSignWarn",  text = icons.diagnostics.warning },
-          { name = "DiagnosticSignHint",  text = icons.diagnostics.hint },
+          { name = "DiagnosticSignWarn", text = icons.diagnostics.warning },
+          { name = "DiagnosticSignHint", text = icons.diagnostics.hint },
           {
             name = "DiagnosticSignInfo",
             text = icons.diagnostics.information,
@@ -90,22 +104,58 @@ return {
 
         vim.diagnostic.config(config)
 
-        local telescope = require('telescope.builtin')
+        local telescope = require("telescope.builtin")
 
-        nmap("<space>lr", vim.lsp.buf.rename, "Rename")
-        nmap("<space>la", vim.lsp.buf.code_action, "Code Action")
-        nmap("<space>ld", vim.lsp.buf.type_definition, "Type Definition")
-        nmap("<space>ls", telescope.lsp_document_symbols,"Document Symbols")
-        nmap("<space>lS", telescope.lsp_dynamic_workspace_symbols, "Workspace Symbols")
+        -- nmap("<leader>lr", vim.lsp.buf.rename, "Rename")
+        -- nmap("<leader>la", vim.lsp.buf.code_action, "Code Action")
+        -- nmap("<leader>ld", vim.lsp.buf.type_definition, "Type Definition")
+        -- nmap("<leader>ls", telescope.lsp_document_symbols, "Document Symbols")
+        -- nmap(
+        --   "<leader>lS",
+        --   telescope.lsp_dynamic_workspace_symbols,
+        --   "Workspace Symbols"
+        -- )
+        --
+        -- nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+        -- nmap("gr", telescope.lsp_references, "[G]oto [R]eferences")
+        -- nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+        -- nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+        -- nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+        -- nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
+        -- nmap("]d", vim.diagnostic.goto_next, "Goto Next Diagnostic")
+        -- nmap("gl", vim.diagnostic.open_float, "Open Floating Diagnostic")
 
-        nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+        -- LSP Saga
+        require("lspsaga").setup({
+          preview = {
+            lines_above = 0,
+            lines_below = 10,
+          },
+          scroll_preview = {
+            scroll_down = "<C-f>",
+            scroll_up = "<C-b>",
+          },
+          request_timeout = 2000,
+
+          -- See Customizing Lspsaga's Appearance
+          -- ui = { ... },
+
+          -- For default options for each command, see below
+          -- finder = { ... },
+          -- code_action = { ... },
+          -- etc.
+        })
+
+        -- LSP Saga keybinds
+
+        nmap("K", "<CMD>Lspsaga hover_doc ++keep<CR>", "Hover Documentation")
         nmap("gr", telescope.lsp_references, "[G]oto [R]eferences")
-        nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+        nmap("gd", "<CMD>Lspsaga goto_definition<CR>", "[G]oto [D]efinition")
         nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
         nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
-        nmap("]d", vim.diagnostic.goto_next, "Goto Next Diagnostic")
-        nmap("gl", vim.diagnostic.open_float, "Open Floating Diagnostic")
+        nmap("gl", vim.diagnostic.open_float, "Open floating Diagnostic")
+        nmap("[d", "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Goto Previous Diagnostic")
+        nmap("]d", "<CMD>Lspsaga diagnostic_jump_next<CR>", "Goto Next Diagnostic")
 
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
@@ -152,30 +202,33 @@ return {
           })
 
           if server_name == "lua_ls" then
-            require("lspconfig")["lua_ls"].settings = require("plugins.lsp.languages.lua_ls")
+            require("lspconfig")["lua_ls"].settings =
+              require("plugins.lsp.languages.lua_ls")
           end
 
           if server_name == "rust_analyzer" then
             require("lspconfig")["rust_analyzer"].settings =
-                require("plugins.lsp.languages.rust")
+              require("plugins.lsp.languages.rust")
           end
 
           if server_name == "tsserver" then
             require("lspconfig")["tsserver"].settings =
-                require("plugins.lsp.languages.tsserver")
+              require("plugins.lsp.languages.tsserver")
           end
 
           if server_name == "pyright" then
             require("lspconfig")["pyright"].settings =
-                require("plugins.lsp.languages.pyright")
+              require("plugins.lsp.languages.pyright")
           end
 
           if server_name == "jsonls" then
-            require("lspconfig")["jsonls"].settings = require("plugins.lsp.languages.jsonls")
+            require("lspconfig")["jsonls"].settings =
+              require("plugins.lsp.languages.jsonls")
           end
 
           if server_name == "yamlls" then
-            require("lspconfig")["yamlls"].settings = require("plugins.lsp.languages.yamlls")
+            require("lspconfig")["yamlls"].settings =
+              require("plugins.lsp.languages.yamlls")
           end
         end,
       })

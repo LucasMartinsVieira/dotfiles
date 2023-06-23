@@ -1,7 +1,7 @@
 return {
   "folke/twilight.nvim",
   keys = {
-    { "<space>zt", "<CMD>Twilight<CR>", desc = "Twilight" },
+    { "<leader>zt", "<CMD>Twilight<CR>", desc = "Twilight" },
   },
   config = function()
     require("twilight").setup({

@@ -2,8 +2,8 @@ return {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",
   keys = {
-    { "<space>ai", "<CMD>ChatGPT<CR>",      desc = "ChatGPT Toggle" },
-    { "<space>aa", "<CMD>ChatGPTActAs<CR>", desc = "ChatGPT Act As" },
+    { "<leader>ai", "<CMD>ChatGPT<CR>",      desc = "ChatGPT Toggle" },
+    { "<leader>aa", "<CMD>ChatGPTActAs<CR>", desc = "ChatGPT Act As" },
   },
   config = function()
     require("chatgpt").setup({
@@ -44,7 +44,7 @@ return {
           toggle_settings = "<C-o>",
           new_session = "<C-n>",
           cycle_windows = "<Tab>",
-          select_session = "<Space>",
+          select_session = "<leader>",
           rename_session = "r",
           delete_session = "d",
         },

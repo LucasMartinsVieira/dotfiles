@@ -5,7 +5,7 @@ return {
       "neovim/nvim-lspconfig",
     },
     keys = {
-      { "<space>lf", "<CMD>lua vim.lsp.buf.format()<CR>", desc = "Format" },
+      { "<leader>lf", "<CMD>lua vim.lsp.buf.format()<CR>", desc = "Format" },
     },
     config = function()
       local null_ls = require("null-ls")

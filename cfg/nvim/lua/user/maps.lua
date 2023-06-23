@@ -17,23 +17,23 @@ local keymap = vim.api.nvim_set_keymap
 -- Normal --
 
 -- Basics
-nmap("<space>w", "<CMD>wa<CR>", "Write")
-nmap("<space>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "Quit")
-nmap("<space>h", "<CMD>split<CR>", "Split")
-nmap("<space>v", "<CMD>vsplit<CR>", "Vsplit")
-nmap("<space>/", "<CMD>noh<CR>", "")
-keymap("n", "<space>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
+nmap("<leader>w", "<CMD>wa<CR>", "Write")
+nmap("<leader>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "Quit")
+nmap("<leader>h", "<CMD>split<CR>", "Split")
+nmap("<leader>v", "<CMD>vsplit<CR>", "Vsplit")
+nmap("<leader>/", "<CMD>noh<CR>", "")
+keymap("n", "<leader>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
 
 -- Config Keys
--- nmap("<space>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
--- nmap("<space>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>", "[C]onfig options.lua file")
--- nmap("<space>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
--- nmap("<space>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
+-- nmap("<leader>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
+-- nmap("<leader>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>", "[C]onfig options.lua file")
+-- nmap("<leader>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
+-- nmap("<leader>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
 
 -- Options
-nmap("<space>or", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative Numbers")
-nmap("<space>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", "Spell")
-nmap("<space>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursor Line")
+nmap("<leader>or", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative Numbers")
+nmap("<leader>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", "Spell")
+nmap("<leader>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursor Line")
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>", "Go Left")
@@ -52,9 +52,9 @@ nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Previous")
 nmap("<S-h>", "<CMD>bprevious<CR>", "Buffer Previous")
 nmap("<S-d>", "<CMD>bdelete<CR>", "Buffer Delete")
 
-nmap("<space>bn", "<CMD>bnext<CR>", "Buffer Next")
-nmap("<space>bp", "<CMD>bprevious<CR>", "Buffer Previous")
-nmap("<space>bd", "<CMD>bdelete<CR>", "Buffer Delete")
+nmap("<leader>bn", "<CMD>bnext<CR>", "Buffer Next")
+nmap("<leader>bp", "<CMD>bprevious<CR>", "Buffer Previous")
+nmap("<leader>bd", "<CMD>bdelete<CR>", "Buffer Delete")
 
 nmap("]b", "<CMD>bnext<CR>", "Buffer Previous")
 nmap("[b", "<CMD>bprevious<CR>", "Buffer Previous")
