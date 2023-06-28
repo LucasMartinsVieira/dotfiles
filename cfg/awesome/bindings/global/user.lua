@@ -110,6 +110,15 @@ awful.keyboard.append_global_keybindings({
       awful.util.spawn("rofi-pass")
     end,
   }),
+  awful.key({
+    modifiers = { mod.super },
+    key = "v",
+    description = "Rofi-Display",
+    group = "Scripts",
+    on_press = function()
+      awful.util.spawn("display_select -v")
+    end,
+  }),
 
   -- UI
   awful.key({

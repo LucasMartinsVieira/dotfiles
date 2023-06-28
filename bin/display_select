@@ -1,0 +1,41 @@
+#!/bin/bash
+
+ROFI="rofi -show -dmenu -i -l 4 -p"
+VARIABLE="$1"
+
+normal() {
+	if xrandr | grep "HDMI-1 connected" >/dev/null; then
+		xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+	else
+		xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off
+	fi
+}
+
+# shellcheck disable=SC2120
+rofi_menu() {
+	declare -a options=(
+		"HDMI + Notebook"
+		"HDMI Only"
+		"Notebook Only"
+	)
+
+	choice=$(printf '%s\n' "${options[@]}" | sort | ${ROFI} 'Choose a option: ' "${@}")
+
+	case $choice in
+	"HDMI + Notebook")
+		xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+		;;
+	"HDMI Only")
+		xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+		;;
+	"Notebook Only")
+		xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off
+		;;
+	esac
+}
+
+if [ "$VARIABLE" == "-v" ]; then
+	rofi_menu
+else
+  normal
+fi
