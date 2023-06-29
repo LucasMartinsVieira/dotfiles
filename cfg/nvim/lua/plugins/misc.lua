@@ -27,13 +27,31 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
-    "norcalli/nvim-colorizer.lua",
-    cmd = { "ColorizerToggle" },
-    keys = {
-      { "<leader>C", "<CMD>ColorizerToggle<CR>", desc = "Colorizer Toggle" },
-    },
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
+    end,
   },
   {
-    "psliwka/vim-smoothie",
+    "AckslD/nvim-trevJ.lua",
+    config = function()
+      require("trevj").setup({
+        containers = {
+          lua = {
+            table_constructor = { final_separator = ",", final_end_line = true },
+            arguments = { final_separator = false, final_end_line = true },
+            parameters = { final_separator = false, final_end_line = true },
+          },
+          -- ... -- other filetypes
+        },
+      })
+    end,
+  },
+  {
+    "tpope/vim-sleuth",
+    "opalmay/vim-smoothie",
   },
 }

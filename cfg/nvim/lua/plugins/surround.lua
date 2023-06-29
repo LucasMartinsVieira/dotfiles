@@ -2,6 +2,7 @@ return {
   {
     "echasnovski/mini.surround",
     event = "VeryLazy",
+    -- lazy = true,
     version = "*",
     opts = {
       -- No need to copy this inside `setup()`. Will be used automatically.

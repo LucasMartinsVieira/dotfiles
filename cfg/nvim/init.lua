@@ -15,8 +15,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require('lazy').setup('plugins')
+require("user.colorscheme")
 require("user.options")
 require("user.maps")
-require("user.colorscheme")
 require("user.winbar")
 require("user.autocmds")

@@ -8,18 +8,18 @@ local kind_icons = icons.kind
 
 return {
   "hrsh7th/nvim-cmp",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-nvim-lsp",
+    { "hrsh7th/cmp-buffer", lazy = true },
+    { "hrsh7th/cmp-path", lazy = true },
+    { "hrsh7th/cmp-cmdline", lazy = true },
+    { "hrsh7th/cmp-nvim-lsp", lazy = true },
+    { "hrsh7th/cmp-nvim-lua", lazy = true },
     "saadparwaiz1/cmp_luasnip",
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
-    "honza/vim-snippets",
     "onsails/lspkind.nvim",
   },
-  -- event = "InsertEnter",
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
@@ -133,5 +133,8 @@ return {
         native_menu = false,
       },
     })
+    -- require("cmp").config.formatting = {
+    --   format = require("tailwindcss-colorizer-cmp").formatter,
+    -- }
   end,
 }

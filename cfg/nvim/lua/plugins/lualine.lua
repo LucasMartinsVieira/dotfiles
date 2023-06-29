@@ -7,22 +7,28 @@ local icons = require("user.icons")
 local diff = {
   "diff",
   colored = false,
-  symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " }, -- changes diff symbols
+  symbols = {
+    added = icons.git.Add .. " ",
+    modified = icons.git.Mod .. " ",
+    removed = icons.git.Remove .. " ",
+  }, -- changes diff symbols
   cond = hide_in_width,
 }
 
 local mode = {
-  "mode",
-  fmt = function(str)
-    return " " .. str
+  function()
+    return " " .. icons.ui.Target .. " "
   end,
+  padding = { left = 0, right = 0 },
+  color = {},
+  cond = nil,
 }
 
 local branch = {
   "branch",
   icons_enabled = true,
   icon = icons.git.Branch,
-  right_padding = 2
+  right_padding = 2,
 }
 
 local location = {
@@ -59,8 +65,8 @@ return {
         always_divide_middle = true,
       },
       sections = {
-        lualine_a = { branch },
-        lualine_b = { mode },
+        lualine_a = { mode },
+        lualine_b = { branch },
         lualine_c = {
           {
             "filetype",
@@ -68,9 +74,19 @@ return {
             separator = "",
             padding = { left = 1, right = 0 },
           },
-          filename,
+          {
+            "filename",
+            file_status = true, -- Displays file status (readonly status, modified status)
+            path = 0, -- 0: Just the filename
+            symbols = {
+              modified = icons.ui.Circle, -- Text to show when the file is modified.
+              readonly = icons.ui.Lock, -- Text to show when the file is non-modifiable or readonly.
+              unnamed = "[No Name]", -- Text to show for unnamed buffers.
+              newfile = icons.ui.NewFile, -- Text to show for newly created file before first write
+            },
+          },
         },
-        lualine_x = { diff, "encoding", "filetype" },
+        lualine_x = { diff, "filetype" },
         lualine_y = {},
         lualine_z = { progress, location },
       },
@@ -87,5 +103,5 @@ return {
       inactive_winbar = {},
       extensions = {},
     })
-  end
+  end,
 }

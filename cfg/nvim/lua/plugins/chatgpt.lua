@@ -1,6 +1,7 @@
 return {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",
+  enabled = false,
   keys = {
     { "<leader>ai", "<CMD>ChatGPT<CR>",      desc = "ChatGPT Toggle" },
     { "<leader>aa", "<CMD>ChatGPTActAs<CR>", desc = "ChatGPT Act As" },

@@ -79,7 +79,8 @@ local get_gps = function()
 end
 
 local excludes = function()
-	return vim.tbl_contains(M.winbar_filetype_exclude or {}, vim.bo.filetype)
+	-- return vim.tbl_contains(M.winbar_filetype_exclude or {}, vim.bo.filetype)
+  return vim.tbl_contains(M.winbar_filetype_exclude or {}, vim.bo.filetype)
 end
 
 M.get_winbar = function()

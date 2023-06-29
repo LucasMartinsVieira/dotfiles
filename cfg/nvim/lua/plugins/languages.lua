@@ -3,6 +3,7 @@ return {
   {
     "saecki/crates.nvim",
     tag = "v0.3.0",
+    lazy = true,
     keys = {
       { "<leader>cp", "<CMD>lua require('crates').show_popup()<CR>",              desc = "Show popup" },
       { "<leader>cr", "<CMD>lua require('crates').reload()<CR>",                  desc = "Reload" },
@@ -33,6 +34,7 @@ return {
   {
     -- Typescript/JavaScript
     "jose-elias-alvarez/typescript.nvim",
+    lazy = true,
     keys = {
       { "<leader>ji", "<CMD>TypescriptAddMissingImports<CR>",    desc = "Add Missing Imports" },
       { "<leader>jo", "<CMD>TypescriptOrganizeImports<CR>",      desc = "Organize Imports" },
@@ -44,11 +46,13 @@ return {
   },
   -- Json
   {
-    "b0o/schemastore.nvim"
+    "b0o/schemastore.nvim",
+    lazy = true
   },
   -- Markdown
   {
     "iamcco/markdown-preview.nvim",
+    lazy = true,
     build = function()
       vim.fn["mkdp#util#install"]()
     end,

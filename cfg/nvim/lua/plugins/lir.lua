@@ -1,6 +1,7 @@
 return {
   {
     "tamago324/lir.nvim",
+    -- event = "VeryLazy",
     config = function()
       local actions = require("lir.actions")
       local mark_actions = require("lir.mark.actions")

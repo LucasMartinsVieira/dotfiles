@@ -69,6 +69,8 @@ return {
     Calendar = "",
     CloudDownload = "",
     Tree = "",
+    Target = "󰀘",
+    Forward = "",
   },
   git = {
     Add = "",

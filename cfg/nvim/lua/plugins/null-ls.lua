@@ -7,6 +7,7 @@ return {
     keys = {
       { "<leader>lf", "<CMD>lua vim.lsp.buf.format()<CR>", desc = "Format" },
     },
+    lazy = true,
     config = function()
       local null_ls = require("null-ls")
       local formatting = null_ls.builtins.formatting

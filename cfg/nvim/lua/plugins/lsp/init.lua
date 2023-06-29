@@ -14,12 +14,13 @@ return {
       },
 
       -- Additional lua configuration, makes nvim stuff amazing
-      "folke/neodev.nvim",
+      { "folke/neodev.nvim", lazy = true },
 
       "glepnir/lspsaga.nvim",
     },
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "LspInfo" },
+    cmd = { "LspInstall", "LspUninstall", "LspInfo" },
+    -- event = { "BufReadPost", "BufNewFile" },
+    event = "User FileOpened",
     keys = {
       { "<leader>li", "<CMD>LspInfo<CR>", desc = "Connected Language Servers" },
       { "<leader>lk", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "Connected Language Servers" },

@@ -1,7 +1,7 @@
 local M = {}
 
 function M.isempty(s)
-  return s == nil or s == ""
+  return s == nil or s == "" or s == "."
 end
 
 function M.get_buf_option(opt)
