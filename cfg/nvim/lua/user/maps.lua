@@ -22,7 +22,12 @@ nmap("<leader>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "Quit")
 -- nmap("<leader>h", "<CMD>split<CR>", "Split")
 nmap("<leader>v", "<CMD>vsplit<CR>", "Vsplit")
 nmap("<leader>/", "<CMD>noh<CR>", "")
-keymap("n", "<leader>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, silent = false })
+keymap(
+  "n",
+  "<leader>s",
+  ":%s ///gc<Left><Left><Left><Left>",
+  { noremap = true, silent = false }
+)
 
 -- Config Keys
 -- nmap("<leader>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
@@ -30,10 +35,28 @@ keymap("n", "<leader>s", ":%s ///gc<Left><Left><Left><Left>", { noremap = true, 
 -- nmap("<leader>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
 -- nmap("<leader>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
 
+-- Plugin keys
+nmap("<leader>pp", "<CMD>Lazy<CR>", "Plugin")
+nmap("<leader>ps", "<CMD>Lazy sync<CR>", "Plugin Sync")
+nmap("<leader>pc", "<CMD>Lazy clean<CR>", "Plugin Clean")
+nmap("<leader>pl", "<CMD>Lazy log<CR>", "Plugin Log")
+
 -- Options
-nmap("<leader>or", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative Numbers")
-nmap("<leader>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", "Spell")
-nmap("<leader>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursor Line")
+nmap(
+  "<leader>or",
+  "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>",
+  "Relative Numbers"
+)
+nmap(
+  "<leader>os",
+  "<CMD>lua require('user.functions').toggle_option('spell')<CR>",
+  "Spell"
+)
+nmap(
+  "<leader>oc",
+  "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>",
+  "Cursor Line"
+)
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>", "Go Left")

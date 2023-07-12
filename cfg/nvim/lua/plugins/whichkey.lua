@@ -31,6 +31,7 @@ return {
       ["<leader>b"] = { name = "+Buffers" },
       ["<leader>j"] = { name = "+JavaScript/Typescript" },
       ["<leader>z"] = { name = "+Focus" },
+      ["<leader>p"] = { name = "+Plugins" },
       ["<leader>s"] = { name = "Substitute Text" },
     }
 

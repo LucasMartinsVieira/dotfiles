@@ -24,6 +24,18 @@ return {
     server = {
       -- pass options to lspconfig's setup method
       settings = {
+        -- javascript = {
+        --   inlayHints = {
+        --     includeInlayConstantValueHints = true,
+        --     includeInlayEnumMemberValueHints = true,
+        --     includeInlayFunctionLikeReturnTypeHints = true,
+        --     includeInlayFunctionParameterTypeHints = false,
+        --     includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        --     includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        --     includeInlayPropertyDeclarationTypeHints = true,
+        --     includeInlayVariableTypeHints = true,
+        --   },
+        -- },
         typescript = {
           inlayHints = {
             includeInlayConstantValueHints = true,

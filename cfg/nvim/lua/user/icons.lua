@@ -68,6 +68,7 @@ return {
     Table = "",
     Calendar = "",
     CloudDownload = "",
+    Tab = "󰌒",
     Tree = "",
     Target = "󰀘",
     Forward = "",

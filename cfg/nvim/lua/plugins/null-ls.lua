@@ -16,38 +16,18 @@ return {
       null_ls.setup({
         debug = false,
         sources = {
+          -- typescript.nvim
+          require("typescript.extensions.null-ls.code-actions"),
+
           -- Diagnostics
           diagnostics.shellcheck,
+          -- diagnostics.eslint,
 
           -- Formatting
-          formatting.prettier.with({
-            extra_filetypes = { "toml", "solidity" },
-            filetypes = {
-              "javascript",
-              "javascriptreact",
-              "typescript",
-              "typescriptreact",
-              "vue",
-              "css",
-              "scss",
-              "less",
-              "html",
-              "json",
-              "jsonc",
-              "yaml",
-              "markdown",
-              "markdown.mdx",
-              "graphql",
-              "handlebars",
-            },
-            -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-          }),
-
-          formatting.black.with({ extra_args = { "--fast" } }),
+          formatting.prettier,
           formatting.stylua,
           formatting.rustfmt,
           formatting.shfmt,
-          formatting.eslint_d,
 
           -- Code Actions
           code_actions.eslint_d.with({
@@ -56,44 +36,10 @@ return {
               "javascriptreact",
               "typescript",
               "typescriptreact",
-              "vue",
             },
           }),
         },
       })
-
-      local unwrap = {
-        method = null_ls.methods.DIAGNOSTICS,
-        filetypes = { "rust" },
-        generator = {
-          fn = function(params)
-            local diagnostics = {}
-
-            -- sources have access to a params object
-            -- containing info about the current file and editor state
-            for i, line in ipairs(params.content) do
-              local col, end_col = line:find("unwrap()")
-              if col and end_col then
-                -- null-ls fills in undefined positions
-                -- and converts source diagnostics into the required format
-                table.insert(diagnostics, {
-                  row = i,
-                  col = col,
-                  end_col = end_col,
-                  source = "unwrap",
-                  message = "hey "
-                    .. os.getenv("USER")
-                    .. ", don't forget to handle this",
-                  severity = 2,
-                })
-              end
-            end
-            return diagnostics
-          end,
-        },
-      }
-
-      null_ls.register(unwrap)
     end,
   },
   {
@@ -107,11 +53,9 @@ return {
       local servers = {
         "stylua",
         "eslint_d",
-        "eslint",
         "rustfmt",
-        "jq",
         "shfmt",
-        "prettier",
+        "prettier_d",
       }
 
       require("mason-null-ls").setup({

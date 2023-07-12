@@ -23,29 +23,27 @@ return {
     lazy = true,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-  {
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    -- optionally, override the default options:
+    "echasnovski/mini.splitjoin",
+    version = "*",
     config = function()
-      require("tailwindcss-colorizer-cmp").setup({
-        color_square_width = 2,
-      })
-    end,
-  },
-  {
-    "AckslD/nvim-trevJ.lua",
-    config = function()
-      require("trevj").setup({
-        containers = {
-          lua = {
-            table_constructor = { final_separator = ",", final_end_line = true },
-            arguments = { final_separator = false, final_end_line = true },
-            parameters = { final_separator = false, final_end_line = true },
-          },
-          -- ... -- other filetypes
+      require("mini.splitjoin").setup({
+        mappings = {
+          toggle = "J",
+          split = "",
+          join = "",
+        },
+        detect = {
+          brackets = nil,
+          separator = ",",
+          exclude_regions = nil,
+        },
+        split = {
+          hooks_pre = {},
+          hooks_post = {},
+        },
+        join = {
+          hooks_pre = {},
+          hooks_post = {},
         },
       })
     end,

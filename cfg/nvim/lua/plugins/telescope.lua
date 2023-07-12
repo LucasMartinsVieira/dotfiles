@@ -81,12 +81,16 @@ return {
     },
   },
   config = function()
-    local icons = require('user.icons')
+    local icons = require("user.icons")
     local actions = require("telescope.actions")
     require("telescope").setup({
       defaults = {
         prompt_prefix = icons.ui.Telescope .. " ",
         selection_caret = icons.ui.Forward .. " ",
+        file_ignore_patterns = {
+          "node_modules",
+          ".git",
+        },
         -- Default configuration for telescope goes here:
         -- config_key = value,
         mappings = {
@@ -126,7 +130,7 @@ return {
         },
 
         oldfiles = {
-          previewer = false,
+          previewer = true,
           theme = "dropdown",
           initial_mode = "normal",
         },
