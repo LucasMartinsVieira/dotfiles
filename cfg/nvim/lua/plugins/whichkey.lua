@@ -1,6 +1,6 @@
 return {
   "folke/which-key.nvim",
-   event = "VeryLazy",
+  event = "VeryLazy",
   opts = {
     plugins = {
       marks = true, -- shows a list of your marks on ' and `
@@ -27,12 +27,13 @@ return {
       ["<leader>l"] = { name = "+Lsp" },
       ["<leader>c"] = { name = "+Crates" },
       ["<leader>r"] = { name = "+Rust" },
-      ["<leader>o"] = { name = "+Options" },
+      ["<leader>o"] = { name = "+Options/Open" },
       ["<leader>b"] = { name = "+Buffers" },
       ["<leader>j"] = { name = "+JavaScript/Typescript" },
       ["<leader>z"] = { name = "+Focus" },
       ["<leader>p"] = { name = "+Plugins" },
-      ["<leader>s"] = { name = "Substitute Text" },
+      ["<leader>s"] = { name = "+Session" },
+      ["<leader>S"] = { name = "Substitute Text" },
     }
 
     wk.register(keymaps)

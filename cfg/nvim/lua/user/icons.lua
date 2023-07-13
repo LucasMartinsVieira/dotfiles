@@ -72,6 +72,7 @@ return {
     Tree = "",
     Target = "󰀘",
     Forward = "",
+    Session = "",
   },
   git = {
     Add = "",

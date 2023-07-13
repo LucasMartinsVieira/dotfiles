@@ -30,14 +30,14 @@ return {
           formatting.shfmt,
 
           -- Code Actions
-          code_actions.eslint_d.with({
-            filetypes = {
-              "javascript",
-              "javascriptreact",
-              "typescript",
-              "typescriptreact",
-            },
-          }),
+          -- code_actions.eslint_d.with({
+          --   filetypes = {
+          --     "javascript",
+          --     "javascriptreact",
+          --     "typescript",
+          --     "typescriptreact",
+          --   },
+          -- }),
         },
       })
     end,

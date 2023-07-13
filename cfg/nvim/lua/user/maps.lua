@@ -24,7 +24,7 @@ nmap("<leader>v", "<CMD>vsplit<CR>", "Vsplit")
 nmap("<leader>/", "<CMD>noh<CR>", "")
 keymap(
   "n",
-  "<leader>s",
+  "<leader>S",
   ":%s ///gc<Left><Left><Left><Left>",
   { noremap = true, silent = false }
 )
@@ -41,9 +41,9 @@ nmap("<leader>ps", "<CMD>Lazy sync<CR>", "Plugin Sync")
 nmap("<leader>pc", "<CMD>Lazy clean<CR>", "Plugin Clean")
 nmap("<leader>pl", "<CMD>Lazy log<CR>", "Plugin Log")
 
--- Options
+-- Options/Open
 nmap(
-  "<leader>or",
+  "<leader>on",
   "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>",
   "Relative Numbers"
 )
@@ -57,6 +57,7 @@ nmap(
   "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>",
   "Cursor Line"
 )
+nmap("<leader>or", "<CMD>OpenCodeRepo<CR>", "Open Code Repo")
 
 -- Navegação entre janelas
 nmap("<C-h>", "<C-w>h<CR>", "Go Left")

@@ -1,6 +1,7 @@
 return {
   "echasnovski/mini.indentscope",
   version = "*",
+  enabled = false,
   config = function()
     require("mini.indentscope").setup({
       symbol = "│",
@@ -19,23 +20,4 @@ return {
       },
     })
   end,
-},
-
--- INFO: Disable mini.indentscope for the following file types:
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = {
-      "help",
-      "alpha",
-      "dashboard",
-      "neo-tree",
-      "NvimTree",
-      "Trouble",
-      "lazy",
-      "mason",
-      "notify",
-      "toggleterm",
-    },
-    callback = function()
-      vim.b.miniindentscope_disable = true
-    end,
-  })
+}
