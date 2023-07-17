@@ -17,7 +17,7 @@ return {
         debug = false,
         sources = {
           -- typescript.nvim
-          require("typescript.extensions.null-ls.code-actions"),
+          -- require("typescript.extensions.null-ls.code-actions"),
 
           -- Diagnostics
           diagnostics.shellcheck,
