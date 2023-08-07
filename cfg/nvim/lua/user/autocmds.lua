@@ -17,7 +17,7 @@ autocmd({ "BufNewFile", "BufRead" }, {
 
 autocmd("BufWritePost", {
   group = "filetype_settings",
-  pattern = { ".js", ".ts", ".jsx", ".tsx", ".lua", ".rs" },
+  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },
   desc = "Autoformat on save",
   callback = function()
     vim.lsp.buf.format()

@@ -3,12 +3,13 @@ local gears = require("gears")
 local wibox = require("wibox")
 local helpers = require("helpers")
 local theme = require("theme.theme")
+local icons = require("utils.icons")
 
 local user_likes = require("user_vars")
 
 local launcher = wibox.widget.textbox()
 launcher.font = theme.font .. " 18"
-launcher.markup = "󰍉 "
+launcher.markup = icons.launcher
 helpers.add_hover_cursor(launcher, "hand1")
 
 launcher:connect_signal("mouse::enter", function()
@@ -17,14 +18,12 @@ launcher:connect_signal("mouse::enter", function()
 end)
 
 launcher:connect_signal("mouse::leave", function()
-  launcher.markup = "󰍉 "
+  launcher.markup = icons.launcher
   launcher.font = theme.font .. " 18"
 end)
 
-launcher:buttons(gears.table.join(
-	awful.button({}, 1, function()
-		awful.spawn(user_likes.apps.app_launcher, true)
-	end)
-))
+launcher:buttons(gears.table.join(awful.button({}, 1, function()
+  awful.spawn(user_likes.apps.app_launcher, true)
+end)))
 
 return launcher

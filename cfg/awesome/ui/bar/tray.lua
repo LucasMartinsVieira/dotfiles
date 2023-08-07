@@ -4,22 +4,23 @@ local wibox = require("wibox")
 local theme = require("theme.theme")
 local dpi = require("beautiful").xresources.apply_dpi
 local helpers = require("helpers")
+local icons = require("utils.icons")
 
 local tray = wibox.widget.textbox()
 tray.font = theme.font .. " 14"
-tray.markup = " "
+tray.markup = icons.tray_off
 helpers.add_hover_cursor(tray, "hand1")
 
 tray:connect_signal("mouse::enter", function()
   if tray_popup.visible == false then
-    tray.markup = helpers.colorize_text(" ", theme.blue)
+    tray.markup = helpers.colorize_text(icons.tray_off, theme.blue)
     tray.font = theme.font .. " 16"
   end
 end)
 
 tray:connect_signal("mouse::leave", function()
   if tray_popup.visible == false then
-    tray.markup = " "
+    tray.markup = icons.tray_off
     tray.font = theme.font .. " 14"
   end
 end)
@@ -28,9 +29,9 @@ tray:buttons(gears.table.join(awful.button({}, 1, function()
   tray_popup_show()
 
   if tray_popup.visible == true then
-    tray.markup = helpers.colorize_text(" ", theme.blue)
+    tray.markup = helpers.colorize_text(icons.tray_on, theme.blue)
   else
-    tray.markup = " "
+    tray.markup = icons.tray_off
   end
 end)))
 

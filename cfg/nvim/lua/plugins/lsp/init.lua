@@ -152,7 +152,9 @@ return {
 
         -- LSP Saga keybinds
 
-        nmap("K", "<CMD>Lspsaga hover_doc ++keep<CR>", "Hover Documentation")
+
+        nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+        -- nmap("K", "<CMD>Lspsaga hover_doc ++keep<CR>", "Hover Documentation")
         nmap("gr", telescope.lsp_references, "[G]oto [R]eferences")
         nmap("gd", "<CMD>Lspsaga goto_definition<CR>", "[G]oto [D]efinition")
         nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")

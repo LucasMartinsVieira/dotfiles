@@ -4,6 +4,7 @@ local wibox = require("wibox")
 local helpers = require("helpers")
 local theme = require("theme.theme")
 local vol1 = require("lib.volume")
+local icons = require("utils.icons")
 
 -- Volume
 local volume = wibox.widget.textbox()
@@ -16,7 +17,7 @@ percentage.font = theme.font .. " 18"
 awesome.connect_signal("signal::volume", function(vol, mute)
   vol = tonumber(vol)
   if mute or vol == 0 then
-    volume.markup = helpers.colorize_text("󰝟 ", theme.red)
+    volume.markup = helpers.colorize_text(icons.volume.mute, theme.red)
     percentage.markup = "Muted"
 
     volume:connect_signal("mouse::enter", function()
@@ -27,7 +28,7 @@ awesome.connect_signal("signal::volume", function(vol, mute)
     end)
   else
     if vol <= 30 then
-      volume.markup = helpers.colorize_text("󰕿 ", theme.blue)
+      volume.markup = helpers.colorize_text(icons.volume.low, theme.blue)
       percentage.markup = vol .. "%"
 
       volume:connect_signal("mouse::enter", function()
@@ -37,7 +38,7 @@ awesome.connect_signal("signal::volume", function(vol, mute)
         volume.font = theme.font .. " 18"
       end)
     elseif vol <= 60 then
-      volume.markup = helpers.colorize_text("󰖀 ", theme.blue)
+      volume.markup = helpers.colorize_text(icons.volume.medium, theme.blue)
       percentage.markup = vol .. "%"
 
       volume:connect_signal("mouse::enter", function()
@@ -47,7 +48,7 @@ awesome.connect_signal("signal::volume", function(vol, mute)
         volume.font = theme.font .. " 18"
       end)
     else
-      volume.markup = helpers.colorize_text("󰕾 ", theme.blue)
+      volume.markup = helpers.colorize_text(icons.volume.high, theme.blue)
       percentage.markup = vol .. "%"
 
       volume:connect_signal("mouse::enter", function()

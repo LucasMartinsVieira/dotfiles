@@ -5,6 +5,7 @@ local dpi = require("beautiful").xresources.apply_dpi
 local naughty = require("naughty")
 local wibox = require("wibox")
 local helpers = require("helpers")
+local icons = require("utils.icons")
 
 -- Notification center
 
@@ -19,7 +20,7 @@ local notif_header = wibox.widget({
 
 -- Clear button
 local clear = wibox.widget({
-  markup = "󰎟 ",
+  markup = icons.notification.clear,
   font = theme.font .. " 26",
   align = "center",
   valign = "center",
@@ -40,7 +41,7 @@ local empty = wibox.widget({
       layout = wibox.layout.align.horizontal,
       nil,
       {
-        markup = helpers.colorize_text(" 󰂞 ", theme.blue),
+        markup = helpers.colorize_text(icons.notification.on, theme.blue),
         font = theme.font .. " 45",
         align = "center",
         valign = "center",
@@ -90,7 +91,7 @@ local create_notif = function(icon, n, width)
   local box = {}
 
   local dismiss = wibox.widget({
-    markup = helpers.colorize_text("", theme.blue),
+    markup = helpers.colorize_text(icons.close, theme.blue),
     font = theme.font .. " 12",
     align = "center",
     valign = "center",
@@ -214,7 +215,10 @@ notif_container:buttons(gears.table.join(
     if #notif_container.children == 1 then
       return
     end
-    notif_container:insert(1, notif_container.children[#notif_container.children])
+    notif_container:insert(
+      1,
+      notif_container.children[#notif_container.children]
+    )
     notif_container:remove(#notif_container.children)
   end),
 
@@ -222,7 +226,10 @@ notif_container:buttons(gears.table.join(
     if #notif_container.children == 1 then
       return
     end
-    notif_container:insert(#notif_container.children + 1, notif_container.children[1])
+    notif_container:insert(
+      #notif_container.children + 1,
+      notif_container.children[1]
+    )
     notif_container:remove(1)
   end)
 ))

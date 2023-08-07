@@ -33,8 +33,8 @@ return {
       vim.keymap.set('n', '/', api.tree.search_node, opts('Search'))
       vim.keymap.set('n', '[g', api.node.navigate.git.prev, opts('Prev Git'))
       vim.keymap.set('n', ']g', api.node.navigate.git.next, opts('Next Git'))
-      vim.keymap.set('n', ']e', api.node.navigate.diagnostics.next, opts('Next Diagnostic'))
-      vim.keymap.set('n', '[e', api.node.navigate.diagnostics.prev, opts('Prev Diagnostic'))
+      vim.keymap.set('n', ']d', api.node.navigate.diagnostics.next, opts('Next Diagnostic'))
+      vim.keymap.set('n', '[d', api.node.navigate.diagnostics.prev, opts('Prev Diagnostic'))
     end
     local icons = require("user.icons")
     require("nvim-tree").setup({

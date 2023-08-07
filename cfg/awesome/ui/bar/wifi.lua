@@ -4,6 +4,7 @@ local wibox = require("wibox")
 local user_likes = require("user_vars")
 local theme = require("theme.theme")
 local helpers = require("helpers")
+local icons = require("utils.icons")
 
 local wifi = wibox.widget.textbox()
 wifi.font = theme.font .. " 14"
@@ -13,7 +14,7 @@ awesome.connect_signal("signal::wifi", function(net_strengh)
   net_strengh = tonumber(net_strengh)
 
   if net_strengh == 0 then
-    wifi.markup = helpers.colorize_text("󰖪 ", theme.red)
+    wifi.markup = helpers.colorize_text(icons.wifi_off, theme.red)
     wifi:connect_signal("mouse::enter", function()
       wifi.font = theme.font .. " 16"
     end)
@@ -21,7 +22,7 @@ awesome.connect_signal("signal::wifi", function(net_strengh)
       wifi.font = theme.font .. " 14"
     end)
   else
-    wifi.markup = helpers.colorize_text("󰖩 ", theme.green)
+    wifi.markup = helpers.colorize_text(icons.wifi_on, theme.green)
     wifi:connect_signal("mouse::enter", function()
       wifi.font = theme.font .. " 16"
     end)

@@ -21,6 +21,7 @@ local options = {
   clipboard = "unnamedplus",
   swapfile = false,
   showtabline = 0,
+  mousemoveevent = true
 }
 
 for k, v in pairs(options) do

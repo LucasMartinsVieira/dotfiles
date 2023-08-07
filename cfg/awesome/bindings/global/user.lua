@@ -71,7 +71,9 @@ awful.keyboard.append_global_keybindings({
     description = "Set a Wallpaper",
     group = "Scripts",
     on_press = function()
-      awful.spawn.with_shell("wallpaper " .. tostring(user_likes.user.wallpapers_dir))
+      awful.spawn.with_shell(
+        "wallpaper " .. tostring(user_likes.user.wallpapers_dir)
+      )
     end,
   }),
   awful.key({
@@ -98,7 +100,9 @@ awful.keyboard.append_global_keybindings({
     description = "Rofi-Emoji",
     group = "Scripts",
     on_press = function()
-      awful.util.spawn("rofi -show emoji -theme /usr/share/rofi/themes/Monokai.rasi")
+      awful.util.spawn(
+        "rofi -show emoji -theme /usr/share/rofi/themes/Monokai.rasi"
+      )
     end,
   }),
   awful.key({
@@ -155,7 +159,9 @@ awful.keyboard.append_global_keybindings({
     group = "Ui",
     on_press = function()
       local feh_cmd = "feh --no-fehbg --bg-scale --randomize"
-      awful.spawn.with_shell(feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir))
+      awful.spawn.with_shell(
+        feh_cmd .. " " .. tostring(user_likes.user.wallpapers_dir)
+      )
     end,
   }),
 
@@ -164,12 +170,11 @@ awful.keyboard.append_global_keybindings({
     modifiers = { mod.super, mod.alt },
     key = "n",
     description = "Toggle notifications on/off",
-    group = "Ui",
+    group = "Services",
     on_press = function()
       naughty.toggle()
     end,
   }),
-
   -- Others
   awful.key({
     modifiers = { mod.super },

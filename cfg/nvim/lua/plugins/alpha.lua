@@ -70,7 +70,7 @@ return {
       button(
         "s",
         icons.ui.Session .. " Restore Session",
-        "<CMD>lua require('persistence').load()<CR>"
+        "<CMD>lua require('persistence').load({ last = true })<CR>"
       ),
       button(
         "c",
