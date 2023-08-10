@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 declare -A edit_list
 edit_list[Alacritty]="$HOME/.config/alacritty/alacritty.yml"

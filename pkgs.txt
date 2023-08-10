@@ -19,6 +19,7 @@ fish
 fzf
 gimp
 git
+gnome-shell-pomodoro
 gnuchess
 gnu-free-fonts
 go
@@ -37,6 +38,7 @@ neofetch
 neovim
 noto-fonts
 noto-fonts-emoji
+obsidian
 opendoas
 openssh
 pacman-contrib
@@ -64,6 +66,7 @@ starship
 steam
 sxiv
 syncthing
+ticktick
 trash-cli
 tree-sitter
 ttf-dejavu

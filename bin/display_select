@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ROFI="rofi -show -dmenu -i -l 4 -p"
 VARIABLE="$1"

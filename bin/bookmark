@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILE=$HOME/repos/dotfiles/home/bookmarks
 

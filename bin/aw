@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Name: aw
 # Description: A simple way to turn awesomewm into his vanilla version :)
