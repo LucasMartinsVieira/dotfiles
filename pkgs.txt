@@ -9,6 +9,7 @@ brightnessctl
 btop
 curl
 discord
+dnsmasq
 epub-thumbnailer-git
 exa
 exfatprogs
