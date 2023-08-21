@@ -9,11 +9,9 @@
   "modules-center": ["idle_inhibitor", "clock", "custom/updates"],
   "modules-right": [
     "tray",
+    "cpu",
     "pulseaudio",
     "pulseaudio#microphone",
-    // "network",
-    "cpu",
-    // "memory",
     "backlight",
     "battery"
   ],
@@ -96,8 +94,8 @@
       "critical": 20
     },
     "format": "{icon}",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
     "format-alt-click": "click-right",
     "format-alt": "{icon} {capacity}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
