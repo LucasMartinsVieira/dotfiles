@@ -14,7 +14,8 @@
     "pulseaudio",
     "pulseaudio#microphone",
     "backlight",
-    "battery"
+    "battery",
+    "custom/power_btn"
   ],
   // Modules configuration
   "wlr/workspaces": {
@@ -144,7 +145,7 @@
     "format-alt": "{format_source} {volume}%",
     "scroll-step": 5,
     "tooltip": true,
-    "tooltip-format": " at {volume}%"
+    "tooltip-format": " at {desc}"
   },
   "custom/updates": {
     "format": "{}",
@@ -152,5 +153,10 @@
     "on-click": "~/.config/hypr/scripts/updates --update",
     "interval": 300,
     "tooltip": true
+  },
+  "custom/power_btn": {
+    "format": " ",
+    "on-click": "notify-send 'TODO'",
+    "tooltip": false
   }
 }

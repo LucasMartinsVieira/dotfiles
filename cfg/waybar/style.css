@@ -47,6 +47,7 @@ tooltip label{
 #cpu,
 #disk,
 #custom-updates,
+#custom-power_btn,
 #memory,
 #clock,
 #battery,
@@ -64,7 +65,8 @@ tooltip label{
     border: 0px;
 }
 
-#custom-updates {
+#custom-updates,
+#custom-power_btn {
     padding: 0px 2px;
 }
 

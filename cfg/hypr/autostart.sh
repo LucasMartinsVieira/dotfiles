@@ -10,3 +10,4 @@ wl-paste --type image --watch cliphist store &
 swww init
 wallpaper ~/Imagens/Wallpapers/ --randomize &
 # swww img -o eDP-1,HDMI-A-1 ~/Imagens/Wallpapers/wallpapers0019.jpg
+wlsunset -t 4500 -T 4501 &
