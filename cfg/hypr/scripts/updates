@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+UPD_ICON=$HOME/.config/hypr/assets/updates.png
+# UPD_ICON=$HOME/.config/awesome/theme/assets/updates.png
+
+# If the operating system is not Arch Linux, exit the script successfully
+if [ ! -f /etc/arch-release ]; then
+	exit 0
+fi
+
+AUR=$(paru -Qua | wc -l)
+PACMAN=$(checkupdates | wc -l)
+
+updates() {
+    checkupdates ; paru -Qua
+}
+
+upd_notify() {
+    notify-send -t 8000 -u normal -i "$UPD_ICON" "Updates: P:$PACMAN A:$AUR" "$(updates)"
+}
+
+
+if [ "$1" = "--update" ]; then
+	kitty --title update-sys sh -c 'paru -Syu --noconfirm'
+elif [ "$1" = "--upd_notify" ]; then
+    upd_notify
+fi
+
+# If there aren't any parameters, return the total number of updates
+if [ "$1" = "" ]; then
+	# Calculate total number of updates
+	COUNT=$((PACMAN + AUR))
+	# If there are updates, the script will output the following:   Updates
+	# If there are no updates, the script will output nothing.
+
+	if [[ "$COUNT" = "0" ]]; then
+		echo ""
+	else
+		# This Update symbol is RTL. So &#x202d; is left-to-right override.
+    echo "󰄠  $COUNT"
+	fi
+	exit 0
+fi

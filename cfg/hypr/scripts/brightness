@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Variables
+BRIGHTNESS_ICON=$HOME/.config/hypr/assets/brightness.png
+
+get_brightness() {
+  brightness=$(brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-0)}')
+  echo "$brightness"
+}
+
+notify_user() {
+	notify-send -t 1000 -u normal -i "$BRIGHTNESS_ICON" "Brightness : $(get_brightness) %"
+}
+
+inc_backlight() {
+  brightnessctl set 5%+ -q && notify_user
+}
+
+dec_backlight() {
+  brightnessctl set 5%- -q && notify_user
+}
+
+if [[ "$1" == "--get" ]]; then
+	get_brightness
+elif [[ "$1" == "--inc" ]]; then
+	inc_backlight
+elif [[ "$1" == "--dec" ]]; then
+	dec_backlight
+else
+	get_brightness
+fi

@@ -43,16 +43,6 @@ tooltip label{
     border-radius: 10px;
 }
 
-#custom-launch_wofi,
-#custom-launch_firefox,
-#custom-launch_thunderbird,
-#custom-launch_thunar,
-#custom-launch_kitty,
-#custom-lock_screen,
-#custom-light_dark,
-#custom-power_btn,
-#custom-power_profile,
-#custom-weather,
 #window,
 #cpu,
 #disk,
@@ -69,9 +59,13 @@ tooltip label{
 #backlight {
     background: rgba(21, 18, 27, 0);
     opacity: 0.8;
-    padding: 0px 8px;
+    padding: 0px 6px;
     margin: 0px 3px;
     border: 0px;
+}
+
+#custom-updates {
+    padding: 0px 4px;
 }
 
 #temperature.critical {

@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+# Variables
+VOL_ICON=$HOME/.config/hypr/assets/volume.png
+MIC_ICON=$HOME/.config/hypr/assets/microphone.png
+
+get_volume() {
+	volume=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | sed -e 's/%//')
+	echo "$volume"
+}
+
+get_mute() {
+	mute=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $4 }')
+	echo "$mute"
+}
+
+notify_user() {
+	notify-send -t 1000 -u normal -i "$VOL_ICON" "Volume : $(get_volume) %"
+}
+
+inc_volume() {
+	amixer -D pulse sset Master 2%+ && notify_user
+}
+
+dec_volume() {
+	amixer -D pulse sset Master 2%- && notify_user
+}
+
+toggle_mute() {
+	amixer -D pulse sset Master toggle && notify-send -t 1000 -u normal -i "$VOL_ICON" "Volume $(get_mute)"
+}
+
+toggle_mic() {
+	amixer -D pulse sset Capture toggle && notify-send -t 1000 -u normal -i "$MIC_ICON" "Microphone $(get_mic_mute)"
+}
+
+get_mic() {
+	mic=$(amixer sget Capture | grep 'Right:' | awk -F'[][]' '{ print $2 }' | sed -e 's/%//')
+	echo "$mic"
+}
+
+get_mic_mute() {
+	mute=$(amixer sget Capture | grep 'Right:' | awk -F'[][]' '{ print $4 }')
+	echo "$mute"
+}
+
+notify_mic_user() {
+	notify-send -t 1000 -u normal -i "$MIC_ICON" "Microphone : $(get_mic) %"
+}
+
+inc_mic_volume() {
+  amixer -D pulse sset Capture 2%+ && notify_mic_user
+}
+
+dec_mic_volume() {
+  amixer -D pulse sset Capture 2%- && notify_mic_user
+}
+
+if [[ "$1" == "--get_volume" ]]; then
+	get_volume
+elif [[ "$1" == "--inc" ]]; then
+	inc_volume
+elif [[ "$1" == "--dec" ]]; then
+	dec_volume
+elif [[ "$1" == "--toggle" ]]; then
+	toggle_mute
+elif [[ "$1" == "--toggle_mic" ]]; then
+	toggle_mic
+elif [[ "$1" == "--inc_mic" ]]; then
+	inc_mic_volume
+elif [[ "$1" == "--dec_mic" ]]; then
+	dec_mic_volume
+else
+	get_volume
+fi
