@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 UPD_ICON=$HOME/.config/hypr/assets/updates.png
-# UPD_ICON=$HOME/.config/awesome/theme/assets/updates.png
 
 # If the operating system is not Arch Linux, exit the script successfully
 if [ ! -f /etc/arch-release ]; then

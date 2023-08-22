@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+SCREENSHOT_ICON=$HOME/.config/hypr/assets/camera.png
+LOCATION=$HOME/Imagens/Screenshot/
+TIME=$(date +"%y%m%d-%H%M-%S")
+
+notify_user() {
+	notify-send -t 1000 -u normal -i "$SCREENSHOT_ICON" "Screenshot Tool" "Smile 📸"
+}
+
+full() {
+  grim -c "$LOCATION$TIME.png" && notify_user
+}
+
+area() {
+  grim -g "$(slurp)" -c "$LOCATION$TIME.png" && notify_user
+}
+
+window() {
+	notify-send -t 1000 -u normal -i "$SCREENSHOT_ICON" "Screenshot Tool" "TODO"
+}
+
+
+if [[ "$1" == "--full" ]]; then
+  full
+elif [[ "$1" == "--area" ]]; then
+  area
+elif [[ "$1" == "--window" ]]; then
+  window
+else
+  full
+fi
