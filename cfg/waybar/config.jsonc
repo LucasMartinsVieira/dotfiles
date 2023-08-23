@@ -5,6 +5,7 @@
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
+  // "modules-left": ["wlr/workspaces"],
   "modules-left": ["wlr/workspaces"],
   "modules-center": ["idle_inhibitor", "clock", "custom/updates"],
   "modules-right": [
@@ -18,7 +19,7 @@
     "custom/power_btn"
   ],
   // Modules configuration
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
@@ -31,7 +32,16 @@
       "6": [],
       "7": [],
       "8": [],
-      "9": []
+      "9": [],
+      "10": [],
+      "11": [],
+      "12": [],
+      "13": [],
+      "14": [],
+      "15": [],
+      "16": [],
+      "17": [],
+      "18": []
     }
   },
   "idle_inhibitor": {

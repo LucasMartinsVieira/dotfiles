@@ -10,12 +10,8 @@ fi
 AUR=$(paru -Qua | wc -l)
 PACMAN=$(checkupdates | wc -l)
 
-updates() {
-    checkupdates ; paru -Qua
-}
-
 upd_notify() {
-    notify-send -t 8000 -u normal -i "$UPD_ICON" "Updates: P:$PACMAN A:$AUR" "$(updates)"
+    notify-send -t 8000 -u normal -i "$UPD_ICON" "Updates Tool" "Total: $((PACMAN + AUR))\nPacman: $PACMAN \nAur: $AUR"
 }
 
 
