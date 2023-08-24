@@ -30,7 +30,6 @@ random() {
 }
 
 randomize() {
-
 	case "$XDG_SESSION_TYPE" in
 	'x11')
 		notify-send "Wallpaper Tool" "TODO" -i "$wallpaper"
@@ -55,6 +54,11 @@ randomize() {
 
 }
 
+random_hypr() {
+	random_paper=$(find "${WALLPAPER_DIR}" -type f -type f | shuf -n 1)
+	setbg "$random_paper"
+}
+
 main() {
 	choice="$(printf "Set\nRandom\nExit" | ${ROFI} -l 3 -p "What would you like to do?")"
 	case $choice in
@@ -70,6 +74,8 @@ main() {
 
 if [[ "$2" == "--randomize" ]]; then
 	randomize
+elif [[ "$2" == "--random" ]]; then
+	random_hypr
 else
 	main
 fi
