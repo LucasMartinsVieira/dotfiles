@@ -2,32 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     {
-      "ahmedkhalf/project.nvim",
-      config = function()
-        require("project_nvim").setup({
-          manual_mode = false,
-          detection_methods = { "lsp", "pattern" },
-          patterns = {
-            ".git",
-            "_darcs",
-            ".hg",
-            ".bzr",
-            ".svn",
-            "Makefile",
-            "package.json",
-          },
-
-          ignore_lsp = {},
-          exclude_dirs = {},
-          show_hidden = false,
-          silent_chdir = true,
-          scope_chdir = "global",
-          datapath = vim.fn.stdpath("data"),
-          require("telescope").load_extension("projects"),
-        })
-      end,
-    },
-    {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       cond = vim.fn.executable("make") == 1,
@@ -38,11 +12,15 @@ return {
     { "<leader>bb", "<CMD>Telescope buffers<CR>", desc = "Buffers" },
     { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
     {
+      "<leader>fx",
+      "<CMD>Telescope diagnostics<CR>",
+      desc = "Find Diagnostics",
+    },
+    {
       "<leader>fr",
       "<CMD>Telescope oldfiles<CR>",
       desc = "Find Recent Files",
     },
-    { "<leader>fp", "<CMD>Telescope projects<CR>", desc = "Find Projects" },
     { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Find Buffers" },
     { "<leader>fw", "<CMD>Telescope live_grep<CR>", desc = "Find Word" },
     {
@@ -104,6 +82,7 @@ return {
 
           n = {
             ["<esc>"] = actions.close,
+            ["q"] = actions.close,
             ["<CR>"] = actions.select_default,
             ["dd"] = actions.delete_buffer,
             ["gg"] = actions.move_to_top,

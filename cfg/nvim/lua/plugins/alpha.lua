@@ -1,6 +1,6 @@
 return {
   "goolord/alpha-nvim",
-  enabled = true,
+  enabled = false,
 
   opts = function()
     local icons = require("user.icons")

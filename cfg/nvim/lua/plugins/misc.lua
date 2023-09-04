@@ -12,14 +12,17 @@ return {
   {
     "LucasMartinsVieira/vim-moonfly-colors",
     name = "moonfly",
+    enabled = false,
     lazy = true,
   },
   {
     "lunarvim/lunar.nvim",
+    enabled = false,
     lazy = true,
   },
   {
     "Mofiqul/dracula.nvim",
+    enabled = false,
     lazy = true,
   },
   {
@@ -50,6 +53,5 @@ return {
   },
   {
     "tpope/vim-sleuth",
-    "opalmay/vim-smoothie",
   },
 }

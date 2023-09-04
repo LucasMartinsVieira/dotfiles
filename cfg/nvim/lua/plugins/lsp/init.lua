@@ -10,6 +10,7 @@ return {
       {
         -- Useful status updates for LSP
         "j-hui/fidget.nvim",
+        enabled = false,
         tag = "legacy",
       },
 
@@ -22,21 +23,81 @@ return {
     -- event = { "BufReadPost", "BufNewFile" },
     event = "User FileOpened",
     keys = {
-      {"<leader>li", "<CMD>LspInfo<CR>", desc = "Connected Language Servers",},
-      {"<leader>lk", "<CMD>Lspsaga hover_doc ++keep<CR>", desc = "Connected Language Servers",},
-      {"<leader>lK", "<CMD>lua vim.lsp.buf.signature_help()<CR>", desc = "Signature Help",},
-      {"<leader>lw", "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", desc = "Add Workspace Folder",},
-      {"<leader>lW", "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", desc = "Remove Workspace Folder",},
-      {"<leader>ll", "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", desc = "List Workspace Folders",},
-      {"<leader>lt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", desc = "Type Definition",},
-      {"<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", desc = "Go To Definition",},
-      {"<leader>lD", "<CMD>lua vim.lsp.buf.declaration()<CR>", desc = "Go To declaration",},
-      {"<leader>lr", "<CMD>Lspsaga rename<CR>", desc = "Rename",},
-      {"<leader>lR", "<CMD>lua vim.lsp.buf.references()<CR>", desc = "References",},
-      {"<leader>la", "<CMD>Lspsaga code_action<CR>", desc = "Code Action",},
-      {"<leader>le", "<CMD>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostics",},
-      {"<leader>ln", "<CMD>Lspsaga diagnostic_jump_next<CR>", desc = "Go To Next Diagnostic",},
-      {"<leader>lN", "<CMD>Lspsaga diagnostic_jump_prev<CR>", desc = "Go To Previous Diagnostic",},
+      {
+        "<leader>li",
+        "<CMD>LspInfo<CR>",
+        desc = "Connected Language Servers",
+      },
+      {
+        "<leader>lk",
+        "<CMD>Lspsaga hover_doc ++keep<CR>",
+        desc = "Connected Language Servers",
+      },
+      {
+        "<leader>lK",
+        "<CMD>lua vim.lsp.buf.signature_help()<CR>",
+        desc = "Signature Help",
+      },
+      {
+        "<leader>lw",
+        "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>",
+        desc = "Add Workspace Folder",
+      },
+      {
+        "<leader>lW",
+        "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>",
+        desc = "Remove Workspace Folder",
+      },
+      {
+        "<leader>ll",
+        "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+        desc = "List Workspace Folders",
+      },
+      {
+        "<leader>lt",
+        "<CMD>lua vim.lsp.buf.type_definition()<CR>",
+        desc = "Type Definition",
+      },
+      {
+        "<leader>ld",
+        "<CMD>lua vim.lsp.buf.definition()<CR>",
+        desc = "Go To Definition",
+      },
+      {
+        "<leader>lD",
+        "<CMD>lua vim.lsp.buf.declaration()<CR>",
+        desc = "Go To declaration",
+      },
+      {
+        "<leader>lr",
+        "<CMD>Lspsaga rename<CR>",
+        desc = "Rename",
+      },
+      {
+        "<leader>lR",
+        "<CMD>lua vim.lsp.buf.references()<CR>",
+        desc = "References",
+      },
+      {
+        "<leader>la",
+        "<CMD>Lspsaga code_action<CR>",
+        desc = "Code Action",
+      },
+      {
+        "<leader>le",
+        "<CMD>Lspsaga show_line_diagnostics<CR>",
+        desc = "Show Line Diagnostics",
+      },
+      {
+        "<leader>ln",
+        "<CMD>Lspsaga diagnostic_jump_next<CR>",
+        desc = "Go To Next Diagnostic",
+      },
+      {
+        "<leader>lN",
+        "<CMD>Lspsaga diagnostic_jump_prev<CR>",
+        desc = "Go To Previous Diagnostic",
+      },
     },
     config = function()
       local function attach_navic(client, bufnr)
@@ -138,8 +199,8 @@ return {
           },
           request_timeout = 2000,
           symbol_in_winbar = {
-            enable = false
-          }
+            enable = false,
+          },
 
           -- See Customizing Lspsaga's Appearance
           -- ui = { ... },
@@ -151,7 +212,6 @@ return {
         })
 
         -- LSP Saga keybinds
-
 
         nmap("K", vim.lsp.buf.hover, "Hover Documentation")
         -- nmap("K", "<CMD>Lspsaga hover_doc ++keep<CR>", "Hover Documentation")
@@ -246,7 +306,7 @@ return {
       })
 
       -- Turn on lsp status information
-      require("fidget").setup()
+      -- require("fidget").setup()
     end,
   },
   {

@@ -1,6 +1,6 @@
 return {
   "folke/trouble.nvim",
-
+  enabled = false,
   cmd = { "TroubleToggle" },
   keys = {
     {

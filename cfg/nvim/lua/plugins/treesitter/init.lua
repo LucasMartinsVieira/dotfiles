@@ -8,7 +8,6 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "windwp/nvim-ts-autotag",
-      -- "nvim-treesitter/nvim-treesitter-context",
     },
     keys = {
       { "<c-space>", desc = "Increment selection" },

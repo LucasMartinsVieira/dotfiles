@@ -1,7 +1,7 @@
-return {
-  yaml = {
-    schemaStore = {
-      enable = true
-    }
-  }
-}
+-- return {
+--   yaml = {
+--     schemaStore = {
+--       enable = true
+--     }
+--   }
+-- }

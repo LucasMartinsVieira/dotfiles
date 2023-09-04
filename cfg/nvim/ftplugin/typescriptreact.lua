@@ -14,14 +14,14 @@ local opts = {
 
 local mappings = {
   L = {
-    name = "TypescriptReact",
+    name = "Typescript React",
     i = { "<cmd>TypescriptAddMissingImports<Cr>", "AddMissingImports" },
     o = { "<cmd>TypescriptOrganizeImports<cr>", "OrganizeImports" },
     u = { "<cmd>TypescriptRemoveUnused<Cr>", "RemoveUnused" },
     r = { "<cmd>TypescriptRenameFile<Cr>", "RenameFile" },
     f = { "<cmd>TypescriptFixAll<Cr>", "FixAll" },
     g = { "<cmd>TypescriptGoToSourceDefinition<Cr>", "GoToSourceDefinition" },
-  }
+  },
 }
 
 which_key.register(mappings, opts)

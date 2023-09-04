@@ -1,6 +1,7 @@
 return {
   "SmiteshP/nvim-navic",
   lazy = true,
+  enabled = false,
   config = function()
     local icons = require("user.icons")
     require("nvim-navic").setup({

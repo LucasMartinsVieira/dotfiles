@@ -19,7 +19,8 @@ local keymap = vim.api.nvim_set_keymap
 -- Basics
 nmap("<leader>w", "<CMD>w<CR>", "Write")
 nmap("<leader>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "Quit")
--- nmap("<leader>h", "<CMD>split<CR>", "Split")
+nmap("<leader>e", "<CMD>Ex<CR>", "Explorer")
+nmap("<leader>h", "<CMD>split<CR>", "Split")
 nmap("<leader>v", "<CMD>vsplit<CR>", "Vsplit")
 nmap("<leader>/", "<CMD>noh<CR>", "")
 keymap(

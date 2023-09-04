@@ -21,7 +21,7 @@ local mappings = {
     r = { "<cmd>TypescriptRenameFile<Cr>", "RenameFile" },
     f = { "<cmd>TypescriptFixAll<Cr>", "FixAll" },
     g = { "<cmd>TypescriptGoToSourceDefinition<Cr>", "GoToSourceDefinition" },
-  }
+  },
 }
 
 which_key.register(mappings, opts)

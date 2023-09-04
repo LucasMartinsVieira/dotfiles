@@ -10,9 +10,7 @@ return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    { "hrsh7th/cmp-buffer", lazy = true },
     { "hrsh7th/cmp-path", lazy = true },
-    { "hrsh7th/cmp-cmdline", lazy = true },
     { "hrsh7th/cmp-nvim-lsp", lazy = true },
     { "hrsh7th/cmp-nvim-lua", lazy = true },
     "saadparwaiz1/cmp_luasnip",

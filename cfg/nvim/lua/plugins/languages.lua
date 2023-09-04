@@ -4,6 +4,7 @@ return {
     "saecki/crates.nvim",
     tag = "v0.3.0",
     lazy = true,
+    enabled = false,
     config = function()
       require("crates").setup({
         null_ls = {
@@ -24,12 +25,14 @@ return {
   -- Json
   {
     "b0o/schemastore.nvim",
-    lazy = true
+    enabled = false,
+    lazy = true,
   },
   -- Markdown
   {
     "iamcco/markdown-preview.nvim",
     lazy = true,
+    enabled = false,
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
