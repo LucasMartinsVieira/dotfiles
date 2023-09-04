@@ -30,6 +30,7 @@ return {
       ["<leader>z"] = { name = "+Focus" },
       ["<leader>p"] = { name = "+Plugins" },
       ["<leader>s"] = { name = "+Session" },
+      ["<leader>h"] = { name = "+Harpoon" },
       ["<leader>S"] = { name = "Substitute Text" },
     }
 

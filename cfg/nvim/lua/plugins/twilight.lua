@@ -1,6 +1,6 @@
 return {
   "folke/twilight.nvim",
-  enabled = false,
+  enabled = true,
   keys = {
     { "<leader>zt", "<CMD>Twilight<CR>", desc = "Twilight" },
   },

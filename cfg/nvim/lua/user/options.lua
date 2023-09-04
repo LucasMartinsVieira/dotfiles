@@ -13,15 +13,17 @@ local options = {
   smartindent = true,
   smartcase = true,
   cursorline = true,
-  cmdheight = 0,
+  cmdheight = 1,
   ignorecase = true,
   showmode = false,
+  incsearch = true,
   undofile = true,
   timeoutlen = 1000,
   clipboard = "unnamedplus",
   swapfile = false,
   showtabline = 0,
-  mousemoveevent = true
+  mousemoveevent = true,
+  scrolloff = 8
 }
 
 for k, v in pairs(options) do

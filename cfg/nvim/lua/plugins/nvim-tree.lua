@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons", -- optional, for file icons
   },
-  enabled = false,
+  enabled = true,
   cmd = { "NvimTreeToggle" },
   keys = {
     { "<leader>e", "<CMD>NvimTreeToggle<CR>", desc = "Explorer" },

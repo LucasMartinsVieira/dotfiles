@@ -11,12 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
+require("user.maps")
+require("user.options")
 require("lazy").setup("plugins")
 require("user.colorscheme")
-require("user.options")
-require("user.maps")
 require("user.winbar")
 require("user.autocmds")
