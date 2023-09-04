@@ -17,6 +17,7 @@ return {
       -- Additional lua configuration, makes nvim stuff amazing
       { "folke/neodev.nvim", lazy = true },
 
+      -- Better UI for lsp
       "glepnir/lspsaga.nvim",
     },
     cmd = { "LspInstall", "LspUninstall", "LspInfo" },

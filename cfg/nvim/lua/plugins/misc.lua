@@ -1,16 +1,10 @@
 return {
   {
-    "nvim-lua/popup.nvim",
-    "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim",
-    "nvim-tree/nvim-web-devicons",
-  },
-  {
-    "LucasMartinsVieira/vim-nightfly-colors",
+    "bluz71/vim-nightfly-colors",
     priority = 1000,
   },
   {
-    "LucasMartinsVieira/vim-moonfly-colors",
+    "bluz71/vim-moonfly-colors",
     name = "moonfly",
     enabled = false,
     lazy = true,

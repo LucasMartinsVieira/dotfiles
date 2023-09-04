@@ -2,6 +2,7 @@ return {
   -- Rust
   {
     "saecki/crates.nvim",
+    requires = { 'nvim-lua/plenary.nvim' },
     tag = "v0.3.0",
     lazy = true,
     enabled = false,

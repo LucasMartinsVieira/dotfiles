@@ -9,12 +9,13 @@ local kind_icons = icons.kind
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
+  -- stylua: ignore
   dependencies = {
-    { "hrsh7th/cmp-path", lazy = true },
+    { "hrsh7th/cmp-path",     lazy = true },
     { "hrsh7th/cmp-nvim-lsp", lazy = true },
     { "hrsh7th/cmp-nvim-lua", lazy = true },
+    { "L3MON4D3/LuaSnip",     version = "2.*", build = "make install jsregexp" },
     "saadparwaiz1/cmp_luasnip",
-    "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
   },
   config = function()

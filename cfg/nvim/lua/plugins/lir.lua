@@ -1,6 +1,7 @@
 return {
   {
     "tamago324/lir.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
     -- event = "VeryLazy",
     enabled = false,
     config = function()

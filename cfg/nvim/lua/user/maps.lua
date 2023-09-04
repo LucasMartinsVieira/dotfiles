@@ -12,6 +12,10 @@ local function vmap(key, map)
   vim.api.nvim_set_keymap("v", key, map, opts)
 end
 
+local function xmap(key, map)
+  vim.api.nvim_set_keymap("x", key, map, opts)
+end
+
 local keymap = vim.api.nvim_set_keymap
 
 -- Normal --
@@ -23,12 +27,8 @@ nmap("<leader>e", "<CMD>Ex<CR>", "Explorer")
 nmap("<leader>h", "<CMD>split<CR>", "Split")
 nmap("<leader>v", "<CMD>vsplit<CR>", "Vsplit")
 nmap("<leader>/", "<CMD>noh<CR>", "")
-keymap(
-  "n",
-  "<leader>S",
-  ":%s ///gc<Left><Left><Left><Left>",
-  { noremap = true, silent = false }
-)
+--stylua: ignore
+vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Config Keys
 -- nmap("<leader>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
@@ -85,10 +85,21 @@ nmap("<leader>bd", "<CMD>bdelete<CR>", "Buffer Delete")
 nmap("]b", "<CMD>bnext<CR>", "Buffer Previous")
 nmap("[b", "<CMD>bprevious<CR>", "Buffer Previous")
 
+-- Move current line / block with Alt-j/k a la vscode.
+nmap("<A-j>", "<CMD>move .+1<CR>==")
+nmap("<A-k>", "<CMD>move .-2<CR>==")
+
+nmap("<C-d>", "<C-d>zz")
+nmap("<C-u>", "<C-u>zz")
+
 -- Insert --
 
 -- ESC more acessible
 imap("jk", "<ESC>")
+
+-- Move current line / block with Alt-j/k a la vscode.
+imap("<A-j>", "<Esc><CMD>move .+1<CR>==gi")
+imap("<A-k>", "<Esc><CMD>move .-2<CR>==gi")
 
 -- Visual --
 
@@ -97,5 +108,7 @@ vmap("<", "<gv")
 vmap(">", ">gv")
 
 -- Moves selected
-vmap("<A-k>", "<CMD>m -2<CR>gv")
-vmap("<A-j>", "<CMD>m +2<CR>gv")
+
+-- Move current line / block with Alt-j/k ala vscode.
+xmap("<A-j>", ":m '>+1<CR>gv=gv")
+xmap("<A-k>", ":m '<-2<CR>gv=gv")

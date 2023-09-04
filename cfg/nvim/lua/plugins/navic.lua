@@ -1,5 +1,6 @@
 return {
   "SmiteshP/nvim-navic",
+  requires = { "nvim-lua/plenary.nvim" },
   lazy = true,
   enabled = false,
   config = function()
