@@ -108,7 +108,9 @@ waybar
 wayland
 wayland-protocols
 wireplumber
+wf-recorder
 wget
+wlogout
 wlroots
 wlsunset
 wtype
