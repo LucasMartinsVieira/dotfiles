@@ -45,6 +45,7 @@ return {
       })
     end,
   },
+  -- Vim Plugins
   {
     "tpope/vim-sleuth",
   },

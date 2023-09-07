@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+selected_files=$(find ~/repos ~/dev -mindepth 1 -maxdepth 1 -type d | grep -v "clones")
+selected=$(echo "$selected_files" | fzf)
+
+if [[ -z $selected ]]; then
+	exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+files_name=$(echo "$selected_files" | awk -F '/' '{ print $NF }' )
+
+kitty_info=$(kitty @ ls)
+kitty_tabs_num=$(echo "$kitty_info" | jq '.[].tabs[].id' | wc -l)
+kitty_tabs_name=$(echo "$kitty_info" | jq -r '.[].tabs[].title')
+kitty_active_id=$(echo "$kitty_info" | jq '.[].tabs[] | select(.is_active == true) | .id')
+
+if [[ "$kitty_tabs_num" -eq 1 ]] && ! echo "$files_name" | grep -q "$kitty_tabs_name"; then
+	kitty @ launch --type=tab --tab-title "$selected_name" --cwd "$selected"
+	kitty @ close-tab --match "id:$kitty_active_id"
+fi
+
+if echo "$kitty_tabs_name" | grep "$selected_name"; then
+	kitty @ focus-tab --match "title:$selected_name"
+else
+	kitty @ launch --type=tab --tab-title "$selected_name" --cwd "$selected"
+fi

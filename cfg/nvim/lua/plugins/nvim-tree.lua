@@ -66,7 +66,7 @@ return {
     local icons = require("user.icons")
     require("nvim-tree").setup({
       on_attach = on_attach,
-      disable_netrw = false,
+      disable_netrw = true,
       hijack_netrw = true,
       auto_reload_on_write = true,
       open_on_tab = false,

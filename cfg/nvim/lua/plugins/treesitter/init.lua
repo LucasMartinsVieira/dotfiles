@@ -48,6 +48,7 @@ return {
           node_decremental = "<bs>",
         },
       },
+
       -- Auto closing html tags
       autotag = {
         enable = true,
