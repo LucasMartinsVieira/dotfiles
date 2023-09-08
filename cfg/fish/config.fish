@@ -108,7 +108,7 @@ alias .2="cd ../.."
 alias .3="cd ../../.."
 
 # ASDF
-source /opt/asdf-vm/asdf.fish
+# source /opt/asdf-vm/asdf.fish
 
 # File Extraction 
 

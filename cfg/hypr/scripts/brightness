@@ -9,7 +9,7 @@ get_brightness() {
 }
 
 notify_user() {
-	notify-send -t 1000 -u normal -i "$BRIGHTNESS_ICON" "Brightness : $(get_brightness) %"
+	notify-send -t 1000 -u normal -i "$BRIGHTNESS_ICON" "Brightness : $(get_brightness)"
 }
 
 inc_backlight() {

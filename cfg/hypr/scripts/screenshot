@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SCREENSHOT_ICON=$HOME/.config/hypr/assets/camera.png
-LOCATION=$HOME/Imagens/Screenshot/
+LOCATION=$HOME/Pictures/Screenshot/
 TIME=$(date +"%y%m%d-%H%M-%S")
 
 notify_user() {

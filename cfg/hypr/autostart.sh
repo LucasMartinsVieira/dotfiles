@@ -8,6 +8,6 @@ wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 
 swww init
-wallpaper ~/Imagens/Wallpapers/ --randomize &
+wallpaper ~/Pictures/Wallpapers/ --randomize &
 # swww img -o eDP-1,HDMI-A-1 ~/Imagens/Wallpapers/wallpapers0019.jpg
 wlsunset -t 4000 -T 4001 &

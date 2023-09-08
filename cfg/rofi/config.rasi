@@ -4,7 +4,7 @@
    display-emoji: "󰞅 ";
    display-calc: "󰃬 ";
    font: "JetBrains Mono Nerd 10";
-   modi: "run,drun,emoji,calc";
+   modi: "run,drun";
 }
 
 @theme "~/.config/rofi/themes/nightfly.rasi"

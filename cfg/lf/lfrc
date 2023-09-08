@@ -133,14 +133,14 @@ map gtp gitpush
 map gtg $lazygit
 
 # Movement
-map gdc cd ~/Documentos
+map gdc cd ~/Documents
 map gdw cd ~/Downloads
 map gdv cd ~/dev/
 map gdr cd ~/repos/
 
-map gi. cd ~/Imagens/
-map giw cd ~/Imagens/Wallpapers/
-map gis cd ~/Imagens/Screenshot/
+map gi. cd ~/Pictures/
+map giw cd ~/Pictures/Wallpapers/
+map gis cd ~/Pictures/Screenshot/
 
 map gc cd ~/.config/
 map g/ cd /
