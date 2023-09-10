@@ -1,4 +1,5 @@
 return {
+	require("neodev").setup(),
   settings = {
     Lua = {
       diagnostics = {

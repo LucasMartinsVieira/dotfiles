@@ -5,7 +5,7 @@ return {
     requires = { 'nvim-lua/plenary.nvim' },
     tag = "v0.3.0",
     lazy = true,
-    enabled = false,
+    enabled = true,
     config = function()
       require("crates").setup({
         null_ls = {
@@ -41,13 +41,13 @@ return {
   },
 
   -- CSS
-  {
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    -- optionally, override the default options:
-    config = function()
-      require("tailwindcss-colorizer-cmp").setup({
-        color_square_width = 2,
-      })
-    end,
-  },
+  -- {
+  --   "roobert/tailwindcss-colorizer-cmp.nvim",
+  --   -- optionally, override the default options:
+  --   config = function()
+  --     require("tailwindcss-colorizer-cmp").setup({
+  --       color_square_width = 2,
+  --     })
+  --   end,
+  -- },
 }

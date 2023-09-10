@@ -1,7 +1,7 @@
 return {
   "folke/trouble.nvim",
    dependencies = { "nvim-tree/nvim-web-devicons" },
-  enabled = false,
+  enabled = true,
   cmd = { "TroubleToggle" },
   -- stylua: ignore
   keys = {

@@ -42,26 +42,26 @@ return {
       })
     end,
   },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-    config = function()
-      local servers = {
-        "stylua",
-        "eslint_d",
-        "rustfmt",
-        "shfmt",
-        "prettier_d",
-      }
-
-      require("mason-null-ls").setup({
-        ensure_installed = servers,
-        automatic_installation = true,
-      })
-    end,
-  },
+  -- {
+  --   "jay-babu/mason-null-ls.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     "jose-elias-alvarez/null-ls.nvim",
+  --   },
+  --   config = function()
+  --     local servers = {
+  --       "stylua",
+  --       "eslint_d",
+  --       "rustfmt",
+  --       "shfmt",
+  --       "prettier_d",
+  --     }
+  --
+  --     require("mason-null-ls").setup({
+  --       ensure_installed = servers,
+  --       automatic_installation = true,
+  --     })
+  --   end,
+  -- },
 }

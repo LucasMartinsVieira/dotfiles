@@ -3,7 +3,7 @@ return {
     "tamago324/lir.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     -- event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     config = function()
       local actions = require("lir.actions")
       local mark_actions = require("lir.mark.actions")

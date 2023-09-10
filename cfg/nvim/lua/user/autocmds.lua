@@ -15,14 +15,14 @@ autocmd({ "BufNewFile", "BufRead" }, {
   command = "set filetype=html",
 })
 
-autocmd("BufWritePost", {
-  group = "filetype_settings",
-  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },
-  desc = "Autoformat on save",
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
+-- autocmd("BufWritePost", {
+--   group = "filetype_settings",
+--   pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },
+--   desc = "Autoformat on save",
+--   callback = function()
+--     vim.lsp.buf.format()
+--   end,
+-- })
 
 autocmd("FileType", {
   group = "filetype_settings",

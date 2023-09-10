@@ -1,7 +1,7 @@
 return {
   "goolord/alpha-nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  enabled = false,
+  enabled = true,
 
   opts = function()
     local icons = require("user.icons")
@@ -57,11 +57,6 @@ return {
         "n",
         icons.ui.NewFile .. " New file",
         "<CMD>ene!<BAR>startinsert<CR>"
-      ),
-      button(
-        "p",
-        icons.ui.Project .. " Projects",
-        "<CMD>Telescope projects<CR>"
       ),
       button(
         "r",
