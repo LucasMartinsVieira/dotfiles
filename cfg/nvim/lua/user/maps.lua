@@ -28,14 +28,7 @@ nmap("<leader>q", "<CMD>lua require('user.functions').smart_quit()<CR>", "Quit")
 -- nmap("<leader>h", "<CMD>split<CR>", "Split")
 nmap("<leader>v", "<CMD>vsplit<CR>", "Vsplit")
 nmap("<leader>/", "<CMD>noh<CR>", "")
---stylua: ignore
 vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Config Keys
--- nmap("<leader>ci", "<CMD>e ~/.config/nvim/init.lua<CR>", "[C]onfig init.lua file")
--- nmap("<leader>co", "<CMD>e ~/.config/nvim/lua/user/options.lua<CR>", "[C]onfig options.lua file")
--- nmap("<leader>cm", "<CMD>e ~/.config/nvim/lua/user/maps.lua<CR>", "[C]onfig maps.lua file")
--- nmap("<leader>cc", "<CMD>e ~/.config/nvim/lua/user/colorscheme.lua<CR>", "[C]onfig colorscheme.lua file")
 
 -- Plugin keys
 nmap("<leader>pp", "<CMD>Lazy<CR>", "Plugin")
@@ -44,38 +37,26 @@ nmap("<leader>pc", "<CMD>Lazy clean<CR>", "Plugin Clean")
 nmap("<leader>pl", "<CMD>Lazy log<CR>", "Plugin Log")
 
 -- Options/Open
-nmap(
-  "<leader>on",
-  "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>",
-  "Relative Numbers"
-)
-nmap(
-  "<leader>os",
-  "<CMD>lua require('user.functions').toggle_option('spell')<CR>",
-  "Spell"
-)
-nmap(
-  "<leader>oc",
-  "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>",
-  "Cursor Line"
-)
+nmap("<leader>on", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative Numbers")
+nmap("<leader>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", "Spell")
+nmap("<leader>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursor Line")
 nmap("<leader>or", "<CMD>OpenCodeRepo<CR>", "Open Code Repo")
 nmap("<leader>ox", "<CMD>!chmod +x %<CR>", "Chmod +x")
 
--- Navegação entre janelas
--- nmap("<C-h>", "<C-w>h<CR>", "Go Left")
--- nmap("<C-j>", "<C-w>j<CR>", "Go Down")
--- nmap("<C-k>", "<C-w>k<CR>", "Go Up")
--- nmap("<C-l>", "<C-w>l<CR>", "Go Right")
--- nmap("<C-q>", "<C-w>q<CR>", "Close Slipt")
+-- Navigation Between Windows
+nmap("<C-h>", "<C-w>h<CR>", "Go Left")
+nmap("<C-j>", "<C-w>j<CR>", "Go Down")
+nmap("<C-k>", "<C-w>k<CR>", "Go Up")
+nmap("<C-l>", "<C-w>l<CR>", "Go Right")
+nmap("<C-q>", "<C-w>q<CR>", "Close Slipt")
 
--- Redimensionar janela
-nmap("<M-k>", "<CMD>resize -2<CR>")
-nmap("<M-j>", "<CMD>resize +2<CR>")
-nmap("<M-l>", "<CMD>vertical resize -2<CR>")
-nmap("<M-h>", "<CMD>vertical resize +2<CR>")
+-- Resize Window
+nmap("<M-S-k>", "<CMD>resize -2<CR>")
+nmap("<M-S-j>", "<CMD>resize +2<CR>")
+nmap("<M-S-l>", "<CMD>vertical resize -2<CR>")
+nmap("<M-S-h>", "<CMD>vertical resize +2<CR>")
 
--- Navegar arquivos (buffers)
+-- Navigate buffers
 nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Previous")
 nmap("<S-h>", "<CMD>bprevious<CR>", "Buffer Previous")
 nmap("<S-d>", "<CMD>bdelete<CR>", "Buffer Delete")
