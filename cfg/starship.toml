@@ -1,55 +1,140 @@
-format = """
-$username\
-$hostname\
-$directory\
-$git_branch\
-$rust\
-$nodejs\
-$lua\
-$line_break\
-$character
-"""
+[aws]
+symbol = "  "
 
-[username]
-style_user = "green bold"
-style_root = "red bold"
-format = " [$user]($style) "
-disabled = false
-show_always = true
+[buf]
+symbol = " "
 
-[hostname]
-ssh_only = false
-ssh_symbol = "🌐 "
-format = 'on [$hostname](bold purple) '
-trim_at = "."
-disabled = false
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
 
 [directory]
 read_only = " 󰌾"
-format = '[$path]($style)[$read_only]($read_only_style) '
 
 [docker_context]
 symbol = " "
 
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
 [git_branch]
 symbol = " "
 
-[nodejs]
-symbol = " "
-format = 'via [$symbol($version )]($style)'
+[golang]
+symbol = " "
 
-[deno]
-symbol = "🦕 "
-format = 'via [$symbol($version )]($style)'
+[guix_shell]
+symbol = " "
 
-[rust]
-symbol = " "
-format = 'via [$symbol($version )]($style)'
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
 
 [lua]
-symbol = "🌙 "
-format = 'via [$symbol($version )]($style)'
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
 
 [character]
 success_symbol = '[ ](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 error_symbol = "[ ](bold red)"
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "

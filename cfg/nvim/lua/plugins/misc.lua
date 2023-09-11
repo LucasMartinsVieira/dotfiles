@@ -25,6 +25,10 @@ return {
       })
     end,
   },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy"
+  },
   -- Vim Plugins
   {
     "tpope/vim-sleuth",

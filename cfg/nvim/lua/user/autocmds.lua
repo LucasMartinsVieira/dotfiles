@@ -92,20 +92,19 @@ cmd("OpenCodeRepo", function(_)
     vim.fn.system({ "xdg-open", filePath })
   else
     local repoUrl = ""
-    local platform =
-      vim.fn.inputlist({ "Select platform: ", "GitHub", "GitLab" })
-
-    if platform == 1 then
-      local ghpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
-      local formatpath = ghpath:sub(2, #ghpath - 1)
-      repoUrl = "https://www.github.com/" .. formatpath
-    elseif platform == 2 then
-      local glpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
-      local formatpath = glpath:sub(2, #glpath - 1)
-      repoUrl = "https://www.gitlab.com/" .. formatpath
-    end
-
-    vim.fn.system({ "xdg-open", repoUrl })
+    vim.ui.select({ "GitHub", "GitLab" }, {}, function(platform)
+      if platform == "GitHub" then
+        local ghpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
+        local formatpath = ghpath:sub(2, #ghpath - 1)
+        repoUrl = "https://www.github.com/" .. formatpath
+        vim.fn.system({ "xdg-open", repoUrl })
+      elseif platform == "GitLab" then
+        local glpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
+        local formatpath = glpath:sub(2, #glpath - 1)
+        repoUrl = "https://www.gitlab.com/" .. formatpath
+        vim.fn.system({ "xdg-open", repoUrl })
+      end
+    end)
   end
 end, {
   desc = "Open code repository",

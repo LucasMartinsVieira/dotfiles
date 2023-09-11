@@ -75,9 +75,10 @@ abbr gl "git log"
 alias df='df -h'                          
 alias free='free -h'                      
 
-# Changing "ls" to "exa"
-alias ls="exa -al -s=type"
-alias l="exa -a --icons -s=type"
+# Changing "ls" to "eza"
+alias ls="eza -al -s=type"
+alias ll="eza -al --icons -s=type"
+alias l="eza -a --icons -s=type"
 
 # Yt-dlp
 alias yta-aac="yt-dlp --extract-audio --audio-format aac"
