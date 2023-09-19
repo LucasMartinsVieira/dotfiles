@@ -11,8 +11,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-### "bat" as manpager
+### "Nvim" as manpager
 # set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x MANPAGER "nvim +Man!"
 
 # Use lf to switch directories
 function lfcd
@@ -94,14 +95,26 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 # Programs
 alias lf="lfrun"
 
-abbr v "nvim (fzf)"
-abbr f "feh (fzf)"
-abbr m "mpv (fzf)" 
-abbr g "lazygit"
-abbr t "tldr --list | fzf --preview 'tldr {1} --color=always' --height "75%" --preview-window=right,75% | xargs tldr"
+# If an argument is not given run the program with fzf if it's given run normally
+function v
+    if test -n "$argv"
+        nvim $argv
+    else
+        nvim (fzf)
+    end
+end
 
-abbr scr "ffmpeg -f x11grab -s 1920x1080 -i :0.0"
-abbr wbr "ffmpeg -y -i /dev/video0"
+function t
+    if test -n "$argv"
+        for arg in $argv
+            tldr $arg
+        end
+    else
+        tldr --list | fzf --preview 'tldr {1} --color=always' --height "75%" --preview-window=right,75% | xargs tldr
+    end
+end
+
+abbr g "lazygit"
 
 # Alias for cd
 alias ..="cd .."
