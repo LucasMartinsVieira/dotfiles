@@ -3,7 +3,7 @@ return {
   cmd = { "ToggleTerm" },
   -- stylua: ignore
   keys = {
-    { "<c-/>",      "<CMD>ToggleTerm<CR>",                                    desc = "Terminal",},
+    { "<c-t>",      "<CMD>ToggleTerm<CR>",                                    desc = "Terminal",},
     { "<leader>tt", "<CMD>ToggleTerm direction=horizontal<CR>",               desc = "Terminal Horizontal",},
     { "<leader>tf", "<CMD>ToggleTerm direction=float<CR>",                    desc = "Terminal Float",},
     { "<leader>tv", "<CMD>ToggleTerm size=40 direction=vertical<CR>",         desc = "Terminal Vertical",},
@@ -16,7 +16,7 @@ return {
   config = function()
     require("toggleterm").setup({
       size = 16,
-      open_mapping = [[<c-/>]],
+      open_mapping = [[<c-t>]],
       hide_numbers = true,
       shade_filetypes = {},
       shade_terminals = true,

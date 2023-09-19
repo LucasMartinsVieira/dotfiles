@@ -32,5 +32,6 @@ return {
   -- Vim Plugins
   {
     "tpope/vim-sleuth",
+    "elkowar/yuck.vim"
   },
 }

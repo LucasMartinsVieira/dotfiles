@@ -27,5 +27,5 @@ require("lazy").setup({
   },
 })
 require("user.colorscheme")
--- require("user.winbar")
+require("user.winbar")
 require("user.autocmds")

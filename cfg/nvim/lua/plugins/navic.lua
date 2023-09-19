@@ -2,7 +2,7 @@ return {
   "SmiteshP/nvim-navic",
   requires = { "nvim-lua/plenary.nvim" },
   lazy = true,
-  enabled = false,
+  enabled = true,
   config = function()
     local icons = require("user.icons")
     require("nvim-navic").setup({
