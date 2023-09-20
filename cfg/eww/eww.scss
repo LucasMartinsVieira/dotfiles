@@ -1,0 +1,28 @@
+* {
+  all: unset;
+  transition: 200ms;
+}
+
+$bg: #011627;
+$bg-alt: #1a2d3c;
+$fg: #c3ccdc;
+$fg-alt: #d6deeb;
+$red: #fc514e;
+$green: #a1cd5e;
+$yellow: #e3d18a;
+$blue: #82aaff;
+$magenta: #c792ea;
+$cyan: #296596;
+$white: $fg;
+
+tooltip {
+  font-family: "jetBrainsMono Nerd Font";
+  font-weight: 500;
+  font-size: 1rem;
+  color: $fg;
+  background-color: $bg;
+  border: 3px solid $bg;
+  border-radius: .5rem;
+}
+
+@import "./styles/powermenu.scss";
