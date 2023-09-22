@@ -1,8 +1,1 @@
-(include "./widgets/powermenu.yuck")
-
-(defwindow powermenu
-  :monitor 1
-  :stacking "fg"
-  :geometry (geometry :anchor "right center")
-  (powermenu)
-)
+(include "./windows/powermenu.yuck")
