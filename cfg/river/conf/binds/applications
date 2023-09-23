@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Applications
+riverctl map normal Super Return spawn kitty
+riverctl map normal Super R spawn "rofi -show drun"
+riverctl map normal Super B spawn librewolf
+riverctl map normal Super O spawn obsidian
+riverctl map normal Super P spawn "kitty -e fish -c lf"
+
+# ON/OFF Services
+riverctl map normal Super+Alt N spawn "$HOME/.config/river/scripts/on-off -n"
+riverctl map normal Super+Alt B spawn "$HOME/.config/river/scripts/on-off -b"
+riverctl map normal Super+Alt W spawn "$HOME/.config/river/scripts/on-off -w"
+
+# Interfaces
+riverctl map normal Super+Control P spawn "eww open-many --toggle powermenu0 powermenu1"
+
+# Wallpaper
+riverctl map normal Super+Shift W spawn "wallpaper ~/Pictures/Wallpapers/"
+riverctl map normal Super+Control W spawn "wallpaper ~/Pictures/Wallpapers/ --random"
+
+# Bookmarks
+riverctl map normal Super+Shift B spawn "bookmark -b"
+riverctl map normal Super+Control B spawn "bookmark -B"
+
+# Others
+riverctl map normal Super E spawn "rofi -show emoji"
+riverctl map normal Super C spawn "colorscheme"
+riverctl map normal Super+Shift P spawn "rofi-pass"

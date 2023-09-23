@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Set background and border color
+riverctl background-color 0x011627
+riverctl border-color-focused 0xc792ea
+riverctl border-color-unfocused 0x0595959
+riverctl border-width 3
+riverctl border-color-urgent 0xfc514e
+
+# Set keyboard repeat rate
+riverctl set-repeat 50 300
+
+# Set keyboard layout
+riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch,ctrl:nocaps "us,br"
+
+# Mouse focus follow
+riverctl focus-follows-cursor normal
+
+# Set the default layout generator to be rivertile and start it.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile
+riverctl spawn "rivertile -view-padding 6 -outer-padding 6"

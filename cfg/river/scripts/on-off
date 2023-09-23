@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Icons
-WIFI_ICON=$HOME/.config/hypr/assets/wifi.png
-NOTIFICATIONS_ICON=$HOME/.config/hypr/assets/notifications.png
-BLUETOOTH_ICON=$HOME/.config/hypr/assets/bluetooth.png
+WIFI_ICON=$HOME/.config/river/assets/wifi.png
+NOTIFICATIONS_ICON=$HOME/.config/river/assets/notifications.png
+BLUETOOTH_ICON=$HOME/.config/river/assets/bluetooth.png
 
 BLUETOOTH_STATE=$(bluetoothctl show | grep Powered: | awk '{print $2}')
 WIFI_STATE=$(nmcli radio wifi)

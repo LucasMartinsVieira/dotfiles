@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Various media key mapping examples for both normal and locked mode which do
+# not have a modifier
+for mode in normal locked
+do
+    # Volume
+    riverctl map $mode None XF86AudioRaiseVolume  spawn "$HOME/.config/river/scripts/volume --inc"
+    riverctl map $mode None XF86AudioLowerVolume  spawn "$HOME/.config/river/scripts/volume --dec"
+    riverctl map $mode None XF86AudioMute         spawn "$HOME/.config/river/scripts/volume --toggle"
+    d
+    riverctl map $mode Super Equal                spawn "$HOME/.config/river/scripts/volume --inc"
+    riverctl map $mode Super Minus                spawn "$HOME/.config/river/scripts/volume --dec"
+    riverctl map $mode Super 0                    spawn "$HOME/.config/river/scripts/volume --toggle"
+
+    # Media
+    riverctl map $mode None XF86AudioPlay         spawn "playerctl play-pause"
+    riverctl map $mode None XF86AudioStop         spawn "playerctl pause"
+    riverctl map $mode None XF86AudioNext         spawn "playerctl next"
+    riverctl map $mode None XF86AudioPrev         spawn "playerctl previous"
+
+    riverctl map $mode Super Semicolon            spawn "playerctl play-pause"
+    riverctl map $mode Super Period               spawn "playerctl next"
+    riverctl map $mode Super Comma                spawn "playerctl previous"
+
+    # Microphone
+    
+    # Brightness
+    riverctl map $mode None XF86MonBrightnessUp   spawn "$HOME/.config/river/scripts/brightness --inc"
+    riverctl map $mode None XF86MonBrightnessDown spawn "$HOME/.config/river/scripts/brightness --dec"
+    
+    riverctl map $mode Super+Shift Equal          spawn "$HOME/.config/river/scripts/brightness --inc"
+    riverctl map $mode Super+Shift Minus          spawn "$HOME/.config/river/scripts/brightness --dec"
+
+    # Print 
+    riverctl map $mode None Print                 spawn "$HOME/.config/river/scripts/screenshot --full"
+
+    riverctl map $mode Super I                    spawn  "$HOME/.config/river/scripts/screenshot --full"
+    riverctl map $mode Super+Shift I              spawn  "$HOME/.config/river/scripts/screenshot --area"
+    riverctl map $mode Super+Control I            spawn  "$HOME/.config/river/scripts/screenshot --window"
+
+    # Others
+    riverctl map $mode None XF86AudioMicMute      spawn "$HOME/.config/river/scripts/volume --toggle_mic"
+done
