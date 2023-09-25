@@ -1,30 +1,27 @@
-$background: #202020;
-$background-highlight: #303030;
-$foreground: #9fccff;
-$white: #e1e1e1;
-$red: #ff4d7a;
-
-// window>.bar {
-//   margin-top: 20rem;
-// }
+window>.bar {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 5px;
+  border-radius: 0.8rem;
+}
 
 .bar {
-  background: $background;
-  font-size: 1.6rem;
-  color: $foreground;
-  // margin-left: .3rem;
-  // padding: .3rem;
+  background: $bg;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $fg;
 }
 
 .left,
 .center,
 .right { 
-  padding: 10px;
-  background: $background-highlight;
+  padding: 5px;
+  padding-right: 8px;
 }
 
 .tag {
-  margin: 4px 0px;
+  margin: 1px 0px;
+  margin-left: 0.3rem;
   border-bottom: 2px solid rgba(0,0,0,0);
 
   &:hover { 
@@ -34,12 +31,49 @@ $red: #ff4d7a;
   }
 }
 
-.icons {
-  font-size: 2rem;
+.time {
+  margin-left: 0.2rem;
+  font-family: $font;
+  font-size: 1.4rem;
 }
 
-.power {
-   &:hover {
+.icons {
+  font-size: 1.3rem;
+
+  &.menu-icon {
+    color: $mint;
+    font-size: 1.8rem;
+    margin-right: 0.2rem;
+  }
+  
+  &.wifi-icon {
+    color: $magenta;
+    margin-right: 0.3rem;
+  }
+  
+  &.volume-icon {
+    color: $green;
+    margin-right: 0.2rem;
+  }
+  
+  &.brightness-icon {
+    color: $yellow;
+    margin-right: 0.2rem;
+  }
+  
+  &.battery-icon {
+    color: $blue;
+    margin-left: 0.3rem;
+  }
+  
+  &.notify-icon {
+    color: $emerald;
+  }
+  
+  &.power-icon {
     color: $red;
+    font-size: 1.5rem;
+    margin-left: 0.3rem;
   }
 }
+

@@ -9,6 +9,8 @@ $fg: #c3ccdc;
 $fg-alt: #d6deeb;
 $red: #fc514e;
 $green: #a1cd5e;
+$emerald: #21c7a8;
+$mint: #61c9a8;
 $yellow: #e3d18a;
 $blue: #82aaff;
 $magenta: #c792ea;
@@ -27,5 +29,5 @@ tooltip {
 }
 
 @import "./styles/powermenu.scss";
-// @import "./styles/bar.scss";
+@import "./styles/bar.scss";
 @import "./styles/calendar.scss";

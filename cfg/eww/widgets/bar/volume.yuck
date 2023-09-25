@@ -9,7 +9,7 @@
    :cursor "pointer"
   (
    button
-    :class "power icons"
+    :class "icons volume-icon"
     :onclick "~/.local/bin/volume --toggle"
     :tooltip "Volume: ${volume_percent}%"
      {

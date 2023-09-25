@@ -9,7 +9,7 @@
    :cursor "pointer"
   (
    button
-    :class "power icons"
+    :class "icons wifi-icon"
     :onclick "~/.local/bin/on-off -w"
     :tooltip "${wifi_name}"
      {

@@ -9,18 +9,21 @@ defwidget date_time []
  (
   eventbox
    :cursor "pointer"
+   :onhover "eww open-many calendar0 calendar1"
+   :onhoverlost "eww close calendar0 calendar1"
    (
     box
+     :class "time"
      :orientation "v"
      :valign "center"
     (
      button
-     :onclick "eww open-many calendar0 calendar1 --toggle"
+     ;; :onclick "eww open-many calendar0 calendar1 --toggle"
      "${time.hour}"
     )
    (
      button
-     :onclick  "eww open-many calendar0 calendar1 --toggle"
+     ;; :onclick  "eww open-many calendar0 calendar1 --toggle"
      "${time.minute}"
    )
   )

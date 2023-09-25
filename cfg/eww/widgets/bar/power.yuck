@@ -5,7 +5,7 @@
    :cursor "pointer"
   (
     button
-    :class "power icons"
+    :class "icons power-icon"
     :onclick "eww open-many powermenu0 powermenu1 --toggle"
     "󰐥"
   )

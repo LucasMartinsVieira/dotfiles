@@ -4,7 +4,7 @@
  defwidget battery []
   (
    button
-    :class "power icons"
+    :class "icons battery-icon"
     :tooltip "Battery: ${battery_percent}%"
      {
        battery_percent == 0 ? "󰂎" :

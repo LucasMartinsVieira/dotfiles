@@ -7,7 +7,7 @@
    :onscroll "echo {} | sed -e 's/up/--inc/g' -e 's/down/--dec/g' | xargs brightness"
   (
    button
-    :class "power icons"
+    :class "icons brightness-icon"
     :tooltip "Brightness ${battery_percent}%"
      {
        brightness_percent <= 30 ? "󰃞" : 
