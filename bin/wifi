@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+name() {
+  nmcli | grep "^wlp" | sed 's/\ connected\ to\ /Connected to /g' | cut -d ':' -f2
+}
+
+status() {
+  if [[ $(cat /sys/class/net/w*/operstate) == "down" ]]; then
+    echo "down"
+  else
+    echo "up"
+  fi
+}
+
+strengh() {
+  if [[ $(awk '/^\s*w/ { print  int($3 * 100 / 70) }' /proc/net/wireless) == "" ]]; then
+    echo 0
+  else
+    awk '/^\s*w/ { print  int($3 * 100 / 70) }' /proc/net/wireless
+  fi
+}
+
+if [[ "$1" == "--get_name" ]]; then
+  name
+elif [[ "$1" == "--get_status" ]]; then
+  status
+elif [[ "$1" == "--get_strengh" ]]; then
+  strengh
+else
+  name
+fi
+
+# 󰤯
+# 󰤟
+# 󰤢
+# 󰤥
+# 󰤨

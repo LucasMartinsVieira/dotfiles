@@ -1,0 +1,18 @@
+(defpoll brightness_percent :interval "1s" "~/.local/bin/brightness --get_brightness | awk -F '%' '{print $1}'")
+
+(
+ defwidget brightness []
+ (
+  eventbox
+   :onscroll "echo {} | sed -e 's/up/--inc/g' -e 's/down/--dec/g' | xargs brightness"
+  (
+   button
+    :class "power icons"
+    :tooltip "Brightness ${battery_percent}%"
+     {
+       brightness_percent <= 30 ? "󰃞" : 
+       brightness_percent <= 60 ? "󰃟" : "󰃠"
+     }
+  )
+ )
+)

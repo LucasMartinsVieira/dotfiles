@@ -1,0 +1,45 @@
+$background: #202020;
+$background-highlight: #303030;
+$foreground: #9fccff;
+$white: #e1e1e1;
+$red: #ff4d7a;
+
+// window>.bar {
+//   margin-top: 20rem;
+// }
+
+.bar {
+  background: $background;
+  font-size: 1.6rem;
+  color: $foreground;
+  // margin-left: .3rem;
+  // padding: .3rem;
+}
+
+.left,
+.center,
+.right { 
+  padding: 10px;
+  background: $background-highlight;
+}
+
+.tag {
+  margin: 4px 0px;
+  border-bottom: 2px solid rgba(0,0,0,0);
+
+  &:hover { 
+    // transition: 100ms linear border-color;
+    border-bottom: 2px solid $red;
+    color: $red;
+  }
+}
+
+.icons {
+  font-size: 2rem;
+}
+
+.power {
+   &:hover {
+    color: $red;
+  }
+}

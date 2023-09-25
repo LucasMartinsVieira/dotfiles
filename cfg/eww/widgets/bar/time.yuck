@@ -1,0 +1,28 @@
+(
+  defpoll time
+  :interval "1s"
+  `date +'{"hour":"%H", "minute":"%M"}'`
+)
+
+(
+defwidget date_time []
+ (
+  eventbox
+   :cursor "pointer"
+   (
+    box
+     :orientation "v"
+     :valign "center"
+    (
+     button
+     ;; :onclick "eww open calendar --toggle"
+     "${time.hour}"
+    )
+   (
+     button
+     ;; :onclick "eww open calendar --toggle"
+     "${time.minute}"
+   )
+  )
+ )
+)

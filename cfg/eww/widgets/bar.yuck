@@ -1,0 +1,68 @@
+(include "./widgets/bar/menu.yuck")
+(include "./widgets/bar/tags.yuck")
+(include "./widgets/bar/time.yuck")
+(include "./widgets/bar/wifi.yuck")
+(include "./widgets/bar/volume.yuck")
+(include "./widgets/bar/brightness.yuck")
+(include "./widgets/bar/battery.yuck")
+(include "./widgets/bar/notify.yuck")
+(include "./widgets/bar/power.yuck")
+
+(
+  defwidget left []
+  (
+    box
+    :class "left"
+    :orientation "v"
+    :space-evenly false
+    :valign "start"
+
+    (menu)
+    (taglist)
+  )
+)  ( defwidget center []
+  (
+    box
+    :class "center"
+    :orientation "v"
+    :space-evenly false
+    :valign "center"
+
+    (date_time)
+  )
+)
+
+(
+  defwidget right []
+  (
+    box
+    :class "right"
+    :space-evenly false
+    :valign "end"
+    :orientation "v"
+    :spacing 10
+
+
+    (wifi)
+    (volume)
+    (brightness)
+    (battery)
+    (notify)
+    (power)
+  )
+)
+
+(
+  defwidget bar []
+  (
+    box
+    :class "bar"
+    :orientation "v"
+    :vexpand "false"
+    :hexpand "false"
+
+    (left)
+    (center)
+    (right)
+  )
+)

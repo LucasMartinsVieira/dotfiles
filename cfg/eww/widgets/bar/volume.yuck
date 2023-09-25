@@ -1,0 +1,22 @@
+(defpoll volume_percent :interval "1s" "~/.local/bin/volume --get_volume")
+(defpoll volume_mute :interval "1s" "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}'")
+
+(
+ defwidget volume []
+ (
+  eventbox
+   :onscroll "echo {} | sed -e 's/up/--inc/g' -e 's/down/--dec/g' | xargs volume"
+   :cursor "pointer"
+  (
+   button
+    :class "power icons"
+    :onclick "~/.local/bin/volume --toggle"
+    :tooltip "Volume: ${volume_percent}%"
+     {
+      volume_percent == 0 || volume_mute == "[MUTED]" ? "󰖁" :
+      volume_percent <= 30 ? "󰕿" : 
+      volume_percent <= 70 ? "" : ""
+     }
+  )
+ )
+)

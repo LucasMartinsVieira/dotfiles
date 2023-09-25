@@ -1,13 +1,15 @@
 (include "./widgets/powermenu.yuck")
 
-(defwindow powermenu0
+(
+ defwindow powermenu0
   :monitor 0
   :stacking "fg"
   :geometry (geometry :anchor "right center")
   (powermenu)
 )
 
-(defwindow powermenu1
+(
+ defwindow powermenu1
   :monitor 1
   :stacking "fg"
   :geometry (geometry :anchor "right center")

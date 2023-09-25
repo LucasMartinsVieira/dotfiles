@@ -7,15 +7,16 @@
 # shellcheck disable=SC1091
 
 ### AUTO START
-# riverctl spawn "dunst"
+riverctl spawn "dunst"
 # riverctl spawn "waybar"
-# riverctl spawn "eww daemon"
-# riverctl spawn "wl-paste --type text --watch cliphist store"
-# riverctl spawn "wl-paste --type image --watch cliphist store"
-# riverctl spawn "swww init"
-# riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
-# riverctl spawn "wlsunset -t 3400 -T 3401"
-# riverctl spawn "display_select"
+riverctl spawn "eww daemon"
+riverctl spawn "eww open-many bar0 bar1"
+riverctl spawn "wl-paste --type text --watch cliphist store"
+riverctl spawn "wl-paste --type image --watch cliphist store"
+riverctl spawn "swww init"
+riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
+riverctl spawn "wlsunset -t 3400 -T 3401"
+riverctl spawn "display_select"
 # riverctl spawn "wlr-randr --output eDP-1 --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --preferred --mode 1920x1080 --pos 0,0 --transform normal"
 
 # BINDS

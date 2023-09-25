@@ -1,0 +1,41 @@
+(include "./widgets/bar.yuck")
+
+(
+  defwindow bar0
+    :monitor 0
+    :geometry
+    (
+      geometry
+      :width "1%"
+      :height "100%"
+      :anchor "left center"
+    )
+
+      ; Wayland
+      :stacking "fg"
+      :exclusive true
+      :focusable false
+      :namespace "bar"
+
+      (bar)
+)
+
+(
+  defwindow bar1
+    :monitor 1
+    :geometry
+    (
+      geometry
+      :width "1%"
+      :height "100%"
+      :anchor "left center"
+  )
+
+      ; Wayland
+      :stacking "fg"
+      :exclusive true
+      :focusable false
+      :namespace "bar"
+
+      (bar)
+)

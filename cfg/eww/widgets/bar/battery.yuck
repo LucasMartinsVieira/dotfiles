@@ -1,0 +1,22 @@
+(defpoll battery_percent :interval "1s" "cat /sys/class/power_supply/BAT?/capacity 2>/dev/null | head -1")
+
+(
+ defwidget battery []
+  (
+   button
+    :class "power icons"
+    :tooltip "Battery: ${battery_percent}%"
+     {
+       battery_percent == 0 ? "󰂎" :
+       battery_percent <= 10 ? "󰁺" :
+       battery_percent <= 20 ? "󰁻" :
+       battery_percent <= 30 ? "󰁼" :
+       battery_percent <= 40 ? "󰁽" :
+       battery_percent <= 50 ? "󰁾" :
+       battery_percent <= 60 ? "󰁿" :
+       battery_percent <= 70 ? "󰂀" :
+       battery_percent <= 80 ? "󰂁" :
+       battery_percent <= 90 ? "󰂂" : "󰁹"
+     }
+  )
+)

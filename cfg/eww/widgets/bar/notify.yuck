@@ -1,0 +1,13 @@
+(
+  defwidget notify []
+ (
+  eventbox
+   :cursor "pointer"
+  (
+    button
+    :class "power icons"
+    :onclick "eww open-many powermenu0 powermenu1 --toggle"
+    "󰂚"
+  )
+ )
+)
