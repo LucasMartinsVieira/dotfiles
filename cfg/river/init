@@ -7,15 +7,15 @@
 # shellcheck disable=SC1091
 
 ### AUTO START
-riverctl spawn "dunst"
-riverctl spawn "waybar"
-riverctl spawn "eww daemon"
-riverctl spawn "wl-paste --type text --watch cliphist store"
-riverctl spawn "wl-paste --type image --watch cliphist store"
-riverctl spawn "swww init"
-riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
-riverctl spawn "wlsunset -t 3400 -T 3401"
-riverctl spawn "display_select"
+# riverctl spawn "dunst"
+# riverctl spawn "waybar"
+# riverctl spawn "eww daemon"
+# riverctl spawn "wl-paste --type text --watch cliphist store"
+# riverctl spawn "wl-paste --type image --watch cliphist store"
+# riverctl spawn "swww init"
+# riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
+# riverctl spawn "wlsunset -t 3400 -T 3401"
+# riverctl spawn "display_select"
 # riverctl spawn "wlr-randr --output eDP-1 --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --preferred --mode 1920x1080 --pos 0,0 --transform normal"
 
 # BINDS
@@ -27,9 +27,9 @@ riverctl map normal Super O spawn obsidian
 riverctl map normal Super P spawn "kitty -e fish -c lf"
 
 # ON/OFF Services
-riverctl map normal Super+Alt N spawn "$HOME/.config/river/scripts/on-off -n"
-riverctl map normal Super+Alt B spawn "$HOME/.config/river/scripts/on-off -b"
-riverctl map normal Super+Alt W spawn "$HOME/.config/river/scripts/on-off -w"
+riverctl map normal Super+Alt N spawn "$HOME/.local/bin/on-off -n"
+riverctl map normal Super+Alt B spawn "$HOME/.local/bin/on-off -b"
+riverctl map normal Super+Alt W spawn "$HOME/.local/bin/on-off -w"
 
 # Interfaces
 riverctl map normal Super+Control P spawn "eww open-many --toggle powermenu0 powermenu1"
@@ -143,13 +143,13 @@ riverctl map passthrough Super F11 enter-mode normal
 for mode in normal locked
 do
     # Volume
-    riverctl map $mode None XF86AudioRaiseVolume  spawn "$HOME/.config/river/scripts/volume --inc"
-    riverctl map $mode None XF86AudioLowerVolume  spawn "$HOME/.config/river/scripts/volume --dec"
-    riverctl map $mode None XF86AudioMute         spawn "$HOME/.config/river/scripts/volume --toggle"
+    riverctl map $mode None XF86AudioRaiseVolume  spawn "$HOME/.local/bin/volume --inc"
+    riverctl map $mode None XF86AudioLowerVolume  spawn "$HOME/.local/bin/volume --dec"
+    riverctl map $mode None XF86AudioMute         spawn "$HOME/.local/bin/volume --toggle"
     d
-    riverctl map $mode Super Equal                spawn "$HOME/.config/river/scripts/volume --inc"
-    riverctl map $mode Super Minus                spawn "$HOME/.config/river/scripts/volume --dec"
-    riverctl map $mode Super 0                    spawn "$HOME/.config/river/scripts/volume --toggle"
+    riverctl map $mode Super Equal                spawn "$HOME/.local/bin/volume --inc"
+    riverctl map $mode Super Minus                spawn "$HOME/.local/bin/volume --dec"
+    riverctl map $mode Super 0                    spawn "$HOME/.local/bin/volume --toggle"
 
     # Media
     riverctl map $mode None XF86AudioPlay         spawn "playerctl play-pause"
@@ -162,26 +162,26 @@ do
     riverctl map $mode Super Comma                spawn "playerctl previous"
 
     # Microphone
-    riverctl map $mode Super+Control Equal        spawn "$HOME/.config/river/scripts/volume --inc_mic"
-    riverctl map $mode Super+Control Minus        spawn "$HOME/.config/river/scripts/volume --dec_mic"
-    riverctl map $mode Super+Control 0            spawn "$HOME/.config/river/scripts/volume --toggle_mic"
+    riverctl map $mode Super+Control Equal        spawn "$HOME/.local/bin/volume --inc_mic"
+    riverctl map $mode Super+Control Minus        spawn "$HOME/.local/bin/volume --dec_mic"
+    riverctl map $mode Super+Control 0            spawn "$HOME/.local/bin/volume --toggle_mic"
 
     # Brightness
-    riverctl map $mode None XF86MonBrightnessUp   spawn "$HOME/.config/river/scripts/brightness --inc"
-    riverctl map $mode None XF86MonBrightnessDown spawn "$HOME/.config/river/scripts/brightness --dec"
+    riverctl map $mode None XF86MonBrightnessUp   spawn "$HOME/.local/bin/brightness --inc"
+    riverctl map $mode None XF86MonBrightnessDown spawn "$HOME/.local/bin/brightness --dec"
     
-    riverctl map $mode Super+Shift Equal          spawn "$HOME/.config/river/scripts/brightness --inc"
-    riverctl map $mode Super+Shift Minus          spawn "$HOME/.config/river/scripts/brightness --dec"
+    riverctl map $mode Super+Shift Equal          spawn "$HOME/.local/bin/brightness --inc"
+    riverctl map $mode Super+Shift Minus          spawn "$HOME/.local/bin/brightness --dec"
 
     # Print 
-    riverctl map $mode None Print                 spawn "$HOME/.config/river/scripts/screenshot --full"
+    riverctl map $mode None Print                 spawn "$HOME/.local/bin/screenshot --full"
 
-    riverctl map $mode Super I                    spawn  "$HOME/.config/river/scripts/screenshot --full"
-    riverctl map $mode Super+Shift I              spawn  "$HOME/.config/river/scripts/screenshot --area"
-    riverctl map $mode Super+Control I            spawn  "$HOME/.config/river/scripts/screenshot --window"
+    riverctl map $mode Super I                    spawn  "$HOME/.local/bin/screenshot --full"
+    riverctl map $mode Super+Shift I              spawn  "$HOME/.local/bin/screenshot --area"
+    riverctl map $mode Super+Control I            spawn  "$HOME/.local/bin/screenshot --window"
 
     # Others
-    riverctl map $mode None XF86AudioMicMute      spawn "$HOME/.config/river/scripts/volume --toggle_mic"
+    riverctl map $mode None XF86AudioMicMute      spawn "$HOME/.local/bin/volume --toggle_mic"
 done
 
 # TAGS

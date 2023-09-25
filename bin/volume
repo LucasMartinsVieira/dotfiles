@@ -5,15 +5,8 @@ VOL_ICON=$HOME/.config/river/assets/volume.png
 MIC_ICON=$HOME/.config/river/assets/microphone.png
 
 get_volume() {
-	volume_wpctl=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}')
-	volume=$(echo "scale=0; $volume_wpctl * 100" | bc)
-	# volume=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | sed -e 's/%//')
+	volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}')
 	echo "$volume"
-}
-
-get_mute() {
-	mute=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $4 }')
-	echo "$mute"
 }
 
 notify_user() {
@@ -29,23 +22,25 @@ dec_volume() {
 }
 
 toggle_mute() {
-	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 1000 -u normal -i "$VOL_ICON" "Volume $(get_mute)"
+	if [[ $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}') == "[MUTED]" ]]; then
+		wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 1000 -u normal -i "$VOL_ICON" "Volume: ON"
+	else
+		wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 1000 -u normal -i "$VOL_ICON" "Volume: OFF"
+	fi
 }
 
 toggle_mic() {
-	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send -t 1000 -u normal -i "$MIC_ICON" "Microphone $(get_mic_mute)"
+	if [[ $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3}') == "[MUTED]" ]]; then
+		wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send -t 1000 -u normal -i "$MIC_ICON" "Microphone: ON"
+	else
+		wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-send -t 1000 -u normal -i "$MIC_ICON" "Microphone: OFF"
+	fi
 }
 
 get_mic() {
-	mic_wpctl=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2}')
-	mic=$(echo "scale=0; $mic_wpctl * 100" | bc)
+	mic=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2*100}')
 	# mic=$(amixer sget Capture | grep 'Right:' | awk -F'[][]' '{ print $2 }' | sed -e 's/%//')
 	echo "$mic"
-}
-
-get_mic_mute() {
-	mute=$(amixer sget Capture | grep 'Right:' | awk -F'[][]' '{ print $4 }')
-	echo "$mute"
 }
 
 notify_mic_user() {
