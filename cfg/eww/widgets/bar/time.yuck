@@ -15,12 +15,12 @@ defwidget date_time []
      :valign "center"
     (
      button
-     ;; :onclick "eww open calendar --toggle"
+     :onclick "eww open-many calendar0 calendar1 --toggle"
      "${time.hour}"
     )
    (
      button
-     ;; :onclick "eww open calendar --toggle"
+     :onclick  "eww open-many calendar0 calendar1 --toggle"
      "${time.minute}"
    )
   )

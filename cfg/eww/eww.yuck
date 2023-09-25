@@ -1,2 +1,3 @@
 (include "./windows/powermenu.yuck")
 (include "./windows/bar.yuck")
+(include "./windows/calendar.yuck")

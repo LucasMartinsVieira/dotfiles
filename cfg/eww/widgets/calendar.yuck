@@ -1,0 +1,26 @@
+(
+ deflisten date
+ `date +'{"year":"%Y", "month":"+%m", "day":"+%d"}'`
+)
+
+(
+  defwidget cal []
+  (
+    box
+    :class "cal-box"
+    :orientation "v"
+
+    (
+      box
+      :class "cal-inner-box"
+
+      (
+        calendar
+        :class "cal"
+        :day "${date.day}"
+        :month "${date.month}"
+        :year "${date.year}"
+      )
+    )
+  )
+)

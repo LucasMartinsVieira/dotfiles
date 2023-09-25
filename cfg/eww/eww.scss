@@ -14,9 +14,10 @@ $blue: #82aaff;
 $magenta: #c792ea;
 $cyan: #296596;
 $white: $fg;
+$font: "jetBrainsMono Nerd Font";
 
 tooltip {
-  font-family: "jetBrainsMono Nerd Font";
+  font-family: $font;
   font-weight: 500;
   font-size: 1rem;
   color: $fg;
@@ -27,3 +28,4 @@ tooltip {
 
 @import "./styles/powermenu.scss";
 // @import "./styles/bar.scss";
+@import "./styles/calendar.scss";

@@ -1,4 +1,4 @@
-(defpoll battery_percent :interval "1s" "cat /sys/class/power_supply/BAT?/capacity 2>/dev/null | head -1")
+(defpoll battery_percent :interval "60s" "cat /sys/class/power_supply/BAT?/capacity 2>/dev/null | head -1")
 
 (
  defwidget battery []
