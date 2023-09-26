@@ -21,13 +21,14 @@ window>.bar {
 
 .tag {
   margin: 1px 0px;
-  margin-left: 0.3rem;
+  // margin-left: 0.3rem;
   border-bottom: 2px solid rgba(0,0,0,0);
 
   &:hover { 
     // transition: 100ms linear border-color;
-    border-bottom: 2px solid $red;
-    color: $red;
+    // border-bottom: 2px solid $blue;
+    color: $blue;
+    transition: background-color 100ms ease-in-out;
   }
 }
 
@@ -42,8 +43,10 @@ window>.bar {
 
   &.menu-icon {
     color: $mint;
-    font-size: 1.8rem;
-    margin-right: 0.2rem;
+    font-size: 1.4rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
   }
   
   &.wifi-icon {

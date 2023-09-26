@@ -13,20 +13,30 @@
       for tag in tags
       (
         button
-        :class "tag icons"
+        :class "icons tag"
         :onclick "riverctl set-focused-tags ${tag}"
         :onrightclick "riverctl toggle-focused-tags ${tag}"
         {
-          tag == 1   ? "" :
-          tag == 2   ? "" :
-          tag == 4   ? "" :
-          tag == 8   ? "" :
-          tag == 16  ? "" :
-          tag == 32  ? "" :
-          tag == 64  ? "" :
-          tag == 128 ? "" :
-          tag == 256 ? "" :
+          tag == 1   ? "" :
+          tag == 2   ? "󰈹" :
+          tag == 4   ? "󱩽" :
+          tag == 8   ? "󰝚" :
+          tag == 16  ? "󰙯" :
+          tag == 32  ? "󰇮" :
+          tag == 64  ? "󱓷" :
+          tag == 128 ? "󱎫" :
+          tag == 256 ? "" :
           ""
+           
+          ;; tag == 1   ? "" :
+          ;; tag == 2   ? "" :
+          ;; tag == 4   ? "" :
+          ;; tag == 8   ? "" :
+          ;; tag == 16  ? "" :
+          ;; tag == 32  ? "" :
+          ;; tag == 64  ? "" :
+          ;; tag == 128 ? "" :
+          ;; tag == 256 ? "" :
         }
       )
     )
