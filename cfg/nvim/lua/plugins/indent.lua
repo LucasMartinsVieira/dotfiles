@@ -22,8 +22,9 @@ return {
   -- end,
 
   "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
   config = function()
-    require("indent_blankline").setup({
+    require("ibl").setup({
       char = "│",
       show_trailing_blankline_indent = false,
       show_current_context = true,
@@ -35,6 +36,5 @@ return {
       -- show_first_indent_level = true,
       -- use_treesitter = true,
     })
-
   end,
 }

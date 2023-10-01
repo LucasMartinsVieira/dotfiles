@@ -36,7 +36,7 @@ randomize() {
 		;;
 	'wayland')
 		# This controls (in seconds) when to switch to the next image
-		INTERVAL=300
+		INTERVAL=900
 
 		while true; do
 			find "${WALLPAPER_DIR}" |

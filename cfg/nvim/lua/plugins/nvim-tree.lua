@@ -25,12 +25,7 @@ return {
       -- Custom Keymaps
       vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
       vim.keymap.set("n", "<Tab>", api.node.open.preview, opts("Open Preview"))
-      vim.keymap.set(
-        "n",
-        "<BS>",
-        api.node.navigate.parent_close,
-        opts("Close Directory")
-      )
+      vim.keymap.set("n", "<BS>", api.node.navigate.parent_close, opts("Close Directory"))
       vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts("Info"))
       vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
       vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
@@ -40,28 +35,13 @@ return {
       vim.keymap.set("n", "p", api.fs.paste, opts("Paste"))
       vim.keymap.set("n", "y", api.fs.copy.node, opts("Copy"))
       vim.keymap.set("n", "d", api.fs.remove, opts("Delete"))
-      vim.keymap.set(
-        "n",
-        "v",
-        api.node.open.vertical,
-        opts("Open: Vertical Split")
-      )
+      vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
       vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Split"))
       vim.keymap.set("n", "/", api.tree.search_node, opts("Search"))
       vim.keymap.set("n", "[g", api.node.navigate.git.prev, opts("Prev Git"))
       vim.keymap.set("n", "]g", api.node.navigate.git.next, opts("Next Git"))
-      vim.keymap.set(
-        "n",
-        "]d",
-        api.node.navigate.diagnostics.next,
-        opts("Next Diagnostic")
-      )
-      vim.keymap.set(
-        "n",
-        "[d",
-        api.node.navigate.diagnostics.prev,
-        opts("Prev Diagnostic")
-      )
+      vim.keymap.set("n", "]d", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
+      vim.keymap.set("n", "[d", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
     end
     local icons = require("user.icons")
     require("nvim-tree").setup({
@@ -106,7 +86,7 @@ return {
       },
       view = {
         width = 32,
-        hide_root_folder = false,
+        -- hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
         number = false,

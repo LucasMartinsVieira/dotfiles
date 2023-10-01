@@ -54,7 +54,7 @@ return {
       nmap("<leader>lK", "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help")
       nmap("<leader>lw", "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace Folder")
       nmap("<leader>lW", "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace Folder")
-      nmap("<leader>ll", "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Workspace Folders")
+      nmap("<leader>lL", "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Workspace Folders")
       nmap("<leader>lt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", "Type Definition")
       nmap("<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", "Go To Definition")
       nmap("<leader>lD", "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go To declaration")
