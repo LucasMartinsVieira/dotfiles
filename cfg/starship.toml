@@ -12,7 +12,6 @@ $nodejs\
 $rust\
 $zig\
 $lua\
-$time\
 $line_break\
 $character"""
 

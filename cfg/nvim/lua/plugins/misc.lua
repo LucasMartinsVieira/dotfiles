@@ -27,11 +27,12 @@ return {
   },
   {
     "stevearc/dressing.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   -- Vim Plugins
   {
     "tpope/vim-sleuth",
-    "elkowar/yuck.vim"
+    "elkowar/yuck.vim",
+    "christoomey/vim-tmux-navigator",
   },
 }
