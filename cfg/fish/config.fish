@@ -33,7 +33,7 @@ end
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
 bind -M insert \cp 'lfcd'
-bind -M insert \cf 'kitty-sessionizer'
+# bind -M insert \cf 'tmux-sessionizer'
 
 ### Adding to the $PATH
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
