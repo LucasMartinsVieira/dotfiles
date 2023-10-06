@@ -4,7 +4,7 @@ local status_ok, _ = pcall(function()
   vim.cmd.colorscheme(colorscheme)
 
   -- IndentBlankline
-  vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = "#737aa2", bg = "NONE" })
+  -- vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = "#737aa2", bg = "NONE" })
 
   -- Nvim Navic
   if colorscheme == "nightfly" then

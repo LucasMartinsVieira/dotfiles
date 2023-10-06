@@ -30,6 +30,11 @@ nmap("<leader>v", "<CMD>vsplit<CR>", "Vsplit")
 nmap("<leader>/", "<CMD>noh<CR>", "")
 vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+-- local builtin = require("telescope.builtin")
+-- vim.keymap.set("n", "C-p", require("telescope.builtin").git_files)
+
 -- Plugin keys
 nmap("<leader>pp", "<CMD>Lazy<CR>", "Plugin")
 nmap("<leader>ps", "<CMD>Lazy sync<CR>", "Plugin Sync")
@@ -37,9 +42,10 @@ nmap("<leader>pc", "<CMD>Lazy clean<CR>", "Plugin Clean")
 nmap("<leader>pl", "<CMD>Lazy log<CR>", "Plugin Log")
 
 -- Options/Open
-nmap("<leader>on", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Relative Numbers")
+nmap("<leader>on", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", "Toggle relative numbers")
 nmap("<leader>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", "Spell")
 nmap("<leader>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", "Cursor Line")
+nmap("<leader>od", "<CMD>lua require('user.functions').toggle_diagnostics()<CR>", "Toggle diagnostics ON/OFF")
 nmap("<leader>or", "<CMD>OpenCodeRepo<CR>", "Open Code Repo")
 nmap("<leader>ox", "<CMD>!chmod +x %<CR>", "Chmod +x")
 

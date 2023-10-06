@@ -7,56 +7,30 @@ return {
       cond = vim.fn.executable("make") == 1,
     },
   },
+
   cmd = "Telescope",
+  -- stylua: ignore
   keys = {
-    { "<leader>bb", "<CMD>Telescope buffers<CR>", desc = "Buffers" },
-    { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
-    {
-      "<leader>fx",
-      "<CMD>Telescope diagnostics<CR>",
-      desc = "Find Diagnostics",
-    },
-    {
-      "<leader>fr",
-      "<CMD>Telescope oldfiles<CR>",
-      desc = "Find Recent Files",
-    },
-    { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Find Buffers" },
-    { "<leader>fw", "<CMD>Telescope live_grep<CR>", desc = "Find Word" },
-    {
-      "<leader>fc",
-      "<CMD>Telescope colorscheme<CR>",
-      desc = "Find Colorscheme",
-    },
-    { "<leader>fk", "<CMD>Telescope Keymaps<CR>", desc = "Find Keymaps" },
-    {
-      "<leader>fm",
-      "<CMD>Telescope man_pages<CR>",
-      desc = "Find Man Pages",
-    },
-    { "<leader>fh", "<CMD>Telescope help_tags<CR>", desc = "Find Help" },
+    { "<C-p>", "<CMD>lua require ('telescope.builtin').git_files()<CR>",      desc = "Find Files" },
+    { "<C-g>", "<CMD>lua require ('user.functions').lazygit_toggle()<CR>",    desc = "Lazygit" },
+
+    { "<leader>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
+    { "<leader>bb", "<CMD>Telescope buffers<CR>",                             desc = "Buffers" },
+    { "<leader>ff", "<CMD>Telescope find_files<CR>",                          desc = "Find Files" },
+    { "<leader>fx", "<CMD>Telescope diagnostics<CR>",                         desc = "Find Diagnostics" },
+    { "<leader>fr", "<CMD>Telescope oldfiles<CR>",                            desc = "Find Recent Files" },
+    { "<leader>fb", "<CMD>Telescope buffers<CR>",                             desc = "Find Buffers" },
+    { "<leader>fw", "<CMD>Telescope live_grep<CR>",                           desc = "Find Word" },
+    { "<leader>fc", "<CMD>Telescope colorscheme<CR>",                         desc = "Find Colorscheme" },
+    { "<leader>fk", "<CMD>Telescope Keymaps<CR>",                             desc = "Find Keymaps" },
+    { "<leader>fm", "<CMD>Telescope man_pages<CR>",                           desc = "Find Man Pages" },
+    { "<leader>fh", "<CMD>Telescope help_tags<CR>",                           desc = "Find Help" },
 
     -- Git Commands
-    {
-      "<leader>gs",
-      "<CMD>Telescope git_status<CR>",
-      desc = "Telescope Git Status",
-    },
-    {
-      "<leader>gc",
-      "<CMD>Telescope git_commits<CR>",
-      desc = "Telescope Git Commits",
-    },
-    {
-      "<leader>gf",
-      "<CMD>Telescope git_files<CR>",
-      desc = "Telescope Git Files",
-    },
-    {
-      "<leader>gb",
-      "<CMD>Telescope git_branches<CR>",
-      desc = "Telescope Git Branches",
-    },
+    { "<leader>gs", "<CMD>Telescope git_status<CR>",                          desc = "Telescope Git Status" },
+    { "<leader>gc", "<CMD>Telescope git_commits<CR>",                         desc = "Telescope Git Commits" },
+    { "<leader>gf", "<CMD>Telescope git_files<CR>",                           desc = "Telescope Git Files" },
+    { "<leader>gb", "<CMD>Telescope git_branches<CR>",                        desc = "Telescope Git Branches" },
   },
   config = function()
     local icons = require("user.icons")
@@ -104,6 +78,12 @@ return {
 
         find_files = {
           previewer = false,
+          theme = "dropdown",
+          hidden = "true",
+        },
+
+        git_files = {
+          previewer = true,
           theme = "dropdown",
           hidden = "true",
         },

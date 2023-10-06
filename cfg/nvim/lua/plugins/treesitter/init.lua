@@ -13,7 +13,6 @@ return {
       { "<c-space>", desc = "Increment selection" },
       { "<bs>", desc = "Schrink selection", mode = "x" },
     },
-    ---@type TSConfig
     opts = {
       highlight = {
         enable = true,
@@ -52,9 +51,13 @@ return {
       -- Auto closing html tags
       autotag = {
         enable = true,
+        enable_rename = true,
+        enable_close = true,
+        enable_close_on_slash = true,
+        filetypes = { "html", "javascriptreact", "typescriptreact", "tsx" },
       },
     },
-    -- -@param opts TSConfig
+    --- @param opts TSConfig
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
       require("nvim-ts-autotag").setup()

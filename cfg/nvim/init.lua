@@ -17,6 +17,7 @@ require("user.options")
 require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lsp" },
+  { import = "plugins.treesitter" },
 }, {
   checker = {
     enabled = true,
