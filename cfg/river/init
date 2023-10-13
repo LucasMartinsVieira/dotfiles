@@ -8,7 +8,6 @@
 
 ### AUTO START
 riverctl spawn "dunst"
-# riverctl spawn "waybar"
 riverctl spawn "eww daemon"
 riverctl spawn "eww open-many bar0 bar1"
 riverctl spawn "wl-paste --type text --watch cliphist store"
