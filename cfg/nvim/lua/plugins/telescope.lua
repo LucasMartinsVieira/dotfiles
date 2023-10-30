@@ -12,7 +12,6 @@ return {
   -- stylua: ignore
   keys = {
     { "<C-p>", "<CMD>lua require ('telescope.builtin').git_files()<CR>",      desc = "Find Files" },
-    { "<C-g>", "<CMD>lua require ('user.functions').lazygit_toggle()<CR>",    desc = "Lazygit" },
 
     { "<leader>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
     { "<leader>bb", "<CMD>Telescope buffers<CR>",                             desc = "Buffers" },

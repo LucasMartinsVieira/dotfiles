@@ -247,7 +247,7 @@ riverctl border-color-urgent 0xfc514e
 riverctl set-repeat 50 300
 
 # Set keyboard layout
-riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch,ctrl:nocaps "us,br"
+riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch,ctrl:swapcaps "us,br"
 
 # Mouse focus follow
 riverctl focus-follows-cursor normal

@@ -31,6 +31,7 @@ nmap("<leader>/", "<CMD>noh<CR>", "")
 vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-g>", "<cmd>silent !tmux new-window -n 'lazygit' lazygit<CR>")
 
 -- local builtin = require("telescope.builtin")
 -- vim.keymap.set("n", "C-p", require("telescope.builtin").git_files)
