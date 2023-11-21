@@ -7,9 +7,9 @@ normal() {
 	case "$XDG_SESSION_TYPE" in
 	'x11')
 		if xrandr | grep "HDMI-1 connected" >/dev/null; then
-			xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+			xrandr --output eDP --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 		else
-			xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off
+			xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off
 		fi
 		;;
 	'wayland')
@@ -36,21 +36,21 @@ rofi_menu() {
 	case $choice in
 	"HDMI + Notebook")
 		if [[ "$XDG_SESSION_TYPE" == 'x11' ]]; then
-			xrandr --output eDP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+			xrandr --output eDP --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 		elif [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
 			wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --on --preferred --mode 1920x1080 --pos 0,0 --transform normal
 		fi
 		;;
 	"HDMI Only")
 		if [[ "$XDG_SESSION_TYPE" == 'x11' ]]; then
-			xrandr --output eDP-1 --off --output HDMI-1 --on --primary --mode 1920x1080 --pos 0x0 --rotate normal
+			xrandr --output eDP --off --output HDMI-A-0 --on --primary --mode 1920x1080 --pos 0x0 --rotate normal
 		elif [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
 			wlr-randr --output eDP-1 --off --output HDMI-A-1 --on --preferred --mode 1920x1080 --pos 0,0 --transform normal
 		fi
 		;;
 	"Notebook Only")
 		if [[ "$XDG_SESSION_TYPE" == 'x11' ]]; then
-		  xrandr --output eDP-1 --on --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off
+		  xrandr --output eDP --on --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off
 		elif [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
 			wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --off
 		fi

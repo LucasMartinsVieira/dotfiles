@@ -92,7 +92,7 @@ local function get_val()
 
   awesome.connect_signal("signal::disk", function(disk_perc)
     disk_info.markup =
-      helpers.colorize_text(tonumber(disk_perc) .. "%", theme.red)
+      helpers.colorize_text(string.format("%s", disk_perc), theme.red)
   end)
 
   awesome.connect_signal("signal::updates", function(upd)

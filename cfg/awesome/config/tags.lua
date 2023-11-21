@@ -10,5 +10,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
     icons.tag,
     icons.tag,
     icons.tag,
+    icons.tag,
+    icons.tag,
+    icons.tag,
   }, s, awful.layout.layouts[1])
 end)

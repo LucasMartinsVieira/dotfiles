@@ -60,19 +60,21 @@ awesome.connect_signal("signal::volume", function(vol, mute)
     end
   end
 end)
+-- amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | sed -e 's/%//'
 
 function volume.get_vol()
   local script = [[
-  amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | sed -e 's/%//'
+  wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}'
   ]]
 
+  -- amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $4 }'
   local script2 = [[
-  amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $4 }'
+  wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}'
   ]]
 
   awful.spawn.easy_async_with_shell(script, function(vol)
     awful.spawn.easy_async_with_shell(script2, function(is_mute)
-      if is_mute:match("on") then
+      if is_mute:match("[MUTED]") then
         muted = true
       else
         muted = false

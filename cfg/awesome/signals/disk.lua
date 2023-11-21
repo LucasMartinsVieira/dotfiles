@@ -7,7 +7,7 @@ local main_disk = user_likes.user.main_disk
 
 local function get_disk()
   local script = [[
-	df -kH -B 1MB ]]..main_disk..[[ | tail -1 | awk '{printf $5}' | sed -e 's/%//'
+	df -kH -B 1MB ]] .. main_disk .. [[ | tail -2 | awk '{printf $5}' | sed -e 's/%//' -e 's/Use//'
 	]]
 
   awful.spawn.easy_async_with_shell(script, function(disk_perc)
