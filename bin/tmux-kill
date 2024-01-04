@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SESSIONS=$(tmux ls | grep -v '(attached)' | awk -F ':' '{ print $1 }' | tr '\n' ' ')
+CHOOSE=$(gum choose --no-limit $SESSIONS)
+
+for SESSION in $CHOOSE
+do
+  tmux kill-session -t "$SESSION"
+done
+
