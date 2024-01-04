@@ -64,16 +64,20 @@ nmap("<M-S-l>", "<CMD>vertical resize -2<CR>")
 nmap("<M-S-h>", "<CMD>vertical resize +2<CR>")
 
 -- Navigate buffers
-nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Previous")
-nmap("<S-h>", "<CMD>bprevious<CR>", "Buffer Previous")
-nmap("<S-d>", "<CMD>bdelete<CR>", "Buffer Delete")
+-- nmap("<S-l>", "<CMD>bnext<CR>", "Buffer Previous")
+-- nmap("<S-h>", "<CMD>bprevious<CR>", "Buffer Previous")
+-- nmap("<S-d>", "<CMD>Bdelete<CR>", "Buffer Delete")
 
 nmap("<leader>bn", "<CMD>bnext<CR>", "Buffer Next")
 nmap("<leader>bp", "<CMD>bprevious<CR>", "Buffer Previous")
-nmap("<leader>bd", "<CMD>bdelete<CR>", "Buffer Delete")
+nmap("<leader>bd", "<CMD>Bdelete<CR>", "Buffer Delete")
 
 nmap("]b", "<CMD>bnext<CR>", "Buffer Previous")
 nmap("[b", "<CMD>bprevious<CR>", "Buffer Previous")
+
+-- Quickfix list
+nmap("]q", "<CMD>cnext<CR>", "Quickfix list next")
+nmap("[q", "<CMD>cprev<CR>", "Quickfix list prev")
 
 -- Move current line / block with Alt-j/k a la vscode.
 nmap("<A-j>", "<CMD>move .+1<CR>==")

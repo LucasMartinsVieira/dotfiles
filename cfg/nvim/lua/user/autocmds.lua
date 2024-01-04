@@ -11,18 +11,18 @@ augroup("dir_opened", {})
 -- Autocmds
 autocmd({ "BufNewFile", "BufRead" }, {
   group = "filetype_settings",
-  pattern = { "*.ejs" },
+  pattern = { "*.ejs", "*.handlebars" },
   command = "set filetype=html",
 })
 
--- autocmd("BufWritePost", {
---   group = "filetype_settings",
---   pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },
---   desc = "Autoformat on save",
---   callback = function()
---     vim.lsp.buf.format()
---   end,
--- })
+autocmd("BufWritePost", {
+  group = "filetype_settings",
+  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },
+  desc = "Autoformat on save",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
 
 autocmd("FileType", {
   group = "filetype_settings",
@@ -72,11 +72,13 @@ autocmd("filetype", {
     "floaterm",
     "lspinfo",
     "lir",
+    "netrw",
     "lsp-installer",
     "null-ls-info",
     "tsplayground",
     "DressingSelect",
     "Jaq",
+    "oil",
   },
   callback = function()
     vim.keymap.set("n", "q", "<CMD>q!<CR>", { buffer = true })

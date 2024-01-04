@@ -23,9 +23,12 @@ local options = {
   swapfile = false,
   showtabline = 0,
   mousemoveevent = true,
-  scrolloff = 8
+  scrolloff = 8,
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+vim.g.netrw_banner = 0
+vim.g.netrw_mouse = 2

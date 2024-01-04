@@ -2,7 +2,7 @@ return {
   -- Rust
   {
     "saecki/crates.nvim",
-    requires = { 'nvim-lua/plenary.nvim' },
+    dependencies = { "nvim-lua/plenary.nvim" },
     tag = "v0.3.0",
     lazy = true,
     enabled = true,
@@ -26,7 +26,7 @@ return {
   -- Json
   {
     "b0o/schemastore.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,
   },
   -- Markdown

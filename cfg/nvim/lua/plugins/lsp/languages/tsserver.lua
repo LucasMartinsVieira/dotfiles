@@ -50,10 +50,10 @@ return {
 --         },
 --       },
 --     },
-    -- require("null_ls").setup({
-    --   sources = {
-    --     require("typescript.extensions.null-ls.code-actions"),
-    --   },
-    -- }),
-  -- }),
+-- require("null_ls").setup({
+--   sources = {
+--     require("typescript.extensions.null-ls.code-actions"),
+--   },
+-- }),
+-- }),
 -- }

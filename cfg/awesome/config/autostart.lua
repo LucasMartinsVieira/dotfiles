@@ -22,7 +22,10 @@ awful.spawn.with_shell(
 )
 
 -- Changes color temperature
-awful.spawn.with_shell("redshift -P -O 4500")
+awful.spawn.with_shell("redshift -P -O 3400")
 
 -- Monitor Config
-awful.spawn.with_shell("display_select")
+-- awful.spawn.with_shell("display_select")
+awful.spawn.with_shell(
+  "xrandr --output eDP --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal"
+)

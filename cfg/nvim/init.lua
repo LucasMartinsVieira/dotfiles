@@ -18,6 +18,7 @@ require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lsp" },
   { import = "plugins.treesitter" },
+  { import = "plugins.extras" },
 }, {
   checker = {
     enabled = true,
@@ -27,6 +28,7 @@ require("lazy").setup({
     notify = false,
   },
 })
+
 require("user.colorscheme")
 require("user.winbar")
 require("user.autocmds")

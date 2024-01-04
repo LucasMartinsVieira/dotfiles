@@ -55,7 +55,7 @@ return {
     function()
       local current_line = vim.fn.line(".")
       local total_lines = vim.fn.line("$")
-      local chars = {"__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██",}
+      local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
       local line_ratio = current_line / total_lines
       local index = math.ceil(line_ratio * #chars)
       return chars[index]
@@ -85,7 +85,7 @@ return {
 
   lsp = {
     function()
-      local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
+      local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
       if #buf_clients == 0 then
         return "LSP Inactive"
       end

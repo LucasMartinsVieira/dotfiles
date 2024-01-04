@@ -67,19 +67,18 @@ abbr gP "git push"
 abbr gd "git diff"
 abbr gl "git log"
 
-# confirm before overwriting something
+# Confirm before overwriting something
 # alias cp="cp -i"
 # alias mv='mv -i'
 # alias rm='rm -i'
 
-# adding flags
+# Adding flags
 alias df='df -h'                          
 alias free='free -h'                      
 
 # Changing "ls" to "eza"
 alias ls="eza -al -s=type"
 alias ll="eza -al --icons -s=type"
-alias l="eza -a --icons -s=type"
 
 # Yt-dlp
 alias yta-aac="yt-dlp --extract-audio --audio-format aac"
@@ -94,15 +93,16 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 
 # Programs
 alias lf="lfrun"
+alias v ="nvim"
 
 # If an argument is not given run the program with fzf if it's given run normally
-function v
-    if test -n "$argv"
-        nvim $argv
-    else
-        nvim (fzf)
-    end
-end
+# function v
+#     if test -n "$argv"
+#         nvim $argv
+#     else
+#         nvim (fzf)
+#     end
+# end
 
 function t
     if test -n "$argv"

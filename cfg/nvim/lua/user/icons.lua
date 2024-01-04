@@ -21,7 +21,7 @@ return {
     Number = "",
     String = "",
     Snippet = "",
-    Text = '󰉿',
+    Text = "󰉿",
     Color = " ",
     File = " ",
     Reference = "",
@@ -86,7 +86,7 @@ return {
     deleted = "",
     untracked = "U",
     ignored = "◌",
-    conflict  = "",
+    conflict = "",
   },
   documents = {
     default = "",
