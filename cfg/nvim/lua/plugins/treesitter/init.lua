@@ -20,7 +20,7 @@ return {
       },
       indent = { enable = true },
       -- context_commentstring = { enable = true, enable_autocmd = false },
-      ts_context_commentstring = { enable = true, enable_autocmd = false },
+      -- ts_context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = {
         "bash",
         -- "help",
@@ -37,6 +37,7 @@ return {
         "rust",
         "python",
         "vim",
+        "vimdoc",
         "yaml",
       },
       incremental_selection = {

@@ -93,7 +93,7 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 
 # Programs
 alias lf="lfrun"
-alias v ="nvim"
+alias v="nvim"
 
 # If an argument is not given run the program with fzf if it's given run normally
 # function v

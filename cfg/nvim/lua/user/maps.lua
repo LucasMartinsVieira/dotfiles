@@ -51,11 +51,11 @@ nmap("<leader>or", "<CMD>OpenCodeRepo<CR>", "Open Code Repo")
 nmap("<leader>ox", "<CMD>!chmod +x %<CR>", "Chmod +x")
 
 -- Navigation Between Windows
-nmap("<C-h>", "<C-w>h<CR>", "Go Left")
-nmap("<C-j>", "<C-w>j<CR>", "Go Down")
-nmap("<C-k>", "<C-w>k<CR>", "Go Up")
-nmap("<C-l>", "<C-w>l<CR>", "Go Right")
-nmap("<C-q>", "<C-w>q<CR>", "Close Slipt")
+-- nmap("<C-h>", "<C-w>h<CR>", "Go Left")
+-- nmap("<C-j>", "<C-w>j<CR>", "Go Down")
+-- nmap("<C-k>", "<C-w>k<CR>", "Go Up")
+-- nmap("<C-l>", "<C-w>l<CR>", "Go Right")
+-- nmap("<C-q>", "<C-w>q<CR>", "Close Slipt")
 
 -- Resize Window
 nmap("<M-S-k>", "<CMD>resize -2<CR>")
