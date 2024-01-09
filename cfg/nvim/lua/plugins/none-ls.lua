@@ -18,6 +18,7 @@ return {
         formatting.stylua,
         formatting.rustfmt,
         formatting.shfmt,
+        formatting.nixpkgs_fmt,
 
         -- Diagnostics
         diagnostics.shellcheck,
@@ -26,6 +27,7 @@ return {
 
         -- Code Actions
         code_actions.eslint_d,
+        code_actions.statix,
       },
     })
   end,

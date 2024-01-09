@@ -80,12 +80,12 @@ return {
 
     -- Custom Icons for LSP Diagnostics
     local signs = {
-      { name = "DiagnosticSignError", text = icons.diagnostics.error },
-      { name = "DiagnosticSignWarn", text = icons.diagnostics.warning },
-      { name = "DiagnosticSignHint", text = icons.diagnostics.hint },
+      { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+      { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+      { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
       {
         name = "DiagnosticSignInfo",
-        text = icons.diagnostics.information,
+        text = icons.diagnostics.Information,
       },
     }
 

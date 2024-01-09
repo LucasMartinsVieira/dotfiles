@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SESSIONS=$(tmux ls | grep -v '(attached)' | awk -F ':' '{ print $1 }' | tr '\n' ' ')
-CHOOSE=$(gum choose --no-limit $SESSIONS)
+CHOOSE=$(gum choose --header="Session(s) to Kill" --header.foreground="#eee" --header.bold --header.margin="1 1" --selected.strikethrough --selected.foreground="#fc514e" --cursor.foreground="#82aaff" --no-limit $SESSIONS)
 
 for SESSION in $CHOOSE
 do

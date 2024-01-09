@@ -48,7 +48,7 @@ function M.toggle_diagnostics()
     if notify then
       notify("Diagnostics enabled", "warn", {
         title = "Diagnostics",
-        icon = require("user.icons").diagnostics.warning,
+        icon = require("user.icons").diagnostics.Warning,
       })
     else
       vim.print("Diagnostics enabled")
@@ -58,7 +58,7 @@ function M.toggle_diagnostics()
     if notify then
       notify("Diagnostics disabled", "warn", {
         title = "Diagnostics",
-        icon = require("user.icons").diagnostics.warning,
+        icon = require("user.icons").diagnostics.Warning,
       })
     else
       vim.print("Diagnostics disabled")

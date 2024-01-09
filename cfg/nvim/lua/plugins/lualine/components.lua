@@ -76,10 +76,10 @@ return {
     "diagnostics",
     sources = { "nvim_diagnostic" },
     symbols = {
-      error = icons.diagnostics.error .. " ",
-      warn = icons.diagnostics.warning .. " ",
-      info = icons.diagnostics.information .. " ",
-      hint = icons.diagnostics.hint .. " ",
+      error = icons.diagnostics.Error .. " ",
+      warn = icons.diagnostics.Warning .. " ",
+      info = icons.diagnostics.Information .. " ",
+      hint = icons.diagnostics.Hint .. " ",
     },
   },
 

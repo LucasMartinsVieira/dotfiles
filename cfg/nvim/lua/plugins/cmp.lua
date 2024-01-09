@@ -9,13 +9,14 @@ end
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
-  -- stylua: ignore
   dependencies = {
-    { "hrsh7th/cmp-path",     lazy = true },
-    { "hrsh7th/cmp-nvim-lsp", lazy = true },
-    { "hrsh7th/cmp-nvim-lua", lazy = true },
-    { "hrsh7th/cmp-buffer",   lazy = true },
-    { "L3MON4D3/LuaSnip",     version = "2.*", build = "make install_jsregexp" },
+    { "hrsh7th/cmp-path", event = "InsertEnter" },
+    { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+    { "hrsh7th/cmp-nvim-lua", event = "InsertEnter" },
+    { "hrsh7th/cmp-buffer", event = "InsertEnter" },
+    { "hrsh7th/cmp-buffer", event = "InsertEnter" },
+    { "hrsh7th/cmp-emoji", event = "InsertEnter" },
+    { "L3MON4D3/LuaSnip", version = "2.*", build = "make install_jsregexp" },
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
   },
@@ -25,7 +26,7 @@ return {
     local luasnip = require("luasnip")
 
     require("luasnip/loaders/from_vscode").lazy_load()
-    require("luasnip.loaders.from_snipmate").load()
+
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -80,14 +81,21 @@ return {
         format = function(entry, vim_item)
           -- Kind icons
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
           vim_item.menu = ({
             nvim_lsp = "[LSP]",
             nvim_lua = "[NVIM_LUA]",
             luasnip = "[Snippet]",
             buffer = "[Buffer]",
             path = "[Path]",
+            emoji = "[Emoji]",
+            cmdline = "[CmdLine]",
           })[entry.source.name]
+
+          if entry.source.name == "emoji" then
+            vim_item.kind = icons.misc.Smiley
+          end
+
           return vim_item
           -- return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
         end,
@@ -98,6 +106,8 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        { name = "emoji" },
+        { name = "cmdline" },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
