@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("user.maps")
 require("user.options")
--- require("lazy").setup("plugins")
 require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lsp" },
@@ -30,5 +29,4 @@ require("lazy").setup({
 })
 
 require("user.colorscheme")
-require("user.winbar")
 require("user.autocmds")

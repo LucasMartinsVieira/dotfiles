@@ -16,12 +16,18 @@ return {
     { "hrsh7th/cmp-buffer", event = "InsertEnter" },
     { "hrsh7th/cmp-buffer", event = "InsertEnter" },
     { "hrsh7th/cmp-emoji", event = "InsertEnter" },
+    { "roobert/tailwindcss-colorizer-cmp.nvim", enable = true },
     { "L3MON4D3/LuaSnip", version = "2.*", build = "make install_jsregexp" },
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
   },
 
   config = function()
+    -- tailwindcss cmp setup
+    require("tailwindcss-colorizer-cmp").setup({
+      color_square_width = 2,
+    })
+
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
@@ -76,20 +82,21 @@ return {
           "s",
         }),
       },
+
+      --- @diagnostic disable: missing-fields
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
           -- Kind icons
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
           vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[NVIM_LUA]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-            emoji = "[Emoji]",
-            cmdline = "[CmdLine]",
+            copilot = "",
+            nvim_lsp = "",
+            nvim_lua = "",
+            luasnip = "",
+            buffer = "",
+            path = "",
+            emoji = "",
           })[entry.source.name]
 
           if entry.source.name == "emoji" then
@@ -101,21 +108,28 @@ return {
         end,
       },
       sources = {
+        { name = "copilot" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
         { name = "emoji" },
-        { name = "cmdline" },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       },
       window = {
-        documentation = cmp.config.window.bordered(),
-        completion = cmp.config.window.bordered(),
+        completion = {
+          border = "rounded",
+          scrollbar = false,
+          winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+        },
+        documentation = {
+          border = "rounded",
+          winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+        },
       },
       experimental = {
         ghost_text = true,

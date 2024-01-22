@@ -14,7 +14,8 @@ return {
       sources = {
 
         -- Formatting
-        formatting.prettierd,
+        -- formatting.prettierd,
+        formatting.biome,
         formatting.stylua,
         formatting.rustfmt,
         formatting.shfmt,
@@ -22,11 +23,11 @@ return {
 
         -- Diagnostics
         diagnostics.shellcheck,
-        diagnostics.luacheck,
+        -- diagnostics.luacheck,
         -- diagnostics.eslint,
 
         -- Code Actions
-        code_actions.eslint_d,
+        -- code_actions.eslint_d,
         code_actions.statix,
       },
     })

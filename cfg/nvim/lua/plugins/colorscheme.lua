@@ -1,12 +1,13 @@
 return {
   {
     "bluz71/vim-nightfly-colors",
+    lazy = true,
     priority = 1000,
   },
   {
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
-    enabled = true,
-    lazy = true,
+    lazy = false,
+    priority = 1000,
   },
 }

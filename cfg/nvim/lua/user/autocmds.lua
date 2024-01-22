@@ -15,6 +15,13 @@ autocmd({ "BufNewFile", "BufRead" }, {
   command = "set filetype=html",
 })
 
+autocmd({ "BufNewFile", "BufRead" }, {
+  group = "filetype_settings",
+  pattern = { "*.env", "*.env.*" },
+  command = "set filetype=dotenv",
+})
+
+-- Auto format on save in some filetypes
 autocmd("BufWritePost", {
   group = "filetype_settings",
   pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },

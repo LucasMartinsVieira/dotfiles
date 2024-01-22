@@ -21,6 +21,7 @@ return {
   {
     -- Typescript/JavaScript
     "jose-elias-alvarez/typescript.nvim",
+    enabled = false,
     lazy = true,
   },
   -- Json
@@ -39,15 +40,4 @@ return {
     end,
     ft = "markdown",
   },
-
-  -- CSS
-  -- {
-  --   "roobert/tailwindcss-colorizer-cmp.nvim",
-  --   -- optionally, override the default options:
-  --   config = function()
-  --     require("tailwindcss-colorizer-cmp").setup({
-  --       color_square_width = 2,
-  --     })
-  --   end,
-  -- },
 }

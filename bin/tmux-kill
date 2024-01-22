@@ -3,8 +3,12 @@
 SESSIONS=$(tmux ls | grep -v '(attached)' | awk -F ':' '{ print $1 }' | tr '\n' ' ')
 CHOOSE=$(gum choose --header="Session(s) to Kill" --header.foreground="#eee" --header.bold --header.margin="1 1" --selected.strikethrough --selected.foreground="#fc514e" --cursor.foreground="#82aaff" --no-limit $SESSIONS)
 
+# Check if there is a session to kill
+if [ -z "$SESSIONS" ]; then
+  exit 1
+fi
+
 for SESSION in $CHOOSE
 do
   tmux kill-session -t "$SESSION"
 done
-

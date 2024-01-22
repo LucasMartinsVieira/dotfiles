@@ -2,6 +2,7 @@ return {
   {
     "sindrets/diffview.nvim",
     enabled = true,
+    event = "VeryLazy",
     cmd = {
       "DiffviewOpen",
       "DiffviewClose",
@@ -18,7 +19,17 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "InsertEnter",
-
+    keys = {
+      { "]g", "<CMD>lua require 'gitsigns'.next_hunk({navigation_message = false})<CR>", desc = "Next Hunk" },
+      { "[g", "<CMD>lua require 'gitsigns'.prev_hunk({navigation_message = false})<CR>", desc = "Prev Hunk" },
+      { "<leader>gj", "<CMD>lua require 'gitsigns'.next_hunk({navigation_message = false})<CR>", desc = "Next Hunk" },
+      { "<leader>gk", "<CMD>lua require 'gitsigns'.prev_hunk({navigation_message = false})<CR>", desc = "Prev Hunk" },
+      { "<leader>gp", "<CMD>lua require 'gitsigns'.preview_hunk()<CR>", desc = "Preview Hunk" },
+      { "<leader>gr", "<CMD>lua require 'gitsigns'.reset_hunk()<CR>", desc = "Reset Hunk" },
+      { "<leader>gs", "<CMD>lua require 'gitsigns'.stage_hunk()<CR>", desc = "Stage Hunk" },
+      { "<leader>gu", "<CMD>lua require 'gitsigns'.undo_stage_hunk()<CR>", desc = "Undo Stage Hunk" },
+      { "<leader>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
+    },
     config = function()
       require("gitsigns").setup({
         signs = {
@@ -88,6 +99,15 @@ return {
           enable = false,
         },
       })
+    end,
+  },
+  {
+    "mbbill/undotree",
+    config = function()
+      vim.keymap.set("n", "<leader>u", function()
+        vim.cmd({ cmd = "UndotreeToggle" })
+        vim.cmd({ cmd = "UndotreeFocus" })
+      end, { desc = "Undotree" })
     end,
   },
 }

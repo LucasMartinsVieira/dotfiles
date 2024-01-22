@@ -104,7 +104,7 @@ return {
         active = signs,
       },
       float = {
-        focusable = false,
+        focusable = true,
         style = "minimal",
         border = "rounded",
         source = "always",
@@ -114,6 +114,10 @@ return {
     }
 
     vim.diagnostic.config(config)
+
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+    require("lspconfig.ui.windows").default_options.border = "rounded"
 
     -- Turn on lsp status information
     require("fidget").setup()
@@ -141,15 +145,17 @@ return {
     local lspconfig = require("lspconfig")
 
     local servers = {
-      "lua_ls",
-      "rust_analyzer",
-      "tsserver",
       "bashls",
-      "nil_ls",
-      "html",
       "cssls",
-      "eslint",
+      -- "eslint",
+      "biome",
+      "html",
       "jsonls",
+      "lua_ls",
+      "nil_ls",
+      "rust_analyzer",
+      "tailwindcss",
+      "tsserver",
       "yamlls",
     }
 

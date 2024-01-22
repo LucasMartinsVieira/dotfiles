@@ -1,10 +1,7 @@
-local colorscheme = "nightfly"
+local colorscheme = "moonfly"
 
 local status_ok, _ = pcall(function()
   vim.cmd.colorscheme(colorscheme)
-
-  -- IndentBlankline
-  -- vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = "#737aa2", bg = "NONE" })
 
   -- Nvim Navic
   if colorscheme == "nightfly" then
@@ -20,6 +17,7 @@ local status_ok, _ = pcall(function()
     vim.api.nvim_set_hl(0, "NavicIconsFile", { bg = bg })
     vim.api.nvim_set_hl(0, "NavicIconsNull", { bg = bg })
     vim.api.nvim_set_hl(0, "NavicIconsString", { bg = bg })
+    vim.api.nvim_set_hl(0, "WinBar", { bg = bg })
   end
 end)
 

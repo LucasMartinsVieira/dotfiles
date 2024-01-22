@@ -13,7 +13,6 @@ return {
   keys = {
     { "<C-p>", "<CMD>lua require ('telescope.builtin').git_files()<CR>",      desc = "Find Files" },
 
-    { "<leader>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
     { "<leader>bb", "<CMD>Telescope buffers<CR>",                             desc = "Buffers" },
     { "<leader>ff", "<CMD>Telescope find_files<CR>",                          desc = "Find Files" },
     { "<leader>fx", "<CMD>Telescope diagnostics<CR>",                         desc = "Find Diagnostics" },
@@ -26,10 +25,10 @@ return {
     { "<leader>fh", "<CMD>Telescope help_tags<CR>",                           desc = "Find Help" },
 
     -- Git Commands
-    { "<leader>gs", "<CMD>Telescope git_status<CR>",                          desc = "Telescope Git Status" },
-    { "<leader>gc", "<CMD>Telescope git_commits<CR>",                         desc = "Telescope Git Commits" },
-    { "<leader>gf", "<CMD>Telescope git_files<CR>",                           desc = "Telescope Git Files" },
-    { "<leader>gb", "<CMD>Telescope git_branches<CR>",                        desc = "Telescope Git Branches" },
+    -- { "<leader>gs", "<CMD>Telescope git_status<CR>",                          desc = "Telescope Git Status" },
+    -- { "<leader>gc", "<CMD>Telescope git_commits<CR>",                         desc = "Telescope Git Commits" },
+    -- { "<leader>gf", "<CMD>Telescope git_files<CR>",                           desc = "Telescope Git Files" },
+    -- { "<leader>gb", "<CMD>Telescope git_branches<CR>",                        desc = "Telescope Git Branches" },
   },
   config = function()
     local icons = require("user.icons")

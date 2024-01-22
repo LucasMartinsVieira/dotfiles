@@ -28,7 +28,7 @@ config = function(_, opts)
       ["<leader>p"] = { name = "+Plugins" },
       ["<leader>s"] = { name = "+Session" },
       ["<leader>S"] = { name = "Substitute Text" },
-      ["<leader>t"] = { name = "+Terminal" },
+      ["<leader>t"] = { name = "+Test" },
       ["<leader>x"] = { name = "+Diagnostics" },
       ["<leader>z"] = { name = "+Focus" },
     }

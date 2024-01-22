@@ -10,6 +10,12 @@ return {
     "marilari88/neotest-vitest",
     "rouge8/neotest-rust",
   },
+  keys = {
+    { "<leader>tt", "<CMD>lua require('neotest').run.run()<CR>", desc = "Test Nearest" },
+    { "<leader>tf", "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc = "Test File" },
+    { "<leader>ts", "<CMD>lua require('neotest').run.stop()<CR>", desc = "Test Stop" },
+  },
+
   config = function()
     require("neotest").setup({
       adapters = {
