@@ -34,11 +34,20 @@ keymap("n", "<leader>od", "<CMD>lua require('user.functions').toggle_diagnostics
 keymap("n", "<leader>or", "<CMD>OpenCodeRepo<CR>", { desc = "Open Code Repo" })
 keymap("n", "<leader>ox", "<CMD>!chmod +x %<CR>", { desc = "Chmod +x" })
 
+-- Tabs
+keymap("n", "<leader>an", "<CMD>$tabnew<CR>", { desc = "New Empty Tab" })
+keymap("n", "<leader>aN", "<CMD>tabnew %<CR>", { desc = "New Tab" })
+keymap("n", "<leader>ao", "<CMD>tabonly<CR>", { desc = "Only" })
+keymap("n", "<leader>ah", "<CMD>tabnext<CR>", { desc = "Tab Next" })
+keymap("n", "<leader>al", "<CMD>tabprevious<CR>", { desc = "Tab Prev" })
+keymap("n", "<leader>aH", "<CMD>-tabmove<CR>", { desc = "Move Left" })
+keymap("n", "<leader>aL", "<CMD>+tabmove<CR>", { desc = "Move Right" })
+
 -- Resize Window
 keymap("n", "<M-S-k>", "<CMD>resize -2<CR>")
 keymap("n", "<M-S-j>", "<CMD>resize +2<CR>")
-keymap("n", "<M-S-l>", "<CMD>vertical resize -2<CR>")
-keymap("n", "<M-S-h>", "<CMD>vertical resize +2<CR>")
+keymap("n", "<M-S-l>", "<CMD>vertical resize +2<CR>")
+keymap("n", "<M-S-h>", "<CMD>vertical resize -2<CR>")
 
 -- Navigate buffers
 keymap("n", "<leader>bn", "<CMD>bnext<CR>", { desc = "Buffer Next" })

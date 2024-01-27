@@ -19,7 +19,7 @@ config = function(_, opts)
     mode = { "n", "v" },
       ["]"] = { name = "+next" },
       ["["] = { name = "+prev" },
-      ["<leader>a"] = { name = "+Ai" },
+      ["<leader>a"] = { name = "+Tabs" },
       ["<leader>b"] = { name = "+Buffers" },
       ["<leader>f"] = { name = "+Find" },
       ["<leader>g"] = { name = "+Git" },

@@ -1,7 +1,7 @@
 return {
   "famiu/bufdelete.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   config = function()
     local keymap = vim.keymap.set
     local opts = { noremap = true, silent = true }

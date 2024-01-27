@@ -1,7 +1,6 @@
 return {
   "kevinhwang91/nvim-bqf",
-  event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   config = function()
     require("bqf").setup({
       auto_enable = true,
