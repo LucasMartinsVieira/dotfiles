@@ -14,12 +14,11 @@ return {
     { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
     { "hrsh7th/cmp-nvim-lua", event = "InsertEnter" },
     { "hrsh7th/cmp-buffer", event = "InsertEnter" },
-    { "hrsh7th/cmp-buffer", event = "InsertEnter" },
     { "hrsh7th/cmp-emoji", event = "InsertEnter" },
     { "roobert/tailwindcss-colorizer-cmp.nvim", enable = true },
     { "L3MON4D3/LuaSnip", version = "2.*", build = "make install_jsregexp" },
-    "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets",
+    { "saadparwaiz1/cmp_luasnip" },
+    { "rafamadriz/friendly-snippets" },
   },
 
   config = function()
@@ -90,13 +89,13 @@ return {
           -- Kind icons
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
           vim_item.menu = ({
-            copilot = "",
-            nvim_lsp = "",
-            nvim_lua = "",
-            luasnip = "",
-            buffer = "",
-            path = "",
-            emoji = "",
+            copilot = "(Copilot)",
+            nvim_lsp = "(LSP)",
+            nvim_lua = "(NVIM_LUA)",
+            luasnip = "(Snippet)",
+            buffer = "(Buffer)",
+            path = "(Path)",
+            emoji = "(Emoji)",
           })[entry.source.name]
 
           if entry.source.name == "emoji" then

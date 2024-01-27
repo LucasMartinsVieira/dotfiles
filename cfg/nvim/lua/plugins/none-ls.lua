@@ -23,7 +23,6 @@ return {
 
         -- Diagnostics
         diagnostics.shellcheck,
-        -- diagnostics.luacheck,
         -- diagnostics.eslint,
 
         -- Code Actions

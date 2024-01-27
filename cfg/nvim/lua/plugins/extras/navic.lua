@@ -1,7 +1,6 @@
 return {
   {
     "LunarVim/breadcrumbs.nvim",
-    lazy = true,
     config = function()
       require("breadcrumbs").setup()
     end,
@@ -11,7 +10,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    lazy = true,
+    -- lazy = true,
     enabled = true,
     config = function()
       local icons = require("user.icons")

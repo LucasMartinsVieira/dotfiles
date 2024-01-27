@@ -46,5 +46,12 @@ return {
     vim.keymap.set("n", "<C-l>", function()
       harpoon:list():select(4)
     end)
+
+    vim.keymap.set("n", "<M-h>", function()
+      harpoon:list():prev()
+    end)
+    vim.keymap.set("n", "<M-l>", function()
+      harpoon:list():next()
+    end)
   end,
 }

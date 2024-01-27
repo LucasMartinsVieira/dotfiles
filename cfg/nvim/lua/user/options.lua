@@ -27,3 +27,4 @@ vim.opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below 
 
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
+vim.g.loaded_netrwPlugin = 1

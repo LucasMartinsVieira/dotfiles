@@ -1,82 +1,88 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    version = false, -- last release is way too old and doesn't work on Windows
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "windwp/nvim-ts-autotag",
-    },
-    keys = {
-      { "<c-space>", desc = "Increment selection" },
-      { "<bs>", desc = "Schrink selection", mode = "x" },
-    },
-    opts = {
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      indent = { enable = true },
-      -- context_commentstring = { enable = true, enable_autocmd = false },
-      -- ts_context_commentstring = { enable = true, enable_autocmd = false },
-      ensure_installed = {
-        "bash",
-        -- "help",
-        "regex",
-        "c",
-        "html",
-        "javascript",
-        "typescript",
-        "tsx",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "rust",
-        "python",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = "<nop>",
-          node_decremental = "<bs>",
-        },
-      },
-
-      -- Auto closing html tags
-      autotag = {
-        enable = true,
-        enable_rename = true,
-        enable_close = true,
-        enable_close_on_slash = true,
-        filetypes = { "html", "javascriptreact", "typescriptreact", "tsx" },
-      },
-    },
-    --- @param opts TSConfig
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-      require("nvim-ts-autotag").setup()
-      -- require("treesitter-context").setup({
-      --   enable = false, -- Enable this plugin (Can be enabled/disabled later via commands)
-      --   max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-      --   min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-      --   line_numbers = true,
-      --   multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
-      --   trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-      --   mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
-      --   -- Separator between context and content. Should be a single character string, like '-'.
-      --   -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-      --   separator = nil,
-      --   zindex = 20, -- The Z-index of the context window
-      --   on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-      -- })
-    end,
+  "nvim-treesitter/nvim-treesitter",
+  version = false, -- last release is way too old and doesn't work on Windows
+  build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "windwp/nvim-ts-autotag",
   },
+  keys = {
+    { "<c-space>", desc = "Increment selection" },
+    { "<bs>", desc = "Schrink selection", mode = "x" },
+  },
+  opts = {
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = false,
+    },
+    indent = { enable = true },
+    -- context_commentstring = { enable = true, enable_autocmd = false },
+    -- ts_context_commentstring = { enable = true, enable_autocmd = false },
+    ensure_installed = {
+      "bash",
+      "comment",
+      -- "help",
+      "regex",
+      "c",
+      "html",
+      "javascript",
+      "typescript",
+      "tsx",
+      "json",
+      "jsonc",
+      "lua",
+      "markdown",
+      "rust",
+      "python",
+      "vim",
+      "vimdoc",
+      "yaml",
+    },
+
+    -- Automatically install missing parsers when entering buffer
+    auto_install = true,
+
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<C-space>",
+        node_incremental = "<C-space>",
+        scope_incremental = "<nop>",
+        node_decremental = "<bs>",
+      },
+    },
+
+    -- Auto closing html tags
+    autotag = {
+      enable = true,
+      enable_rename = true,
+      enable_close = true,
+      enable_close_on_slash = true,
+      filetypes = { "html", "javascriptreact", "typescriptreact", "tsx" },
+    },
+  },
+  --- @param opts TSConfig
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+    require("nvim-ts-autotag").setup()
+    -- require("treesitter-context").setup({
+    --   enable = false, -- Enable this plugin (Can be enabled/disabled later via commands)
+    --   max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+    --   min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+    --   line_numbers = true,
+    --   multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
+    --   trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+    --   mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+    --   -- Separator between context and content. Should be a single character string, like '-'.
+    --   -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+    --   separator = nil,
+    --   zindex = 20, -- The Z-index of the context window
+    --   on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+    -- })
+  end,
 }

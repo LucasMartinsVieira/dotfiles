@@ -1,10 +1,11 @@
-local colorscheme = "moonfly"
+local colorscheme = "nightfly"
 
 local status_ok, _ = pcall(function()
   vim.cmd.colorscheme(colorscheme)
 
   -- Nvim Navic
   if colorscheme == "nightfly" then
+    -- local bg = "#080808"
     local bg = "#011627"
     vim.api.nvim_set_hl(0, "NavicText", { bg = bg })
     vim.api.nvim_set_hl(0, "NavicSeparator", { bg = bg })

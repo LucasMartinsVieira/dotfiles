@@ -7,7 +7,7 @@ vim.g.maplocalleader = " "
 -- Normal --
 
 -- Basics
-keymap("n", "<leader>w", "<CMD>w<CR>", { desc = "Write" })
+keymap("n", "<leader>w", "<CMD>wa!<CR>", { desc = "Write" })
 keymap("n", "<leader>q", "<CMD>lua require('user.functions').smart_quit()<CR>", { desc = "Quit" })
 keymap("n", "<leader>h", "<CMD>split<CR>", { desc = "Split" })
 keymap("n", "<leader>v", "<CMD>vsplit<CR>", { desc = "Vsplit" })

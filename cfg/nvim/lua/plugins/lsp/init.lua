@@ -171,7 +171,12 @@ return {
       end
 
       if server == "lua_ls" then
-        require("neodev").setup({})
+        require("neodev").setup({
+          library = {
+            plugins = { "nvim-dap-ui" },
+            types = true
+          },
+        })
       end
 
       lspconfig[server].setup(opts)
