@@ -1,12 +1,9 @@
-local colorscheme = "nightfly"
+local colorscheme = "darkplus"
 
 local status_ok, _ = pcall(function()
   vim.cmd.colorscheme(colorscheme)
 
-  -- Nvim Navic
-  if colorscheme == "nightfly" then
-    -- local bg = "#080808"
-    local bg = "#011627"
+  local function set_highlight_colors(bg)
     vim.api.nvim_set_hl(0, "NavicText", { bg = bg })
     vim.api.nvim_set_hl(0, "NavicSeparator", { bg = bg })
     vim.api.nvim_set_hl(0, "NavicIconsOperator", { bg = bg })
@@ -19,6 +16,14 @@ local status_ok, _ = pcall(function()
     vim.api.nvim_set_hl(0, "NavicIconsNull", { bg = bg })
     vim.api.nvim_set_hl(0, "NavicIconsString", { bg = bg })
     vim.api.nvim_set_hl(0, "WinBar", { bg = bg })
+  end
+
+  if colorscheme == "nightfly" then
+    local bg = "#011627"
+    set_highlight_colors(bg)
+  elseif colorscheme == "moonfly" then
+    local bg = "#080808"
+    set_highlight_colors(bg)
   end
 end)
 

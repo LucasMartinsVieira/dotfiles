@@ -1,0 +1,378 @@
+#!/usr/bin/env bash
+
+# Variables
+SB_FOLDER="$HOME/Documents/obsidian"
+FILE_TITLE=$2
+
+# Peridic Notes
+DAILY_NOTE="$SB_FOLDER/Journal/Daily/$(date +%Y-%m-%d).md"
+WEEKLY_NOTE="$SB_FOLDER/Journal/Weekly/$(date +"%G-W%V").md"
+YEARLY_NOTE="$SB_FOLDER/Journal/Yearly/$(date +"%Y").md"
+
+# Other templates
+BASIC_NOTE="$SB_FOLDER/$FILE_TITLE.md"
+PROJECT_NOTE="$SB_FOLDER/PR $FILE_TITLE.md"
+PROGRAMMING_NOTE="$SB_FOLDER/PG $FILE_TITLE.md"
+COURSE_NOTE="$SB_FOLDER/CS $FILE_TITLE.md"
+COLLEGE_NOTE="$SB_FOLDER/CL $FILE_TITLE.md"
+ARTICLES_NOTE="$SB_FOLDER/AR $FILE_TITLE.md"
+
+daily() {
+
+	if [ -f "$DAILY_NOTE" ]; then
+		nvim "$DAILY_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$DAILY_NOTE"
+---
+gym: false
+study: false
+read: false
+tags: diary
+week: $(date +"%G-W%V")
+---
+# $(date +"%A, %d %B %Y")
+
+- 
+
+Lucas Martins Vieira
+
+<< [[$(date --date="yesterday" +"%Y-%m-%d")]] | [[$(date --date="tomorrow" +"%Y-%m-%d")]] >>
+
+Week: [[$(date +"%G-W%V")]]
+Last Year: [[$(date --date="last year" +"%Y-%m-%d")]]
+Next Year: [[$(date --date="next year" +"%Y-%m-%d")]]
+
+## Todo's Completed
+- [ ] 
+
+## Todo's for Tomorrow
+- [ ] 
+EOF
+
+	nvim "$DAILY_NOTE"
+}
+
+# shellcheck disable=1078
+weekly() {
+	if [ -f "$WEEKLY_NOTE" ]; then
+		nvim "$WEEKLY_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$WEEKLY_NOTE"
+---
+tags: weeklyreviews
+Aliases: The week where...
+Enjoyment: ⭐⭐⭐⭐⭐
+week: $(date +"%G-W%V")
+---
+
+<< [[$(date --date="last week" +"%G-W%V")]] | [[$(date --date="next week" +"%G-W%V")]] >>
+
+Last Year: [[$(date --date="last year" +"%G-W%V")]]
+Next Year: [[$(date --date="next year" +"%G-W%V")]]
+
+## What  happened this week?
+- Watched: 
+- Read:
+- Worked on:
+
+## Overview
+
+$()dataview
+Table without id 
+	file.link AS "Day",
+	choice(gym, "✅", "❌") as "🏋🏻",
+	choice(study, "✅", "❌") as "📚",
+	choice(read, "✅", "❌") as "📖"
+from "Journal/Daily"
+Where contains(week, "$(date +%G-W%V)")
+Sort file.name ASC
+$()
+
+## What is worth remembering about this week? 💭
+-  
+
+## What do i achieve this week? ✅
+- [ ] ...
+
+## What do i want achieve next week? 😎
+- [ ] ...
+EOF
+
+	nvim "$WEEKLY_NOTE"
+}
+
+yearly() {
+	if [ -f "$YEARLY_NOTE" ]; then
+		nvim "$YEARLY_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$YEARLY_NOTE"
+---
+date: $(date +%Y)
+maritalStatus:
+totalBooks:
+enjoyment
+---
+
+<< [[$(date --date="last year" +"%Y")]] | [[$(date --date="next year" +"%Y")]] >>
+
+## What's Worth Remembering about this Year? 💭
+- 
+
+## Goals 🎯
+- [ ] ...
+
+## Best Books 📖
+- 
+
+##Best Movies 🎥
+- 
+
+##Best Animes and Series 👒
+- 
+EOF
+
+	nvim "$YEARLY_NOTE"
+}
+
+basic() {
+	if [ -f "$BASIC_NOTE" ]; then
+		nvim "$BASIC_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$BASIC_NOTE"
+---
+date: $(date +%Y-%m-%d)
+time: $(date +%H:%M)
+tags:
+  - zettelkasten
+aliases:
+related:
+---
+
+# $FILE_TITLE
+
+EOF
+	nvim "$BASIC_NOTE"
+}
+
+project() {
+	if [ -f "$PROJECT_NOTE" ]; then
+		nvim "$PROJECT_NOTE"
+		exit 0
+	fi
+	cat <<EOF >"$PROJECT_NOTE"
+---
+date: $(date +%Y-%m-%d)
+time: $(date +%H:%M)
+tags:
+  - projects
+language:
+status: 🟥🟨🟩
+related:
+  - "[[010 - MOC Projects]]"
+---
+
+Date:: [[$(date +%Y-%m-%d)]]
+
+## Why?
+-
+
+## Business Rules
+-
+
+## Tools
+-
+EOF
+
+	nvim "$PROJECT_NOTE"
+}
+
+programming() {
+	if [ -f "$PROGRAMMING_NOTE" ]; then
+		nvim "$PROGRAMMING_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$PROGRAMMING_NOTE"
+---
+date: $(date +%Y-%m-%d)
+time: $(date +%H:%M)
+tags:
+  - programming
+---
+
+## Principles 💭
+
+## References 📖
+
+## Resources 📈
+
+## Projects 🏗️
+
+'dataview
+table date as Date, time as Time, status as Status
+from #programming
+where language="PG $FILE_TITLE"
+'
+EOF
+
+	nvim "$PROGRAMMING_NOTE"
+}
+
+courses() {
+	if [ -f "$COURSE_NOTE" ]; then
+		nvim "$COURSE_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$COURSE_NOTE"
+---
+teacher:
+hours:
+platform: 
+tags:
+  - course
+startDate:
+endDate: 
+status: 🟥🟨🟩
+rating: 
+---
+Link:: [Course Link]()
+
+##  What is  This Course About?
+- 
+
+## Learning Objectives
+- 
+
+## Related Notes
+- 
+
+# Personal Reflections 
+
+- What you found challenging or interesting?
+
+
+- How the course content relates to your goals?
+
+
+- Do you think the time spent on the course was worth it?
+
+# Resources
+
+## Books
+- 
+## Articles
+- 
+## Sites
+- 
+EOF
+
+	nvim "$COURSE_NOTE"
+}
+
+college() {
+	if [ -f "$COLLEGE_NOTE" ]; then
+		nvim "$COLLEGE_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$COLLEGE_NOTE"
+---
+tags: 
+  - college
+year:
+semester:
+grade: 
+status: 
+status: 🟥🟨🟩
+---
+Date:: [[$(date +%Y-%m-%d)]]
+
+---
+##### 1. [[CL $FILE_TITLE# | ]]
+---
+
+##
+
+EOF
+
+	nvim "$COLLEGE_NOTE"
+}
+
+articles() {
+	if [ -f "$ARTICLES_NOTE" ]; then
+		nvim "$ARTICLES_NOTE"
+		exit 0
+	fi
+
+	cat <<EOF >"$ARTICLES_NOTE"
+---
+date: $(date +%Y-%m-%d)
+time: $(date +%H:%M)
+tags:
+  - article
+related: 
+---
+# AR $FILE_TITLE
+
+[Source Link]()
+
+## Main Takes 📚
+- 
+
+## Notes 📖
+EOF
+
+	nvim "$ARTICLES_NOTE"
+}
+
+help() {
+	echo "
+  Usage sb [options] <file>
+        sb [day]
+        sb [basic] <file>
+  
+    --help  -h     Prints this help message
+    day      d	   Daily Note
+    week     w	   Week Note
+    year     y     Yearly Note
+    basic    b     Basic Note
+    pr             Project Note
+    pg             Programming Note
+    cs             Course Note
+    cl             College Note
+    ar             Article Note
+"
+}
+
+if [[ "$1" == "day" || $1 == "d" ]]; then
+	daily
+elif [[ $1 == "week" || $1 == "w"  ]]; then
+	weekly
+elif [[ $1 == "year" || $1 == "y"  ]]; then
+	yearly
+elif [[ $1 == "basic" || $1 == "b"  ]]; then
+	basic
+elif [[ $1 == "pr" ]]; then
+	project
+elif [[ $1 == "pg" ]]; then
+	programming
+elif [[ $1 == "cs" ]]; then
+	courses
+elif [[ $1 == "cl" ]]; then
+	college
+elif [[ $1 == "ar" ]]; then
+	articles
+elif [[ $1 == "--help" || $1 == '-h' ]]; then
+	help
+elif [[ $1 == * ]]; then
+	help
+fi
