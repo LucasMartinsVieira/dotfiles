@@ -350,6 +350,8 @@ help() {
     cs             Course Note
     cl             College Note
     ar             Article Note
+
+    For the other templates, use Obsidian.
 "
 }
 

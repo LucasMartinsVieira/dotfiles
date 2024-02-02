@@ -30,19 +30,29 @@ function lfcd
     end
 end
 
+function yazicd
+    set tmp (mktemp)
+    yazi --cwd-file $tmp $argv
+    if test -f "$tmp"
+        set dir (cat $tmp)
+        rm -f $tmp
+        if test -d "$dir"
+            if test "$dir" != (pwd)
+                cd $dir
+            end
+        end
+    end
+end
+
 # Changing sudo for doas with ALT + s
 bind \es 'fish_commandline_prepend doas'
-bind -M insert \cp 'lfcd'
+bind -M insert \cp 'yazicd'
 # bind -M insert \cf 'tmux-sessionizer'
 
 ### Adding to the $PATH
 fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
 
 ### EXPORT
-
-if test -f "$HOME/.config/openai.bash"
-  source $HOME/.config/openai.bash
-end
 
 if test -f "$HOME/.config/lf/lf_icons"
   source $HOME/.config/lf/lf_icons
@@ -56,6 +66,9 @@ set -Ux BROWSER librewolf
 set fish_greeting                # Disable Fish's intro message
 
 ### Alias ###
+
+source ~/.config/fish/completions/sb.fish
+abbr sbb "cd ~/Documents/obsidian"
 
 ### Git Aliases ###
 abbr ga "git add"

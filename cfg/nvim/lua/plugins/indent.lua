@@ -1,6 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   main = "ibl",
+  enabled = false,
   config = function()
     local hooks = require("ibl.hooks")
     local highlight = { "IblGray" }

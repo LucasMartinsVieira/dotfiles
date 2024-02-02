@@ -24,6 +24,7 @@ vim.opt.swapfile = false -- creates a swapfile
 vim.opt.showtabline = 1 -- always show tabs
 vim.opt.mousemoveevent = true -- When on, mouse move events are delivered to the input queue and are available for mapping.
 vim.opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.conceallevel = 1
 
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2

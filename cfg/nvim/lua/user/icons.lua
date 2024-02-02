@@ -73,6 +73,10 @@ return {
     Target = "󰀘",
     Forward = "",
     Session = "",
+    X = "",
+    Square = "󰄱",
+    SquareDone = "",
+    Incomplete = "",
   },
   git = {
     Add = "",

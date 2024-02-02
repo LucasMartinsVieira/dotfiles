@@ -146,15 +146,17 @@ return {
 
     local servers = {
       "bashls",
+      "biome",
       "cssls",
       -- "eslint",
-      "biome",
       "html",
       "jsonls",
       "lua_ls",
+      "marksman",
       "nil_ls",
       "rust_analyzer",
       "tailwindcss",
+      "taplo",
       "tsserver",
       "yamlls",
     }
@@ -174,7 +176,7 @@ return {
         require("neodev").setup({
           library = {
             plugins = { "nvim-dap-ui" },
-            types = true
+            types = true,
           },
         })
       end
