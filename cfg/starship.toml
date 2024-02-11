@@ -8,10 +8,6 @@ $git_state\
 $git_status\
 $cmd_duration\
 $fill\
-$nodejs\
-$rust\
-$zig\
-$lua\
 $line_break\
 $character"""
 
@@ -58,21 +54,3 @@ disabled = false
 style = "white"
 time_format = "%H:%M"
 format = "[󰥔 $time]($style)"
-
-[rust]
-symbol = " "
-format = "[$symbol($version )]($style)"
-
-[nodejs]
-format = "[$symbol($version )]($style)"
-
-[lua]
-symbol = "🌕 "
-style = "bold blue"
-format = "[$symbol($version )]($style)"
-detect_extensions = ['lua']
-
-[zig]
-symbol = '⚡️ '
-format = '[$symbol($version )]($style)'
-style = "yellow"

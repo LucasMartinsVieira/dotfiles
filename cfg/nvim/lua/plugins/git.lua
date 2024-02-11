@@ -27,7 +27,7 @@ return {
       { "<leader>gr", "<CMD>lua require 'gitsigns'.reset_hunk()<CR>", desc = "Reset Hunk" },
       { "<leader>gs", "<CMD>lua require 'gitsigns'.stage_hunk()<CR>", desc = "Stage Hunk" },
       { "<leader>gu", "<CMD>lua require 'gitsigns'.undo_stage_hunk()<CR>", desc = "Undo Stage Hunk" },
-      { "<leader>gg", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
+      { "<leader>gl", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
     },
     config = function()
       require("gitsigns").setup({

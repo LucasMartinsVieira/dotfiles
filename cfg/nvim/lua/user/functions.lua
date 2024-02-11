@@ -67,8 +67,10 @@ function M.toggle_diagnostics()
 end
 
 M.toggle_inlay_hints = function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enable(bufnr))
+  -- local bufnr = vim.api.nvim_get_current_buf()
+  -- vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enable(bufnr))
+
+  require("lsp-inlayhints").toggle()
 end
 
 M.lazygit_toggle = function()

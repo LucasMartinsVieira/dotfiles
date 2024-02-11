@@ -10,14 +10,7 @@ return {
   },
   -- Vim Plugins
   {
-    "tpope/vim-sleuth",
-  },
-  {
     "elkowar/yuck.vim",
-    enabled = false,
-  },
-  {
-    "editorconfig/editorconfig-vim",
     enabled = false,
   },
 }

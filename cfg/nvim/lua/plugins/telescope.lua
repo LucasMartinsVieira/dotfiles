@@ -13,22 +13,16 @@ return {
   keys = {
     { "<C-p>", "<CMD>lua require ('telescope.builtin').git_files()<CR>",      desc = "Find Files" },
 
-    { "<leader>bb", "<CMD>Telescope buffers<CR>",                             desc = "Buffers" },
-    { "<leader>ff", "<CMD>Telescope find_files<CR>",                          desc = "Find Files" },
-    { "<leader>fx", "<CMD>Telescope diagnostics<CR>",                         desc = "Find Diagnostics" },
-    { "<leader>fr", "<CMD>Telescope oldfiles<CR>",                            desc = "Find Recent Files" },
-    { "<leader>fb", "<CMD>Telescope buffers<CR>",                             desc = "Find Buffers" },
-    { "<leader>fw", "<CMD>Telescope live_grep<CR>",                           desc = "Find Word" },
-    { "<leader>fc", "<CMD>Telescope colorscheme<CR>",                         desc = "Find Colorscheme" },
-    { "<leader>fk", "<CMD>Telescope Keymaps<CR>",                             desc = "Find Keymaps" },
-    { "<leader>fm", "<CMD>Telescope man_pages<CR>",                           desc = "Find Man Pages" },
-    { "<leader>fh", "<CMD>Telescope help_tags<CR>",                           desc = "Find Help" },
-
-    -- Git Commands
-    -- { "<leader>gs", "<CMD>Telescope git_status<CR>",                          desc = "Telescope Git Status" },
-    -- { "<leader>gc", "<CMD>Telescope git_commits<CR>",                         desc = "Telescope Git Commits" },
-    -- { "<leader>gf", "<CMD>Telescope git_files<CR>",                           desc = "Telescope Git Files" },
-    -- { "<leader>gb", "<CMD>Telescope git_branches<CR>",                        desc = "Telescope Git Branches" },
+    { "<leader>bb", require('telescope.builtin').buffers,                     desc = "Buffers" },
+    { "<leader>ff", require('telescope.builtin').find_files,                  desc = "Find Files" },
+    { "<leader>fx", require('telescope.builtin').diagnostics,                 desc = "Find Diagnostics" },
+    { "<leader>fr", require('telescope.builtin').oldfiles,                    desc = "Find Recent Files" },
+    { "<leader>fb", require('telescope.builtin').buffers,                     desc = "Find Buffers" },
+    { "<leader>fw", require('telescope.builtin').live_grep,                   desc = "Find Word" },
+    { "<leader>fc", require('telescope.builtin').colorscheme,                 desc = "Find Colorscheme" },
+    { "<leader>fk", require('telescope.builtin').keymaps,                     desc = "Find Keymaps" },
+    { "<leader>fm", require('telescope.builtin').man_pages,                   desc = "Find Man Pages" },
+    { "<leader>fh", require('telescope.builtin').help_tags,                   desc = "Find Help" },
   },
   config = function()
     local icons = require("user.icons")
@@ -75,7 +69,7 @@ return {
         },
 
         find_files = {
-          previewer = false,
+          previewer = true,
           theme = "dropdown",
           hidden = "true",
         },
@@ -89,7 +83,7 @@ return {
         oldfiles = {
           previewer = true,
           theme = "dropdown",
-          initial_mode = "normal",
+          -- initial_mode = "normal",
         },
 
         live_grep = {

@@ -145,6 +145,7 @@ keymap = [
 	{ on = [ "g", "w" ],       exec = "cd ~/Downloads",   desc = "Go to the downloads directory" },
 	{ on = [ "g", "d" ],       exec = "cd ~/Documents",   desc = "Go to the documents directory" },
 	{ on = [ "g", "r" ],       exec = "cd ~/repos",				desc = "Go to the repos directory" },
+	{ on = [ "g", "v" ],       exec = "cd ~/dev",					desc = "Go to the dev directory" },
 	{ on = [ "g", "/" ],       exec = "cd /",							desc = "Go to the / directory" },
 	{ on = [ "g", "p" ],       exec = "cd ~/Pictures",		desc = "Go to the pictures directory" },
 	{ on = [ "g", "m" ],       exec = "cd ~/Media",				desc = "Go to the media directory" },
@@ -153,6 +154,9 @@ keymap = [
 
 	# Help
 	{ on = [ "g", "?" ], exec = "help", desc = "Open help" },
+
+	# Custom
+	{ on = [ "W" ], exec = "shell --confirm 'swww img $1'", desc = "Change wallpaper with swww" },
 ]
 
 [tasks]

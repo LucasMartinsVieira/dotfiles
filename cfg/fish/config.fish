@@ -68,7 +68,8 @@ set fish_greeting                # Disable Fish's intro message
 ### Alias ###
 
 source ~/.config/fish/completions/sb.fish
-abbr sbb "cd ~/Documents/obsidian"
+alias sbb "cd ~/Documents/obsidian && clear"
+abbr sr "steam-run"
 
 ### Git Aliases ###
 abbr ga "git add"
