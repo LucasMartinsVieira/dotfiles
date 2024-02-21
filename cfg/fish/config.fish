@@ -62,7 +62,7 @@ set -Ux FZF_DEFAULT_OPTS "--layout=reverse --height 40%"
 
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty
-set -Ux BROWSER librewolf
+set -Ux BROWSER firefox
 set fish_greeting                # Disable Fish's intro message
 
 ### Alias ###
@@ -118,7 +118,7 @@ alias v="nvim"
 #     end
 # end
 
-function t
+function t --description "TL;DR"
     if test -n "$argv"
         for arg in $argv
             tldr $arg

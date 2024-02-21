@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+main() {
+  ZOXIDE_RESULT=$(zoxide query "$1")
+
+	if [ -z "$ZOXIDE_RESULT" ]; then
+		exit 0
+	fi
+
+	FOLDER=$(basename "$ZOXIDE_RESULT")
+	SESSION=$(tmux list-sessions | grep "$FOLDER" | awk -F ':' '{print $1}')
+
+	if [[ -z $TMUX ]] && [[ -z $SESSION ]]; then
+		tmux new-session -s "$FOLDER" -c "$ZOXIDE_RESULT"
+	fi
+
+	if ! tmux has-session -t="$FOLDER" 2>/dev/null; then
+		tmux new-session -ds "$FOLDER" -c "$ZOXIDE_RESULT"
+	fi
+
+	tmux switch-client -t "$FOLDER"
+}
+
+interactive() {
+  ZOXIDE_RESULT=$(zoxide query -i)
+
+	FOLDER=$(basename "$ZOXIDE_RESULT")
+	SESSION=$(tmux list-sessions | grep "$FOLDER" | awk -F ':' '{print $1}')
+
+	if [[ -z $TMUX ]] && [[ -z $SESSION ]]; then
+		tmux new-session -s "$FOLDER" -c "$ZOXIDE_RESULT"
+	fi
+
+	if ! tmux has-session -t="$FOLDER" 2>/dev/null; then
+		tmux new-session -ds "$FOLDER" -c "$ZOXIDE_RESULT"
+	fi
+
+	tmux switch-client -t "$FOLDER"
+
+}
+
+if [[ "$1" == "-i" ]]; then
+  interactive
+else
+  main "$@"
+fi
