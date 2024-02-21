@@ -16,7 +16,6 @@ riverctl spawn "swww init"
 riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
 riverctl spawn "wlsunset -t 3400 -T 3401"
 riverctl spawn "display_select"
-riverctl spawn "wlr-randr --output eDP-1 --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --preferred --mode 1920x1080 --pos 0,0 --transform normal"
 
 # BINDS
 # Applications

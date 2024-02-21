@@ -6,13 +6,6 @@ return {
 
     -- Use LSP for actions in Nvim-tree
     { "antosha417/nvim-lsp-file-operations", config = true },
-
-    {
-      -- Useful status updates for LSP
-      "j-hui/fidget.nvim",
-      enabled = true,
-      tag = "v1.1.0",
-    },
   },
   config = function()
     local icons = require("user.icons")
@@ -118,9 +111,6 @@ return {
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
     require("lspconfig.ui.windows").default_options.border = "rounded"
-
-    -- Turn on lsp status information
-    require("fidget").setup()
 
     local function common_capabilities()
       local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
