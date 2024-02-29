@@ -237,9 +237,10 @@ riverctl rule-add ssd
 
 # Set background and border color
 riverctl background-color 0x011627
-riverctl border-color-focused 0xc792ea
+# riverctl border-color-focused 0xc792ea
+riverctl border-color-focused 0x80a0ff
 riverctl border-color-unfocused 0x0595959
-riverctl border-width 3
+riverctl border-width 2
 riverctl border-color-urgent 0xfc514e
 
 # Set keyboard repeat rate

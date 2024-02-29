@@ -145,7 +145,7 @@ return {
       "marksman",
       "nil_ls",
       "rust_analyzer",
-      "tailwindcss",
+      -- "tailwindcss",
       "taplo",
       "tsserver",
       "yamlls",

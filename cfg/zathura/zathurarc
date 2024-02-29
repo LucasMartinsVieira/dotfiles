@@ -7,8 +7,8 @@ set recolor true
 
 # Remaps
 map r reload
-map J zoom out
-map K zoom in
+# map J zoom out
+# map K zoom in
 map i recolor
 # unmap f
 # map f toggle_fullscreen

@@ -15,14 +15,23 @@ return {
 
         -- Formatting
         -- formatting.prettierd,
-        formatting.biome,
+        -- formatting.biome.with({
+        --   args = {
+        --     "fix",
+        --     "--apply-unsafe",
+        --     "--formatter-enabled=true",
+        --     "--organize-imports-enabled=true",
+        --     "--skip-errors",
+        --     "$FILENAME",
+        --   },
+        -- }),
         formatting.stylua,
-        formatting.rustfmt,
+        -- formatting.rustfmt,
         formatting.shfmt,
         formatting.nixpkgs_fmt,
 
         -- Diagnostics
-        diagnostics.shellcheck,
+        -- diagnostics.shellcheck,
         -- diagnostics.eslint,
 
         -- Code Actions
