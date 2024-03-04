@@ -22,14 +22,14 @@ autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 -- Auto format on save in some filetypes
-autocmd("BufWritePost", {
-  group = "filetype_settings",
-  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },
-  desc = "Autoformat on save",
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
+-- autocmd("BufWritePost", {
+--   group = "filetype_settings",
+--   pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.lua", "*.rs" },
+--   desc = "Autoformat on save",
+--   callback = function()
+--     vim.lsp.buf.format()
+--   end,
+-- })
 
 autocmd("FileType", {
   group = "filetype_settings",

@@ -13,7 +13,7 @@ return {
     { "hrsh7th/cmp-path", event = "InsertEnter" },
     { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
     { "hrsh7th/cmp-nvim-lua", event = "InsertEnter" },
-    { "hrsh7th/cmp-buffer", event = "InsertEnter" },
+    -- { "hrsh7th/cmp-buffer", event = "InsertEnter" },
     { "hrsh7th/cmp-emoji", event = "InsertEnter" },
     { "roobert/tailwindcss-colorizer-cmp.nvim", enable = true },
     { "L3MON4D3/LuaSnip", version = "2.*", build = "make install_jsregexp" },
@@ -39,8 +39,8 @@ return {
         end,
       },
       mapping = {
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -49,6 +49,7 @@ return {
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
         }),
+
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -90,15 +91,15 @@ return {
         format = function(entry, vim_item)
           -- Kind icons
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          vim_item.menu = ({
-            copilot = "(Copilot)",
-            nvim_lsp = "(LSP)",
-            nvim_lua = "(NVIM_LUA)",
-            luasnip = "(Snippet)",
-            buffer = "(Buffer)",
-            path = "(Path)",
-            emoji = "(Emoji)",
-          })[entry.source.name]
+          -- vim_item.menu = ({
+          --   copilot = "(Copilot)",
+          --   nvim_lsp = "(LSP)",
+          --   nvim_lua = "(NVIM_LUA)",
+          --   luasnip = "(Snippet)",
+          --   -- buffer = "(Buffer)",
+          --   path = "(Path)",
+          --   emoji = "(Emoji)",
+          -- })[entry.source.name]
 
           if entry.source.name == "emoji" then
             vim_item.kind = icons.misc.Smiley
@@ -113,7 +114,7 @@ return {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "luasnip" },
-        { name = "buffer" },
+        -- { name = "buffer" },
         { name = "path" },
         { name = "emoji" },
       },

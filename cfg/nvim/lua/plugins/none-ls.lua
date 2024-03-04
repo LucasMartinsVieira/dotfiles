@@ -1,8 +1,10 @@
+---@diagnostic disable: unused-local
 return {
   "nvimtools/none-ls.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  enabled = true,
   -- lazy = true,
   config = function()
     local null_ls = require("null-ls")
@@ -25,10 +27,10 @@ return {
         --     "$FILENAME",
         --   },
         -- }),
-        formatting.stylua,
+        -- formatting.stylua,
         -- formatting.rustfmt,
-        formatting.shfmt,
-        formatting.nixpkgs_fmt,
+        -- formatting.shfmt,
+        -- formatting.nixpkgs_fmt,
 
         -- Diagnostics
         -- diagnostics.shellcheck,
