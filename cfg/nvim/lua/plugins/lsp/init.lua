@@ -48,29 +48,6 @@ return {
     nmap("<leader>ln", "<CMD>lua vim.diagnostic.goto_next<CR>", "Go To Next Diagnostic")
     nmap("<leader>lp", "<CMD>lua vim.diagnostic.goto_prev<CR>", "Go To Previous Diagnostic")
 
-    local function attach_navic(client, bufnr)
-      vim.g.navic_silence = true
-      local status_ok, navic = pcall(require, "nvim-navic")
-      if not status_ok then
-        return
-      end
-
-      if client.supports_method("textDocument/inlayHint") then
-        vim.lsp.inlayHint.enable(bufnr, true)
-      end
-
-      navic.attach(client, bufnr)
-    end
-
-    local on_attach = function(client, bufnr)
-      attach_navic(client, bufnr)
-
-      -- Create a command `:Format` local to the LSP buffer
-      vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-        vim.lsp.buf.format({ async = true })
-      end, { desc = "Format current buffer with LSP" })
-    end
-
     -- Custom Icons for LSP Diagnostics
     local signs = {
       { name = "DiagnosticSignError", text = icons.diagnostics.Error },
@@ -112,25 +89,6 @@ return {
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
     require("lspconfig.ui.windows").default_options.border = "rounded"
 
-    local function common_capabilities()
-      local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-      if status_ok then
-        return cmp_nvim_lsp.default_capabilities()
-      end
-
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.completion.completionItem.snippetSupport = true
-      capabilities.textDocument.completion.completionItem.resolveSupport = {
-        properties = {
-          "documentation",
-          "detail",
-          "additionalTextEdits",
-        },
-      }
-
-      return capabilities
-    end
-
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
@@ -139,22 +97,25 @@ return {
       "biome",
       "cssls",
       -- "eslint",
+      "gopls",
       "html",
       "jsonls",
       "lua_ls",
       "marksman",
       "nil_ls",
-      "rust_analyzer",
-      -- "tailwindcss",
+      -- "rust_analyzer",
+      "tailwindcss",
       "taplo",
-      "tsserver",
+      -- "tsserver",
       "yamlls",
     }
 
+    local lsp_functions = require("user.lsp_functions")
+
     for _, server in pairs(servers) do
       local opts = {
-        on_attach = on_attach,
-        capabilities = common_capabilities(),
+        on_attach = lsp_functions.on_attach,
+        capabilities = lsp_functions.common_capabilities(),
       }
 
       local require_ok, settings = pcall(require, "plugins.lsp.languages." .. server)

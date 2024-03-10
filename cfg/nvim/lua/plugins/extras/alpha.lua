@@ -1,7 +1,7 @@
 return {
   "goolord/alpha-nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  enabled = false,
+  enabled = true,
 
   opts = function()
     local icons = require("user.icons")
@@ -51,7 +51,8 @@ return {
       button("f", icons.ui.Telescope .. " Find File", "<CMD>Telescope find_files<CR>"),
       button("n", icons.ui.NewFile .. " New file", "<CMD>ene!<BAR>startinsert<CR>"),
       button("r", icons.ui.History .. " Recent Files", "<CMD>Telescope oldfiles<CR>"),
-      button("s", icons.ui.Session .. " Restore Session", "<CMD>lua require('persistence').load({ last = true })<CR>"),
+      button("p", icons.ui.Lazy .. " Plugin Manager", "<CMD>Lazy<CR>"),
+      -- button("s", icons.ui.Session .. " Restore Session", "<CMD>lua require('persistence').load({ last = true })<CR>"),
       button("c", icons.ui.Gear .. " Config", "<CMD>e ~/.config/nvim/init.lua<CR>"),
       button("q", icons.ui.SignOut .. " Quit", "<CMD>q<CR>"),
     }

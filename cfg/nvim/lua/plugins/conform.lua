@@ -9,6 +9,7 @@ return {
         bash = { "shfmt" },
         sh = { "shfmt" },
         nix = { "alejandra" },
+        go = { "gofmt", "goimports-reviser", "golines" },
         javascript = { { "biome", "prettierd", "prettier" } },
         typescript = { { "biome", "prettierd", "prettier" } },
         javascriptreact = { { "biome", "prettierd", "prettier" } },
@@ -16,7 +17,7 @@ return {
         json = { { "biome", "prettierd", "prettier" } },
         html = { { "prettierd", "prettier" } },
         css = { { "prettierd", "prettier" } },
-        markdown = { { "prettierd", "prettier" } },
+        -- markdown = { { "prettierd", "prettier" } },
       },
       format_on_save = {
         lsp_fallback = true,

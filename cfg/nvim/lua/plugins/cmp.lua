@@ -117,6 +117,7 @@ return {
         -- { name = "buffer" },
         { name = "path" },
         { name = "emoji" },
+        { name = "crates" },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

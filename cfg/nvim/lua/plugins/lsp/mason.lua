@@ -31,7 +31,7 @@ return {
         "lua_ls",
         "marksman",
         "rust_analyzer",
-        "tailwindcss",
+        -- "tailwindcss",
       }
 
       mason_lspconfig.setup({
