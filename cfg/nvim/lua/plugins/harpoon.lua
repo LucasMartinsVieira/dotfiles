@@ -33,9 +33,9 @@ return {
       mark_file()
     end)
 
-    vim.keymap.set("n", "<leader><leader>", function()
+    vim.keymap.set("n", "<C-e>", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end)
+    end, { desc = "Harpoon" })
 
     vim.keymap.set("n", "<C-h>", function()
       harpoon:list():select(1)

@@ -49,6 +49,7 @@ return {
 
     dashboard.section.buttons.val = {
       button("f", icons.ui.Telescope .. " Find File", "<CMD>Telescope find_files<CR>"),
+      button("w", icons.kind.Text .. " Find Text", "<CMD>Telescope live_grep<CR>"),
       button("n", icons.ui.NewFile .. " New file", "<CMD>ene!<BAR>startinsert<CR>"),
       button("r", icons.ui.History .. " Recent Files", "<CMD>Telescope oldfiles<CR>"),
       button("p", icons.ui.Lazy .. " Plugin Manager", "<CMD>Lazy<CR>"),

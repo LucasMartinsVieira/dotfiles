@@ -11,8 +11,6 @@ return {
   cmd = "Telescope",
   -- stylua: ignore
   keys = {
-    { "<C-p>", "<CMD>lua require ('telescope.builtin').git_files()<CR>",      desc = "Find Files" },
-
     { "<leader>bb", require('telescope.builtin').buffers,                     desc = "Buffers" },
     { "<leader>ff", require('telescope.builtin').find_files,                  desc = "Find Files" },
     { "<leader>fx", require('telescope.builtin').diagnostics,                 desc = "Find Diagnostics" },

@@ -133,7 +133,7 @@ enjoyment
 ##Best Movies 🎥
 - 
 
-##Best Animes and Series 👒
+##Best Animes and Series 📺
 - 
 EOF
 
@@ -358,11 +358,11 @@ help() {
 
 if [[ "$1" == "day" || $1 == "d" ]]; then
 	daily
-elif [[ $1 == "week" || $1 == "w"  ]]; then
+elif [[ $1 == "week" || $1 == "w" ]]; then
 	weekly
-elif [[ $1 == "year" || $1 == "y"  ]]; then
+elif [[ $1 == "year" || $1 == "y" ]]; then
 	yearly
-elif [[ $1 == "basic" || $1 == "b"  ]]; then
+elif [[ $1 == "basic" || $1 == "b" ]]; then
 	basic
 elif [[ $1 == "pr" ]]; then
 	project

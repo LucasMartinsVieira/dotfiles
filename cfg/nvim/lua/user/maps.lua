@@ -14,7 +14,7 @@ keymap("n", "<leader>q", "<CMD>lua require('user.functions').smart_quit()<CR>", 
 keymap("n", "<leader>h", "<CMD>split<CR>", { desc = "Split" })
 keymap("n", "<leader>v", "<CMD>vsplit<CR>", { desc = "Vsplit" })
 keymap("n", "<leader>/", "<CMD>noh<CR>", { desc = "Remove Highlight from words" })
-keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Substite Text" })
 
 -- Tmux stuff
 keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

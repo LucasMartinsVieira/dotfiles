@@ -1,6 +1,7 @@
 return {
   "pmizio/typescript-tools.nvim",
   ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
+  enabled = false,
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   config = function()
     local lsp_functions = require("user.lsp_functions")

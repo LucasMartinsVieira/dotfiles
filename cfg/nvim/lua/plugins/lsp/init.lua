@@ -106,7 +106,7 @@ return {
       -- "rust_analyzer",
       "tailwindcss",
       "taplo",
-      -- "tsserver",
+      "tsserver",
       "yamlls",
     }
 
