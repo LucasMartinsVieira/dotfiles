@@ -8,8 +8,4 @@ return {
     name = "moonfly",
     priority = 1000,
   },
-  {
-    "LunarVim/darkplus.nvim",
-    priority = 1000,
-  },
 }

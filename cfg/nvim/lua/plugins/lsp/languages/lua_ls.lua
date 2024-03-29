@@ -20,7 +20,7 @@ return {
         preloadFileSize = 10000,
       },
       hint = {
-        enable = false,
+        enable = true,
         arrayIndex = "Disable", -- "Enable" | "Auto" | "Disable"
         await = true,
         paramName = "All", -- "All" | "SameLine" | "Disable"

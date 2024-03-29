@@ -25,6 +25,12 @@ return {
   config = function()
     local icons = require("user.icons")
     local actions = require("telescope.actions")
+    local builtin = require("telescope.builtin")
+
+    vim.keymap.set("n", "<leader>fn", function()
+      builtin.find_files({ cwd = vim.fn.stdpath("config") })
+    end, { desc = "Find Neovim Files" })
+
     require("telescope").setup({
       defaults = {
         prompt_prefix = icons.ui.Telescope .. " ",

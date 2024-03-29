@@ -1,6 +1,5 @@
 local icons = require("user.icons")
 local kind_icons = icons.kind
-
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -13,20 +12,13 @@ return {
     { "hrsh7th/cmp-path", event = "InsertEnter" },
     { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
     { "hrsh7th/cmp-nvim-lua", event = "InsertEnter" },
-    -- { "hrsh7th/cmp-buffer", event = "InsertEnter" },
     { "hrsh7th/cmp-emoji", event = "InsertEnter" },
-    { "roobert/tailwindcss-colorizer-cmp.nvim", enable = true },
     { "L3MON4D3/LuaSnip", version = "2.*", build = "make install_jsregexp" },
     { "saadparwaiz1/cmp_luasnip" },
     { "rafamadriz/friendly-snippets" },
   },
 
   config = function()
-    -- tailwindcss cmp setup
-    require("tailwindcss-colorizer-cmp").setup({
-      color_square_width = 2,
-    })
-
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
@@ -44,7 +36,7 @@ return {
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
@@ -52,7 +44,7 @@ return {
 
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -91,22 +83,25 @@ return {
         format = function(entry, vim_item)
           -- Kind icons
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          -- vim_item.menu = ({
-          --   copilot = "(Copilot)",
-          --   nvim_lsp = "(LSP)",
-          --   nvim_lua = "(NVIM_LUA)",
-          --   luasnip = "(Snippet)",
-          --   -- buffer = "(Buffer)",
-          --   path = "(Path)",
-          --   emoji = "(Emoji)",
-          -- })[entry.source.name]
+          vim_item.menu = ({
+            copilot = "[copilot]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[snippet]",
+            nvim_lua = "[nvim lua]",
+            path = "[path]",
+            emoji = "[emoji]",
+            crates = "[crates]",
+          })[entry.source.name]
 
           if entry.source.name == "emoji" then
             vim_item.kind = icons.misc.Smiley
           end
 
+          if entry.source.name == "crates" then
+            vim_item.kind = icons.misc.Package
+          end
+
           return vim_item
-          -- return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
         end,
       },
       sources = {

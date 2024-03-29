@@ -1,6 +1,7 @@
 return {
   {
     "LunarVim/breadcrumbs.nvim",
+    enabled = true,
     config = function()
       require("breadcrumbs").setup()
     end,
@@ -11,7 +12,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     -- lazy = true,
-    enabled = true,
+    enabled = false,
     config = function()
       local icons = require("user.icons")
       require("nvim-navic").setup({

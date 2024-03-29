@@ -15,6 +15,7 @@ keymap("n", "<leader>h", "<CMD>split<CR>", { desc = "Split" })
 keymap("n", "<leader>v", "<CMD>vsplit<CR>", { desc = "Vsplit" })
 keymap("n", "<leader>/", "<CMD>noh<CR>", { desc = "Remove Highlight from words" })
 keymap("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Substite Text" })
+-- keymap("n", "<leader>e", "<CMD>Ex<CR>", { desc = "File Explorer" })
 
 -- Tmux stuff
 keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -55,7 +56,7 @@ keymap("n", "<M-S-h>", "<CMD>vertical resize -2<CR>")
 -- Navigate buffers
 keymap("n", "<leader>bn", "<CMD>bnext<CR>", { desc = "Buffer Next" })
 keymap("n", "<leader>bp", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
-keymap("n", "<leader>bd", "<CMD>Bdelete<CR>", { desc = "Buffer Delete" })
+keymap("n", "<leader>bd", "<CMD>bdelete<CR>", { desc = "Buffer Delete" })
 
 keymap("n", "]b", "<CMD>bnext<CR>", { desc = "Buffer Next" })
 keymap("n", "[b", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })

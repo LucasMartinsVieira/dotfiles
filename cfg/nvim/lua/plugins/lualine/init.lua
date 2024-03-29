@@ -3,6 +3,7 @@ local components = require("plugins.lualine.components")
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  enabled = true,
   config = function()
     require("lualine").setup({
       options = {
@@ -16,9 +17,9 @@ return {
       sections = {
         lualine_a = { components.mode },
         lualine_b = { components.branch },
-        lualine_c = { components.diff },
+        lualine_c = { components.diff, "filename" },
         lualine_x = {
-          -- components.lsp,
+          components.lsp,
           components.diagnostics,
           components.spaces,
           components.filetype,

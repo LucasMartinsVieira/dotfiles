@@ -4,6 +4,7 @@ return {
   dependencies = {
     "mfussenegger/nvim-dap",
     "leoluz/nvim-dap-go",
+    "nvim-neotest/nvim-nio",
   },
   keys = {
     { "<leader>db", "<CMD>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },

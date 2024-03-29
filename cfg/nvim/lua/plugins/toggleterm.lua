@@ -1,6 +1,7 @@
 return {
   "akinsho/toggleterm.nvim",
   cmd = { "ToggleTerm" },
+  enabled = false,
   -- stylua: ignore
   keys = {
     { "<c-t>", "<CMD>ToggleTerm<CR>",                                         desc = "Terminal",},

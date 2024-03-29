@@ -4,6 +4,7 @@ local icons = require("user.icons")
 return {
   mode = {
     function()
+      -- return " " .. icons.ui.Target .. " "
       return " " .. icons.ui.Target .. " "
     end,
     padding = { left = 0, right = 0 },

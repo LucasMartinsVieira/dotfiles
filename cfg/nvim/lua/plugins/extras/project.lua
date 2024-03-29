@@ -1,8 +1,9 @@
 return {
   "ahmedkhalf/project.nvim",
+  enabled = false,
   event = "VeryLazy",
   keys = {
-    { "<leader>fp", "<CMD>lua require('telescope').extensions.projects.projects()<CR>"}
+    { "<leader>fp", "<CMD>lua require('telescope').extensions.projects.projects()<CR>" },
   },
   config = function()
     require("project_nvim").setup({

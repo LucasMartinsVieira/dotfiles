@@ -5,7 +5,7 @@ return {
     { "folke/neodev.nvim", lazy = true },
 
     -- Use LSP for actions in Nvim-tree
-    { "antosha417/nvim-lsp-file-operations", config = true },
+    -- { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
     local icons = require("user.icons")
@@ -21,9 +21,9 @@ return {
 
     -- Useful LSP keybinds
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-    nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+    nmap("gd", telescope.lsp_definitions, "[G]oto [D]efinition")
     nmap("gr", telescope.lsp_references, "[G]oto [R]eferences")
-    nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+    nmap("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
     nmap("gl", vim.diagnostic.open_float, "Open floating Diagnostic")
     nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
@@ -33,20 +33,15 @@ return {
     nmap("<leader>li", "<CMD>LspInfo<CR>", "Connected Language Servers")
     nmap("<leader>lf", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Format")
     nmap("<leader>lh", "<CMD>lua require 'user.functions'.toggle_inlay_hints()<CR>", "Hints")
-    nmap("<leader>lk", "<CMD>lua vim.lsp.buf.hover<CR>", "Hover Documentation")
-    nmap("<leader>lK", "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help")
-    nmap("<leader>lw", "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace Folder")
-    nmap("<leader>lW", "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace Folder")
-    nmap("<leader>lL", "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Workspace Folders")
-    nmap("<leader>lt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", "Type Definition")
-    nmap("<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", "Go To Definition")
-    nmap("<leader>lD", "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go To declaration")
+    nmap("<leader>lK", "<CMD>lua vim.lsp.buf.signature_help<CR>", "Signature Help")
+    nmap("<leader>ld", "<CMD>Telescope lsp_document_symbols<CR>", "Document Symbols")
+    nmap("<leader>lt", "<CMD>Telescope lsp_type_definitions<CR>", "Type Definition")
     nmap("<leader>lr", "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename")
-    nmap("<leader>lR", "<CMD>lua vim.lsp.buf.references()<CR>", "References")
     nmap("<leader>la", "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action")
-    nmap("<leader>le", "<CMD>lua vim.diagnostic.open_float<CR>", "Show Line Diagnostics")
-    nmap("<leader>ln", "<CMD>lua vim.diagnostic.goto_next<CR>", "Go To Next Diagnostic")
-    nmap("<leader>lp", "<CMD>lua vim.diagnostic.goto_prev<CR>", "Go To Previous Diagnostic")
+    nmap("<leader>lws", "<CMD>lua Telescope lsp_workspace_symbols<CR>", "Workspace Symbols")
+    nmap("<leader>lwa", "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace Folder")
+    nmap("<leader>lwr", "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace Folder")
+    nmap("<leader>lwl", "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Workspace Folders")
 
     -- Custom Icons for LSP Diagnostics
     local signs = {
@@ -104,6 +99,7 @@ return {
       "marksman",
       "nil_ls",
       -- "rust_analyzer",
+      "statix",
       "tailwindcss",
       "taplo",
       "tsserver",

@@ -289,10 +289,9 @@ college() {
 ---
 tags: 
   - college
-year:
+year: $(date +%Y)
 semester:
 grade: 
-status: 
 status: 🟥🟨🟩
 ---
 Date:: [[$(date +%Y-%m-%d)]]

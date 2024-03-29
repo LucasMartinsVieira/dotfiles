@@ -1,6 +1,6 @@
 return {
   "stevearc/oil.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
     { "-", "<CMD>Oil --float<CR>", desc = "Opens parent directory" },
