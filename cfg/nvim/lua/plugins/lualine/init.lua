@@ -17,15 +17,15 @@ return {
       sections = {
         lualine_a = { components.mode },
         lualine_b = { components.branch },
-        lualine_c = { components.diff, "filename" },
+        lualine_c = { components.diff, components.filename },
         lualine_x = {
-          components.lsp,
+          -- components.lsp,
           components.diagnostics,
           components.spaces,
           components.filetype,
         },
         lualine_y = {},
-        lualine_z = { components.location, components.scrollbar },
+        lualine_z = { components.location, components.progress },
       },
       inactive_sections = {
         lualine_a = {},

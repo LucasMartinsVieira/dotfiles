@@ -19,27 +19,17 @@ M.common_capabilities = function()
   return capabilities
 end
 
-M.attach_navic = function(client, bufnr)
-  vim.g.navic_silence = true
-  local status_ok, navic = pcall(require, "nvim-navic")
-  if not status_ok then
-    return
-  end
-
-  if client.supports_method("textDocument/inlayHint") then
-    vim.lsp.inlayHint.enable(bufnr, true)
-  end
-
-  navic.attach(client, bufnr)
-end
-
+---@diagnostic disable-next-line: unused-local
 M.on_attach = function(client, bufnr)
-  M.attach_navic(client, bufnr)
-
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
     vim.lsp.buf.format({ async = true })
   end, { desc = "Format current buffer with LSP" })
+end
+
+M.toggle_lsp_inlayhints = function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled())
 end
 
 return M

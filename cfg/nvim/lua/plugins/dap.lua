@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "mfussenegger/nvim-dap",
-    "leoluz/nvim-dap-go",
+    -- "leoluz/nvim-dap-go",
     "nvim-neotest/nvim-nio",
   },
   keys = {

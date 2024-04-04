@@ -63,10 +63,11 @@ return {
     -- }
 
     dashboard.section.buttons.val = {
-      button("SPC f w", icons.kind.Text .. "Find Text", "<CMD>Telescope live_grep<CR>"),
       button("SPC f f", icons.ui.Telescope .. " Find File", "<CMD>Telescope find_files<CR>"),
+      button("SPC f s", icons.kind.Text .. "Find String", "<CMD>Telescope live_grep<CR>"),
       button("SPC f r", icons.ui.History .. " Recent Files", "<CMD>Telescope oldfiles<CR>"),
       button("SPC p p", icons.ui.Lazy .. " Plugin Manager", "<CMD>Lazy<CR>"),
+      button("SPC w r", icons.ui.Session .. " Restore Session", "<CMD>SessionRestore<CR>"),
       button("SPC n", icons.ui.NewFile .. " New file", "<CMD>ene!<BAR>startinsert<CR>"),
       button("SPC q", icons.ui.SignOut .. " Quit", "<CMD>q<CR>"),
     }

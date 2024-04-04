@@ -17,7 +17,6 @@ require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lsp" },
   { import = "plugins.treesitter" },
-  { import = "plugins.extras" },
 }, {
   checker = {
     enabled = true,

@@ -16,11 +16,14 @@ return {
     { "<leader>fx", require('telescope.builtin').diagnostics,                 desc = "Find Diagnostics" },
     { "<leader>fr", require('telescope.builtin').oldfiles,                    desc = "Find Recent Files" },
     { "<leader>fb", require('telescope.builtin').buffers,                     desc = "Find Buffers" },
-    { "<leader>fw", require('telescope.builtin').live_grep,                   desc = "Find Word" },
+    { "<leader>fs", require('telescope.builtin').live_grep,                   desc = "Find String" },
+    { "<leader>fS", require('telescope.builtin').grep_string,                 desc = "Find String Under Cursor" },
     { "<leader>fc", require('telescope.builtin').colorscheme,                 desc = "Find Colorscheme" },
     { "<leader>fk", require('telescope.builtin').keymaps,                     desc = "Find Keymaps" },
     { "<leader>fm", require('telescope.builtin').man_pages,                   desc = "Find Man Pages" },
     { "<leader>fh", require('telescope.builtin').help_tags,                   desc = "Find Help" },
+
+    { "<leader>xt", require('telescope.builtin').diagnostics,                 desc = "Telescope Diagnostics" },
   },
   config = function()
     local icons = require("user.icons")
@@ -50,6 +53,7 @@ return {
             ["<Up>"] = actions.move_selection_previous,
             ["<esc>"] = actions.close,
             ["<C-t>"] = trouble.open_with_trouble,
+            ["<C-y>"] = actions.select_default,
           },
 
           n = {
@@ -70,7 +74,7 @@ return {
       },
       pickers = {
         buffers = {
-          previewer = false,
+          previewer = true,
           initial_mode = "insert",
           theme = "dropdown",
         },

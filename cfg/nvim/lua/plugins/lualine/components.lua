@@ -3,11 +3,12 @@ local icons = require("user.icons")
 
 return {
   mode = {
-    function()
-      -- return " " .. icons.ui.Target .. " "
-      return " " .. icons.ui.Target .. " "
-    end,
-    padding = { left = 0, right = 0 },
+    -- function()
+    --   -- return " " .. icons.ui.Target .. " "
+    --   return " " .. icons.ui.Target .. " "
+    -- end,
+    "mode",
+    padding = { left = 1, right = 0 },
     color = {},
     cond = nil,
   },
@@ -30,15 +31,21 @@ return {
     cond = conditions.hide_in_width,
   },
 
+  filename = {
+    "filename",
+    path = 1,
+  },
+
   filetype = {
     "filetype",
+    icon_only = false,
     cond = nil,
   },
 
   progress = {
     "progress",
     padding = {
-      left = 1,
+      left = 0,
       right = 1,
     },
   },

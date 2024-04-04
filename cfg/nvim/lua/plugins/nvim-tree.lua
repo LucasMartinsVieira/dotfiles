@@ -6,7 +6,10 @@ return {
   enabled = true,
   cmd = { "NvimTreeToggle" },
   keys = {
-    { "<leader>e", "<CMD>NvimTreeToggle<CR>", desc = "Explorer" },
+    { "<leader>ee", "<CMD>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
+    { "<leader>er", "<CMD>NvimTreeRefresh<CR>", desc = "Refresh File Explorer" },
+    { "<leader>ec", "<CMD>NvimTreeCollapse<CR>", desc = "Collapse File Explorer" },
+    { "<leader>ef", "<CMD>NvimTreeFindFileToggle<CR>", desc = "Toggle File Explorer on current file" },
   },
   config = function()
     local function on_attach(bufnr)
@@ -85,12 +88,12 @@ return {
         timeout = 500,
       },
       view = {
-        width = 32,
+        width = 38,
         -- hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
         number = false,
-        relativenumber = false,
+        relativenumber = true,
         signcolumn = "yes",
       },
       trash = {

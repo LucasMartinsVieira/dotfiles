@@ -5,6 +5,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   ft = "go",
+  enabled = false,
   build = function()
     vim.cmd([[silent! GoInstallDeps]])
   end,

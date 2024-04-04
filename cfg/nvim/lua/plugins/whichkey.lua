@@ -21,6 +21,7 @@ return {
       ["["] = { name = "+prev" },
       ["<leader>a"] = { name = "+Tabs" },
       ["<leader>b"] = { name = "+Buffers" },
+      ["<leader>e"] = { name = "+Explorer" },
       ["<leader>f"] = { name = "+Find" },
       ["<leader>g"] = { name = "+Git" },
       ["<leader>l"] = { name = "+Lsp" },

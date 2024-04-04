@@ -4,11 +4,11 @@
   defwidget notify []
  (
   eventbox
-   :cursor "pointer"
+   ;; :cursor "pointer"
   (
     button
-    :class "icons notify-icon "
-    :onclick "eww open-many powermenu0 powermenu1 --toggle"
+    :class "icons notify-icon"
+    ;; :onclick "~/.local/bin/on-off -n"
     {
       notify_status == 'true' ? '󰂛' :
       notify_status == 'false' ? '󰂚' : '󰂚'

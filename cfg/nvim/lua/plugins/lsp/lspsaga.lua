@@ -2,7 +2,7 @@ return {
   -- Better UI for LSP
   "nvimdev/lspsaga.nvim",
   event = "LspAttach",
-  enabled = true,
+  enabled = false,
   config = function()
     -- Calling setup for lspsaga
     require("lspsaga").setup({

@@ -1,7 +1,10 @@
 return {
   {
     "LunarVim/breadcrumbs.nvim",
-    enabled = true,
+    enabled = false,
+    dependencies = {
+      "SmiteshP/nvim-navic",
+    },
     config = function()
       require("breadcrumbs").setup()
     end,
@@ -11,7 +14,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    -- lazy = true,
     enabled = false,
     config = function()
       local icons = require("user.icons")
@@ -48,6 +50,7 @@ return {
           auto_attach = true,
         },
         highlight = true,
+        click = true,
         separator = " " .. icons.ui.ChevronRight .. " ",
         depth_limit = 0,
         depth_limit_indicator = "..",

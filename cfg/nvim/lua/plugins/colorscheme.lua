@@ -6,6 +6,7 @@ return {
   {
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
+    enabled = false,
     priority = 1000,
   },
 }
