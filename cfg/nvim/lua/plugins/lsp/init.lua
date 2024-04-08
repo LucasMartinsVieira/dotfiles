@@ -100,7 +100,7 @@ return {
       "nil_ls",
       -- "rust_analyzer",
       "statix",
-      "tailwindcss",
+      -- "tailwindcss",
       "taplo",
       "tsserver",
       "yamlls",

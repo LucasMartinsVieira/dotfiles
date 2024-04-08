@@ -31,6 +31,7 @@ return {
       ["<leader>t"] = { name = "+Test" },
       ["<leader>x"] = { name = "+Diagnostics" },
       ["<leader>z"] = { name = "+Focus" },
+      ["<leader>w"] = { name = "+Workspace" },
     }
 
     wk.register(keymaps)

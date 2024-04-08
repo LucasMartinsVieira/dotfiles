@@ -36,4 +36,12 @@ return {
       custom_filetypes = {}, -- see the extension section to learn how it works
     }, -- your configuration
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }

@@ -68,8 +68,8 @@ return {
       button("SPC f r", icons.ui.History .. " Recent Files", "<CMD>Telescope oldfiles<CR>"),
       button("SPC p p", icons.ui.Lazy .. " Plugin Manager", "<CMD>Lazy<CR>"),
       button("SPC w r", icons.ui.Session .. " Restore Session", "<CMD>SessionRestore<CR>"),
-      button("SPC n", icons.ui.NewFile .. " New file", "<CMD>ene!<BAR>startinsert<CR>"),
-      button("SPC q", icons.ui.SignOut .. " Quit", "<CMD>q<CR>"),
+      button("n", icons.ui.NewFile .. " New file", "<CMD>ene!<BAR>startinsert<CR>"),
+      button("q", icons.ui.SignOut .. " Quit", "<CMD>q<CR>"),
     }
     local function footer()
       return "https://github.com/LucasMartinsVieira"
