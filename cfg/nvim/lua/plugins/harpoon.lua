@@ -29,11 +29,11 @@ return {
       end
     end
 
-    vim.keymap.set("n", "<S-m>", function()
+    vim.keymap.set("n", "<leader><leader>", function()
       mark_file()
     end)
 
-    vim.keymap.set("n", "<C-m>", function()
+    vim.keymap.set("n", "<C-e>", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = "Harpoon" })
 

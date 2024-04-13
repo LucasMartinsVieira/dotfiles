@@ -19,7 +19,7 @@ return {
         lualine_b = { components.branch },
         lualine_c = { components.diff, components.filename },
         lualine_x = {
-          -- components.lsp,
+          components.lsp,
           components.diagnostics,
           components.spaces,
           components.filetype,
