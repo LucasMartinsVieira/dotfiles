@@ -22,7 +22,7 @@
 
 listview {
   columns: 1;
-  lines: 5;
+  lines: 4;
   fixed-height: true;
   fixed-columns: true;
   cycle: false;

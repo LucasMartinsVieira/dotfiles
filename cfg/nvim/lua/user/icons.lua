@@ -59,7 +59,7 @@ return {
     Forward = "",
     Gear = "",
     History = "",
-    Incomplete = "",
+    Canceled = "",
     Lazy = "󰒲",
     Lightbulb = "",
     List = "",

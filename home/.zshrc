@@ -1,6 +1,10 @@
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zap-zsh/supercharge"
+export VI_MODE_ESC_INSERT="jk" && plug "zap-zsh/vim"
+
 ### Exports
-export EDITOR="nvim"                  # Set the $EDITOR to nvim
-export TERM="kitty"
+export EDITOR="nvim"
 export BROWSER="firefox"
 
 # LF Icons
@@ -19,6 +23,14 @@ fi
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/share/bob/nvim-bin" ] ;
+  then PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+fi
+
+if [ -d "$HOME/Applications" ] ;
+  then PATH="$HOME/Applications:$PATH"
 fi
 
 # Use lf to switch directories
@@ -42,29 +54,11 @@ yazicd () {
     fi
 }
 
-# yazicd
-bindkey '^P' yazicd
-zle -N yazicd 
-
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
 
 ### Alias ###
-
-### Git Aliases ###
-alias ga="git add"
-alias gs="git status"
-alias gc="git commit"
-alias gp="git push"
-alias gP="git push"
-alias gd="git diff"
-alias gl="git log"
-
-# confirm before overwriting something
-# alias cp="cp -i"
-# alias mv='mv -i'
-# alias rm='rm -i'
 
 # adding flags
 alias df='df -h'                          
@@ -91,12 +85,56 @@ alias v="nvim"
 alias lf="lfrun"
 alias g="lazygit"
 alias t="tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,75% | xargs tldr"
+alias y="yazicd"
 
 # Alias for cd
 alias ..="cd .."
 alias .2="cd ../.."
 alias .3="cd ../../.."
 
-# Starting starship and zoxide
+# Starship 
 eval "$(starship init zsh)"
+
+# Zoxide
 eval "$(zoxide init zsh)"
+
+### FZF ###
+eval "$(fzf --zsh)"
+
+source ~/repos/clones/fzf-git.sh/fzf-git.sh
+
+# Using fd instead of find in fzf
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+# Using eza and bat for preview in fzf
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
+    # ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}

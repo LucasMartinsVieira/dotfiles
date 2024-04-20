@@ -80,8 +80,8 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
 -- more good
--- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
--- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
+keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
+keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- Insert --
 
