@@ -1,0 +1,138 @@
+" vim settings
+set nu
+set relativenumber
+set showmode
+set incsearch
+set scrolloff=8
+
+" which key"
+set notimeout
+set timeoutlen=5000
+
+" ideavim settings
+set ideajoin
+set ideamarks
+
+" leader
+map <space> <nop>
+let mapleader=" "
+
+" Move line up and down
+map <A-j> :action MoveLineDown<CR>
+map <A-k> :action MoveLineUp<CR>
+
+
+"keymap("n", "<A-j>", "<CMD>move .+1<CR>==")
+"keymap("n", "<A-k>", "<CMD>move .-2<CR>==")
+
+" better HJKL
+map H ^
+map L $
+
+" Better ESC
+imap jk <Esc>
+
+
+" Location
+nmap <C-i> <Action>(Back)
+nmap <C-o> <Action>(Forward)
+
+""" LSP
+
+nmap <leader>lf <Action>(ReformatCode)
+nmap <leader>lr <Action>(RenameElement)
+nmap <Leader>la :action ShowIntentionActions<CR>
+nmap <leader>lo <Action>(OptimizeImports)
+nmap <leader>lR <Action>(Refactorings.QuickListPopupAction)
+
+" goto
+nmap <leader>n <Action>(ShowNavBar)
+nmap gc <Action>(GotoClass)
+nmap gf <Action>(GotoFile)
+nmap gs <Action>(GotoSymbol)
+nmap gt <Action>(GoToTest)
+nmap gT <Action>(TextSearchAction)
+nmap go <Action>(GotoSuperMethod)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gI <Action>(QuickImplementations)
+
+nmap <leader>sa <Action>(SurroundWith)
+
+""" Project
+
+" Run
+nmap <leader>r <Action>(Run)
+"nmap <leader>rc <Action>(ContextRun)
+"nmap <leader>rx<Action>(chooseRunConfiguration)
+"nmap <leader>rr <Action>(Rerun)
+"nmap <leader>rt <Action>(RunTests)
+"nmap <leader>rs <Action>(Stop)
+
+" Build
+nmap <leader>b <Action>(BuildMenu)
+
+" Git
+nmap <leader>gg <Action>(VcsGroups)
+
+" Find
+nmap <Leader>ff :action GotoFile<CR>
+nmap <Leader>fr :action RecentFiles<CR>
+nmap <Leader>fs :action FindInPath<CR>
+
+" Zen Mode
+nmap <leader>z <Action>(ToggleZenMode)
+
+" Tab
+nmap <C-h> <Action>(PreviousTab)
+nmap <C-l> <Action>(NextTab)
+nmap <leader>q <Action>(CloseContent)
+nmap <leader>w :wa<CR>
+
+" [] Keybinds
+nmap [b <Action>(PreviousTab)
+nmap ]b <Action>(NextTab)
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+
+" Debug
+nmap <leader>dd <Action>(Debug)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>dc <Action>(ContextDebug)
+nmap <leader>de <Action>(EditBreakpoint)
+nmap <leader>dv <Action>(ViewBreakpoints)
+
+" terminal
+nmap <C-t> <Action>(ActivateTerminalToolWindow)
+nmap <leader>t <Action>(Terminal.OpenInTerminal)
+
+" collapse
+nmap zz <Action>(ExpandCollapseToggleAction)
+nmap za <Action>(CollapseAllRegions)
+nmap zA <Action>(ExpandAllRegions)
+
+" menu
+nmap <leader>mm <Action>(MainMenu)
+nmap <leader>ma <Action>(AnalyzeMenu)
+nmap <leader>mb <Action>(BuildMenu)
+nmap <leader>mc <Action>(CodeMenu)
+nmap <leader>mf <Action>(FindMenuGroup)
+nmap <leader>mg <Action>(GoToMenu)
+nmap <leader>ms <Action>(ScopeViewPopupMenu)
+nmap <leader>mt <Action>(EditorTabPopupMenu)
+nmap <leader>mw <Action>(ToolWindowsGroup)
+
+""" Plugins
+
+" Which Key
+set which-key
+
+set NERDTree
+nmap <leader>e :NERDTreeToggle<CR>
+
+set commentary
+
+set surround
+

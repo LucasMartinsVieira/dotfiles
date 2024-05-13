@@ -95,7 +95,7 @@ return {
       -- "eslint",
       -- "gopls",
       "html",
-      "jdtls",
+      -- "jdtls",
       "jsonls",
       "lua_ls",
       "marksman",

@@ -4,10 +4,11 @@
   defwidget notify []
  (
   eventbox
-   ;; :cursor "pointer"
+  :cursor "pointer"
   (
     button
     :class "icons notify-icon"
+    :onclick "dunstctl set-paused toggle"
     ;; :onclick "~/.local/bin/on-off -n"
     {
       notify_status == 'true' ? '󰂛' :

@@ -18,7 +18,7 @@ return {
       "regex",
       "c",
       "html",
-      "java",
+      -- "java",
       "javascript",
       "typescript",
       "tsx",

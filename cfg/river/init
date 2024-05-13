@@ -21,8 +21,8 @@ riverctl spawn "display_select"
 # Applications
 riverctl map normal Super Return spawn kitty
 riverctl map normal Super R spawn "rofi -show drun"
-riverctl map normal Super B spawn firefox
-riverctl map normal Super P spawn "kitty -e fish -c lf"
+riverctl map normal Super B spawn librewolf
+riverctl map normal Super P spawn "kitty -e fish -c yazi"
 
 # ON/OFF Services
 riverctl map normal Super+Alt N spawn "$HOME/.local/bin/on-off -n"
@@ -238,14 +238,14 @@ riverctl background-color 0x011627
 # riverctl border-color-focused 0xc792ea
 riverctl border-color-focused 0x80a0ff
 riverctl border-color-unfocused 0x0595959
-riverctl border-width 3
+riverctl border-width 4
 riverctl border-color-urgent 0xfc514e
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
 # Set keyboard layout
-riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch,ctrl:swapcaps "us,br"
+riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch,ctrl:nocaps "us,br"
 
 # Mouse focus follow
 riverctl focus-follows-cursor normal
@@ -253,4 +253,4 @@ riverctl focus-follows-cursor normal
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-riverctl spawn "rivertile -view-padding 6 -outer-padding 6"
+riverctl spawn "rivertile -view-padding 4 -outer-padding 4"

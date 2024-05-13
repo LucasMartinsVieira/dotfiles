@@ -1,8 +1,3 @@
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zap-zsh/supercharge"
-export VI_MODE_ESC_INSERT="jk" && plug "zap-zsh/vim"
-
 ### Exports
 export EDITOR="nvim"
 export BROWSER="firefox"

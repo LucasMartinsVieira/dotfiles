@@ -1,7 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-
-  # neofech
+  freshfetch
 end
 
 fish_vi_key_bindings
@@ -109,15 +108,6 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 alias lf="lfrun"
 alias v="nvim"
 
-# If an argument is not given run the program with fzf if it's given run normally
-# function v
-#     if test -n "$argv"
-#         nvim $argv
-#     else
-#         nvim (fzf)
-#     end
-# end
-
 function t --description "TL;DR"
     if test -n "$argv"
         for arg in $argv
@@ -135,11 +125,8 @@ alias ..="cd .."
 alias .2="cd ../.."
 alias .3="cd ../../.."
 
-# ASDF
-# source /opt/asdf-vm/asdf.fish
 
 # File Extraction 
-
 function ex --description "Extract bundled & compressed files"
     if test -f "$argv[1]"
         switch $argv[1]
@@ -184,3 +171,7 @@ starship init fish | source
 
 # Zoxide
 zoxide init fish | source
+
+# FZF
+fzf --fish | source
+
