@@ -57,17 +57,17 @@ nmap gD <Action>(GotoTypeDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gI <Action>(QuickImplementations)
 
-nmap <leader>sa <Action>(SurroundWith)
+nmap <leader>sw <Action>(SurroundWith)
 
 """ Project
 
 " Run
-nmap <leader>r <Action>(Run)
+nmap <leader>rr <Action>(Run)
+nmap <leader>rs <Action>(Stop)
+nmap <leader>rt <Action>(RunTests)
 "nmap <leader>rc <Action>(ContextRun)
 "nmap <leader>rx<Action>(chooseRunConfiguration)
 "nmap <leader>rr <Action>(Rerun)
-"nmap <leader>rt <Action>(RunTests)
-"nmap <leader>rs <Action>(Stop)
 
 " Build
 nmap <leader>b <Action>(BuildMenu)

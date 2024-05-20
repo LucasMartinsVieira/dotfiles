@@ -8,7 +8,7 @@ return {
         -- rust = { "rustfmt" },
         bash = { "shfmt" },
         sh = { "shfmt" },
-        nix = { "alejandra" },
+        nix = { "nixfmt" },
         go = { "gofmt", "goimports-reviser", "golines" },
         javascript = { { "biome", "prettierd", "prettier" } },
         typescript = { { "biome", "prettierd", "prettier" } },
