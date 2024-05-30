@@ -17,7 +17,7 @@ return {
         json = { { "biome", "prettierd", "prettier" } },
         html = { { "prettierd", "prettier" } },
         css = { { "prettierd", "prettier" } },
-        -- markdown = { { "prettierd", "prettier" } },
+        markdown = { { "prettierd", "prettier" } },
       },
       format_on_save = {
         lsp_fallback = true,

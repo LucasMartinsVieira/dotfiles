@@ -26,12 +26,10 @@ daily() {
 
 	cat <<EOF >"$DAILY_NOTE"
 ---
-gym: false
-study: false
-read: false
 tags: diary
 week: $(date +"%G-W%V")
 ---
+
 # $(date +"%A, %d %B %Y")
 
 - 
@@ -45,9 +43,11 @@ Last Year: [[$(date --date="last year" +"%Y-%m-%d")]]
 Next Year: [[$(date --date="next year" +"%Y-%m-%d")]]
 
 ## Todo's Completed
+
 - [ ] 
 
 ## Todo's for Tomorrow
+
 - [ ] 
 EOF
 
@@ -75,30 +75,32 @@ Last Year: [[$(date --date="last year" +"%G-W%V")]]
 Next Year: [[$(date --date="next year" +"%G-W%V")]]
 
 ## What  happened this week?
+
 - Watched: 
 - Read:
 - Worked on:
 
 ## Overview
 
-$()dataview
-Table without id 
-	file.link AS "Day",
-	choice(gym, "✅", "❌") as "🏋🏻",
-	choice(study, "✅", "❌") as "📚",
-	choice(read, "✅", "❌") as "📖"
-from "Journal/Daily"
-Where contains(week, "$(date +%G-W%V)")
-Sort file.name ASC
-$()
+| Day       | Workout  | Work  | Read  |
+| --------- | -------- | ----- | ----- |
+| Monday    |          |       |       |
+| Tuesday   |          |       |       |
+| Wednesday |          |       |       |
+| Thursday  |          |       |       |
+| Friday    |          |       |       |
+| Saturday  |          |       |       |
+| Sunday    |          |       |       |
 
 ## What is worth remembering about this week? 💭
 -  
 
 ## What do i achieve this week? ✅
+
 - [ ] ...
 
 ## What do i want achieve next week? 😎
+
 - [ ] ...
 EOF
 
@@ -116,7 +118,7 @@ yearly() {
 date: $(date +%Y)
 maritalStatus:
 totalBooks:
-enjoyment
+enjoyment: ⭐⭐⭐⭐⭐
 ---
 
 << [[$(date --date="last year" +"%Y")]] | [[$(date --date="next year" +"%Y")]] >>
@@ -125,6 +127,7 @@ enjoyment
 - 
 
 ## Goals 🎯
+
 - [ ] ...
 
 ## Best Books 📖

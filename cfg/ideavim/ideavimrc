@@ -38,7 +38,6 @@ nmap <C-i> <Action>(Back)
 nmap <C-o> <Action>(Forward)
 
 """ LSP
-
 nmap <leader>lf <Action>(ReformatCode)
 nmap <leader>lr <Action>(RenameElement)
 nmap <Leader>la :action ShowIntentionActions<CR>
@@ -65,9 +64,9 @@ nmap <leader>sw <Action>(SurroundWith)
 nmap <leader>rr <Action>(Run)
 nmap <leader>rs <Action>(Stop)
 nmap <leader>rt <Action>(RunTests)
-"nmap <leader>rc <Action>(ContextRun)
-"nmap <leader>rx<Action>(chooseRunConfiguration)
-"nmap <leader>rr <Action>(Rerun)
+nmap <leader>rx<Action>(chooseRunConfiguration)
+nmap <leader>rR <Action>(Rerun)
+nmap <leader>rc <Action>(ContextRun)
 
 " Build
 nmap <leader>b <Action>(BuildMenu)

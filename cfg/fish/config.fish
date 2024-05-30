@@ -76,7 +76,7 @@ alias yta-wav="yt-dlp --extract-audio --audio-format wav"
 alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 
 # Programs
-alias lf="lfrun"
+# alias lf="lfrun"
 alias v="nvim"
 
 abbr g "lazygit"
@@ -86,6 +86,94 @@ alias ..="cd .."
 alias .2="cd ../.."
 alias .3="cd ../../.."
 
+### Functions
+function t --description "TL;DR"
+  if test -n "$argv"
+    for arg in $argv
+      tldr $arg
+    end
+  else
+    tldr --list | fzf --preview 'tldr {1} --color=always' --height "75%" --preview-window=right,75% | xargs tldr
+  end
+end
+
+# Use lf to switch directories
+function lfcd
+  set tmp (mktemp)
+  lf -last-dir-path=$tmp $argv
+  if test -f "$tmp"
+    set dir (cat $tmp)
+    rm -f $tmp
+    if test -d "$dir"
+      if test "$dir" != (pwd)
+        cd $dir
+      end
+    end
+  end
+end
+
+# Use yazi to switch directories
+function yazicd
+  set tmp (mktemp)
+  yazi --cwd-file $tmp $argv
+  if test -f "$tmp"
+    set dir (cat $tmp)
+    rm -f $tmp
+    if test -d "$dir"
+      if test "$dir" != (pwd)
+        cd $dir
+      end
+    end
+  end
+end
+
+# File Extraction 
+function ex --description "Extract bundled & compressed files"
+  if test -f "$argv[1]"
+    switch $argv[1]
+    case '*.tar.bz2'
+      tar xjf $argv[1]
+    case '*.tar.gz'
+      tar xzf $argv[1]
+    case '*.bz2'
+      bunzip2 $argv[1]
+    case '*.rar'
+      unrar $argv[1]
+    case '*.gz'
+      gunzip $argv[1]
+    case '*.tar'
+      tar xf $argv[1]
+    case '*.tbz2'
+      tar xjf $argv[1]
+    case '*.tgz'
+      tar xzf $argv[1]
+    case '*.zip'
+      unzip $argv[1]
+    case '*.Z'
+      uncompress $argv[1]
+    case '*.7z'
+      7z $argv[1]
+    case '*.deb'
+      ar $argv[1]
+    case '*.tar.xz'
+      tar xf $argv[1]
+    case '*.tar.zst'
+      tar xf $argv[1]
+    case '*'
+      echo "'$argv[1]' cannot be extracted via ex"
+    end
+  else
+    echo "'$argv[1]' is not a valid file"
+  end
+end
+
+# SDK MAN
+function sdk
+  bash -c "source '$HOME/.sdkman/bin/sdkman-init.sh'; sdk $argv[1..]"
+end
+
+fish_add_path (find "$HOME/.sdkman/candidates/java/current/bin" -maxdepth 0)
+
 # Starship Prompt
 starship init fish | source
 
@@ -94,4 +182,3 @@ zoxide init fish | source
 
 # FZF
 fzf --fish | source
-
