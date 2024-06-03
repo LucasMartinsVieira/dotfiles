@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+BACKUP_PREFIX=$(date +"%Y%m%d%H%m")
+DRIVE_NAME="backups"
+LSBLK_CMD=$(lsblk -l | grep $DRIVE_NAME | awk '{print $1}' | head -n 1)
+LSBLK_IS_MOUNTED=$(lsblk -l | grep $DRIVE_NAME | head -n 1 | awk '{print $NF}')
+
+# Check if there is a drive with the label "backups"
+check_drive_availability() {
+	if [[ $LSBLK_CMD ]]; then
+		is_mounted
+	else
+		printf "Drive '%s' not found" "$DRIVE_NAME"
+		exit 1
+	fi
+}
+
+is_mounted() {
+	if [[ $LSBLK_IS_MOUNTED ]]; then
+		borg_command
+	else
+		printf "Drive '%s' is either not mounted or mounted on the wrong directory. It should be mounted on /mnt/backups" "$DRIVE_NAME"
+		exit 1
+	fi
+}
+
+borg_command() {
+	notify-send -t 10000 "Borg Backup" "Backup starting" &&
+		borg create --progress --stats \
+			/mnt/backups/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
+			"$HOME" \
+			--exclude "$HOME/.cache/" \
+			--exclude "$HOME/.local/" \
+			--exclude "$HOME/.rustup/" \
+			--exclude "$HOME/.sdkman/" \
+			--exclude "$HOME/.m2/" \
+			--exclude "$HOME/.gradle/" \
+			--exclude "$HOME/**/node_modules" \
+			--exclude "$HOME/.java" &&
+		notify-send -t 10000 "Borg Backup" "Backup Finished"
+}
+
+check_drive_availability

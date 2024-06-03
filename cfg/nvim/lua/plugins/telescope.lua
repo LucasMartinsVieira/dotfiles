@@ -29,7 +29,7 @@ return {
     local icons = require("user.icons")
     local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
-    local trouble = require("trouble.providers.telescope")
+    local trouble = require("trouble.sources.telescope")
 
     vim.keymap.set("n", "<leader>fn", function()
       builtin.find_files({ cwd = vim.fn.stdpath("config") })
@@ -53,7 +53,7 @@ return {
             ["<Down>"] = actions.move_selection_next,
             ["<Up>"] = actions.move_selection_previous,
             ["<esc>"] = actions.close,
-            ["<C-t>"] = trouble.open_with_trouble,
+            ["<C-t>"] = trouble.open,
             ["<C-y>"] = actions.select_default,
           },
 
@@ -69,7 +69,7 @@ return {
             ["<Up>"] = actions.move_selection_previous,
             ["<PageUp>"] = actions.results_scrolling_up,
             ["<PageDown>"] = actions.results_scrolling_down,
-            ["<C-t>"] = trouble.open_with_trouble,
+            ["<C-t>"] = trouble.open,
           },
         },
       },

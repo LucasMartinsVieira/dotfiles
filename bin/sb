@@ -13,7 +13,6 @@ YEARLY_NOTE="$SB_FOLDER/Journal/Yearly/$(date +"%Y").md"
 BASIC_NOTE="$SB_FOLDER/$FILE_TITLE.md"
 PROJECT_NOTE="$SB_FOLDER/PR $FILE_TITLE.md"
 PROGRAMMING_NOTE="$SB_FOLDER/PG $FILE_TITLE.md"
-COURSE_NOTE="$SB_FOLDER/CS $FILE_TITLE.md"
 COLLEGE_NOTE="$SB_FOLDER/CL $FILE_TITLE.md"
 ARTICLES_NOTE="$SB_FOLDER/AR $FILE_TITLE.md"
 
@@ -30,7 +29,7 @@ tags: diary
 week: $(date +"%G-W%V")
 ---
 
-# $(date +"%A, %d %B %Y")
+# $(LANG=en-US date +"%A, %d %B %Y")
 
 - 
 
@@ -84,13 +83,13 @@ Next Year: [[$(date --date="next year" +"%G-W%V")]]
 
 | Day       | Workout  | Work  | Read  |
 | --------- | -------- | ----- | ----- |
-| Monday    |          |       |       |
-| Tuesday   |          |       |       |
-| Wednesday |          |       |       |
-| Thursday  |          |       |       |
-| Friday    |          |       |       |
-| Saturday  |          |       |       |
-| Sunday    |          |       |       |
+| Monday    | .        | .     | .     |
+| Tuesday   | .        | .     | .     |
+| Wednesday | .        | .     | .     |
+| Thursday  | .        | .     | .     |
+| Friday    | .        | .     | .     |
+| Saturday  | .        | .     | .     |
+| Sunday    | .        | .     | .     |
 
 ## What is worth remembering about this week? 💭
 -  
@@ -177,21 +176,18 @@ date: $(date +%Y-%m-%d)
 time: $(date +%H:%M)
 tags:
   - projects
-language:
-status: 🟥🟨🟩
-related:
-  - "[[010 - MOC Projects]]"
 ---
 
-Date:: [[$(date +%Y-%m-%d)]]
-
 ## Why?
+
 -
 
 ## Business Rules
+
 -
 
 ## Tools
+
 -
 EOF
 
@@ -212,74 +208,25 @@ tags:
   - programming
 ---
 
-## Principles 💭
+Notes 📖
 
-## References 📖
+-
 
-## Resources 📈
+Principles 💭
 
-## Projects 🏗️
+- 
 
-'dataview
-table date as Date, time as Time, status as Status
-from #programming
-where language="PG $FILE_TITLE"
-'
+References 📑
+
+- 
+
+Resources 📈
+
+- 
+
 EOF
 
 	nvim "$PROGRAMMING_NOTE"
-}
-
-courses() {
-	if [ -f "$COURSE_NOTE" ]; then
-		nvim "$COURSE_NOTE"
-		exit 0
-	fi
-
-	cat <<EOF >"$COURSE_NOTE"
----
-teacher:
-hours:
-platform: 
-tags:
-  - course
-startDate:
-endDate: 
-status: 🟥🟨🟩
-rating: 
----
-Link:: [Course Link]()
-
-##  What is  This Course About?
-- 
-
-## Learning Objectives
-- 
-
-## Related Notes
-- 
-
-# Personal Reflections 
-
-- What you found challenging or interesting?
-
-
-- How the course content relates to your goals?
-
-
-- Do you think the time spent on the course was worth it?
-
-# Resources
-
-## Books
-- 
-## Articles
-- 
-## Sites
-- 
-EOF
-
-	nvim "$COURSE_NOTE"
 }
 
 college() {

@@ -85,7 +85,7 @@ return {
         [" "] = { char = icons.ui.Square, hl_group = "ObsidianTodo" },
         ["x"] = { char = icons.ui.SquareDone, hl_group = "ObsidianDone" },
         [">"] = { char = icons.ui.ChevronRight, hl_group = "ObsidianRightArrow" },
-        ["-"] = { char = icons.ui.Canceled, hl_group = "ObsidianTilde" },
+        ["~"] = { char = icons.ui.Canceled, hl_group = "ObsidianTilde" },
         ["/"] = { char = "󱎖 ", hl_group = "ObsidianTodo" },
 
         -- You can also add more custom ones...

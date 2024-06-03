@@ -7,7 +7,20 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     -- "nvim-treesitter/nvim-treesitter-context",
     "JoosepAlviste/nvim-ts-context-commentstring",
-    "windwp/nvim-ts-autotag",
+    {
+      "windwp/nvim-ts-autotag",
+      config = function()
+        ---@diagnostic disable-next-line: missing-fields
+        require("nvim-ts-autotag").setup({
+          opts = {
+            -- Defaults
+            enable_close = true, -- Auto close tags
+            enable_rename = true, -- Auto rename pairs of tags
+            enable_close_on_slash = false, -- Auto close on trailing </
+          },
+        })
+      end,
+    },
   },
   opts = {
     highlight = { enable = true },
@@ -44,19 +57,9 @@ return {
         node_decremental = "<bs>",
       },
     },
-
-    -- Auto closing html tags
-    autotag = {
-      enable = true,
-      enable_rename = true,
-      enable_close = true,
-      enable_close_on_slash = true,
-      filetypes = { "html", "javascriptreact", "typescriptreact", "tsx" },
-    },
   },
   --- @param opts TSConfig
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
-    require("nvim-ts-autotag").setup()
   end,
 }
