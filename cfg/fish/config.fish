@@ -6,9 +6,12 @@ end
 fish_vi_key_bindings
 
 ### Setting variables
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_CACHE_HOME $HOME/.cache
+
+set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+
 
 ### "Nvim" as manpager
 # set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
@@ -62,7 +65,8 @@ alias free='free -h'
 
 # Changing "ls" to "eza"
 alias ls="eza -al -s=type"
-alias ll="eza -al --icons -s=type"
+alias lt="eza --tree --git-ignore --icons --color=always"
+alias l="eza -al --icons -s=type"
 
 # Yt-dlp
 alias yta-aac="yt-dlp --extract-audio --audio-format aac"
@@ -80,6 +84,7 @@ alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 alias v="nvim"
 
 abbr g "lazygit"
+abbr d "lazydocker"
 
 # Alias for cd
 alias ..="cd .."
@@ -125,6 +130,7 @@ function yazicd
       end
     end
   end
+  starship prompt
 end
 
 # File Extraction 
@@ -175,7 +181,11 @@ end
 fish_add_path (find "$HOME/.sdkman/candidates/java/current/bin" -maxdepth 0)
 
 # Starship Prompt
+function starship_transient_prompt_func
+  starship module character
+end
 starship init fish | source
+enable_transience
 
 # Zoxide
 zoxide init fish | source
