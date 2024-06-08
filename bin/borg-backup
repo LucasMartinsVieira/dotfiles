@@ -2,8 +2,9 @@
 
 BACKUP_PREFIX=$(date +"%Y%m%d%H%m")
 DRIVE_NAME="backups"
-LSBLK_CMD=$(lsblk -l | grep $DRIVE_NAME | awk '{print $1}' | head -n 1)
+LSBLK_CMD=$(lsblk -l | grep $DRIVE_NAME | awk '{print $2}' | head -n 1)
 LSBLK_IS_MOUNTED=$(lsblk -l | grep $DRIVE_NAME | head -n 1 | awk '{print $NF}')
+DRIVE_LOCATION="/run/media/lucas/backups/"
 
 # Check if there is a drive with the label "backups"
 check_drive_availability() {
@@ -19,7 +20,7 @@ is_mounted() {
 	if [[ $LSBLK_IS_MOUNTED ]]; then
 		borg_command
 	else
-		printf "Drive '%s' is either not mounted or mounted on the wrong directory. It should be mounted on /mnt/backups" "$DRIVE_NAME"
+		printf "Drive '%s' is either not mounted or mounted on the wrong directory. It should be mounted on '%s'" "$DRIVE_NAME" "$DRIVE_LOCATION"
 		exit 1
 	fi
 }
@@ -27,16 +28,32 @@ is_mounted() {
 borg_command() {
 	notify-send -t 10000 "Borg Backup" "Backup starting" &&
 		borg create --progress --stats \
-			/mnt/backups/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
+			$DRIVE_LOCATION/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
 			"$HOME" \
 			--exclude "$HOME/.cache/" \
 			--exclude "$HOME/.local/" \
 			--exclude "$HOME/.rustup/" \
 			--exclude "$HOME/.sdkman/" \
-			--exclude "$HOME/.m2/" \
+			--exclude "$HOME/.m3/" \
 			--exclude "$HOME/.gradle/" \
+			--exclude "$HOME/.java" \
+			--exclude "$HOME/.nix-defexpr" \
+			--exclude "$HOME/.nix-profile/" \
+			--exclude "$HOME/.npm/" \
+			--exclude "$HOME/.openjfx/" \
+			--exclude "$HOME/.pki/" \
 			--exclude "$HOME/**/node_modules" \
-			--exclude "$HOME/.java" &&
+			--exclude "$HOME/.bash_history" \
+			--exclude "$HOME/Media/Games/" \
+			--exclude "$HOME/Media/Movies/" \
+			--exclude "$HOME/Media/Series/" \
+			--exclude "$HOME/Media/Videos/" \
+			--exclude "$HOME/Downloads/" \
+			--exclude "$HOME/media/" \
+			--exclude "$HOME/.gtkrc-2.0" \
+			--exclude "$HOME/.xinitrc" \
+			--exclude "$HOME/.Xresources" \
+			--exclude "$HOME/.zshrc" &&
 		notify-send -t 10000 "Borg Backup" "Backup Finished"
 }
 
