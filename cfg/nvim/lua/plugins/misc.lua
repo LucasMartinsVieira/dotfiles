@@ -16,6 +16,7 @@ return {
   },
   {
     "luckasRanarison/tailwind-tools.nvim",
+    enabled = false,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@type TailwindTools.Option

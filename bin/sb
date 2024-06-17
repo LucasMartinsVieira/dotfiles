@@ -63,7 +63,8 @@ weekly() {
 	cat <<EOF >"$WEEKLY_NOTE"
 ---
 tags: weeklyreviews
-Aliases: The week where...
+Aliases: 
+  - The week where...
 Enjoyment: ⭐⭐⭐⭐⭐
 week: $(date +"%G-W%V")
 ---

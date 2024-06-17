@@ -1,7 +1,7 @@
 return {
   "goolord/alpha-nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  enabled = true,
+  enabled = false,
 
   opts = function()
     local icons = require("user.icons")

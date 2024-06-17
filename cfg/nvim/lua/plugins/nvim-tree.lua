@@ -4,7 +4,6 @@ return {
     "nvim-tree/nvim-web-devicons", -- optional, for file icons
   },
   enabled = true,
-  cmd = { "NvimTreeToggle" },
   keys = {
     { "<leader>ee", "<CMD>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
     { "<leader>er", "<CMD>NvimTreeRefresh<CR>", desc = "Refresh File Explorer" },

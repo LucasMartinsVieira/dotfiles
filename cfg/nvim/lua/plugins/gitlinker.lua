@@ -1,5 +1,6 @@
 return {
   "ruifm/gitlinker.nvim",
+  enabled = false,
   dependencies = "nvim-lua/plenary.nvim",
   keys = {
     { "<leader>gy", "<CMD>GitLink!<CR>", desc = "Git Link" },

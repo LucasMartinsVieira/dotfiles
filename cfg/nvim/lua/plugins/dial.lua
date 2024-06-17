@@ -1,5 +1,6 @@
 return {
   "monaqa/dial.nvim",
+  enabled = true,
   config = function()
     local augend = require("dial.augend")
     require("dial.config").augends:register_group({
@@ -46,6 +47,5 @@ return {
     vim.api.nvim_set_keymap("n", "<C-x>", map.dec_normal("mygroup"), { noremap = true })
     vim.api.nvim_set_keymap("v", "<C-a>", map.inc_normal("visual"), { noremap = true })
     vim.api.nvim_set_keymap("v", "<C-x>", map.dec_normal("visual"), { noremap = true })
-
   end,
 }
