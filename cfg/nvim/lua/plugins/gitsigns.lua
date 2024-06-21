@@ -10,42 +10,41 @@ return {
     { "<leader>gr", "<CMD>lua require 'gitsigns'.reset_hunk()<CR>", desc = "Reset Hunk" },
     { "<leader>gs", "<CMD>lua require 'gitsigns'.stage_hunk()<CR>", desc = "Stage Hunk" },
     { "<leader>gu", "<CMD>lua require 'gitsigns'.undo_stage_hunk()<CR>", desc = "Undo Stage Hunk" },
-    { "<leader>gl", "<cmd>lua require 'user.functions'.lazygit_toggle()<cr>", desc = "LazyGit" },
   },
   config = function()
     require("gitsigns").setup({
-      signs = {
-        add = {
-          hl = "GitSignsAdd",
-          text = "│",
-          numhl = "GitSignsAddNr",
-          linehl = "GitSignsAddLn",
-        },
-        change = {
-          hl = "GitSignsChange",
-          text = "│",
-          numhl = "GitSignsChangeNr",
-          linehl = "GitSignsChangeLn",
-        },
-        delete = {
-          hl = "GitSignsDelete",
-          text = "_",
-          numhl = "GitSignsDeleteNr",
-          linehl = "GitSignsDeleteLn",
-        },
-        topdelete = {
-          hl = "GitSignsDelete",
-          text = "‾",
-          numhl = "GitSignsDeleteNr",
-          linehl = "GitSignsDeleteLn",
-        },
-        changedelete = {
-          hl = "GitSignsChange",
-          text = "|",
-          numhl = "GitSignsChangeNr",
-          linehl = "GitSignsChangeLn",
-        },
-      },
+      -- signs = {
+      --   add = {
+      --     hl = "GitSignsAdd",
+      --     text = "│",
+      --     numhl = "GitSignsAddNr",
+      --     linehl = "GitSignsAddLn",
+      --   },
+      --   change = {
+      --     hl = "GitSignsChange",
+      --     text = "│",
+      --     numhl = "GitSignsChangeNr",
+      --     linehl = "GitSignsChangeLn",
+      --   },
+      --   delete = {
+      --     hl = "GitSignsDelete",
+      --     text = "_",
+      --     numhl = "GitSignsDeleteNr",
+      --     linehl = "GitSignsDeleteLn",
+      --   },
+      --   topdelete = {
+      --     hl = "GitSignsDelete",
+      --     text = "‾",
+      --     numhl = "GitSignsDeleteNr",
+      --     linehl = "GitSignsDeleteLn",
+      --   },
+      --   changedelete = {
+      --     hl = "GitSignsChange",
+      --     text = "|",
+      --     numhl = "GitSignsChangeNr",
+      --     linehl = "GitSignsChangeLn",
+      --   },
+      -- },
       signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
       numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
       linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
@@ -62,9 +61,6 @@ return {
         delay = 1000,
         ignore_whitespace = false,
       },
-      current_line_blame_formatter_opts = {
-        relative_time = false,
-      },
       sign_priority = 6,
       update_debounce = 100,
       status_formatter = nil, -- Use default
@@ -76,9 +72,6 @@ return {
         relative = "cursor",
         row = 0,
         col = 1,
-      },
-      yadm = {
-        enable = false,
       },
     })
   end,

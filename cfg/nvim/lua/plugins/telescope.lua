@@ -82,28 +82,14 @@ return {
 
         find_files = {
           previewer = true,
-          theme = "dropdown",
+          -- theme = "dropdown",
           hidden = "true",
         },
 
         git_files = {
           previewer = true,
-          theme = "dropdown",
+          -- theme = "dropdown",
           hidden = "true",
-        },
-
-        oldfiles = {
-          previewer = true,
-          theme = "dropdown",
-          -- initial_mode = "normal",
-        },
-
-        live_grep = {
-          theme = "dropdown",
-        },
-
-        colorscheme = {
-          theme = "dropdown",
         },
       },
       extensions = {
