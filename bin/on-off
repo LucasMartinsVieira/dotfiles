@@ -8,6 +8,7 @@ BLUETOOTH_ICON=$HOME/.config/river/assets/bluetooth.png
 BLUETOOTH_STATE=$(bluetoothctl show | grep Powered: | awk '{print $2}')
 WIFI_STATE=$(nmcli radio wifi)
 NOTIFICATIONS_STATE=$(dunstctl is-paused)
+TRAYER_IS_OPEN=$(pgrep trayer)
 
 # INFO: First argument is an Image, second is the service and the third is the state
 notify_user() {
@@ -46,12 +47,23 @@ notify() {
 	fi
 }
 
+tray() {
+	if [[ "$TRAYER_IS_OPEN" ]]; then
+		killall trayer
+	else
+		killall trayer
+		trayer --width 10 --height 25 --iconspacing 2
+	fi
+}
+
 if [[ "$1" == "-b" ]]; then
 	bluetooth
 elif [[ "$1" == "-w" ]]; then
 	wifi
 elif [[ "$1" == "-n" ]]; then
 	notify
+elif [[ "$1" == "-t" ]]; then
+	tray
 else
 	exit 1
 fi

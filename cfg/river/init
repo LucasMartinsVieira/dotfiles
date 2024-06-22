@@ -32,6 +32,7 @@ riverctl map normal Super+Alt W spawn "$HOME/.local/bin/on-off -w"
 # Interfaces
 riverctl map normal Super+Control P spawn "eww open-many --toggle powermenu0 powermenu1"
 riverctl map normal Super+Control Y spawn "eww open-many --toggle bar0 bar1"
+riverctl map normal Super+Control T spawn "$HOME/.local/bin/on-off -t"
 
 # Wallpaper
 riverctl map normal Super+Shift W spawn "wallpaper ~/Pictures/Wallpapers/"
