@@ -1,7 +1,7 @@
 return {
   {
     "LunarVim/breadcrumbs.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "SmiteshP/nvim-navic",
     },
@@ -14,7 +14,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    enabled = false,
+    enabled = true,
     config = function()
       local icons = require("user.icons")
       require("nvim-navic").setup({

@@ -12,7 +12,7 @@ return {
   -- Vim Plugins
   {
     "elkowar/yuck.vim",
-    enabled = false,
+    enabled = true,
   },
   {
     "luckasRanarison/tailwind-tools.nvim",

@@ -100,6 +100,7 @@ return {
       "lua_ls",
       "marksman",
       "nil_ls",
+      "prismals",
       -- "rust_analyzer",
       "statix",
       -- "tailwindcss",

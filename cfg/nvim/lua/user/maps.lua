@@ -58,6 +58,10 @@ keymap("n", "<leader>bn", "<CMD>bnext<CR>", { desc = "Buffer Next" })
 keymap("n", "<leader>bp", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
 keymap("n", "<leader>bd", "<CMD>bdelete<CR>", { desc = "Buffer Delete" })
 
+keymap("n", "<s-l>", "<CMD>bnext<CR>", { desc = "Buffer Next" })
+keymap("n", "<s-h>", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
+keymap("n", "<s-d>", "<CMD>bdelete<CR>", { desc = "Buffer Delete" })
+
 keymap("n", "]b", "<CMD>bnext<CR>", { desc = "Buffer Next" })
 keymap("n", "[b", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
 
@@ -80,8 +84,8 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
 -- more good
-keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
-keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
+-- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
+-- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- Insert --
 

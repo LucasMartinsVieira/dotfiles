@@ -5,10 +5,10 @@ return {
   cmd = { "TroubleToggle" },
   -- stylua: ignore
   keys = {
-    { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document Diagnostics (Trouble)", },
-    { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)", },
-    { "<leader>xl", "<cmd>TroubleToggle loclist<cr>",               desc = "Location List (Trouble)", },
-    { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",              desc = "Quickfix List (Trouble)", },
+    { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",    desc = "Document Diagnostics (Trouble)", },
+    -- { "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)", },
+    { "<leader>xl", "<cmd>Trouble loclist toggle<cr>",               desc = "Location List (Trouble)", },
+    { "<leader>xq", "<cmd>Trouble quickfix toggle<cr>",              desc = "Quickfix List (Trouble)", },
   },
 
   config = function()

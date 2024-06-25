@@ -23,7 +23,7 @@ bind -M insert \cp 'yazicd'
 # bind -M insert \cf 'tmux-sessionizer'
 
 ### Adding to the $PATH
-fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/"
+fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/"
 
 ### EXPORT
 
@@ -41,7 +41,6 @@ set fish_greeting                # Disable Fish's intro message
 ### Alias ###
 
 source ~/.config/fish/completions/sb.fish
-alias sbb "cd ~/Documents/obsidian && clear"
 abbr sr "steam-run"
 
 ### Git Aliases ###

@@ -6,7 +6,10 @@ return {
   {
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
-    enabled = false,
+    enabled = true,
     priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
   },
 }
