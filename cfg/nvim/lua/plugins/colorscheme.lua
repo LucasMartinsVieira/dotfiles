@@ -9,7 +9,4 @@ return {
     enabled = true,
     priority = 1000,
   },
-  {
-    "rebelot/kanagawa.nvim",
-  },
 }

@@ -1,0 +1,6 @@
+#!/usr/env/bin bash
+
+tmux new-window -n 'Bacon' bacon
+tmux new-window -n 'Lazygit' lazygit
+tmux select-window -t 1
+tmux send-keys "clear" Enter

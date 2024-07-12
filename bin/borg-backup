@@ -43,6 +43,7 @@ borg_command() {
 			--exclude "$HOME/.openjfx/" \
 			--exclude "$HOME/.pki/" \
 			--exclude "$HOME/**/node_modules" \
+			--exclude "$HOME/**/target" \
 			--exclude "$HOME/.bash_history" \
 			--exclude "$HOME/Media/Games/" \
 			--exclude "$HOME/Media/Movies/" \

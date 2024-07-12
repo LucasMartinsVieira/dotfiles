@@ -1,0 +1,29 @@
+[[session]]
+name = "second brain 🧠"
+path = "~/Documents/obsidian"
+startup_command = "nvim"
+
+[[session]]
+name = "dotfiles ✨"
+path = "~/repos/dotfiles/"
+startup_command = "nvim '+Telescope git_files'"
+
+[[session]]
+name = "zapnote ⚡"
+path = "~/repos/zapnote/"
+startup_script = "~/.config/sesh/scripts/rust_bacon_lazygit"
+
+[[session]]
+name = "nixos-config ❄️"
+path = "~/repos/nixos-config/"
+startup_script = "~/.config/sesh/scripts/nixos-setup"
+
+[[session]]
+name = "Home 🏠"
+path = "~"
+startup_command = "l"
+
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"
+startup_command = "l"

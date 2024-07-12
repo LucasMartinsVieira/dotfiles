@@ -1,8 +1,3 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-  freshfetch
-end
-
 fish_vi_key_bindings
 
 ### Setting variables
@@ -42,13 +37,14 @@ set fish_greeting                # Disable Fish's intro message
 
 source ~/.config/fish/completions/sb.fish
 abbr sr "steam-run"
+abbr s "sesh connect (sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --height 50 --prompt='⚡')"
 
 ### Git Aliases ###
 abbr ga "git add"
 abbr gs "git status"
 abbr gc "git commit"
 abbr gC "git checkout"
-abbr gp "git push"
+abbr gp "git pull"
 abbr gP "git push"
 abbr gd "git diff"
 abbr gl "git log"

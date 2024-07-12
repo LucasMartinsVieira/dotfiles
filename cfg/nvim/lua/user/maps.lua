@@ -9,7 +9,7 @@ keymap("n", "<C-i>", "<C-i>", opts)
 -- Normal --
 
 -- Basics
-keymap("n", "<leader>w", "<CMD>wa!<CR>", { desc = "Write" })
+keymap("n", "<leader>ww", "<CMD>wa!<CR>", { desc = "Write" })
 keymap("n", "<leader>q", "<CMD>lua require('user.functions').smart_quit()<CR>", { desc = "Quit" })
 keymap("n", "<leader>h", "<CMD>split<CR>", { desc = "Split" })
 keymap("n", "<leader>v", "<CMD>vsplit<CR>", { desc = "Vsplit" })
@@ -58,9 +58,9 @@ keymap("n", "<leader>bn", "<CMD>bnext<CR>", { desc = "Buffer Next" })
 keymap("n", "<leader>bp", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
 keymap("n", "<leader>bd", "<CMD>bdelete<CR>", { desc = "Buffer Delete" })
 
-keymap("n", "<s-l>", "<CMD>bnext<CR>", { desc = "Buffer Next" })
-keymap("n", "<s-h>", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
-keymap("n", "<s-d>", "<CMD>bdelete<CR>", { desc = "Buffer Delete" })
+-- keymap("n", "<s-l>", "<CMD>bnext<CR>", { desc = "Buffer Next" })
+-- keymap("n", "<s-h>", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
+-- keymap("n", "<s-d>", "<CMD>bdelete<CR>", { desc = "Buffer Delete" })
 
 keymap("n", "]b", "<CMD>bnext<CR>", { desc = "Buffer Next" })
 keymap("n", "[b", "<CMD>bprevious<CR>", { desc = "Buffer Prev" })
@@ -84,8 +84,8 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
 -- more good
--- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
--- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
+keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
+keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- Insert --
 

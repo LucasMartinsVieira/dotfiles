@@ -31,7 +31,7 @@ return {
           end,
 
           capabilities = lsp_functions.common_capabilities(),
-          settings = {
+          default_settings = {
             ["rust_analyzer"] = {
               procMacro = { enable = true },
               cargo = { allFeatures = true },

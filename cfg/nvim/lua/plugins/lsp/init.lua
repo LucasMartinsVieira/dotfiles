@@ -62,7 +62,7 @@ return {
     -- Configuration for diagnostics
     local config = {
       -- disable virtual text
-      virtual_text = true,
+      virtual_text = false,
       update_in_insert = true,
       underline = true,
       severity_sort = true,
