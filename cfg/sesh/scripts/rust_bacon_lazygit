@@ -1,6 +1,9 @@
 #!/usr/env/bin bash
 
-tmux new-window -n 'Bacon' bacon
-tmux new-window -n 'Lazygit' lazygit
+tmux new-window -n 'Bacon'
+tmux send-keys "bacon" Enter
+tmux new-window -n 'Lazygit'
+tmux send-keys "lazygit" Enter
 tmux select-window -t 1
 tmux send-keys "clear" Enter
+tmux send-keys "nvim '+Telescope git_files' " Enter

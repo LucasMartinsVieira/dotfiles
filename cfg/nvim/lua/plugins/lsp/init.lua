@@ -93,7 +93,7 @@ return {
       "biome",
       "cssls",
       -- "eslint",
-      -- "gopls",
+      "gopls",
       "html",
       -- "jdtls",
       "jsonls",

@@ -15,25 +15,23 @@ return {
     local wk = require("which-key")
     wk.setup(opts)
 
-    local keymaps = {
+    wk.add({
       mode = { "n", "v" },
-      ["]"] = { name = "+next" },
-      ["["] = { name = "+prev" },
-      ["<leader>a"] = { name = "+Tabs" },
-      ["<leader>b"] = { name = "+Buffers" },
-      ["<leader>e"] = { name = "+Explorer" },
-      ["<leader>f"] = { name = "+Find" },
-      ["<leader>g"] = { name = "+Git" },
-      ["<leader>l"] = { name = "+Lsp" },
-      ["<leader>o"] = { name = "+Options/Open" },
-      ["<leader>p"] = { name = "+Plugins" },
-      ["<leader>s"] = { name = "+Second Brain" },
-      ["<leader>t"] = { name = "+Test" },
-      ["<leader>x"] = { name = "+Diagnostics" },
-      ["<leader>z"] = { name = "+Focus" },
-      ["<leader>w"] = { name = "+Workspace" },
-    }
-
-    wk.register(keymaps)
+      { "]", group = "+next" },
+      { "[", group = "+prev" },
+      { "<leader>a", group = "Tabs" },
+      { "<leader>b", group = "Buffers" },
+      { "<leader>e", group = "Explorer" },
+      { "<leader>f", group = "Find" },
+      { "<leader>g", group = "Git" },
+      { "<leader>l", group = "Lsp" },
+      { "<leader>o", group = "Options/Open" },
+      { "<leader>p", group = "Plugins" },
+      { "<leader>s", group = "Second Brain" },
+      { "<leader>t", group = "Test" },
+      { "<leader>x", group = "Diagnostics" },
+      { "<leader>z", group = "Focus" },
+      { "<leader>w", group = "Workspace" },
+    })
   end,
 }

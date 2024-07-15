@@ -26,4 +26,4 @@ startup_command = "l"
 [[session]]
 name = "Downloads 📥"
 path = "~/Downloads"
-startup_command = "l"
+startup_command = "yazicd"

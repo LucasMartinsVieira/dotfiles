@@ -1,10 +1,11 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
+  enabled = true,
   config = function()
     require("toggleterm").setup({
       size = 20,
-      open_mapping = [[<c-t>]],
+      open_mapping = [[<c-/>]],
       hide_numbers = true, -- hide the number column in toggleterm buffers
       shade_filetypes = {},
       shade_terminals = true,
