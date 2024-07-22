@@ -17,13 +17,3 @@ startup_script = "~/.config/sesh/scripts/rust_bacon_lazygit"
 name = "nixos-config ❄️"
 path = "~/repos/nixos-config/"
 startup_script = "~/.config/sesh/scripts/nixos-setup"
-
-[[session]]
-name = "Home 🏠"
-path = "~"
-startup_command = "l"
-
-[[session]]
-name = "Downloads 📥"
-path = "~/Downloads"
-startup_command = "yazicd"

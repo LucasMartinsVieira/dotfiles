@@ -4,28 +4,30 @@
 BRIGHTNESS_ICON=$HOME/.config/river/assets/brightness.png
 
 get_brightness() {
-  brightness=$(brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-0)}')
+  brightness=$(brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-0)}' | sed 's/%//')
   echo "$brightness"
 }
 
 notify_user() {
-	notify-send -t 1000 -u normal -i "$BRIGHTNESS_ICON" "Brightness : $(get_brightness)"
+  brightness=$(get_brightness)
+  # notify-send -t 1000 -u normal -i "$BRIGHTNESS_ICON" "Brightness : $(get_brightness)"
+  notify-send "$brightness%  " -i "$BRIGHTNESS_ICON" -t 1000 -r 5555 -u low -h int:value:$(($brightness))
 }
 
 inc_backlight() {
-  brightnessctl set 5%+ -q && notify_user
+  brightnessctl set 3%+ -q && notify_user
 }
 
 dec_backlight() {
-  brightnessctl set 5%- -q && notify_user
+  brightnessctl set 3%- -q && notify_user
 }
 
 if [[ "$1" == "--get" ]]; then
-	get_brightness
+  get_brightness
 elif [[ "$1" == "--inc" ]]; then
-	inc_backlight
+  inc_backlight
 elif [[ "$1" == "--dec" ]]; then
-	dec_backlight
+  dec_backlight
 else
-	get_brightness
+  get_brightness
 fi

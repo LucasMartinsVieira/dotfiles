@@ -1,7 +1,7 @@
 #!/usr/env/bin bash
 
 tmux new-window -n 'Bacon'
-tmux send-keys "bacon" Enter
+tmux send-keys "bacon clippy" Enter
 tmux new-window -n 'Lazygit'
 tmux send-keys "lazygit" Enter
 tmux select-window -t 1

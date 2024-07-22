@@ -92,7 +92,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     frame_color = "#aaaaaa"
@@ -163,12 +163,13 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    # format = "<b>%s</b>\n%b"
+    format = "<span size='110%' weight='600'>%s</span>\n%b"
 
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
@@ -316,7 +317,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#011627"
     foreground = "#c3ccdc"
-    frame_color = "#c792ea"
+    frame_color = "#333"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     # default_icon = ~/.config/dunst/
@@ -325,7 +326,7 @@
     background = "#011627"
     foreground = "#c3ccdc"
     timeout = 10
-    frame_color = "#c792ea"
+    frame_color = "#333"
     # Icon for notifications with normal urgency, uncomment to enable
     # default_icon = ~/.config/dunst/
 
