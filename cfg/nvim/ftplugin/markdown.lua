@@ -12,13 +12,9 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-local mappings = {
-  L = {
-    name = "Markdown",
-    p = { "<CMD>MarkdownPreview<CR>", "Markdown Preview" },
-    s = { "<CMD>MarkdownPreviewStop<CR>", "Markdown Preview Stop" },
-    t = { "<CMD>MarkdownPreviewToggle<CR>", "Markdown Preview Toggle" },
-  },
-}
-
-which_key.register(mappings, opts)
+which_key.add({
+  { "<leader>L", group = "Markdown", nowait = true, remap = false },
+  { "<leader>Lp", "<CMD>MarkdownPreview<CR>", desc = "Markdown Preview", nowait = true, remap = false },
+  { "<leader>Ls", "<CMD>MarkdownPreviewStop<CR>", desc = "Markdown Preview Stop", nowait = true, remap = false },
+  { "<leader>Lt", "<CMD>MarkdownPreviewToggle<CR>", desc = "Markdown Preview Toggle", nowait = true, remap = false },
+}, opts)

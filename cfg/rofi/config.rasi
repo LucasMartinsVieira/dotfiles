@@ -5,6 +5,7 @@
    display-calc: "󰃬 ";
    font: "JetBrains Mono Nerd 10";
    modi: "run,drun";
+   show-icons: true;
 }
 
 @theme "~/.config/rofi/themes/nightfly.rasi"

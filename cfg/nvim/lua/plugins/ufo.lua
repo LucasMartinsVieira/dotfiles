@@ -4,7 +4,7 @@ return {
     "kevinhwang91/promise-async",
     "luukvbaal/statuscol.nvim",
   },
-  enabled = true,
+  enabled = false,
   config = function()
     local builtin = require("statuscol.builtin")
     local cfg = {

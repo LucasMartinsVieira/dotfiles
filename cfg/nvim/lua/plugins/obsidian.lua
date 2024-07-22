@@ -14,6 +14,7 @@ return {
     { "<leader>sr", "<CMD>ObsidianRename<CR>", desc = "Obsidian Rename" },
     { "<leader>so", "<CMD>ObsidianOpen<CR>", desc = "Obsidian Open" },
     { "<leader>sq", "<CMD>ObsidianQuickSwitch<CR>", desc = "Obsidian QuickSwitch" },
+    { "<leader>sl", "<CMD>ObsidianLinks<CR>", desc = "Obsidian Links" },
   },
   dependencies = {
     -- Required.

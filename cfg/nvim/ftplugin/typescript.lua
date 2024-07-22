@@ -12,16 +12,12 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-local mappings = {
-  L = {
-    name = "Typescript",
-    i = { "<cmd>TSToolsAddMissingImports<Cr>", "Add Missing Imports" },
-    o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize Imports" },
-    u = { "<cmd>TSToolsRemoveUnused<Cr>", "Remove Unused" },
-    r = { "<cmd>TSToolsRenameFile<Cr>", "Rename File" },
-    f = { "<cmd>TSToolsFixAll<Cr>", "Fix All" },
-    g = { "<cmd>TSToolsGoToSourceDefinition<Cr>", "Go To Source Definition" },
-  },
-}
-
-which_key.register(mappings, opts)
+which_key.add({
+  { "<leader>L", group = "Typescript", nowait = true, remap = false },
+  { "<leader>Lf", "<cmd>TSToolsFixAll<Cr>", desc = "Fix All", nowait = true, remap = false },
+  { "<leader>Lg", "<cmd>TSToolsGoToSourceDefinition<Cr>", desc = "Go To Source Definition", nowait = true, remap = false },
+  { "<leader>Li", "<cmd>TSToolsAddMissingImports<Cr>", desc = "Add Missing Imports", nowait = true, remap = false },
+  { "<leader>Lo", "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize Imports", nowait = true, remap = false },
+  { "<leader>Lr", "<cmd>TSToolsRenameFile<Cr>", desc = "Rename File", nowait = true, remap = false },
+  { "<leader>Lu", "<cmd>TSToolsRemoveUnused<Cr>", desc = "Remove Unused", nowait = true, remap = false },
+}, opts)
