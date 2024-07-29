@@ -3,16 +3,27 @@
 (
  defwindow powermenu0
   :monitor 0
-  :stacking "fg"
-  :geometry (geometry :anchor "right center")
+  :stacking "overlay"
+  :focusable false
+  :namespace "eww_powermenu"
+  ; :geometry (geometry :anchor "right center")
+  :geometry (geometry 
+              :width "100%" 
+              :height "100%" 
+              :anchor "center")
   (powermenu)
 )
 
 (
  defwindow powermenu1
   :monitor 1
-  :stacking "fg"
-  :geometry (geometry :anchor "right center")
+  :stacking "overlay"
+  :focusable false
+  ;; :geometry (geometry :anchor "right center")
+  :geometry (geometry 
+              :width "100%" 
+              :height "100%" 
+              :anchor "center")
   (powermenu)
 )
 

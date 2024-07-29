@@ -1,0 +1,62 @@
+(defwidget services-button [icon action css wait ?tip] 
+  (eventbox 
+    :cursor "pointer"
+    (button 
+      :class css 
+      :onclick action
+      :timeout wait
+      :tooltip tip
+      icon
+    )
+  )
+)
+
+(defwidget services []
+  (box 
+    :class "services" 
+    :orientation "v" 
+    :spacing 10
+    (box  
+      :spacing 10
+      (services-button 
+        :css "services-all services-wifi" 
+        :action "~/.local/bin/on-off -w"
+        :wait "200ms"
+        :tip "${wifi_name}"
+        :icon {
+          wifi_status == "down" || wifi_strengh == 0 ? "󰤯" :
+          wifi_status == "up" && wifi_strengh <= 20 ? "󰤟" :
+          wifi_status == "up" && wifi_strengh <= 40 ? "󰤢" :
+          wifi_status == "up" && wifi_strengh <= 70 ? "󰤥" : "󰤨"
+        }
+      )
+      (services-button 
+        :css "services-all"
+        :action "~/.local/bin/on-off -b"
+        :wait "200ms"
+        :icon {
+          bluetooth_state == "yes" ? "󰂯" : "󰂲"
+        }
+      )
+    )
+    (box 
+      :spacing 10
+      (services-button 
+        :css "services-all"
+        :action "dunstctl set-paused toggle"
+        :wait "200ms"
+        :icon {
+          notify_status == 'true' ? '󰂛' : notify_status == 'false' ? '󰂚' : '󰂚'
+        }
+      )
+      (services-button 
+        :css "services-all"
+        :action "~/.local/bin/volume --toggle_mic"
+        :wait "200ms"
+        :icon {
+          microphone_status == 'true' ? "󰍬" : "󰍭" 
+        }
+      )
+    )
+  )
+)

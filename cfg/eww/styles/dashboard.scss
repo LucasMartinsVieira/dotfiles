@@ -1,0 +1,135 @@
+/* USER */
+
+.user {
+  margin-bottom: .5rem;
+}
+
+.widget {
+  margin: .4rem;
+  border-radius: 1rem;
+  background-color: $bg;
+  padding: 1rem;
+  color: $fg;
+}
+
+.power-buttons {
+  background-color: $bg-alt;
+  border-radius: .6rem;
+  font-size: 1.5rem;
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+}
+
+.widget-inner {
+  background-color: $bg-alt;
+  border-radius: .6rem;
+  padding: 1rem;
+}
+
+.user-picture {
+  background-size: 6rem;
+  min-height: 6rem;
+  min-width: 6rem;
+  border-radius: .6rem;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.user-details {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* SERVICES */
+
+.services {
+  background-color: $bg-alt;
+  border-radius: 1rem;
+  padding: .5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.services-all {
+  box-shadow: inset 1 0 0 1px rgba(white, 0.03);
+  /* background-image: linear-gradient(0deg, $bg, lighten($bg, 30%)); */
+  background: $bg;
+  font-size: 1.6rem;
+  border-radius: 100%;
+
+  label {
+    color: $fg;
+  }
+}
+
+.services-wifi {
+  label {
+    margin-right: 5px;
+  }
+}
+
+/* STATS */
+
+/* .stats { */
+/*   background-color: $bg-alt; */
+/*   border-radius: 1rem; */
+/*   padding: .5rem; */
+/*   margin-top: .5rem; */
+/*   margin-bottom: .5rem; */
+/* } */
+
+.stats-progress {
+  padding: .5rem;
+  background-color: $bg-alt;
+  border-radius: 1rem;
+  padding: .5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+
+  circular-progress {
+    background-color: transparentize($fg, 0.8);
+  }
+
+  label {
+    color: $fg;
+  }
+}
+
+.stats-cpu,
+.stats-ram,
+.stats-battery,
+.stats-disk {
+  color: $bg;
+}
+
+.stats-ram {
+  label {
+    margin-right: 10px;
+  }
+}
+
+.stats-disk {
+  label {
+    margin-right: 5px;
+  }
+}
+
+.stats-cpu {
+  label {
+    margin-right: 6px;
+  }
+}
+
+.stats-battery {
+  label {
+    margin-left: 1px;
+  }
+}
+
+.stats-icon {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}

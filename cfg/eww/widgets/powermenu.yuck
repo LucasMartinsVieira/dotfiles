@@ -1,7 +1,9 @@
 (defwidget powermenu []
   (box 
     :class "powermenu"
-    :orientation "v"
+    :orientation "h"
+    :halign "center" 
+    :valign "center" 
     :spacing 10
     (eventbox
       :cursor "pointer"

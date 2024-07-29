@@ -1,5 +1,3 @@
-(defpoll notify_status :interval "1s" "dunstctl is-paused 2>/dev/null")
-
 (
   defwidget notify []
  (

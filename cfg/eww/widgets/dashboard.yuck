@@ -1,0 +1,14 @@
+(include "./widgets/dashboard/user.yuck")
+(include "./widgets/dashboard/services.yuck")
+(include "./widgets/dashboard/stats.yuck")
+
+(defwidget dashboard[]
+  (box :orientation "v" :space-evenly false :class "widget" 
+    (user)
+      (box
+        :spacing 15
+        (services)
+        (stats)
+      )
+  )
+)

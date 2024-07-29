@@ -1,7 +1,3 @@
-(defpoll wifi_name :interval "1s" "~/.local/bin/wifi --get_name")
-(defpoll wifi_status :interval "1s" "~/.local/bin/wifi --get_status")
-(defpoll wifi_strengh :interval "1s" "~/.local/bin/wifi --get_strengh")
-
 (
  defwidget wifi []
  (

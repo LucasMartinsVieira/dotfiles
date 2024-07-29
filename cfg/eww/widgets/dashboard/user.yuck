@@ -1,0 +1,59 @@
+(defwidget user[]
+  (box
+    :class "user"
+    :space-evenly false
+    :spacing 15
+    (box :style "background-image: url('${image}');" :class "user-picture")
+    (box
+      :class "user-info"
+      :space-evenly false
+      :hexpand true
+      (box
+        :space-evenly false 
+        :orientation "v"
+        :hexpand true
+        :spacing 5
+        (label :class "user-name" :text "${user_name}@${hostname}" :xalign 0)
+        (box
+          :space-evenly false 
+          :hexpand true
+          :spacing 10
+          :class "user-details"
+          (label :text "󰍹")
+          (label :text "${kernel}" :xalign 0)
+        )
+        (box
+          :space-evenly false 
+          :hexpand true
+          :spacing 10
+          :class "user-details"
+          (label :text "󰥔")
+          (label :text "${uptime}" :xalign 0)
+        )
+      )
+      (box
+        :class "power"
+        :halign "end"
+        :valign "center"
+        :spacing 10
+        :style "margin-left: 3rem"
+        (eventbox
+          :cursor "pointer"
+          (button 
+            :class "powermenu shutdown power-buttons" 
+            :onclick "systemctl poweroff -i" 
+            "󰐥"
+          )
+        )
+        (eventbox
+          :cursor "pointer"
+          (button 
+            :class "powermenu exit power-buttons" 
+            :onclick "hyprctl dispatch exit ; riverctl exit" 
+            "󰗼"
+          )
+        )
+      )
+    )
+  )
+)

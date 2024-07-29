@@ -1,0 +1,23 @@
+(include "./widgets/dashboard.yuck")
+
+(
+  defwindow dashboard0
+  :monitor 0
+  :stacking "fg"
+  :namespace "eww_menu"
+  :geometry (geometry 
+              :height "5px"
+              :anchor "top left")
+  (dashboard)
+)
+
+(
+  defwindow dashboard1
+  :monitor 1
+  :stacking "fg"
+  :namespace "eww_menu"
+  :geometry (geometry 
+              :height "5px"
+              :anchor "top left")
+  (dashboard)
+)

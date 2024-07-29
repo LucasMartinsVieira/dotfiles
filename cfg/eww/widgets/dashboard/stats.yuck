@@ -1,0 +1,57 @@
+(defwidget system-stats [data icon css tip] 
+  (box 
+    :class "stats-progress" 
+    (circular-progress
+      :class css
+      :value data
+      :thickness 8
+      :tooltip tip
+      (overlay
+        :valign "center"
+        (label 
+          :class "stats-icon" 
+          :text icon
+        )
+      )
+    )
+  )
+)
+
+(defwidget stats []
+  (box
+    :class "stats"
+    :orientation "v"
+    :spacing 10
+    (box
+      :spacing 10
+      (system-stats
+        :css "stats-cpu"
+        :tip "CPU ${round(EWW_CPU.avg,0)}%"
+        :data {round(EWW_CPU.avg, 0)} 
+        :icon ""
+      )
+      (system-stats
+        :css "stats-ram"
+        :tip "RAM ${round(EWW_RAM.used_mem / 1000000, 2)}MB"
+        :data {round(EWW_RAM.used_mem_perc, 0)}
+        :icon ""
+      )
+    )
+    (box
+      :spacing 10
+      (system-stats
+        :css "stats-battery"
+        :tip "Battery ${EWW_BATTERY["BAT0"].status}"
+        :data {round(EWW_BATTERY["BAT0"].capacity, 0)} 
+        :icon "󰁹"
+      )
+      (system-stats
+        :css "stats-disk"
+        ;:tip "SSD ${round(EWW_DISK["/"].used_perc, 2)}%"
+        :tip "${round(EWW_DISK["/"].used / 1000000000, 1)}GB / ${round(EWW_DISK["/"].total / 1000000000, 1)}GB"
+        :data {round(EWW_DISK["/"].used_perc, 0)}
+        :icon ""
+      )
+    )
+  )
+)

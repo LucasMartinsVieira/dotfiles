@@ -6,7 +6,7 @@
   (
     button
     :class "icons menu-icon"
-    :onclick "eww open-many powermenu0 powermenu1 --toggle"
+    :onclick "eww open-many dashboard0 dashboard1 --toggle"
     ""
   )
  )

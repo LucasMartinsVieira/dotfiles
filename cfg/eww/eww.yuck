@@ -1,3 +1,18 @@
 (include "./windows/powermenu.yuck")
 (include "./windows/bar.yuck")
 (include "./windows/calendar.yuck")
+(include "./windows/dashboard.yuck")
+
+(defpoll wifi_name :interval "1s" `~/.local/bin/wifi --get_name`)
+(defpoll wifi_status :interval "1s" `~/.local/bin/wifi --get_status`)
+(defpoll wifi_strengh :interval "1s" `~/.local/bin/wifi --get_strengh`)
+
+(defpoll bluetooth_state :interval "1s" `bluetoothctl show | grep Powered: | awk '{print $2}'`)
+(defpoll notify_status :interval "1s" `dunstctl is-paused 2>/dev/null`)
+(defpoll microphone_status :interval "1s" `~/.local/bin/volume --get_mic_state`)
+
+(defpoll user_name :interval "60s" "whoami")
+(defpoll hostname :interval "3600s" "cat /etc/hostname")
+(defpoll kernel :interval "3600s" `uname -a | awk '{print $1 " " $3}'`)
+(defpoll uptime :interval "60s" `uptime | awk -F'(up |,| user)' '{gsub(/ day[s]*/, "d", $2); gsub(/:/, "h", $2); sub(/$/, "m", $2); gsub(/ /, "", $2); print $2}'`)
+(defpoll image :interval "1200s" "~/.local/bin/get-icon")

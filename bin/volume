@@ -31,6 +31,14 @@ toggle_mute() {
   fi
 }
 
+get_mic_state() {
+  if [[ $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3}') == "[MUTED]" ]]; then
+    echo "false"
+  else
+    echo "true"
+  fi
+}
+
 toggle_mic() {
   if [[ $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3}') == "[MUTED]" ]]; then
     wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && dunstify "Microphone ON  " -i "$MIC_ICON" -t 1000 -r 5555 -u low -h string:synchronous:mic-volume
@@ -73,6 +81,8 @@ elif [[ "$1" == "--inc_mic" ]]; then
   inc_mic_volume
 elif [[ "$1" == "--dec_mic" ]]; then
   dec_mic_volume
+elif [[ "$1" == "--get_mic_state" ]]; then
+  get_mic_state
 else
   get_volume
 fi
