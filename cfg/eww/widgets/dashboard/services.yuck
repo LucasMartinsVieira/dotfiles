@@ -33,6 +33,10 @@
       (services-button 
         :css "services-all"
         :action "~/.local/bin/on-off -b"
+        :tip {
+          bluetooth_state == "yes" ? "Bluetooth ON" :
+          bluetooth_state == "no" ? "Bluetooth OFF" : "Bluetooth OFF" 
+        }
         :wait "200ms"
         :icon {
           bluetooth_state == "yes" ? "󰂯" : "󰂲"
@@ -45,6 +49,9 @@
         :css "services-all"
         :action "dunstctl set-paused toggle"
         :wait "200ms"
+        :tip {
+          notify_status == 'true' ? "Notifications OFF" : notify_status == 'false' ? "Notifications ON" : "Notifications ON"
+        }
         :icon {
           notify_status == 'true' ? '󰂛' : notify_status == 'false' ? '󰂚' : '󰂚'
         }
@@ -53,6 +60,9 @@
         :css "services-all"
         :action "~/.local/bin/volume --toggle_mic"
         :wait "200ms"
+        :tip {
+          microphone_status == 'true' ? "Mic ON" : "Mic OFF"
+        }
         :icon {
           microphone_status == 'true' ? "󰍬" : "󰍭" 
         }

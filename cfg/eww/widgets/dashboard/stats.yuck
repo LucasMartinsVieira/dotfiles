@@ -43,7 +43,18 @@
         :css "stats-battery"
         :tip "Battery ${EWW_BATTERY["BAT0"].status}"
         :data {round(EWW_BATTERY["BAT0"].capacity, 0)} 
-        :icon "󰁹"
+        :icon {
+            battery_percent == 0 ? "󰂎" :
+            battery_percent <= 10 ? "󰁺" :
+            battery_percent <= 20 ? "󰁻" :
+            battery_percent <= 30 ? "󰁼" :
+            battery_percent <= 40 ? "󰁽" :
+            battery_percent <= 50 ? "󰁾" :
+            battery_percent <= 60 ? "󰁿" :
+            battery_percent <= 70 ? "󰂀" :
+            battery_percent <= 80 ? "󰂁" :
+            battery_percent <= 90 ? "󰂂" : "󰁹"
+        }
       )
       (system-stats
         :css "stats-disk"

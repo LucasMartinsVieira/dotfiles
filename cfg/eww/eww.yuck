@@ -10,6 +10,7 @@
 (defpoll bluetooth_state :interval "1s" `bluetoothctl show | grep Powered: | awk '{print $2}'`)
 (defpoll notify_status :interval "1s" `dunstctl is-paused 2>/dev/null`)
 (defpoll microphone_status :interval "1s" `~/.local/bin/volume --get_mic_state`)
+(defpoll battery_percent :interval "60s" "cat /sys/class/power_supply/BAT?/capacity 2>/dev/null | head -1")
 
 (defpoll user_name :interval "60s" "whoami")
 (defpoll hostname :interval "3600s" "cat /etc/hostname")
