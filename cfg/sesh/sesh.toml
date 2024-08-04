@@ -6,7 +6,6 @@ startup_command = "nvim"
 [[session]]
 name = "dotfiles ✨"
 path = "~/repos/dotfiles/"
-startup_command = "nvim '+Telescope git_files'"
 
 [[session]]
 name = "zapnote ⚡"

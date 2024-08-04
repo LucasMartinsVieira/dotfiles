@@ -1,19 +1,24 @@
 #!/usr/bin/env bash
 
+# export DISPLAY=:0
+# export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+
 BAT_ICON=$HOME/.config/river/assets/battery_low.png
 BAT_LEVEL=$(cat /sys/class/power_supply/BAT?/capacity 2>/dev/null | head -1)
-BAT_STATE=$(cat /sys/class/power_supply/BAT?/status 2>/dev/null | head -1)
-INTERVAL="480"
+BAT_DISCHARGING=$(cat /sys/class/power_supply/BAT?/status 2>/dev/null | head -1 | grep -c "Discharging")
+INTERVAL="300"
 
-main() {
-  DUNST_PAUSED=$(dunstctl is-paused)
+unpause_dunst() {
+  DUNST_PAUSED=$(dunstctl is-paused | grep -c "false")
 
-  if [[ $DUNST_PAUSED == "true" ]]; then
+  if [ "$DUNST_PAUSED" -eq 0 ]; then
     dunstctl set-paused false
   fi
+}
 
-  if [[ $BAT_LEVEL -le 25 && $BAT_STATE != "Charging" ]]; then
-    notify-send "Low Battery" "$BAT_LEVEL% of battery remaining" -i "$BAT_ICON" -t 30000 -r 9991 -u critical -h int:value:$(($BAT_LEVEL))
+main() {
+  if [ "$BAT_LEVEL" -le 25 ] && [ "$BAT_DISCHARGING" -eq 0 ]; then
+    unpause_dunst && notify-send "Low Battery" "$BAT_LEVEL% of battery remaining" -i "$BAT_ICON" -t 30000 -r 9991 -u critical -h int:value:$(($BAT_LEVEL))
   fi
 }
 

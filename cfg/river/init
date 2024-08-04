@@ -14,6 +14,7 @@ riverctl spawn "wl-paste --type text --watch cliphist store"
 riverctl spawn "wl-paste --type image --watch cliphist store"
 riverctl spawn "swww init"
 riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
+riverctl spawn "$HOME/.local/bin/battery"
 riverctl spawn "wlsunset -t 3400 -T 3401"
 riverctl spawn "display_select"
 

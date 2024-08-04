@@ -41,7 +41,7 @@
       :spacing 10
       (system-stats
         :css "stats-battery"
-        :tip "Battery ${EWW_BATTERY["BAT0"].status}"
+        :tip "${EWW_BATTERY["BAT0"].status} (${EWW_BATTERY["BAT0"].capacity}%)"
         :data {round(EWW_BATTERY["BAT0"].capacity, 0)} 
         :icon {
             battery_percent == 0 ? "󰂎" :
