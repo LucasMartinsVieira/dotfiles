@@ -206,10 +206,10 @@ keymap = [
   ], run = "rename --cursor=before_ext", desc = "Rename a file or directory" },
   { on = [
     ";",
-  ], run = "shell", desc = "run a shell command" },
+  ], run = "shell --interactive", desc = "run a shell command" },
   { on = [
     ":",
-  ], run = "shell --block", desc = "run a shell command (block the UI until the command finishes)" },
+  ], run = "shell --block --interactive", desc = "run a shell command (block the UI until the command finishes)" },
   { on = [
     ".",
   ], run = "hidden toggle", desc = "Toggle the visibility of hidden files" },

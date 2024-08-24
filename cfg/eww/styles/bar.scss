@@ -14,7 +14,7 @@ window>.bar {
 
 .left,
 .center,
-.right { 
+.right {
   padding: 5px;
   padding-right: 8px;
 }
@@ -22,9 +22,9 @@ window>.bar {
 .tag {
   margin: 1px 0px;
   // margin-left: 0.3rem;
-  border-bottom: 2px solid rgba(0,0,0,0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
 
-  &:hover { 
+  &:hover {
     // transition: 100ms linear border-color;
     // border-bottom: 2px solid $blue;
     color: $blue;
@@ -48,35 +48,34 @@ window>.bar {
     margin-bottom: 0.3rem;
     margin-top: 0.3rem;
   }
-  
+
   &.wifi-icon {
     color: $magenta;
     margin-right: 0.3rem;
   }
-  
+
   &.volume-icon {
     color: $green;
     margin-right: 0.2rem;
   }
-  
+
   &.brightness-icon {
     color: $yellow;
     margin-right: 0.2rem;
   }
-  
+
   &.battery-icon {
     color: $blue;
     margin-left: 0.3rem;
   }
-  
+
   &.notify-icon {
-    color: $emerald;
+    color: $mint;
   }
-  
+
   &.power-icon {
     color: $red;
     font-size: 1.5rem;
     margin-left: 0.3rem;
   }
 }
-

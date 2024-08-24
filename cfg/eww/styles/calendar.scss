@@ -1,27 +1,27 @@
 .cal-box {
   background-color: $bg;
   font-family: $font;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: bold;
   border-radius: 0.8rem;
   margin: 1rem;
 
   .cal-inner-box {
-      padding: 1rem 1rem .2rem;
+    padding: 1rem 1rem .2rem;
 
-      .cal {
-          &.highlight {
-              padding: 10rem;
-          }
-
-          padding: .4rem .25rem 0rem;
-          margin-left: 10px;
+    .cal {
+      &.highlight {
+        padding: 10rem;
       }
+
+      padding: .4rem .25rem 0rem;
+      margin-left: 10px;
+    }
   }
 }
 
 calendar:selected {
-  color: $magenta;
+  color: $mint;
 }
 
 calendar.header,
@@ -37,4 +37,3 @@ calendar:indeterminate {
 calendar.button {
   color: $blue;
 }
-

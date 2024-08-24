@@ -14,7 +14,6 @@ riverctl spawn "wl-paste --type text --watch cliphist store"
 riverctl spawn "wl-paste --type image --watch cliphist store"
 riverctl spawn "swww init"
 riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
-riverctl spawn "$HOME/.local/bin/battery"
 riverctl spawn "wlsunset -t 3400 -T 3401"
 riverctl spawn "display_select"
 
@@ -35,6 +34,7 @@ riverctl map normal Super+Control P spawn "eww open-many --toggle powermenu0 pow
 riverctl map normal Super+Control Y spawn "eww open-many --toggle bar0 bar1"
 riverctl map normal Super+Control T spawn "$HOME/.local/bin/on-off -t"
 riverctl map normal Super+Control D spawn "eww open-many --toggle dashboard0 dashboard1"
+riverctl map normal Super+Control C spawn "eww open-many --toggle calendar0 calendar1"
 
 # Wallpaper
 riverctl map normal Super+Shift W spawn "wallpaper ~/Pictures/Wallpapers/"
@@ -238,10 +238,10 @@ riverctl rule-add ssd
 
 # Set background and border color
 riverctl background-color 0x011627
-# riverctl border-color-focused 0xc792ea
-riverctl border-color-focused 0x80a0ff
+riverctl border-color-focused 0xc792ea
+# riverctl border-color-focused 0x80a0ff
 riverctl border-color-unfocused 0x0595959
-riverctl border-width 4
+riverctl border-width 3
 riverctl border-color-urgent 0xfc514e
 
 # Set keyboard repeat rate
