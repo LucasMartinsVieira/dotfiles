@@ -14,14 +14,14 @@ riverctl spawn "wl-paste --type text --watch cliphist store"
 riverctl spawn "wl-paste --type image --watch cliphist store"
 riverctl spawn "swww init"
 riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
-riverctl spawn "wlsunset -t 3400 -T 3401"
+riverctl spawn "wlsunset -t 3200 -T 3201"
 riverctl spawn "display_select"
 
 # BINDS
 # Applications
 riverctl map normal Super Return spawn kitty
 riverctl map normal Super R spawn "fuzzel"
-riverctl map normal Super B spawn librewolf
+riverctl map normal Super B spawn firefox
 riverctl map normal Super P spawn "kitty -e fish -c yazi"
 
 # ON/OFF Services

@@ -90,9 +90,9 @@ return {
 
     local servers = {
       "bashls",
-      "biome",
+      -- "biome",
       "cssls",
-      -- "eslint",
+      "eslint",
       "gopls",
       "html",
       -- "jdtls",

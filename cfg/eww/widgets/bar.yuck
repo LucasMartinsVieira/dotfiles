@@ -41,6 +41,11 @@
     :valign "end"
     :orientation "v"
     :spacing 10
+    (
+      systray
+      :orientation "v"
+      :spacing 10
+    )
 
 
     (wifi)
