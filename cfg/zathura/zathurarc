@@ -19,79 +19,79 @@ set font "JetBrainsMono Nerd Font 9"
 # Colorscheme
 
 ## Nightfly
-# set notification-error-bg       "#fc514e" # Red
-# set notification-error-fg       "#c3ccdc" # Foreground
-# set notification-warning-bg     "#ecc48d" # Yellow
-# set notification-warning-fg     "#b2ceee" # Selection
-# set notification-bg             "#011627" # Background
-# set notification-fg             "#c3ccdc" # Foreground
-#
-# set completion-bg               "#011627" # Background
-# set completion-fg               "#011627" # Comment
-# set completion-group-bg         "#011627" # Background
-# set completion-group-fg         "#011627" # Comment
-# set completion-highlight-bg     "#b2ceee" # Selection
-# set completion-highlight-fg     "#c3ccdc" # Foreground
-# set index-bg                    "#011627" # Background
-# set index-fg                    "#c3ccdc" # Foreground
-# set index-active-bg             "#011627" # Current Line
-# set index-active-fg             "#c3ccdc" # Foreground
-#
-# set inputbar-bg                 "#011627" # Background
-# set inputbar-fg                 "#c3ccdc" # Foreground
-# set statusbar-bg                "#011627" # Background
-# set statusbar-fg                "#c3ccdc" # Foreground
-#
-# set highlight-color             "#ecc48d" # Yellow
-# set highlight-active-color      "#82aaff" # Blue
-#
-# set default-bg                  "#011627" # Background
-# set default-fg                  "#c3ccdc" # Foreground
-#
-# set render-loading              true
-# set render-loading-fg           "#011627" # Background
-# set render-loading-bg           "#c3ccdc" # Foreground
-#
-# # Recolor mode settings
-#
-# set recolor-lightcolor          "#011627" # Background
-# set recolor-darkcolor           "#c3ccdc" # Foreground
-
-## Moonfly
-set notification-error-bg       "#ff5454" # Red
-set notification-error-fg       "#b2b2b2" # Foreground
-set notification-warning-bg     "#e3c78a" # Yellow
+set notification-error-bg       "#fc514e" # Red
+set notification-error-fg       "#c3ccdc" # Foreground
+set notification-warning-bg     "#ecc48d" # Yellow
 set notification-warning-fg     "#b2ceee" # Selection
-set notification-bg             "#080808" # Background
-set notification-fg             "#b2b2b2" # Foreground
+set notification-bg             "#011627" # Background
+set notification-fg             "#c3ccdc" # Foreground
 
-set completion-bg               "#080808" # Background
-set completion-fg               "#080808" # Comment
-set completion-group-bg         "#080808" # Background
-set completion-group-fg         "#080808" # Comment
+set completion-bg               "#011627" # Background
+set completion-fg               "#011627" # Comment
+set completion-group-bg         "#011627" # Background
+set completion-group-fg         "#011627" # Comment
 set completion-highlight-bg     "#b2ceee" # Selection
-set completion-highlight-fg     "#b2b2b2" # Foreground
-set index-bg                    "#080808" # Background
-set index-fg                    "#b2b2b2" # Foreground
-set index-active-bg             "#080808" # Current Line
-set index-active-fg             "#b2b2b2" # Foreground
+set completion-highlight-fg     "#c3ccdc" # Foreground
+set index-bg                    "#011627" # Background
+set index-fg                    "#c3ccdc" # Foreground
+set index-active-bg             "#011627" # Current Line
+set index-active-fg             "#c3ccdc" # Foreground
 
-set inputbar-bg                 "#080808" # Background
-set inputbar-fg                 "#b2b2b2" # Foreground
-set statusbar-bg                "#080808" # Background
-set statusbar-fg                "#b2b2b2" # Foreground
+set inputbar-bg                 "#011627" # Background
+set inputbar-fg                 "#c3ccdc" # Foreground
+set statusbar-bg                "#011627" # Background
+set statusbar-fg                "#c3ccdc" # Foreground
 
-set highlight-color             "#e3c78a" # Yellow
-set highlight-active-color      "#80a0ff" # Blue
+set highlight-color             "#ecc48d" # Yellow
+set highlight-active-color      "#82aaff" # Blue
 
-set default-bg                  "#080808" # Background
-set default-fg                  "#b2b2b2" # Foreground
+set default-bg                  "#011627" # Background
+set default-fg                  "#c3ccdc" # Foreground
 
 set render-loading              true
-set render-loading-fg           "#080808" # Background
-set render-loading-bg           "#b2b2b2" # Foreground
+set render-loading-fg           "#011627" # Background
+set render-loading-bg           "#c3ccdc" # Foreground
 
 # Recolor mode settings
 
-set recolor-lightcolor          "#080808" # Background
-set recolor-darkcolor           "#b2b2b2" # Foreground
+set recolor-lightcolor          "#011627" # Background
+set recolor-darkcolor           "#c3ccdc" # Foreground
+
+## Moonfly
+# set notification-error-bg       "#ff5454" # Red
+# set notification-error-fg       "#b2b2b2" # Foreground
+# set notification-warning-bg     "#e3c78a" # Yellow
+# set notification-warning-fg     "#b2ceee" # Selection
+# set notification-bg             "#080808" # Background
+# set notification-fg             "#b2b2b2" # Foreground
+#
+# set completion-bg               "#080808" # Background
+# set completion-fg               "#080808" # Comment
+# set completion-group-bg         "#080808" # Background
+# set completion-group-fg         "#080808" # Comment
+# set completion-highlight-bg     "#b2ceee" # Selection
+# set completion-highlight-fg     "#b2b2b2" # Foreground
+# set index-bg                    "#080808" # Background
+# set index-fg                    "#b2b2b2" # Foreground
+# set index-active-bg             "#080808" # Current Line
+# set index-active-fg             "#b2b2b2" # Foreground
+#
+# set inputbar-bg                 "#080808" # Background
+# set inputbar-fg                 "#b2b2b2" # Foreground
+# set statusbar-bg                "#080808" # Background
+# set statusbar-fg                "#b2b2b2" # Foreground
+#
+# set highlight-color             "#e3c78a" # Yellow
+# set highlight-active-color      "#80a0ff" # Blue
+#
+# set default-bg                  "#080808" # Background
+# set default-fg                  "#b2b2b2" # Foreground
+#
+# set render-loading              true
+# set render-loading-fg           "#080808" # Background
+# set render-loading-bg           "#b2b2b2" # Foreground
+
+# Recolor mode settings
+
+# set recolor-lightcolor          "#080808" # Background
+# set recolor-darkcolor           "#b2b2b2" # Foreground

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ICON_FOLDER=$HOME/Documents/icons/
+ICON_FOLDER=$HOME/Pictures/icons/
 RANDOM_ICON=$(command ls "$ICON_FOLDER" | shuf -n 1)
 FULL_PATH="$ICON_FOLDER/$RANDOM_ICON"
 

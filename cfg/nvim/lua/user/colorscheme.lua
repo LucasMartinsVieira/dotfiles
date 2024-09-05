@@ -1,4 +1,4 @@
-local colorscheme = "moonfly"
+local colorscheme = "nightfly"
 
 local status_ok, _ = pcall(function()
   vim.cmd.colorscheme(colorscheme)

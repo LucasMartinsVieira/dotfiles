@@ -15,11 +15,11 @@ notify_user() {
 }
 
 inc_backlight() {
-  brightnessctl set 3%+ -q && notify_user
+  brightnessctl set 5%+ -q && notify_user
 }
 
 dec_backlight() {
-  brightnessctl set 3%- -q && notify_user
+  brightnessctl set 5%- -q && notify_user
 }
 
 if [[ "$1" == "--get" ]]; then

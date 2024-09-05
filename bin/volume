@@ -16,11 +16,11 @@ notify_user() {
 }
 
 inc_volume() {
-  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+ && notify_user
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify_user
 }
 
 dec_volume() {
-  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%- && notify_user
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%- && notify_user
 }
 
 toggle_mute() {
@@ -60,11 +60,11 @@ notify_mic_user() {
 }
 
 inc_mic_volume() {
-  wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 2%+ && notify_mic_user
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+ && notify_mic_user
 }
 
 dec_mic_volume() {
-  wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 2%- && notify_mic_user
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%- && notify_mic_user
 }
 
 if [[ "$1" == "--get_volume" ]]; then

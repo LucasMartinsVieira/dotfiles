@@ -103,7 +103,7 @@ return {
       "prismals",
       -- "rust_analyzer",
       "statix",
-      -- "tailwindcss",
+      "tailwindcss",
       "taplo",
       "tsserver",
       "yamlls",
