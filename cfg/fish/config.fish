@@ -4,9 +4,16 @@ fish_vi_key_bindings
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_STATE_HOME $HOME/.local/state/
 
+# Cleaning Home
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
-
+set -x CARGO_HOME $XDG_DATA_HOME/cargo
+set -x GOPATH $XDG_DATA_HOME/go
+set -x SDKMAN_DIR $XDG_DATA_HOME/sdkman
+set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+set -x XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
 
 ### "Nvim" as manpager
 # set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
@@ -169,11 +176,11 @@ function ex --description "Extract bundled & compressed files"
 end
 
 # SDK MAN
-function sdk
-  bash -c "source '$HOME/.sdkman/bin/sdkman-init.sh'; sdk $argv[1..]"
-end
-
-fish_add_path (find "$HOME/.sdkman/candidates/java/current/bin" -maxdepth 0)
+# function sdk
+#   bash -c "source '$HOME/.sdkman/bin/sdkman-init.sh'; sdk $argv[1..]"
+# end
+#
+# fish_add_path (find "$HOME/.sdkman/candidates/java/current/bin" -maxdepth 0)
 
 # Starship Prompt
 function starship_transient_prompt_func
