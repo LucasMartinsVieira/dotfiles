@@ -25,7 +25,7 @@ bind -M insert \cp 'yazicd'
 # bind -M insert \cf 'tmux-sessionizer'
 
 ### Adding to the $PATH
-fish_add_path "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/"
+fish_add_path "$HOME/.local/share/cargo/bin" "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/"
 
 ### EXPORT
 
@@ -194,3 +194,6 @@ zoxide init fish | source
 
 # FZF
 fzf --fish | source
+
+# Direnv
+direnv hook fish | source

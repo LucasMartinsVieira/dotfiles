@@ -5,56 +5,71 @@ DRIVE_NAME="backups"
 LSBLK_CMD=$(lsblk -l | grep $DRIVE_NAME | awk '{print $2}' | head -n 1)
 LSBLK_IS_MOUNTED=$(lsblk -l | grep $DRIVE_NAME | head -n 1 | awk '{print $NF}')
 DRIVE_LOCATION="/run/media/lucas/backups/"
+LOG_FILE="/var/log/borg-backup.log"
+
+log() {
+  echo "$(date +"%Y-%m-%d %H:%M:%S") - $1" >>$LOG_FILE
+}
 
 # Check if there is a drive with the label "backups"
 check_drive_availability() {
-	if [[ $LSBLK_CMD ]]; then
-		is_mounted
-	else
-		printf "Drive '%s' not found" "$DRIVE_NAME"
-		exit 1
-	fi
+  if [[ $LSBLK_CMD ]]; then
+    is_mounted
+  else
+    echo "ERROR: Drive $DRIVE_NAME not found"
+    exit 1
+  fi
 }
 
 is_mounted() {
-	if [[ $LSBLK_IS_MOUNTED ]]; then
-		borg_command
-	else
-		printf "Drive '%s' is either not mounted or mounted on the wrong directory. It should be mounted on '%s'" "$DRIVE_NAME" "$DRIVE_LOCATION"
-		exit 1
-	fi
+  if [[ $LSBLK_IS_MOUNTED ]]; then
+    borg_command
+  else
+    echo "ERROR: Drive '$DRIVE_NAME' is either not mounted or mounted on the wrong directory. It should be mounted on '$DRIVE_LOCATION'"
+    exit 1
+  fi
+}
+
+borg_prune_command() {
+  borg prune --keep-daily=30 --keep-weekly=8 --keep-monthly=12 $DRIVE_LOCATION
 }
 
 borg_command() {
-	notify-send -t 10000 "Borg Backup" "Backup starting" &&
-		borg create --progress --stats \
-			$DRIVE_LOCATION/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
-			"$HOME" \
-			--exclude "$HOME/.cache/" \
-			--exclude "$HOME/.local/" \
-			--exclude "$HOME/.rustup/" \
-			--exclude "$HOME/.sdkman/" \
-			--exclude "$HOME/.m3/" \
-			--exclude "$HOME/.gradle/" \
-			--exclude "$HOME/.java" \
-			--exclude "$HOME/.nix-defexpr" \
-			--exclude "$HOME/.nix-profile/" \
-			--exclude "$HOME/.npm/" \
-			--exclude "$HOME/.openjfx/" \
-			--exclude "$HOME/.pki/" \
-			--exclude "$HOME/**/node_modules" \
-			--exclude "$HOME/**/target" \
-			--exclude "$HOME/.bash_history" \
-			--exclude "$HOME/Media/Games/" \
-			--exclude "$HOME/Media/Movies/" \
-			--exclude "$HOME/Media/Series/" \
-			--exclude "$HOME/Media/Videos/" \
-			--exclude "$HOME/media/" \
-			--exclude "$HOME/.gtkrc-2.0" \
-			--exclude "$HOME/.xinitrc" \
-			--exclude "$HOME/.Xresources" \
-			--exclude "$HOME/.zshrc" &&
-		notify-send -t 10000 "Borg Backup" "Backup Finished"
+  # notify-send -t 10000 "Borg Backup" "Backup starting" &&
+  if borg create --progress --stats \
+    $DRIVE_LOCATION/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
+    "$HOME" \
+    --exclude "$HOME/.cache/" \
+    --exclude "$HOME/.local/" \
+    --exclude "$HOME/.rustup/" \
+    --exclude "$HOME/.sdkman/" \
+    --exclude "$HOME/.m3/" \
+    --exclude "$HOME/.gradle/" \
+    --exclude "$HOME/.java" \
+    --exclude "$HOME/.nix-defexpr" \
+    --exclude "$HOME/.nix-profile/" \
+    --exclude "$HOME/.npm/" \
+    --exclude "$HOME/.openjfx/" \
+    --exclude "$HOME/.pki/" \
+    --exclude "$HOME/**/node_modules" \
+    --exclude "$HOME/**/target" \
+    --exclude "$HOME/.bash_history" \
+    --exclude "$HOME/repos/clones/" \
+    --exclude "$HOME/Media/Games/" \
+    --exclude "$HOME/Media/Movies/" \
+    --exclude "$HOME/Media/Series/" \
+    --exclude "$HOME/Media/Videos/" \
+    --exclude "$HOME/media/" \
+    --exclude "$HOME/.gtkrc-2.0" \
+    --exclude "$HOME/.xinitrc" \
+    --exclude "$HOME/.Xresources" \
+    --exclude "$HOME/.zshrc"; then
+    echo "SUCCESS: Backup created successfully"
+    # borg_prune_command
+  else
+    echo "ERROR: Backup failed"
+    exit 1
+  fi
 }
 
 check_drive_availability

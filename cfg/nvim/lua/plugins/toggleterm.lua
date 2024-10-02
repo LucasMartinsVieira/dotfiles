@@ -1,7 +1,7 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
-  enabled = false,
+  enabled = true,
   config = function()
     require("toggleterm").setup({
       size = 20,

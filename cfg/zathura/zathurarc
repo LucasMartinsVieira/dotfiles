@@ -90,8 +90,8 @@ set recolor-darkcolor           "#c3ccdc" # Foreground
 # set render-loading              true
 # set render-loading-fg           "#080808" # Background
 # set render-loading-bg           "#b2b2b2" # Foreground
-
-# Recolor mode settings
-
+#
+# # Recolor mode settings
+#
 # set recolor-lightcolor          "#080808" # Background
 # set recolor-darkcolor           "#b2b2b2" # Foreground

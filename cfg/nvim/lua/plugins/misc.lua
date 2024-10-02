@@ -46,29 +46,7 @@ return {
     end,
   },
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-    config = function()
-      require("render-markdown").setup({
-        heading = {
-          enabled = false,
-        },
-        bullet = {
-          enabled = false,
-          -- icons = { "•", "", "◆", "◇" },
-          -- "○"
-          -- ""
-        },
-        dash = { width = 15 },
-        checkbox = {
-          enabled = true,
-          custom = {
-            in_progress = { raw = "[/]", rendered = "󱎖 ", highlight = "RenderMarkdownTodo" },
-            fowarded = { raw = "[>]", rendered = ">", highlight = "RenderMarkdownUnchecked" },
-            scheduled = { raw = "[<]", rendered = "󰨳 ", highlight = "RenderMarkdownUnchecked" },
-          },
-        },
-      })
-    end,
+    "rcarriga/nvim-notify",
+    opts = {},
   },
 }

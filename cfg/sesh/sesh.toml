@@ -10,9 +10,9 @@ path = "~/repos/dotfiles/"
 [[session]]
 name = "zapnote ⚡"
 path = "~/repos/zapnote/"
-startup_script = "~/.config/sesh/scripts/rust_bacon_lazygit"
+# startup_script = "~/.config/sesh/scripts/rust_bacon_lazygit"
 
 [[session]]
 name = "nixos-config ❄️"
 path = "~/repos/nixos-config/"
-startup_script = "~/.config/sesh/scripts/nixos-setup"
+# startup_command = "~/.config/sesh/scripts/nixos-setup"

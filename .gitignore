@@ -2,3 +2,4 @@ cfg/fish/fish_variables
 cfg/fish/api.fish
 cfg/fish/fish_variables
 cfg/btop/btop.log
+bin/.envrc

@@ -18,12 +18,12 @@ ARTICLES_NOTE="$SB_FOLDER/AR $FILE_TITLE.md"
 
 daily() {
 
-	if [ -f "$DAILY_NOTE" ]; then
-		nvim "$DAILY_NOTE"
-		exit 0
-	fi
+  if [ -f "$DAILY_NOTE" ]; then
+    nvim "$DAILY_NOTE"
+    exit 0
+  fi
 
-	cat <<EOF >"$DAILY_NOTE"
+  cat <<EOF >"$DAILY_NOTE"
 ---
 tags: diary
 week: $(date +"%G-W%V")
@@ -50,22 +50,22 @@ Next Year: [[$(date --date="next year" +"%Y-%m-%d")]]
 - [ ] 
 EOF
 
-	nvim "$DAILY_NOTE"
+  nvim "$DAILY_NOTE"
 }
 
 # shellcheck disable=1078
 weekly() {
-	if [ -f "$WEEKLY_NOTE" ]; then
-		nvim "$WEEKLY_NOTE"
-		exit 0
-	fi
+  if [ -f "$WEEKLY_NOTE" ]; then
+    nvim "$WEEKLY_NOTE"
+    exit 0
+  fi
 
-	cat <<EOF >"$WEEKLY_NOTE"
+  cat <<EOF >"$WEEKLY_NOTE"
 ---
 tags: weeklyreviews
-Aliases: 
+aliases: 
   - The week where...
-Enjoyment: ⭐⭐⭐⭐⭐
+enjoyment: ⭐⭐⭐⭐⭐
 week: $(date +"%G-W%V")
 ---
 
@@ -104,19 +104,18 @@ Next Year: [[$(date --date="next year" +"%G-W%V")]]
 - [ ] ...
 EOF
 
-	nvim "$WEEKLY_NOTE"
+  nvim "$WEEKLY_NOTE"
 }
 
 yearly() {
-	if [ -f "$YEARLY_NOTE" ]; then
-		nvim "$YEARLY_NOTE"
-		exit 0
-	fi
+  if [ -f "$YEARLY_NOTE" ]; then
+    nvim "$YEARLY_NOTE"
+    exit 0
+  fi
 
-	cat <<EOF >"$YEARLY_NOTE"
+  cat <<EOF >"$YEARLY_NOTE"
 ---
 date: $(date +%Y)
-maritalStatus:
 totalBooks:
 enjoyment: ⭐⭐⭐⭐⭐
 ---
@@ -140,16 +139,16 @@ enjoyment: ⭐⭐⭐⭐⭐
 - 
 EOF
 
-	nvim "$YEARLY_NOTE"
+  nvim "$YEARLY_NOTE"
 }
 
 basic() {
-	if [ -f "$BASIC_NOTE" ]; then
-		nvim "$BASIC_NOTE"
-		exit 0
-	fi
+  if [ -f "$BASIC_NOTE" ]; then
+    nvim "$BASIC_NOTE"
+    exit 0
+  fi
 
-	cat <<EOF >"$BASIC_NOTE"
+  cat <<EOF >"$BASIC_NOTE"
 ---
 date: $(date +%Y-%m-%d)
 time: $(date +%H:%M)
@@ -163,15 +162,15 @@ related:
 # $FILE_TITLE
 
 EOF
-	nvim "$BASIC_NOTE"
+  nvim "$BASIC_NOTE"
 }
 
 project() {
-	if [ -f "$PROJECT_NOTE" ]; then
-		nvim "$PROJECT_NOTE"
-		exit 0
-	fi
-	cat <<EOF >"$PROJECT_NOTE"
+  if [ -f "$PROJECT_NOTE" ]; then
+    nvim "$PROJECT_NOTE"
+    exit 0
+  fi
+  cat <<EOF >"$PROJECT_NOTE"
 ---
 date: $(date +%Y-%m-%d)
 time: $(date +%H:%M)
@@ -192,16 +191,16 @@ tags:
 -
 EOF
 
-	nvim "$PROJECT_NOTE"
+  nvim "$PROJECT_NOTE"
 }
 
 programming() {
-	if [ -f "$PROGRAMMING_NOTE" ]; then
-		nvim "$PROGRAMMING_NOTE"
-		exit 0
-	fi
+  if [ -f "$PROGRAMMING_NOTE" ]; then
+    nvim "$PROGRAMMING_NOTE"
+    exit 0
+  fi
 
-	cat <<EOF >"$PROGRAMMING_NOTE"
+  cat <<EOF >"$PROGRAMMING_NOTE"
 ---
 date: $(date +%Y-%m-%d)
 time: $(date +%H:%M)
@@ -227,16 +226,16 @@ Resources 📈
 
 EOF
 
-	nvim "$PROGRAMMING_NOTE"
+  nvim "$PROGRAMMING_NOTE"
 }
 
 college() {
-	if [ -f "$COLLEGE_NOTE" ]; then
-		nvim "$COLLEGE_NOTE"
-		exit 0
-	fi
+  if [ -f "$COLLEGE_NOTE" ]; then
+    nvim "$COLLEGE_NOTE"
+    exit 0
+  fi
 
-	cat <<EOF >"$COLLEGE_NOTE"
+  cat <<EOF >"$COLLEGE_NOTE"
 ---
 tags: 
   - college
@@ -255,16 +254,16 @@ Date:: [[$(date +%Y-%m-%d)]]
 
 EOF
 
-	nvim "$COLLEGE_NOTE"
+  nvim "$COLLEGE_NOTE"
 }
 
 articles() {
-	if [ -f "$ARTICLES_NOTE" ]; then
-		nvim "$ARTICLES_NOTE"
-		exit 0
-	fi
+  if [ -f "$ARTICLES_NOTE" ]; then
+    nvim "$ARTICLES_NOTE"
+    exit 0
+  fi
 
-	cat <<EOF >"$ARTICLES_NOTE"
+  cat <<EOF >"$ARTICLES_NOTE"
 ---
 date: $(date +%Y-%m-%d)
 time: $(date +%H:%M)
@@ -282,11 +281,11 @@ related:
 ## Notes 📖
 EOF
 
-	nvim "$ARTICLES_NOTE"
+  nvim "$ARTICLES_NOTE"
 }
 
 help() {
-	echo "
+  echo "
   Usage sb [options] <file>
         sb [day]
         sb [basic] <file>
@@ -307,25 +306,25 @@ help() {
 }
 
 if [[ "$1" == "day" || $1 == "d" ]]; then
-	daily
+  daily
 elif [[ $1 == "week" || $1 == "w" ]]; then
-	weekly
+  weekly
 elif [[ $1 == "year" || $1 == "y" ]]; then
-	yearly
+  yearly
 elif [[ $1 == "basic" || $1 == "b" ]]; then
-	basic
+  basic
 elif [[ $1 == "pr" ]]; then
-	project
+  project
 elif [[ $1 == "pg" ]]; then
-	programming
+  programming
 elif [[ $1 == "cs" ]]; then
-	courses
+  courses
 elif [[ $1 == "cl" ]]; then
-	college
+  college
 elif [[ $1 == "ar" ]]; then
-	articles
+  articles
 elif [[ $1 == "--help" || $1 == '-h' ]]; then
-	help
+  help
 elif [[ $1 == * ]]; then
-	help
+  help
 fi
