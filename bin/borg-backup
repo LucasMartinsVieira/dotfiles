@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export BORG_PASSPHRASE="${BORG_PASSPHRASE}"
+
 BACKUP_PREFIX=$(date +"%Y%m%d%H%m")
 DRIVE_NAME="backups"
 LSBLK_CMD=$(lsblk -l | grep $DRIVE_NAME | awk '{print $2}' | head -n 1)
@@ -31,7 +33,7 @@ is_mounted() {
 }
 
 borg_prune_command() {
-  borg prune --keep-daily=30 --keep-weekly=8 --keep-monthly=12 $DRIVE_LOCATION
+  borg prune --keep-daily=30 --keep-weekly=8 --keep-monthly=12 --list $DRIVE_LOCATION/backups-nixos-lucas
 }
 
 borg_command() {
@@ -40,7 +42,6 @@ borg_command() {
     $DRIVE_LOCATION/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
     "$HOME" \
     --exclude "$HOME/.cache/" \
-    --exclude "$HOME/.local/" \
     --exclude "$HOME/.rustup/" \
     --exclude "$HOME/.sdkman/" \
     --exclude "$HOME/.m3/" \
@@ -72,4 +73,8 @@ borg_command() {
   fi
 }
 
-check_drive_availability
+if [ "$1" == "prune" ]; then
+  borg_prune_command
+else
+  check_drive_availability
+fi
