@@ -14,6 +14,13 @@ M.common_capabilities = function()
       "detail",
       "additionalTextEdits",
     },
+
+    -- Markdown-oxide
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
   }
 
   return capabilities
@@ -27,6 +34,29 @@ M.on_attach = function(client, bufnr)
   end, { desc = "Format current buffer with LSP" })
 
   M.toggle_lsp_inlayhints()
+
+  -- Markdown_oxide
+
+  vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach", "BufEnter" }, {
+    buffer = bufnr,
+    callback = function()
+      if M.check_codelens_support() then
+        vim.lsp.codelens.refresh({ bufnr = 0 })
+      end
+    end,
+  })
+  -- trigger codelens refresh
+  vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+end
+
+M.check_codelens_support = function()
+  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+  for _, c in ipairs(clients) do
+    if c.server_capabilities.codeLensProvider then
+      return true
+    end
+  end
+  return false
 end
 
 M.toggle_lsp_inlayhints = function()

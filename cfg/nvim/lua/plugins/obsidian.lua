@@ -133,6 +133,9 @@ return {
           -- highlight = "RenderMarkdownH4",
         },
         dash = { width = 15 },
+        pipe_table = {
+          preset = "round",
+        },
         checkbox = {
           enabled = true,
           unchecked = {
@@ -152,7 +155,7 @@ return {
   },
   {
     "ray-x/yamlmatter.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       require("yamlmatter").setup({
         icon_mappings = {

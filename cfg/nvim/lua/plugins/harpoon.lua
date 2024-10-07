@@ -29,7 +29,7 @@ return {
       end
     end
 
-    vim.keymap.set("n", "<leader><leader>", function()
+    vim.keymap.set("n", "<leader>a", function()
       mark_file()
     end)
 
@@ -50,11 +50,11 @@ return {
       harpoon:list():select(4)
     end)
 
-    vim.keymap.set("n", "<M-h>", function()
-      harpoon:list():prev()
-    end)
-    vim.keymap.set("n", "<M-l>", function()
-      harpoon:list():next()
-    end)
+    -- vim.keymap.set("n", "<M-h>", function()
+    --   harpoon:list():prev()
+    -- end)
+    -- vim.keymap.set("n", "<M-l>", function()
+    --   harpoon:list():next()
+    -- end)
   end,
 }

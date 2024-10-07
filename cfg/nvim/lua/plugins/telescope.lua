@@ -12,6 +12,8 @@ return {
   -- stylua: ignore
   keys = {
     { "<leader>bb", require('telescope.builtin').buffers,                     desc = "Buffers" },
+    { "<leader><leader>", require('telescope.builtin').buffers,                     desc = "Buffers" },
+
     { "<leader>ff", require('telescope.builtin').find_files,                  desc = "Find Files" },
     { "<leader>fx", require('telescope.builtin').diagnostics,                 desc = "Find Diagnostics" },
     { "<leader>fr", require('telescope.builtin').oldfiles,                    desc = "Find Recent Files" },
@@ -77,7 +79,7 @@ return {
         buffers = {
           previewer = true,
           initial_mode = "insert",
-          theme = "dropdown",
+          -- theme = "dropdown",
         },
 
         find_files = {

@@ -26,9 +26,9 @@ return {
     nmap("gr", telescope.lsp_references, "[G]oto [R]eferences")
     nmap("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-    nmap("gl", vim.diagnostic.open_float, "Open floating Diagnostic")
-    nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
-    nmap("]d", vim.diagnostic.goto_next, "Goto Next Diagnostic")
+    -- nmap("gl", vim.diagnostic.open_float, "Open floating Diagnostic")
+    -- nmap("[d", vim.diagnostic.goto_prev, "Goto Previous Diagnostic")
+    -- nmap("]d", vim.diagnostic.goto_next, "Goto Next Diagnostic")
 
     -- stylua: ignore
     nmap("<leader>li", "<CMD>LspInfo<CR>", "Connected Language Servers")
@@ -38,7 +38,7 @@ return {
     nmap("<leader>ld", "<CMD>Telescope lsp_document_symbols<CR>", "Document Symbols")
     nmap("<leader>lt", "<CMD>Telescope lsp_type_definitions<CR>", "Type Definition")
     nmap("<leader>lr", "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename")
-    nmap("<leader>la", "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action")
+    -- nmap("<leader>la", "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action")
     nmap("<leader>lws", "<CMD>lua Telescope lsp_workspace_symbols<CR>", "Workspace Symbols")
     nmap("<leader>lwa", "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace Folder")
     nmap("<leader>lwr", "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace Folder")
@@ -98,7 +98,8 @@ return {
       -- "jdtls",
       "jsonls",
       "lua_ls",
-      "marksman",
+      -- "marksman",
+      "markdown_oxide",
       "nil_ls",
       "prismals",
       -- "rust_analyzer",
@@ -129,6 +130,14 @@ return {
             types = true,
           },
         })
+      end
+
+      if server == "markdown_oxide" then
+        vim.api.nvim_create_user_command("Daily", function(args)
+          local input = args.args
+
+          vim.lsp.buf.execute_command({ command = "jump", arguments = { input } })
+        end, { desc = "Open Daily note", nargs = "*" })
       end
 
       lspconfig[server].setup(opts)
