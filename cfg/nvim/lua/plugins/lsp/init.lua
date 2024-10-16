@@ -103,7 +103,7 @@ return {
       "nil_ls",
       "prismals",
       -- "rust_analyzer",
-      "statix",
+      -- "statix",
       "tailwindcss",
       "taplo",
       "ts_ls",

@@ -16,9 +16,10 @@ return {
     })
 
     local mark_file = function()
-      harpoon:list():append()
+      harpoon:list():add()
 
       local status_ok, _ = pcall(function()
+        vim.notify = require("notify")
         vim.notify("󱡅  marked file", "info", {
           title = "Harpoon",
         })
@@ -29,7 +30,7 @@ return {
       end
     end
 
-    vim.keymap.set("n", "<leader>a", function()
+    vim.keymap.set("n", "<leader>h", function()
       mark_file()
     end)
 

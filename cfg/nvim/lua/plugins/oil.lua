@@ -6,8 +6,8 @@ return {
     require("oil").setup({
       default_file_explorer = true,
       float = {
-        max_height = 20,
-        max_width = 65,
+        max_height = 30,
+        max_width = 85,
       },
     })
 

@@ -9,9 +9,9 @@ return {
     "nvim-telescope/telescope.nvim", -- optional
   },
   keys = {
-    { "<leader>gn", "<CMD>Neogit<CR>", desc = "Neogit" },
+    { "<leader>gg", "<CMD>Neogit<CR>", desc = "Neogit" },
   },
-  enabled = false,
+  enabled = true,
   config = function()
     require("neogit").setup({
       disable_signs = false,

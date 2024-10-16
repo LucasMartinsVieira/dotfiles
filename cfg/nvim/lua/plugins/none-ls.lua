@@ -4,7 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  enabled = false,
+  enabled = true,
   -- lazy = true,
   config = function()
     local null_ls = require("null-ls")
@@ -35,10 +35,11 @@ return {
         -- Diagnostics
         -- diagnostics.shellcheck,
         -- diagnostics.eslint,
+        diagnostics.statix,
 
         -- Code Actions
         -- code_actions.eslint_d,
-        -- code_actions.statix,
+        code_actions.statix,
       },
     })
   end,
