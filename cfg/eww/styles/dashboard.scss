@@ -55,7 +55,7 @@
 
 .services-all {
   box-shadow: inset 1 0 0 1px rgba(white, 0.03);
-  background-image: linear-gradient(to right, $mint, lighten($mint, 18%));
+  background-image: linear-gradient(to right, $magenta, lighten($magenta, 12%));
   // background: $mint;
   font-size: 1.6rem;
   border-radius: 100%;
@@ -94,7 +94,7 @@
   }
 
   label {
-    color: $mint;
+    color: $magenta;
   }
 }
 
@@ -102,7 +102,7 @@
 .stats-ram,
 .stats-battery,
 .stats-disk {
-  color: $mint;
+  color: $magenta;
 }
 
 .stats-ram {

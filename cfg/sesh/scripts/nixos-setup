@@ -1,8 +1,3 @@
 tmux new-window
-tmux send-keys "doas nixos-rebuild switch --flake ~/repos/nixos-config/#nixos"
-tmux split-window -v -l 10
-tmux send-keys "nix flake update ~/repos/nixos-config/" 
-tmux select-pane -t 1
 tmux select-window -t 1
 tmux send-keys "clear" Enter
-tmux send-keys "nvim" Enter

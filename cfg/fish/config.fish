@@ -25,7 +25,7 @@ bind -M insert \cp 'yazicd'
 # bind -M insert \cf 'tmux-sessionizer'
 
 ### Adding to the $PATH
-fish_add_path "$HOME/.local/share/cargo/bin" "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/"
+fish_add_path "$HOME/.local/share/cargo/bin" "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/" "$HOME/.local/share/go/bin/"
 
 ### EXPORT
 
@@ -43,8 +43,7 @@ set fish_greeting                # Disable Fish's intro message
 ### Alias ###
 
 source ~/.config/fish/completions/sb.fish
-abbr sr "steam-run"
-abbr s "sesh connect (sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --height 50 --prompt='⚡')"
+alias s "sesh connect (sesh list | fzf --header 'Pick a sesh' --prompt='⚡')"
 
 ### Git Aliases ###
 abbr ga "git add"
