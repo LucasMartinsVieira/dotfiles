@@ -57,6 +57,7 @@ borg_command() {
     --exclude "$HOME/**/target" \
     --exclude "$HOME/.bash_history" \
     --exclude "$HOME/repos/clones/" \
+    --exclude "$HOME/Media/Animes/" \
     --exclude "$HOME/Media/Games/" \
     --exclude "$HOME/Media/Movies/" \
     --exclude "$HOME/Media/Series/" \

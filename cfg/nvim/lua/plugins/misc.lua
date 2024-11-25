@@ -17,8 +17,7 @@ return {
   {
     "luckasRanarison/tailwind-tools.nvim",
     enabled = true,
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    ---@diagnostic disable-next-line: undefined-doc-name
+    dependencies = { "nvim-treesitter/nvim-treesitter" }, ---@diagnostic disable-next-line: undefined-doc-name
     ---@type TailwindTools.Option
     opts = {
       document_color = {
@@ -39,6 +38,7 @@ return {
   },
   {
     "iamcco/markdown-preview.nvim",
+    enabled = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function()
@@ -47,7 +47,7 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    enabled = true,
+    enabled = false,
     opts = {},
   },
 }

@@ -14,8 +14,11 @@
       (
         button
         :class "icons tag"
-        :onclick "riverctl set-focused-tags ${tag}"
-        :onrightclick "riverctl toggle-focused-tags ${tag}"
+        :onclick "hyprctl dispatch workspace ${tag}"
+        :onrightclick "hyprctl dispatch movetoworkspace ${tag}"
+
+        ; :onclick "riverctl set-focused-tags ${tag}"
+        ; :onrightclick "riverctl toggle-focused-tags ${tag}"
         {
           tag == 1   ? "" :
           tag == 2   ? "󰈹" :

@@ -134,6 +134,7 @@ return {
         },
         dash = { width = 15 },
         pipe_table = {
+          enabled = false,
           preset = "round",
         },
         checkbox = {

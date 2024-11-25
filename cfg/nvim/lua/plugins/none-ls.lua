@@ -36,6 +36,7 @@ return {
         -- diagnostics.shellcheck,
         -- diagnostics.eslint,
         diagnostics.statix,
+        diagnostics.deadnix,
 
         -- Code Actions
         -- code_actions.eslint_d,

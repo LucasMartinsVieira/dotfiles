@@ -1,5 +1,6 @@
 return {
   "nvimdev/lspsaga.nvim",
+  enabled = false,
   event = "LspAttach",
   config = function()
     local nmap = function(keys, func, desc)

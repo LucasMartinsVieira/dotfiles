@@ -196,6 +196,7 @@ spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "swww" "init"
 spawn-at-startup "swww" "img" "~/Pictures/wallpaperflare.com_wallpaper.jpg"
+spawn-at-startup "kanshi"
 // riverctl spawn "display_select"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.

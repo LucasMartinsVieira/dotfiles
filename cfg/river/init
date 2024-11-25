@@ -16,7 +16,8 @@ riverctl spawn "swww init"
 riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
 killall wlsunset
 riverctl spawn "wlsunset -t 3200 -T 3201"
-riverctl spawn "display_select"
+# riverctl spawn "display_select"
+riverctl spawn kanshi
 
 # BINDS
 # Applications

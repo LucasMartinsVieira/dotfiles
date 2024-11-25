@@ -21,7 +21,7 @@
 }
 
 calendar:selected {
-  color: $magenta;
+  color: $red;
 }
 
 calendar.header,
@@ -31,7 +31,7 @@ calendar.highlight {
 }
 
 calendar:indeterminate {
-  color: $fg;
+  color: $fg-alt;
 }
 
 calendar.button {
