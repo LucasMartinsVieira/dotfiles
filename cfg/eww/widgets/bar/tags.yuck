@@ -1,5 +1,6 @@
 (
-  defvar tags "[1, 2, 4, 8, 16, 32, 64, 128, 256]"
+  ; defvar tags "[1, 2, 4, 8, 16, 32, 64, 128, 256]"
+  defvar tags "[1, 2, 3, 4, 5, 6, 7, 8, 9]"
 )
 
 (
@@ -20,15 +21,25 @@
         ; :onclick "riverctl set-focused-tags ${tag}"
         ; :onrightclick "riverctl toggle-focused-tags ${tag}"
         {
+          ;; tag == 1   ? "" :
+          ;; tag == 2   ? "󰈹" :
+          ;; tag == 4   ? "󱩽" :
+          ;; tag == 8   ? "󰝚" :
+          ;; tag == 16  ? "󰙯" :
+          ;; tag == 32  ? "" :
+          ;; tag == 64  ? "󱓷" :
+          ;; tag == 128 ? "󰇮" :
+          ;; tag == 256 ? "󰥔" :
+
           tag == 1   ? "" :
           tag == 2   ? "󰈹" :
-          tag == 4   ? "󱩽" :
-          tag == 8   ? "󰝚" :
-          tag == 16  ? "󰙯" :
-          tag == 32  ? "" :
-          tag == 64  ? "󱓷" :
-          tag == 128 ? "󰇮" :
-          tag == 256 ? "󰥔" :
+          tag == 3   ? "󱩽" :
+          tag == 4   ? "󰝚" :
+          tag == 5   ? "󰙯" :
+          tag == 6   ? "" :
+          tag == 7   ? "󱓷" :
+          tag == 8   ? "󰇮" :
+          tag == 9   ? "󰥔" :
           ""
            
           ;; tag == 1   ? "" :
