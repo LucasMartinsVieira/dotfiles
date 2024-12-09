@@ -42,6 +42,10 @@ set fish_greeting                # Disable Fish's intro message
 
 ### Alias ###
 
+alias mon "wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --on --preferred --mode 1920x1080 --pos 0,0 --transform normal"
+alias mof "wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --off"
+alias restart-gpu "doas modprobe -r -f amdgpu && sleep 10 && doas mobprobe amdgpu"
+
 source ~/.config/fish/completions/sb.fish
 alias s "sesh connect (sesh list | fzf --header 'Pick a sesh' --prompt='⚡')"
 

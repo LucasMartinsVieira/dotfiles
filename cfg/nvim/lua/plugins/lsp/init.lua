@@ -33,7 +33,7 @@ return {
     -- stylua: ignore
     nmap("<leader>li", "<CMD>LspInfo<CR>", "Connected Language Servers")
     nmap("<leader>lf", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Format")
-    nmap("<leader>lh", "<CMD>lua require 'user.lsp_functions'.toggle_lsp_inlayhints()<CR>", "Inlay Hints")
+    -- nmap("<leader>lh", "<CMD>lua require 'user.lsp_functions'.toggle_lsp_inlayhints()<CR>", "Inlay Hints")
     nmap("<leader>lK", "<CMD>lua vim.lsp.buf.signature_help<CR>", "Signature Help")
     nmap("<leader>ld", "<CMD>Telescope lsp_document_symbols<CR>", "Document Symbols")
     nmap("<leader>lt", "<CMD>Telescope lsp_type_definitions<CR>", "Type Definition")

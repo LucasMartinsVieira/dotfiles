@@ -33,7 +33,8 @@
       :cursor "pointer"
       (button 
         :class "powermenu exit" 
-        :onclick "hyprctl dispatch exit ; riverctl exit" 
+        ; :onclick "hyprctl dispatch exit ; riverctl exit" 
+        :onclick "hyprctl dispatch exit" 
         "󰗼"
       )
     )

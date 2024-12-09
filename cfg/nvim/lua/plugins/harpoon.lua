@@ -19,10 +19,12 @@ return {
       harpoon:list():add()
 
       local status_ok, _ = pcall(function()
-        vim.notify = require("notify")
-        vim.notify("󱡅  marked file", "info", {
-          title = "Harpoon",
-        })
+        -- vim.notify = require("notify")
+        -- vim.notify("󱡅  marked file", "info", {
+        --   title = "Harpoon",
+        -- })
+        ---@type fun(msg: string|string[], opts?: snacks.notify.Opts)
+        Snacks.notify.info("Harpoon")
       end)
 
       if not status_ok then
@@ -32,7 +34,7 @@ return {
 
     vim.keymap.set("n", "<leader>h", function()
       mark_file()
-    end)
+    end, { desc = "Add harpoon" })
 
     vim.keymap.set("n", "<C-e>", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
