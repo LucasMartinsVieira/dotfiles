@@ -1,7 +1,7 @@
 (
   defpoll time
   :interval "1s"
-  `date +'{"hour":"%H", "minute":"%M"}'`
+  `date +'{"hour":"%H", "minute":"%M", "second": "%S"}'`
 )
 
 (
@@ -25,6 +25,11 @@ defwidget date_time []
       button
       :onclick  "eww open-many calendar0 calendar1 --toggle"
       "${time.minute}"
+    )
+    (
+      button
+      :onclick  "eww open-many calendar0 calendar1 --toggle"
+      "${time.second}"
     )
   )
  )

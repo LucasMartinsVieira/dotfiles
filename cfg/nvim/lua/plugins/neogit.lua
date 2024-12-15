@@ -11,7 +11,7 @@ return {
   keys = {
     { "<leader>gg", "<CMD>Neogit<CR>", desc = "Neogit" },
   },
-  enabled = false,
+  enabled = true,
   config = function()
     require("neogit").setup({
       disable_signs = false,
