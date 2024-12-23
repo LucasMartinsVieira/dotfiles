@@ -28,7 +28,7 @@ truncation_length = 4
 truncate_to_repo = false
 
 [direnv]
-disabled = false
+disabled = true
 
 [docker_context]
 symbol = " "

@@ -4,6 +4,7 @@ return {
   dependencies = {
     -- Additional lua configuration, makes nvim stuff amazing
     { "folke/neodev.nvim", lazy = true },
+    "saghen/blink.cmp",
 
     -- Use LSP for actions in Nvim-tree
     -- { "antosha417/nvim-lsp-file-operations", config = true },
@@ -124,6 +125,7 @@ return {
       end
 
       if server == "lua_ls" then
+        ---@diagnostic disable-next-line: missing-fields
         require("neodev").setup({
           library = {
             plugins = { "nvim-dap-ui" },

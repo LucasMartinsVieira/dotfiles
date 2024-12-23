@@ -4,6 +4,7 @@ local kind_icons = icons.kind
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
+  enabled = true,
   dependencies = {
     { "hrsh7th/cmp-path", event = "InsertEnter" },
     { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
