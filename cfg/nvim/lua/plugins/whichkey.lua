@@ -28,10 +28,10 @@ return {
       { "<leader>o", group = "Options/Open" },
       { "<leader>p", group = "Plugins" },
       { "<leader>s", group = "Second Brain" },
+      { "<leader>n", group = "Snacks" },
+      { "<leader>k", group = "Persistence" },
       { "<leader>t", group = "Test" },
       { "<leader>x", group = "Diagnostics" },
-      { "<leader>z", group = "Focus" },
-      { "<leader>w", group = "Workspace" },
     })
   end,
 }

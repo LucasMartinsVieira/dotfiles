@@ -3,7 +3,18 @@ return {
   enabled = "true",
   dependencies = {
     -- Additional lua configuration, makes nvim stuff amazing
-    { "folke/neodev.nvim", lazy = true },
+    -- { "folke/lazydev", ft = "lua", lazy = true },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua", -- only load on lua files
+      opts = {
+        library = {
+          -- See the configuration section for more details
+          -- Load luvit types when the `vim.uv` word is found
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        },
+      },
+    },
     "saghen/blink.cmp",
 
     -- Use LSP for actions in Nvim-tree
@@ -124,15 +135,15 @@ return {
         opts = vim.tbl_deep_extend("force", settings, opts)
       end
 
-      if server == "lua_ls" then
-        ---@diagnostic disable-next-line: missing-fields
-        require("neodev").setup({
-          library = {
-            plugins = { "nvim-dap-ui" },
-            types = true,
-          },
-        })
-      end
+      -- if server == "lua_ls" then
+      --   ---@diagnostic disable-next-line: missing-fields
+      --   require("neodev").setup({
+      --     library = {
+      --       plugins = { "nvim-dap-ui" },
+      --       types = true,
+      --     },
+      --   })
+      -- end
 
       if server == "markdown_oxide" then
         vim.api.nvim_create_user_command("Daily", function(args)

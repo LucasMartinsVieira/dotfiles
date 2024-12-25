@@ -1,5 +1,4 @@
 {
-  "diagnostics.globals": ["vim"],
   "workspace.library": [
     "/home/lucas/.local/share/nvim/lazy/neodev.nvim/types/stable",
     "/nix/store/bfgx9xixycwmwqgjyrszc2vp0f5j84ab-neovim-unwrapped-0.9.1/share/nvim/runtime/lua",

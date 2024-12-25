@@ -29,12 +29,8 @@ keymap("n", "<leader>pl", "<CMD>Lazy log<CR>", { desc = "Plugin Log" })
 
 -- Options/Open
 -- stylua: ignore
-keymap( "n", "<leader>on", "<CMD>lua require('user.functions').toggle_option('relativenumber')<CR>", { desc = "Toggle relative numbers" })
-keymap("n", "<leader>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", { desc = "spell" })
 keymap("n", "<leader>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", { desc = "Cursor Line" })
--- stylua: ignore
 keymap("n", "<leader>or", "<CMD>OpenCodeRepo<CR>", { desc = "Open Code Repo" })
-keymap("n", "<leader>ox", "<CMD>!chmod +x %<CR>", { desc = "Chmod +x" })
 
 -- Tabs
 keymap("n", "<leader>an", "<CMD>$tabnew<CR>", { desc = "New Empty Tab" })
