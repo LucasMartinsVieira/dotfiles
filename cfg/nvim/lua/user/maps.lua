@@ -33,7 +33,6 @@ keymap( "n", "<leader>on", "<CMD>lua require('user.functions').toggle_option('re
 keymap("n", "<leader>os", "<CMD>lua require('user.functions').toggle_option('spell')<CR>", { desc = "spell" })
 keymap("n", "<leader>oc", "<CMD>lua require('user.functions').toggle_option('cursorline')<CR>", { desc = "Cursor Line" })
 -- stylua: ignore
-keymap("n", "<leader>od", "<CMD>lua require('user.functions').toggle_diagnostics()<CR>", { desc = "Toggle diagnostics ON/OFF" })
 keymap("n", "<leader>or", "<CMD>OpenCodeRepo<CR>", { desc = "Open Code Repo" })
 keymap("n", "<leader>ox", "<CMD>!chmod +x %<CR>", { desc = "Chmod +x" })
 

@@ -1,9 +1,12 @@
 local vault = os.getenv("HOME") .. "/Documents/obsidian"
 local icons = require("user.icons")
 
+if not vim.uv.fs_stat(vault) then
+  return
+end
+
 return {
   {
-
     "epwalsh/obsidian.nvim",
     enabled = true,
     version = "*", -- recommended, use latest release instead of latest commit

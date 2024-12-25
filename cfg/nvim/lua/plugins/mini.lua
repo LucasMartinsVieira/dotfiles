@@ -8,6 +8,7 @@ return {
     require("mini.surround").setup()
     require("mini.pairs").setup()
     require("mini.ai").setup()
+    require("mini.statusline").setup()
     -- vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>", { desc = "Mini Files" })
   end,
 }

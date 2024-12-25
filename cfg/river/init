@@ -17,6 +17,7 @@ riverctl spawn "wallpaper ~/Pictures/Wallpapers/ --randomize"
 killall wlsunset
 riverctl spawn "wlsunset -t 3200 -T 3201"
 # riverctl spawn "display_select"
+killall kanshi
 riverctl spawn kanshi
 
 # BINDS
@@ -47,7 +48,7 @@ riverctl map normal Super+Shift B spawn "bookmark -b"
 riverctl map normal Super+Control B spawn "bookmark -B"
 
 # Others
-riverctl map normal Super E spawn "rofi -show emoji"
+riverctl map normal Super E spawn "fuzzmoji"
 riverctl map normal Super C spawn "colorscheme"
 riverctl map normal Super V spawn "display_select -v"
 riverctl map normal Super+Shift P spawn "rofi-pass"

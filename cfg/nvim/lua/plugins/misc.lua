@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/dressing.nvim",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
   },
   {
@@ -12,11 +12,12 @@ return {
   -- Vim Plugins
   {
     "elkowar/yuck.vim",
-    enabled = true,
+    enabled = false,
   },
   {
     "luckasRanarison/tailwind-tools.nvim",
     enabled = true,
+    lazy = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" }, ---@diagnostic disable-next-line: undefined-doc-name
     ---@type TailwindTools.Option
     opts = {
@@ -44,10 +45,5 @@ return {
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    enabled = false,
-    opts = {},
   },
 }
