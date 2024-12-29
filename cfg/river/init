@@ -22,10 +22,10 @@ riverctl spawn kanshi
 
 # BINDS
 # Applications
-riverctl map normal Super Return spawn kitty
+riverctl map normal Super Return spawn ghostty
 riverctl map normal Super R spawn "fuzzel"
 riverctl map normal Super B spawn zen
-riverctl map normal Super P spawn "kitty -e fish -c yazi"
+riverctl map normal Super P spawn "ghostty -e fish -c yazi"
 
 # ON/OFF Services
 riverctl map normal Super+Alt N spawn "$HOME/.local/bin/on-off -n"
