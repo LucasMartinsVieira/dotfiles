@@ -215,6 +215,47 @@ change_shell() {
   fi
 }
 
+mime_type() {
+  echo -e "${BLUE}Updating Mime Types${NC}"
+
+  xdg-mime default imv.desktop image/* image/png image/jpeg image/webp
+
+  xdg-mime default org.pwmt.zathura.desktop application/pdf application/rdf+xml application/rss+xml application/xhtml+xml application/xhtml_xml application/xml
+
+  xdg-mime default mpv.desktop image/gif video/*
+
+  xdg-mime default nvim.desktop text/* text/plain
+
+  xdg-mime defaula zen.desktop text/html text/xml x-scheme-handler/http x-scheme-handler/https x-scheme-handler/about x-scheme-handler/unknown x-scheme-handler/mailto x-scheme-handler/webcal
+
+  $SEPARATOR
+}
+
+# TODO: make this work
+firewall_config() {
+  while true; do
+    read -p "Do you want to enable the firewall? (y/N)" yn
+    case $yn in
+    [Yy]*)
+      doas pacman -Sy ufw
+      doas systemctl enable --now ufw.service
+      doas ufw default deny
+      doas ufw enable
+
+      break
+      ;;
+    [Nn]*)
+      echo "You choose not to enable the firewall."
+      break
+      ;;
+    *)
+      echo "You choose not to enable the firewall."
+      break
+      ;;
+    esac
+  done
+}
+
 # Just a finish messsage
 finish() {
   $SEPARATOR
@@ -242,4 +283,5 @@ configs
 check
 scripts
 change_shell
+mime_type
 finish

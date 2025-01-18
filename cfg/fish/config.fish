@@ -34,6 +34,10 @@ if test -f "$HOME/.config/lf/lf_icons"
 end
 
 set -Ux FZF_DEFAULT_OPTS "--layout=reverse --height 40%"
+set -Ux FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git";
+set -Ux FZF_CTRL_T_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git";
+set -Ux FZF_ALT_C_COMMAND "fd --type=d --hidden --strip-cwd-prefix --exclude .git";
+set -Ux STEAM_EXTRA_COMPAT_TOOLS_PATH "$HOME/.steam/root/compatibilitytools.d";
 
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty

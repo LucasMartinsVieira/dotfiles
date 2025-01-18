@@ -23,7 +23,7 @@ packages() {
   echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
   echo -e "${BLUE}###########################################${NC}"
 
-  paru --needed --ask 4 -Sy deno docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tlrc-bin bat ripgrep fd github-cli shfmt insomnia-bin jq vscodium-bin vscodium-bin-marketplace vscodium-bin-features
+  paru --needed --ask 4 -Sy bruno-bin docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tlrc-bin bat ripgrep fd github-cli shfmt insomnia-bin jq
 
   sleep 3
   tldr --update
@@ -60,13 +60,17 @@ rust() {
   rustup default stable
   rustup component add rustfmt
   rustup component add clippy
+  rustup component add rust-analyzer
 
-  cargo install cargo-watch
+  paru -Sy bacon
 }
 
-javascript() {
-  doas npm install -g live-server
-  doas npm i -g vscode-langservers-extracted
+lsps() {
+  paru -Syy eslint_d golines goimports-reviser-bin lua-language-server cargo-binstall taplo-cli yaml-language-server
+
+  cargo binstall --git 'https://github.com/feel-ix-343/markdown-oxide' markdown-oxide
+
+  npm install -g @fsouza/prettierd vscode-langservers-extracted typescript-language-server typescript @prisma/language-server @tailwindcss/language-server
 }
 
 final() {
@@ -82,7 +86,7 @@ all() {
   gh_cli
   asdf_config
   rust
-  javascript
+  lsps
   final
 }
 
@@ -105,7 +109,7 @@ while getopts "hpgGarjA" arg 2>/dev/null; do
   G) gh_cli ;;
   a) asdf_config ;;
   r) rust ;;
-  j) javascript ;;
+  j) lsps ;;
   A) all ;;
   *) help ;;
   esac
