@@ -70,6 +70,7 @@ packages() {
   echo -e "${BLUE}Installing Packages From pkgs.txt With Paru${NC}"
   cat pkgs.conf | grep -v '^#' | grep -v '^$' >pkgs_no_comments.txt
   paru --needed --ask 4 -Sy - <pkgs_no_comments.txt
+  rm pkgs_no_comments.txt
   paru -S --noconfirm --needed librewolf-bin awesome-git
 }
 
