@@ -23,7 +23,7 @@ packages() {
   echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
   echo -e "${BLUE}###########################################${NC}"
 
-  paru --needed --ask 4 -Sy bruno-bin docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tlrc-bin bat ripgrep fd github-cli shfmt insomnia-bin jq
+  paru --needed --ask 4 -Sy docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tlrc-bin bat ripgrep fd github-cli shfmt insomnia-bin jq
 
   sleep 3
   tldr --update
@@ -69,7 +69,7 @@ lsps() {
 
   cargo binstall --git 'https://github.com/feel-ix-343/markdown-oxide' markdown-oxide
 
-  npm install -g @fsouza/prettierd vscode-langservers-extracted typescript-language-server typescript @prisma/language-server @tailwindcss/language-server
+  doas npm install -g @fsouza/prettierd vscode-langservers-extracted typescript-language-server typescript @prisma/language-server @tailwindcss/language-server
 }
 
 final() {
