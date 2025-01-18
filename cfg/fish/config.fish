@@ -206,4 +206,6 @@ fzf --fish | source
 direnv hook fish | source
 
 # Mise
-mise activate fish | source
+if type -q mise
+  mise activate fish | source
+end
