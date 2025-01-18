@@ -30,7 +30,7 @@ packages() {
 }
 
 git_config() {
-  git config --global user.name "LucasMartinsVieira"
+  git config --global user.name "Lucas Martins Vieira"
   git config --global user.email "lucasmartvieira03@outlook.com"
 }
 
@@ -38,8 +38,8 @@ gh_cli() {
   gh auth login
 }
 
-asdf_config() {
-  paru -Sy asdf-vm --needed --noconfirm
+mise_config() {
+  paru -Sy mise --needed --noconfirm
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
   response_node=$(curl -s https://nodejs.org/dist/index.json)
@@ -51,8 +51,7 @@ asdf_config() {
   echo ""
   read -rp "Which version of nodejs you want to use? " node_version
 
-  asdf install nodejs "$node_version"
-  asdf global nodejs "$node_version"
+  mise use -g node@"$node_version"
   echo "$node_version"
 }
 
@@ -84,7 +83,7 @@ all() {
   packages
   git_config
   gh_cli
-  asdf_config
+  mise_config
   rust
   lsps
   final
@@ -107,7 +106,7 @@ while getopts "hpgGarjA" arg 2>/dev/null; do
   p) packages ;;
   g) git_config ;;
   G) gh_cli ;;
-  a) asdf_config ;;
+  a) mise_config ;;
   r) rust ;;
   j) lsps ;;
   A) all ;;

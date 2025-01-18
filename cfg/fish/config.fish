@@ -204,3 +204,6 @@ fzf --fish | source
 
 # Direnv
 direnv hook fish | source
+
+# Mise
+mise activate fish | source
