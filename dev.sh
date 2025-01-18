@@ -38,22 +38,22 @@ gh_cli() {
   gh auth login
 }
 
-mise_config() {
-  paru -Sy mise --needed --noconfirm
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-
-  response_node=$(curl -s https://nodejs.org/dist/index.json)
-  version_lts_node=$(echo "$response_node" | jq -r 'map(select(.lts))[0].version')
-  version_latest_node=$(echo "$response_node" | jq -r 'map(select(.version))[0].version')
-
-  echo "The current LTS version of Node.js is: $version_lts_node"
-  echo "The current LATEST version of Node.js is: $version_latest_node"
-  echo ""
-  read -rp "Which version of nodejs you want to use? " node_version
-
-  mise use -g node@"$node_version"
-  echo "$node_version"
-}
+# mise_config() {
+# paru -Sy mise --needed --noconfirm
+# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+#
+# response_node=$(curl -s https://nodejs.org/dist/index.json)
+# version_lts_node=$(echo "$response_node" | jq -r 'map(select(.lts))[0].version')
+# version_latest_node=$(echo "$response_node" | jq -r 'map(select(.version))[0].version')
+#
+# echo "The current LTS version of Node.js is: $version_lts_node"
+# echo "The current LATEST version of Node.js is: $version_latest_node"
+# echo ""
+# read -rp "Which version of nodejs you want to use? " node_version
+#
+# mise use -g node@"$node_version"
+# echo "$node_version"
+# }
 
 rust() {
   rustup default stable
@@ -83,7 +83,7 @@ all() {
   packages
   git_config
   gh_cli
-  mise_config
+  # mise_config
   rust
   lsps
   final
@@ -106,7 +106,7 @@ while getopts "hpgGarjA" arg 2>/dev/null; do
   p) packages ;;
   g) git_config ;;
   G) gh_cli ;;
-  a) mise_config ;;
+  # a) mise_config ;;
   r) rust ;;
   j) lsps ;;
   A) all ;;
