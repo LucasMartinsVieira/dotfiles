@@ -38,36 +38,39 @@ borg_prune_command() {
 
 borg_command() {
   # notify-send -t 10000 "Borg Backup" "Backup starting" &&
-  if borg create --progress --stats \
-    $DRIVE_LOCATION/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
-    "$HOME" \
-    --exclude "$HOME/.cache/" \
-    --exclude "$HOME/.local/" \
-    --exclude "$HOME/.rustup/" \
-    --exclude "$HOME/.sdkman/" \
-    --exclude "$HOME/.m3/" \
-    --exclude "$HOME/.gradle/" \
-    --exclude "$HOME/.java" \
-    --exclude "$HOME/.nix-defexpr" \
-    --exclude "$HOME/.nix-profile/" \
-    --exclude "$HOME/.npm/" \
-    --exclude "$HOME/.openjfx/" \
-    --exclude "$HOME/.pki/" \
-    --exclude "$HOME/**/node_modules" \
-    --exclude "$HOME/**/target" \
-    --exclude "$HOME/.bash_history" \
-    --exclude "$HOME/repos/clones/" \
-    --exclude "$HOME/Media/Animes/" \
-    --exclude "$HOME/Media/Games/" \
-    --exclude "$HOME/Media/Movies/" \
-    --exclude "$HOME/Media/Series/" \
-    --exclude "$HOME/Media/Videos/" \
-    --exclude "$HOME/Media/Mangayomi/" \
-    --exclude "$HOME/media/" \
-    --exclude "$HOME/.gtkrc-2.0" \
-    --exclude "$HOME/.xinitrc" \
-    --exclude "$HOME/.Xresources" \
-    --exclude "$HOME/.zshrc"; then
+  if
+    borg create --progress --stats \
+      $DRIVE_LOCATION/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
+      "$HOME" \
+      --exclude "$HOME/.config/borg" \
+      --exclude "$HOME/.cache/" \
+      --exclude "$HOME/.local/" \
+      --exclude "$HOME/.rustup/" \
+      --exclude "$HOME/.sdkman/" \
+      --exclude "$HOME/.m3/" \
+      --exclude "$HOME/.gradle/" \
+      --exclude "$HOME/.java" \
+      --exclude "$HOME/.nix-defexpr" \
+      --exclude "$HOME/.nix-profile/" \
+      --exclude "$HOME/.npm/" \
+      --exclude "$HOME/.openjfx/" \
+      --exclude "$HOME/.pki/" \
+      --exclude "$HOME/**/node_modules" \
+      --exclude "$HOME/**/target" \
+      --exclude "$HOME/.bash_history" \
+      --exclude "$HOME/repos/clones/" \
+      --exclude "$HOME/Media/Animes/" \
+      --exclude "$HOME/Media/Games/" \
+      --exclude "$HOME/Media/Movies/" \
+      --exclude "$HOME/Media/Series/" \
+      --exclude "$HOME/Media/Videos/" \
+      --exclude "$HOME/Media/Mangayomi/" \
+      --exclude "$HOME/media/" \
+      --exclude "$HOME/.gtkrc-2.0" \
+      --exclude "$HOME/.xinitrc" \
+      --exclude "$HOME/.Xresources" \
+      --exclude "$HOME/.zshrc"
+  then
     echo "SUCCESS: Backup created successfully"
     # borg_prune_command
   else
