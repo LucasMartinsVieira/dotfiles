@@ -51,7 +51,7 @@ alias mof "wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transfo
 alias restart-gpu "doas modprobe -r -f amdgpu && sleep 10 && doas mobprobe amdgpu"
 
 source ~/.config/fish/completions/sb.fish
-alias s "sesh connect (sesh list | fzf --header 'Pick a sesh' --prompt='⚡')"
+alias s "sesh connect (sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')"
 
 ### Git Aliases ###
 abbr ga "git add"

@@ -1,6 +1,6 @@
-# font-family = "JetBrainsMono Nerd Font"
+font-family = "JetBrainsMono Nerd Font"
 # font-family =  "FiraCode Nerd Font Mono"
-font-family = "GeistMono Nerd Font"
+# font-family = "GeistMono Nerd Font"
 
 font-size = 13
 
@@ -13,7 +13,7 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-background-opacity = 0.96
+background-opacity = 0.98
 
 auto-update = check
 
@@ -58,20 +58,20 @@ selection-background = #b2ceee
 selection-foreground = #080808
 cursor-color = #8e8e8e
 
-palette = 0=#323437
-palette = 1=#ff5454
-palette = 2=#8cc85f
-palette = 3=#e3c78a
-palette = 4=#80a0ff
-palette = 5=#cf87e8
-palette = 6=#79dac8
-palette = 7=#c6c6c6
+palette = 0=#1d3b53
+palette = 1=#fc514e
+palette = 2=#a1cd5e
+palette = 3=#e3d18a
+palette = 4=#82aaff
+palette = 5=#c792ea
+palette = 6=#7fdbca
+palette = 7=#a1aab8
 
-palette = 8=#949494
-palette = 9=#ff5189
-palette = 10=#36c692
-palette = 11=#c6c684
-palette = 12=#74b2ff
+palette = 8=#7c8f8f
+palette = 9=#ff5874
+palette = 10=#21c7a8
+palette = 11=#ecc48d
+palette = 12=#82aaff
 palette = 13=#ae81ff
 palette = 14=#85dc85
 palette = 15=#e4e4e4
