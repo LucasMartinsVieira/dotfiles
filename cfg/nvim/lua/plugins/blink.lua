@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   -- optional: provides snippets for the snippet source
   dependencies = {
     "rafamadriz/friendly-snippets",
@@ -28,8 +28,10 @@ return {
       ["<C-b>"] = { "scroll_documentation_up", "fallback" },
       ["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
-      ["C-l"] = { "snippet_forward", "fallback" },
-      ["C-h"] = { "snippet_backward", "fallback" },
+      ["<C-l>"] = { "snippet_forward", "fallback" },
+      ["<C-h>"] = { "snippet_backward", "fallback" },
+
+      ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
     },
 
     appearance = {
@@ -37,9 +39,9 @@ return {
       nerd_font_variant = "mono",
     },
 
-    snippets = {
-      preset = "luasnip",
-    },
+    -- snippets = {
+    --   preset = "luasnip",
+    -- },
 
     signature = { enabled = true },
 

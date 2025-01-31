@@ -4,7 +4,7 @@ local kind_icons = icons.kind
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
-  enabled = true,
+  enabled = false,
   dependencies = {
     { "hrsh7th/cmp-path", event = "InsertEnter" },
     { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
@@ -28,6 +28,7 @@ return {
           luasnip.lsp_expand(args.body) -- For `luasnip` users.
         end,
       },
+
       mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -88,6 +89,7 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        { name = "vim-dadbod-completion" },
         { name = "emoji" },
         { name = "crates" },
       },

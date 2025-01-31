@@ -1,19 +1,19 @@
-font-family = "JetBrainsMono Nerd Font"
+# font-family = "JetBrainsMono Nerd Font"
 # font-family =  "FiraCode Nerd Font Mono"
-# font-family = "GeistMono Nerd Font"
+font-family = "GeistMono Nerd Font"
 
 font-size = 13
 
 # Disable font ligatures
-font-feature = -calt
-font-feature = -liga
-font-feature = -dlig
+# font-feature = -calt
+# font-feature = -liga
+# font-feature = -dlig
 
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-background-opacity = 0.98
+background-opacity = 1
 
 auto-update = check
 
