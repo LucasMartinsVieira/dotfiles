@@ -2,7 +2,7 @@ local vault = os.getenv("HOME") .. "/Documents/obsidian"
 local icons = require("user.icons")
 
 if not vim.uv.fs_stat(vault) then
-  return
+  return {}
 end
 
 return {
