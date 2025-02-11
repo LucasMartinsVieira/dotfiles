@@ -1,5 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
+  enabled = true,
+  lazy = true,
   dependencies = {
     {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -10,23 +12,23 @@ return {
 
   cmd = "Telescope",
   -- stylua: ignore
-  keys = {
-    { "<leader>bb", require('telescope.builtin').buffers,                     desc = "Buffers" },
-    { "<leader><leader>", require('telescope.builtin').buffers,                     desc = "Buffers" },
-
-    { "<leader>ff", require('telescope.builtin').find_files,                  desc = "Find Files" },
-    { "<leader>fx", require('telescope.builtin').diagnostics,                 desc = "Find Diagnostics" },
-    { "<leader>fr", require('telescope.builtin').oldfiles,                    desc = "Find Recent Files" },
-    { "<leader>fb", require('telescope.builtin').buffers,                     desc = "Find Buffers" },
-    { "<leader>fg", require('telescope.builtin').live_grep,                   desc = "Find String" },
-    { "<leader>fs", require('telescope.builtin').grep_string,                 desc = "Find String Under Cursor" },
-    { "<leader>fc", require('telescope.builtin').colorscheme,                 desc = "Find Colorscheme" },
-    { "<leader>fk", require('telescope.builtin').keymaps,                     desc = "Find Keymaps" },
-    { "<leader>fm", require('telescope.builtin').man_pages,                   desc = "Find Man Pages" },
-    { "<leader>fh", require('telescope.builtin').help_tags,                   desc = "Find Help" },
-
-    { "<leader>xt", require('telescope.builtin').diagnostics,                 desc = "Telescope Diagnostics" },
-  },
+  -- keys = {
+  --   { "<leader>bb", require('telescope.builtin').buffers,                     desc = "Buffers" },
+  --   { "<leader><leader>", require('telescope.builtin').buffers,                     desc = "Buffers" },
+  --
+  --   { "<leader>ff", require('telescope.builtin').find_files,                  desc = "Find Files" },
+  --   { "<leader>fx", require('telescope.builtin').diagnostics,                 desc = "Find Diagnostics" },
+  --   { "<leader>fr", require('telescope.builtin').oldfiles,                    desc = "Find Recent Files" },
+  --   { "<leader>fb", require('telescope.builtin').buffers,                     desc = "Find Buffers" },
+  --   { "<leader>fg", require('telescope.builtin').live_grep,                   desc = "Find String" },
+  --   { "<leader>fs", require('telescope.builtin').grep_string,                 desc = "Find String Under Cursor" },
+  --   { "<leader>fc", require('telescope.builtin').colorscheme,                 desc = "Find Colorscheme" },
+  --   { "<leader>fk", require('telescope.builtin').keymaps,                     desc = "Find Keymaps" },
+  --   { "<leader>fm", require('telescope.builtin').man_pages,                   desc = "Find Man Pages" },
+  --   { "<leader>fh", require('telescope.builtin').help_tags,                   desc = "Find Help" },
+  --
+  --   { "<leader>xt", require('telescope.builtin').diagnostics,                 desc = "Telescope Diagnostics" },
+  -- },
   config = function()
     local icons = require("user.icons")
     local actions = require("telescope.actions")

@@ -2,12 +2,15 @@ return {
   "folke/todo-comments.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
+    "folke/snacks.nvim",
+    -- "nvim-telescope/telescope.nvim",
   },
-  cmd = { "TodoTrouble", "TodoTelescope" },
   event = { "BufReadPost", "BufNewFile" },
+  -- stylua: ignore
   keys = {
-    { "<leader>ft", "<CMD>TodoTelescope<CR>", desc = "Telescope Todo" },
+    -- { "<leader>ft", "<CMD>TodoTelescope<CR>", desc = "Telescope Todo" },
+    { "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Todo", },
+    { "<leader>fT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, desc = "Todo/Fix/Fixme", },
   },
 
   config = function()

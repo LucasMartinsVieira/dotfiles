@@ -80,6 +80,12 @@ return {
           end,
           opts = { buffer = true },
         },
+        ["<cr>"] = {
+          action = function()
+            return require("obsidian").util.smart_action()
+          end,
+          opts = { buffer = true, expr = true },
+        },
       },
 
       ui = {
