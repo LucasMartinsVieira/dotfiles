@@ -47,6 +47,7 @@ return {
     { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>fm", function() Snacks.picker.man() end, desc = "Man Pages" },
     { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
+    { "<leader>ni", function() Snacks.image.hover() end, desc = "Show the image under the cursor" },
 
     -- Git
     { "<leader>fgb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
