@@ -5,7 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = { enabled = false },
     notifier = {
       enabled = true,
       timeout = 3000,
@@ -19,6 +19,8 @@ return {
       },
     },
     lazygit = { configure = false },
+    input = { enabled = true },
+    explorer = { enabled = true },
   },
   -- stylua: ignore
   keys = {

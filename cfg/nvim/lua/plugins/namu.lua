@@ -1,5 +1,6 @@
 return {
   "bassamsdata/namu.nvim",
+  enabled = false,
   keys = {
     { "<leader>y", "<CMD>Namu symbols<CR>", desc = "Namu" },
   },

@@ -63,8 +63,8 @@ return {
           vim_item.menu = ({
             copilot = "[copilot]",
             nvim_lsp = "[LSP]",
-            luasnip = "[snippet]",
             nvim_lua = "[nvim lua]",
+            luasnip = "[snippet]",
             path = "[path]",
             buffer = "[buffer]",
             emoji = "[emoji]",
