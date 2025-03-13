@@ -7,14 +7,14 @@ normal() {
   case "$XDG_SESSION_TYPE" in
   'x11')
     if xrandr | grep "HDMI-A-0 connected" >/dev/null; then
-      xrandr --output eDP --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+      xrandr --output eDP --mode 1920x1080 --pos 3840x0 --rotate normal --output HDMI-A-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal
     else
       xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off
     fi
     ;;
   'wayland')
     if wlr-randr | grep 'HDMI-A-1' >/dev/null; then
-      wlr-randr --output eDP-1 --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --preferred --mode 1920x1080 --pos 0,0 --transform normal
+      wlr-randr --output eDP-1 --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --preferred --mode 3840x2160 --pos 0,0 --transform normal
     else
       wlr-randr --output eDP-1 --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --off
     fi
@@ -36,16 +36,16 @@ rofi_menu() {
   case $choice in
   "HDMI + Notebook")
     if [[ "$XDG_SESSION_TYPE" == 'x11' ]]; then
-      xrandr --output eDP --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+      xrandr --output eDP --mode 1920x1080 --pos 3840x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
     elif [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
-      wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --on --preferred --mode 1920x1080 --pos 0,0 --transform normal
+      wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --on --preferred --mode 3840x2160 --pos 0,0 --transform normal
     fi
     ;;
   "HDMI Only")
     if [[ "$XDG_SESSION_TYPE" == 'x11' ]]; then
-      xrandr --output eDP --off --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+      xrandr --output eDP --off --output HDMI-A-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal
     elif [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
-      wlr-randr --output eDP-1 --off --output HDMI-A-1 --on --preferred --mode 1920x1080 --pos 0,0 --transform normal
+      wlr-randr --output eDP-1 --off --output HDMI-A-1 --on --preferred --mode 3840x2160 --pos 0,0 --transform normal
     fi
     ;;
   "Notebook Only")
