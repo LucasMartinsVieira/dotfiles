@@ -1,11 +1,10 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   -- optional: provides snippets for the snippet source
   dependencies = {
     "rafamadriz/friendly-snippets",
     "saghen/blink.compat",
-    { "L3MON4D3/LuaSnip", version = "2.*", build = "make install_jsregexp" },
     -- CMP completions
     { "hrsh7th/cmp-emoji", event = "InsertEnter" },
   },

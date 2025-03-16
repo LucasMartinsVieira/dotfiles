@@ -21,4 +21,39 @@ function M.toggle_option(option)
   vim.opt[option] = value
 end
 
+function M.get_winbar_information()
+  if vim.bo.buftype ~= "" or vim.fn.expand("%") == "" then
+    return ""
+  end
+
+  local status_ok, devicons = pcall(require, "nvim-web-devicons")
+  if not status_ok then
+    return
+  end
+
+  devicons.setup()
+
+  local filename = vim.fn.expand("%:t")
+  local filepath = vim.fn.expand("%:.:h")
+  local file_ext = vim.fn.expand("%:e")
+
+  local icon = ""
+  if status_ok and devicons then
+    local i, _ = devicons.get_icon_color(filename, file_ext, { default = true })
+    if i then
+      icon = i
+    end
+  end
+
+  return string.format("%%#WinBar# %s %%#WinBarFile#%s %%#WinBarPath#(%s)", icon, filename, filepath)
+end
+
+function _G.WinBar()
+  return M.get_winbar_information()
+end
+
+function M.get_winbar_setup()
+  vim.o.winbar = "%{%v:lua.WinBar()%}"
+end
+
 return M
