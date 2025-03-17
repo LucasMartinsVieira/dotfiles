@@ -45,15 +45,16 @@ return {
     signature = { enabled = true },
 
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "emoji", "crates", "obsidian", "obsidian_new", "obsidian_tags" },
+      -- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates", "obsidian", "obsidian_new", "obsidian_tags" },
+      default = { "lsp", "path", "snippets", "buffer", "emoji", "crates" },
 
       providers = {
         emoji = { name = "emoji", module = "blink.compat.source" },
         crates = { name = "crates", module = "blink.compat.source" },
 
-        obsidian = { name = "obsidian", module = "blink.compat.source" },
-        obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
-        obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },
+        -- obsidian = { name = "obsidian", module = "blink.compat.source" },
+        -- obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
+        -- obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },
       },
     },
   },
