@@ -25,7 +25,7 @@
       :cursor "pointer"
       (button 
         :class "powermenu suspend" 
-        :onclick "eww open-many --toggle powermenu0 powermenu1 ; systemctl suspend -i"
+        :onclick "eww close-all ;  systemctl suspend -i"
         ""
       )
     )
