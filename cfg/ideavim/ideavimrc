@@ -4,6 +4,7 @@ set relativenumber
 set showmode
 set incsearch
 set scrolloff=8
+set clipboard+=unnamedplus
 
 " which key"
 set notimeout
@@ -77,7 +78,7 @@ nmap <leader>gg <Action>(VcsGroups)
 " Find
 nmap <Leader>ff :action GotoFile<CR>
 nmap <Leader>fr :action RecentFiles<CR>
-nmap <Leader>fs :action FindInPath<CR>
+nmap <Leader>fw :action FindInPath<CR>
 
 " Zen Mode
 nmap <leader>z <Action>(ToggleZenMode)
