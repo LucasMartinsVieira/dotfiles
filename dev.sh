@@ -109,6 +109,6 @@ git_config
 mise_config
 rust_setup
 go_setup
-tmuix_setup
+tmux_setup
 lsps
 final
