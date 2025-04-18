@@ -23,7 +23,7 @@ packages() {
   echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
   echo -e "${BLUE}###########################################${NC}"
 
-  paru --needed --ask 4 -Sy docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf tlrc-bin bat ripgrep fd github-cli shfmt insomnia-bin jq
+  paru --needed --ask 4 -Sy docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf bat ripgrep fd shfmt insomnia-bin jq tealdeer
 
   sleep 3
   tldr --update
@@ -34,40 +34,50 @@ git_config() {
   git config --global user.email "lucasmartvieira03@outlook.com"
 }
 
-gh_cli() {
-  gh auth login
+mise_config() {
+  paru -Sy mise --needed --noconfirm
+  response_node=$(curl -s https://nodejs.org/dist/index.json)
+  version_lts_node=$(echo "$response_node" | jq -r 'map(select(.lts))[0].version')
+  version_latest_node=$(echo "$response_node" | jq -r 'map(select(.version))[0].version')
+
+  echo "The current LTS version of Node.js is: $version_lts_node"
+  echo "The current LATEST version of Node.js is: $version_latest_node"
+  echo ""
+  read -rp "Which version of nodejs you want to use? " node_version
+
+  mise use -g node@"$node_version"
+  echo "$node_version"
 }
 
-# mise_config() {
-# paru -Sy mise --needed --noconfirm
-# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-#
-# response_node=$(curl -s https://nodejs.org/dist/index.json)
-# version_lts_node=$(echo "$response_node" | jq -r 'map(select(.lts))[0].version')
-# version_latest_node=$(echo "$response_node" | jq -r 'map(select(.version))[0].version')
-#
-# echo "The current LTS version of Node.js is: $version_lts_node"
-# echo "The current LATEST version of Node.js is: $version_latest_node"
-# echo ""
-# read -rp "Which version of nodejs you want to use? " node_version
-#
-# mise use -g node@"$node_version"
-# echo "$node_version"
-# }
-
-rust() {
+rust_setup() {
+  echo -e "${BLUE}Setting up Rust${NC}"
   rustup default stable
   rustup component add rustfmt
   rustup component add clippy
   rustup component add rust-analyzer
 
-  paru -Sy bacon
-}
-
-lsps() {
-  paru -Syy eslint_d golines goimports-reviser-bin lua-language-server cargo-binstall taplo-cli yaml-language-server
+  paru -Sy bacon cargo-binstall --noconfirm
 
   cargo binstall --git 'https://github.com/feel-ix-343/markdown-oxide' markdown-oxide
+}
+
+golang_setup() {
+  echo -e "${BLUE}Setting up GO${NC}"
+  paru -Sy go golines goimports-reviser-bin
+}
+
+# java_setup() {
+#   echo -e "${BLUE}Setting up SDKMAN for Java${NC}"
+#
+#   paru -Sy --noconfirm unzip zip
+#   bash
+#   curl -s "https://get.sdkman.io" | bash
+# }
+
+# javascript()
+
+lsps() {
+  paru -Syy eslint_d lua-language-server cargo-binstall taplo-cli yaml-language-server
 
   doas npm install -g @fsouza/prettierd vscode-langservers-extracted typescript-language-server typescript @prisma/language-server @tailwindcss/language-server
 }
@@ -82,9 +92,10 @@ all() {
   welcome
   packages
   git_config
-  gh_cli
-  # mise_config
-  rust
+  # gh_cli
+  mise_config
+  rust_setup
+  go_setup
   lsps
   final
 }

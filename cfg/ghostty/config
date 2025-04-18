@@ -1,6 +1,6 @@
-font-family = "JetBrainsMono Nerd Font"
+# font-family = "JetBrainsMono Nerd Font"
 # font-family =  "FiraCode Nerd Font Mono"
-# font-family = "GeistMono Nerd Font"
+font-family = "GeistMono Nerd Font"
 
 font-size = 13
 
