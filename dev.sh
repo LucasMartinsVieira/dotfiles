@@ -23,7 +23,7 @@ packages() {
   echo -e "${BLUE}##     Installing essencial Packages     ##${NC}"
   echo -e "${BLUE}###########################################${NC}"
 
-  paru --needed --ask 4 -Sy docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf bat ripgrep fd shfmt insomnia-bin jq tealdeer
+  paru --needed --ask 4 -Sy docker docker-compose nodejs npm lazygit prettier stylua shellcheck rustup fd exa zoxide fzf bat ripgrep fd shfmt httpie jq tealdeer bruno-bin
 
   sleep 3
   tldr --update
@@ -61,7 +61,7 @@ rust_setup() {
   cargo binstall --git 'https://github.com/feel-ix-343/markdown-oxide' markdown-oxide
 }
 
-golang_setup() {
+go_setup() {
   echo -e "${BLUE}Setting up GO${NC}"
   paru -Sy go golines goimports-reviser-bin
 }
@@ -77,50 +77,38 @@ golang_setup() {
 # javascript()
 
 lsps() {
-  paru -Syy eslint_d lua-language-server cargo-binstall taplo-cli yaml-language-server
+  echo -e "${BLUE}Setting up LSPs${NC}"
+  paru -Syy eslint_d lua-language-server taplo-cli yaml-language-server --noconfirm
 
   doas npm install -g @fsouza/prettierd vscode-langservers-extracted typescript-language-server typescript @prisma/language-server @tailwindcss/language-server
+}
+
+tmux_setup() {
+  echo -e "${BLUE}Setting up TMUX${NC}"
+
+  paru -Sy tmux sesh-bin --noconfirm
+
+  mkdir -p ~/.config/tmux/plugins
+
+  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 }
 
 final() {
   echo -e "${GREEN}##################################${NC}"
   echo -e "${GREEN}##     End of the Script :)     ##${NC}"
   echo -e "${GREEN}##################################${NC}"
+
+  echo -e "${BLUE}When you enter tmux${NC}"
+  echo -e "${BLUE}Press prefix + I (capital i, as in Install) to fetch the plugins.${NC}"
 }
 
-all() {
-  welcome
-  packages
-  git_config
-  # gh_cli
-  mise_config
-  rust_setup
-  go_setup
-  lsps
-  final
-}
-
-help() {
-  echo -e "${BLUE}Available Options${NC}"
-  echo -e "p) packages ;;"
-  echo -e "g) git_config ;;"
-  echo -e "G) gh_cli ;;"
-  echo -e "a) asdf_config ;;"
-  echo -e "r) rust ;;"
-  echo -e "j) javascript ;;"
-  echo -e "A) all ;;"
-}
-
-while getopts "hpgGarjA" arg 2>/dev/null; do
-  case "${arg}" in
-  h) help ;;
-  p) packages ;;
-  g) git_config ;;
-  G) gh_cli ;;
-  # a) mise_config ;;
-  r) rust ;;
-  j) lsps ;;
-  A) all ;;
-  *) help ;;
-  esac
-done
+welcome
+packages
+git_config
+# gh_cli
+mise_config
+rust_setup
+go_setup
+tmuix_setup
+lsps
+final
