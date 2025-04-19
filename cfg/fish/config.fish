@@ -228,6 +228,9 @@ end
 #     end
 # end
 
+set -g fish_color_command green
+set -g fish_color_normal white
+
 # Starship Prompt
 function starship_transient_prompt_func
   starship module character
