@@ -10,7 +10,7 @@ set -x XDG_STATE_HOME $HOME/.local/state/
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -x CARGO_HOME $XDG_DATA_HOME/cargo
 set -x GOPATH $XDG_DATA_HOME/go
-set -x SDKMAN_DIR $XDG_DATA_HOME/sdkman
+# set -x SDKMAN_DIR $XDG_DATA_HOME/sdkman
 set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -x XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
@@ -183,50 +183,50 @@ function ex --description "Extract bundled & compressed files"
 end
 
 # Add SDKMAN candidates to PATH
-for candidate in (find -L "$XDG_DATA_HOME/sdkman/candidates" -type d -path '*/current/bin')
-    fish_add_path $candidate
-end
+# for candidate in (find -L "$XDG_DATA_HOME/sdkman/candidates" -type d -path '*/current/bin')
+#     fish_add_path $candidate
+# end
 
 # Fish-compatible 'sdk' function
-function sdk
-    set --local sdk_bash_cmd "source $XDG_DATA_HOME/sdkman/bin/sdkman-init.sh; sdk $argv"
-
-    # Check for special 'use' command case
-    if test (count $argv) -gt 0; and test (string match --regex '^use' $argv)
-        # Set environment variables to look for
-        set --local env_vars PATH JAVA_HOME
-        set --local output (bash -c "$sdk_bash_cmd; SDK_STATUS=\$?; env | grep -E '^($(string join '|' $env_vars))='; exit \$SDK_STATUS")
-        # Used to access the exit code of sdk instead of grep
-        set --local sdk_status $status
-        if test $sdk_status -eq 0
-            for line in $output
-                # Ignore output by sdk
-                if not string match --quiet '*=*' $line
-                    continue
-                end
-
-                set --local key (echo $line | cut --delimiter '=' --fields 1)
-                set --local value (echo $line | cut --delimiter '=' --fields 2-)
-
-                # Ignore environment variables we're not looking for
-                if not contains $key $env_vars
-                    continue
-                end
-
-                set --export $key $value
-            end
-            printf '\n%s\n' (set_color green)"Using $argv[2] version $argv[3] in this shell."(set_color normal)
-        else
-            printf '\n%s\n' (set_color --bold red)'Stop! Candidate version is not installed.'(set_color normal)
-            printf '\n%s\n' (set_color --bold yellow)'Tip: Run the following to install this version'(set_color normal)
-            printf '\n%s\n' (set_color --bold yellow)"\$ sdk install $argv[2] $argv[3]"(set_color normal)
-        end
-
-        return $std_status
-    else
-        bash -c $sdk_bash_cmd
-    end
-end
+# function sdk
+#     set --local sdk_bash_cmd "source $XDG_DATA_HOME/sdkman/bin/sdkman-init.sh; sdk $argv"
+#
+#     # Check for special 'use' command case
+#     if test (count $argv) -gt 0; and test (string match --regex '^use' $argv)
+#         # Set environment variables to look for
+#         set --local env_vars PATH JAVA_HOME
+#         set --local output (bash -c "$sdk_bash_cmd; SDK_STATUS=\$?; env | grep -E '^($(string join '|' $env_vars))='; exit \$SDK_STATUS")
+#         # Used to access the exit code of sdk instead of grep
+#         set --local sdk_status $status
+#         if test $sdk_status -eq 0
+#             for line in $output
+#                 # Ignore output by sdk
+#                 if not string match --quiet '*=*' $line
+#                     continue
+#                 end
+#
+#                 set --local key (echo $line | cut --delimiter '=' --fields 1)
+#                 set --local value (echo $line | cut --delimiter '=' --fields 2-)
+#
+#                 # Ignore environment variables we're not looking for
+#                 if not contains $key $env_vars
+#                     continue
+#                 end
+#
+#                 set --export $key $value
+#             end
+#             printf '\n%s\n' (set_color green)"Using $argv[2] version $argv[3] in this shell."(set_color normal)
+#         else
+#             printf '\n%s\n' (set_color --bold red)'Stop! Candidate version is not installed.'(set_color normal)
+#             printf '\n%s\n' (set_color --bold yellow)'Tip: Run the following to install this version'(set_color normal)
+#             printf '\n%s\n' (set_color --bold yellow)"\$ sdk install $argv[2] $argv[3]"(set_color normal)
+#         end
+#
+#         return $std_status
+#     else
+#         bash -c $sdk_bash_cmd
+#     end
+# end
 
 # Starship Prompt
 function starship_transient_prompt_func

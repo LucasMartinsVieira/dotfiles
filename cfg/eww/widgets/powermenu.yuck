@@ -9,7 +9,7 @@
       :cursor "pointer"
       (button 
         :class "powermenu shutdown" 
-        :onclick "systemctl poweroff -i" 
+        :onclick "shutdown -h now" 
         "󰐥"
       )
     )     
@@ -17,7 +17,7 @@
       :cursor "pointer"
       (button 
         :class "powermenu reboot" 
-        :onclick "systemctl reboot -i" 
+        :onclick "reboot" 
         "󰜉"
       )
     )
@@ -33,8 +33,8 @@
       :cursor "pointer"
       (button 
         :class "powermenu exit" 
-        ; :onclick "hyprctl dispatch exit ; riverctl exit" 
-        :onclick "hyprctl dispatch exit" 
+        :onclick "riverctl exit" 
+        ;; :onclick "hyprctl dispatch exit" 
         "󰗼"
       )
     )
