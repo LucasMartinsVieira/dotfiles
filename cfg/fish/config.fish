@@ -228,7 +228,7 @@ end
 #     end
 # end
 
-set -g fish_color_command green
+set -g fish_color_command blue
 set -g fish_color_normal white
 
 # Starship Prompt
