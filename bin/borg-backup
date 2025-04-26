@@ -3,10 +3,10 @@
 export BORG_PASSPHRASE="${BORG_PASSPHRASE}"
 
 BACKUP_PREFIX=$(date +"%Y%m%d%H%m")
-DRIVE_NAME="backups"
+DRIVE_NAME="borg"
 LSBLK_CMD=$(lsblk -l | grep $DRIVE_NAME | awk '{print $2}' | head -n 1)
 LSBLK_IS_MOUNTED=$(lsblk -l | grep $DRIVE_NAME | head -n 1 | awk '{print $NF}')
-DRIVE_LOCATION="/run/media/lucas/backups/"
+DRIVE_LOCATION="/run/media/lucas/borg/"
 LOG_FILE="/var/log/borg-backup.log"
 
 log() {
@@ -33,28 +33,28 @@ is_mounted() {
 }
 
 borg_prune_command() {
-  borg prune --keep-daily=30 --keep-weekly=8 --keep-monthly=12 --list $DRIVE_LOCATION/backups-nixos-lucas
+  borg prune --keep-daily=14 --keep-weekly=4 --keep-monthly=2 --list $DRIVE_LOCATION/backups-borg-lucas
+}
+
+borg_list_command() {
+  borg list $DRIVE_LOCATION/backups-borg-lucas && borg list $DRIVE_LOCATION/backups-borg-lucas | wc -l
 }
 
 borg_command() {
   # notify-send -t 10000 "Borg Backup" "Backup starting" &&
   if
     borg create --progress --stats \
-      $DRIVE_LOCATION/backups-nixos-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
+      $DRIVE_LOCATION/backups-borg-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
       "$HOME" \
-      --exclude "$HOME/.config/borg" \
       --exclude "$HOME/.cache/" \
       --exclude "$HOME/.local/" \
-      --exclude "$HOME/.rustup/" \
       --exclude "$HOME/.sdkman/" \
       --exclude "$HOME/.m3/" \
       --exclude "$HOME/.gradle/" \
       --exclude "$HOME/.java" \
-      --exclude "$HOME/.nix-defexpr" \
-      --exclude "$HOME/.nix-profile/" \
-      --exclude "$HOME/.npm/" \
       --exclude "$HOME/.openjfx/" \
-      --exclude "$HOME/.pki/" \
+      --exclude "$HOME/**/.next/" \
+      --exclude "$HOME/.local/share/Trash/" \
       --exclude "$HOME/**/node_modules" \
       --exclude "$HOME/**/target" \
       --exclude "$HOME/.bash_history" \
@@ -64,12 +64,7 @@ borg_command() {
       --exclude "$HOME/Media/Movies/" \
       --exclude "$HOME/Media/Series/" \
       --exclude "$HOME/Media/Videos/" \
-      --exclude "$HOME/Media/Mangayomi/" \
-      --exclude "$HOME/media/" \
-      --exclude "$HOME/.gtkrc-2.0" \
-      --exclude "$HOME/.xinitrc" \
-      --exclude "$HOME/.Xresources" \
-      --exclude "$HOME/.zshrc"
+      --exclude "$HOME/Media/Mangayomi/"
   then
     echo "SUCCESS: Backup created successfully"
     # borg_prune_command
@@ -79,8 +74,10 @@ borg_command() {
   fi
 }
 
-if [ "$1" == "prune" ]; then
+if [[ "$1" == "prune" ]]; then
   borg_prune_command
+elif [[ "$1" == "list" ]]; then
+  borg_list_command
 else
   check_drive_availability
 fi

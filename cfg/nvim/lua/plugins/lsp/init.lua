@@ -129,6 +129,7 @@ return {
       "markdown_oxide",
       "nil_ls",
       "prismals",
+      "pyright",
       -- "rust_analyzer",
       -- "statix",
       "tailwindcss",

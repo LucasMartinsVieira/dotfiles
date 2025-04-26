@@ -226,7 +226,7 @@ mime_type() {
 
   xdg-mime default nvim.desktop text/* text/plain
 
-  xdg-mime defaula zen.desktop text/html text/xml x-scheme-handler/http x-scheme-handler/https x-scheme-handler/about x-scheme-handler/unknown x-scheme-handler/mailto x-scheme-handler/webcal
+  xdg-mime default zen.desktop text/html text/xml x-scheme-handler/http x-scheme-handler/https x-scheme-handler/about x-scheme-handler/unknown x-scheme-handler/mailto x-scheme-handler/webcal
 
   $SEPARATOR
 }
