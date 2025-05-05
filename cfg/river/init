@@ -54,8 +54,8 @@ riverctl map normal Super+Shift P spawn "rofi-pass"
 # Reload river configuration
 riverctl map normal Super+Shift R spawn "$HOME/.config/river/init"
 
-# Super+Shift+C to close the focused view
-riverctl map normal Super+Shift C close
+# Super+Q to close the focused view
+riverctl map normal Super Q close
 
 # Super+Shift+Q to exit river
 riverctl map normal Super+Control Q exit

@@ -1,5 +1,9 @@
 fish_vi_key_bindings
 
+if status is-interactive
+    freshfetch
+end
+
 ### Setting variables
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
