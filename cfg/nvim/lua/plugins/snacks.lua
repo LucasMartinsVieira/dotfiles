@@ -1,6 +1,7 @@
 return {
   "folke/snacks.nvim",
   priority = 1000,
+  enabled = true,
   lazy = false,
   ---@type snacks.Config
   opts = {
@@ -12,7 +13,7 @@ return {
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
+    words = { enabled = false },
     styles = {
       notification = {
         wo = { wrap = true }, -- Wrap notifications
