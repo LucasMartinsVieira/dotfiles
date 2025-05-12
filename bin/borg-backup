@@ -47,7 +47,8 @@ borg_command() {
       $DRIVE_LOCATION/backups-borg-lucas::1d9f31efaf71"$BACKUP_PREFIX" \
       "$HOME" \
       --exclude "$HOME/.cache/" \
-      --exclude "$HOME/.local/" \
+      --exclude "$HOME/.local/share" \
+      --exclude "$HOME/.local/bin" \
       --exclude "$HOME/.sdkman/" \
       --exclude "$HOME/.m3/" \
       --exclude "$HOME/.gradle/" \
