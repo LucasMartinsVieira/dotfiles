@@ -48,7 +48,8 @@ riverctl map normal Super+Control B spawn "bookmark -B"
 # Others
 riverctl map normal Super E spawn "fuzzmoji"
 riverctl map normal Super C spawn "colorscheme"
-riverctl map normal Super V spawn "display_select -v"
+riverctl map normal Super V spawn "ds off"
+riverctl map normal Super+Shift V spawn "ds on"
 riverctl map normal Super+Shift P spawn "rofi-pass"
 
 # Reload river configuration
@@ -242,14 +243,15 @@ riverctl background-color 0x011627
 riverctl border-color-focused 0xc792ea
 # riverctl border-color-focused 0x80a0ff
 riverctl border-color-unfocused 0x0595959
-riverctl border-width 3
+riverctl border-width 2
 riverctl border-color-urgent 0xfc514e
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
 # Set keyboard layout
-riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch,ctrl:nocaps "us,br"
+riverctl keyboard-layout -options ctrl:nocaps "br"
+# riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch,ctrl:nocaps "us,br"
 # riverctl keyboard-layout -variant intl, -options grp:shifts_toggle,lv3:ratl_switch "us,br"
 
 # Mouse focus follow

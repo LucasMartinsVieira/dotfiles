@@ -38,7 +38,7 @@ rofi_menu() {
     if [[ "$XDG_SESSION_TYPE" == 'x11' ]]; then
       xrandr --output eDP --mode 1920x1080 --pos 3840x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal
     elif [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
-      wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --on --preferred --mode 3840x2160 --pos 0,0 --transform normal
+      wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 3840,0 --transform normal --output HDMI-A-1 --on --preferred --mode 3840x2160 --pos 0,0 --transform normal
     fi
     ;;
   "HDMI Only")
@@ -52,7 +52,7 @@ rofi_menu() {
     if [[ "$XDG_SESSION_TYPE" == 'x11' ]]; then
       xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off
     elif [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
-      wlr-randr --output eDP-1 --on --mode 1920x1080--pos 1920,0 --transform normal --output HDMI-A-1 --off
+      wlr-randr --output eDP0 --on --mode 1920x1080--pos 1920,0 --transform normal --output HDMI-A-1 --off
     fi
     ;;
   esac

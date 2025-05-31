@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+on() {
+  wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 3840,0 --transform normal --output HDMI-A-1 --on --preferred --mode 3840x2160 --pos 0,0 --transform normal
+}
+
+off() {
+  wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --off
+}
+
+if [ "$1" == "on" ]; then
+  on && eww close-all
+elif [ "$1" == "off" ]; then
+  off && eww close-all
+else
+  echo "Choose either on or off"
+  exit !
+fi
