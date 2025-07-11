@@ -1,7 +1,7 @@
 fish_vi_key_bindings
 
 if status is-interactive
-    freshfetch
+    # freshfetch
 end
 
 ### Setting variables
