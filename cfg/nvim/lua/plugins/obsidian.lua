@@ -23,7 +23,7 @@ return {
     "nvim-lua/plenary.nvim",
 
     -- see below for full list of optional dependencies 👇
-    "hrsh7th/nvim-cmp",
+    -- "hrsh7th/nvim-cmp",
     "folke/snacks.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
@@ -62,9 +62,9 @@ return {
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Enables completion using nvim_cmp
-      nvim_cmp = true,
+      nvim_cmp = false,
       -- Enables completion using blink.cmp
-      blink = false,
+      blink = true,
       -- Trigger completion at 2 chars.
       min_chars = 2,
     },

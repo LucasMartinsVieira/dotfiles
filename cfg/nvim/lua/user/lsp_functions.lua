@@ -6,9 +6,9 @@ M.common_capabilities = function()
     return cmp_nvim_lsp.default_capabilities()
   end
 
-  -- local capabilities = require("blink.cmp").get_lsp_capabilities()
+  local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {

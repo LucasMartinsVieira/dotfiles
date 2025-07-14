@@ -1,15 +1,15 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   -- optional: provides snippets for the snippet source
   dependencies = {
     "rafamadriz/friendly-snippets",
-    "saghen/blink.compat",
-    -- CMP completions
-    { "hrsh7th/cmp-emoji", event = "InsertEnter" },
+    -- "saghen/blink.compat",
+    -- -- CMP completions
+    -- { "hrsh7th/cmp-emoji", event = "InsertEnter" },
   },
 
-  version = "*",
+  version = "1.*",
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -34,7 +34,7 @@ return {
     },
 
     appearance = {
-      use_nvim_cmp_as_default = true,
+      -- use_nvim_cmp_as_default = true,
       nerd_font_variant = "mono",
     },
 
@@ -46,17 +46,10 @@ return {
 
     sources = {
       -- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates", "obsidian", "obsidian_new", "obsidian_tags" },
-      default = { "lsp", "path", "snippets", "buffer", "emoji", "crates" },
-
-      providers = {
-        emoji = { name = "emoji", module = "blink.compat.source" },
-        crates = { name = "crates", module = "blink.compat.source" },
-
-        -- obsidian = { name = "obsidian", module = "blink.compat.source" },
-        -- obsidian_new = { name = "obsidian_new", module = "blink.compat.source" },
-        -- obsidian_tags = { name = "obsidian_tags", module = "blink.compat.source" },
-      },
+      -- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates" },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
   },
   opts_extend = { "sources.default" },
 }
