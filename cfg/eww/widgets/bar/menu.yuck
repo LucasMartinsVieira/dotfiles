@@ -7,7 +7,7 @@
     button
     :class "icons menu-icon"
     :onclick "eww open-many dashboard0 dashboard1 --toggle"
-    ""
+    "󰣇"
   )
  )
 )
