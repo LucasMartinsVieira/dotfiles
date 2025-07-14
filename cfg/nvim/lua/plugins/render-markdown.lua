@@ -10,7 +10,7 @@ return {
         enabled = false,
       },
       bullet = {
-        enabled = true,
+        enabled = false,
         icons = { "•", "", "•", "" },
         -- highlight = "RenderMarkdownH4",
       },
