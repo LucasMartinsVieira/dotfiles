@@ -21,7 +21,6 @@ return {
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
-
     -- see below for full list of optional dependencies 👇
     -- "hrsh7th/nvim-cmp",
     "folke/snacks.nvim",
@@ -62,38 +61,38 @@ return {
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Enables completion using nvim_cmp
-      nvim_cmp = false,
+      nvim_cmp = true,
       -- Enables completion using blink.cmp
-      blink = true,
+      blink = false,
       -- Trigger completion at 2 chars.
       min_chars = 2,
     },
 
     -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
     -- way then set 'mappings = {}'.
-    mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ["gf"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Toggle check-boxes.
-      ["<leader>ch"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true },
-      },
-      -- Smart action depending on context, either follow link or toggle checkbox.
-      ["<cr>"] = {
-        action = function()
-          return require("obsidian").util.smart_action()
-        end,
-        opts = { buffer = true, expr = true },
-      },
-    },
+    -- mappings = {
+    --   -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+    --   ["gf"] = {
+    --     action = function()
+    --       return require("obsidian").util.gf_passthrough()
+    --     end,
+    --     opts = { noremap = false, expr = true, buffer = true },
+    --   },
+    --   -- Toggle check-boxes.
+    --   ["<leader>ch"] = {
+    --     action = function()
+    --       return require("obsidian").util.toggle_checkbox()
+    --     end,
+    --     opts = { buffer = true },
+    --   },
+    --   -- Smart action depending on context, either follow link or toggle checkbox.
+    --   ["<cr>"] = {
+    --     action = function()
+    --       return require("obsidian").util.smart_action()
+    --     end,
+    --     opts = { buffer = true, expr = true },
+    --   },
+    -- },
 
     -- Where to put new notes. Valid options are
     --  * "current_dir" - put new notes in same directory as the current buffer.
@@ -150,7 +149,15 @@ return {
       -- Runs anytime you enter the buffer for a note.
       ---@param client obsidian.Client
       ---@param note obsidian.Note
-      enter_note = function(client, note) end,
+      enter_note = function(_, note)
+        -- vim.keymap.set("n", "<leader>ch", "<cmd>Obsidian toggle_checkbox<cr>", {
+        vim.keymap.set("n", "<leader>ch", function()
+          require("obsidian").util.toggle_checkbox()
+        end, {
+          buffer = note.bufnr,
+          desc = "Toggle checkbox",
+        })
+      end,
 
       -- Runs anytime you leave the buffer for a note.
       ---@param client obsidian.Client
