@@ -29,7 +29,7 @@ bind -M insert \cp 'yazicd'
 # bind -M insert \cf 'tmux-sessionizer'
 
 ### Adding to the $PATH
-fish_add_path "$HOME/.local/share/cargo/bin" "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/" "$HOME/.local/share/go/bin/"
+fish_add_path "$HOME/.local/share/cargo/bin" "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/" "$HOME/.local/share/go/bin/" "$HOME/.local/share/bob/nvim-bin/"
 
 ### EXPORT
 
