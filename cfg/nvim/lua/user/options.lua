@@ -25,6 +25,7 @@ vim.opt.showtabline = 1 -- always show tabs
 vim.opt.mousemoveevent = true -- When on, mouse move events are delivered to the input queue and are available for mapping.
 vim.opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.conceallevel = 1
+vim.opt.winborder = "rounded"
 
 require("user.functions").get_winbar_setup()
 -- vim.g.netrw_banner = 0

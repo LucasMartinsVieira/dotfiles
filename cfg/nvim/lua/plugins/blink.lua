@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   -- optional: provides snippets for the snippet source
   dependencies = {
     "rafamadriz/friendly-snippets",
@@ -38,17 +38,55 @@ return {
       nerd_font_variant = "mono",
     },
 
+    completion = {
+      menu = {
+        -- Don't automatically show the completion menu
+        auto_show = true,
+
+        border = "single",
+
+        -- nvim-cmp style menu
+        -- draw = {
+        --   columns = {
+        --     { "label", "label_description", gap = 1 },
+        --     { "kind_icon", "kind" },
+        --   },
+        --   components = {
+        --     kind_icon = {
+        --       text = function(ctx)
+        --         local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+        --         return kind_icon
+        --       end,
+        --       -- (optional) use highlights from mini.icons
+        --       highlight = function(ctx)
+        --         local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+        --         return hl
+        --       end,
+        --     },
+        --     kind = {
+        --       -- (optional) use highlights from mini.icons
+        --       highlight = function(ctx)
+        --         local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+        --         return hl
+        --       end,
+        --     },
+        --   },
+        -- },
+      },
+    },
+
     -- snippets = {
     --   preset = "luasnip",
     -- },
 
-    signature = { enabled = true },
+    signature = { enabled = true, window = { show_documentation = true } },
 
     sources = {
       -- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates", "obsidian", "obsidian_new", "obsidian_tags" },
       -- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates" },
       default = { "lsp", "path", "snippets", "buffer" },
     },
+
     fuzzy = { implementation = "prefer_rust_with_warning" },
   },
   opts_extend = { "sources.default" },

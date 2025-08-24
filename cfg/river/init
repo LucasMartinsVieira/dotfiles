@@ -50,6 +50,7 @@ riverctl map normal Super E spawn "fuzzmoji"
 riverctl map normal Super C spawn "colorscheme"
 riverctl map normal Super V spawn "ds off"
 riverctl map normal Super+Shift V spawn "ds on"
+riverctl map normal Super+Alt V spawn "ds read"
 riverctl map normal Super+Shift P spawn "rofi-pass"
 
 # Reload river configuration

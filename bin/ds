@@ -8,10 +8,17 @@ off() {
   wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --off
 }
 
+read() {
+  # wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --off
+  wlr-randr --output HDMI-A-1 --on --preferred --mode 3840x2160 --pos 0,0 --transform 90 --output eDP-1 --on --mode 1920x1080 --pos 2160,0 --transform normal
+}
+
 if [ "$1" == "on" ]; then
-  on && eww close-all
+  eww close-all && on
 elif [ "$1" == "off" ]; then
-  off && eww close-all
+  eww close-all && off
+elif [ "$1" == "read" ]; then
+  eww close-all && read
 else
   echo "Choose either on or off"
   exit !

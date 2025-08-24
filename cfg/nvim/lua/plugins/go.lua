@@ -1,3 +1,7 @@
+if vim.fn.executable("go") == 0 then
+  return {}
+end
+
 return {
   "ray-x/go.nvim",
   dependencies = { -- optional packages
