@@ -25,3 +25,21 @@ vim.api.nvim_create_autocmd("filetype", {
 		vim.opt_local.buflisted = false
 	end,
 })
+
+vim.api.nvim_create_user_command("ToggleSpell", function()
+	vim.opt.spell = not vim.opt.spell:get()
+	if vim.opt.spell:get() then
+		print("Spell checking enabled")
+	else
+		print("Spell checking disabled")
+	end
+end, {})
+
+vim.api.nvim_create_user_command("ToggleWrap", function()
+	vim.opt.wrap = not vim.opt.wrap:get()
+	if vim.opt.wrap:get() then
+		print("Line wrapping enabled")
+	else
+		print("Line wrapping disabled")
+	end
+end, {})

@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 -- NORMAL
 vim.keymap.set("n", "<leader>w", "<CMD>wa!<CR>", { desc = "Write" })
 vim.keymap.set("n", "<leader>q", "<CMD>lua require('core.functions').smart_quit()<CR>", { desc = "Quit" })
-vim.keymap.set("n", "<leader>o", "<CMD>source<CR>")
+-- vim.keymap.set("n", "<leader>o", "<CMD>source<CR>")
 
 vim.keymap.set("n", "<leader>/", "<CMD>noh<CR>", { desc = "Remove Highlight from words" })
 
@@ -29,6 +29,9 @@ vim.keymap.set("n", "<M-S-k>", "<CMD>resize -2<CR>")
 vim.keymap.set("n", "<M-S-j>", "<CMD>resize +2<CR>")
 vim.keymap.set("n", "<M-S-l>", "<CMD>vertical resize +2<CR>")
 vim.keymap.set("n", "<M-S-h>", "<CMD>vertical resize -2<CR>")
+
+vim.keymap.set("n", "<leader>os", "<CMD>ToggleSpell<CR>", opts)
+vim.keymap.set("n", "<leader>ow", "<CMD>ToggleWrap<CR>", opts)
 
 -- INSERT
 vim.keymap.set("i", "jk", "<ESC>")
