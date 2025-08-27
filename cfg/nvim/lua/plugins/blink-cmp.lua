@@ -1,5 +1,6 @@
 vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = "v1.6.0" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 })
 
 require("blink-cmp").setup({
@@ -14,4 +15,10 @@ require("blink-cmp").setup({
 
 	-- INFO: Change this to rust afterwards...
 	fuzzy = { implementation = "lua" },
+
+	sources = {
+		-- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates", "obsidian", "obsidian_new", "obsidian_tags" },
+		-- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates" },
+		default = { "lsp", "path", "snippets", "buffer" },
+	},
 })

@@ -10,6 +10,7 @@ vim.lsp.enable({
 	"yaml-language-server",
 	"json-lsp",
 	"taplo",
+	"markdown-oxide",
 })
 
 vim.diagnostic.config({
@@ -38,6 +39,10 @@ vim.diagnostic.config({
 		prefix = "",
 	},
 })
+
+vim.keymap.set("n", "grd", function()
+	vim.lsp.buf.definition()
+end, { desc = "Go to definition" })
 
 vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, float = true })

@@ -22,6 +22,14 @@ require("snacks").setup({
 	explorer = { enabled = true },
 })
 
+vim.keymap.set("n", "<leader>d", function()
+	Snacks.picker.diagnostics_buffer()
+end, { desc = "Find diagnostics_buffer" })
+
+vim.keymap.set("n", "<leader>D", function()
+	Snacks.picker.diagnostics()
+end, { desc = "Find diagnostics workspace" })
+
 vim.keymap.set("n", "<leader>f", function()
 	Snacks.picker.files()
 end, { desc = "Find Files" })
@@ -53,3 +61,15 @@ end, { desc = "Zen Mode zoom" })
 vim.keymap.set("n", "<leader>H", function()
 	Snacks.picker.help()
 end, { desc = "Find help" })
+
+vim.keymap.set("n", "<leader>s", function()
+	Snacks.picker.lsp_symbols()
+end, { desc = "Find LSP Symbols" })
+
+vim.keymap.set("n", "<leader>S", function()
+	Snacks.picker.lsp_workspace_symbols()
+end, { desc = "Find LSP Workspace Symbols" })
+
+vim.keymap.set("n", "<leader>lg", function()
+	Snacks.lazygit()
+end, { desc = "Lazygit" })

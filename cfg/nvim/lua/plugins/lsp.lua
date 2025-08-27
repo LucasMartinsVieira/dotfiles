@@ -39,5 +39,6 @@ require("mason-tool-installer").setup({
 		"json-lsp",
 		"taplo",
 		"yaml-language-server",
+		"markdown-oxide",
 	},
 })
