@@ -1,8 +1,10 @@
-vim.pack.add({
-	{ src = "https://github.com/folke/persistence.nvim" },
-})
+local status_not_ok, persistence = pcall(require, "persistence")
+if not status_not_ok then
+	vim.notify("persistence plugin not found!", vim.log.levels.ERROR)
+	return
+end
 
-require("persistence").setup({
+persistence.setup({
 	dir = vim.fn.stdpath("state") .. "/sessions/", -- directory where session files are saved
 	-- minimum number of file buffers that need to be open to save
 	-- Set to 0 to always save

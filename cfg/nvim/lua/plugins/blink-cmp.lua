@@ -1,9 +1,10 @@
-vim.pack.add({
-	{ src = "https://github.com/saghen/blink.cmp", version = "v1.6.0" },
-	{ src = "https://github.com/rafamadriz/friendly-snippets" },
-})
+local status_not_ok, blink_cmp = pcall(require, "blink-cmp")
+if not status_not_ok then
+  vim.notify("Blink-cmp plugin not found!", vim.log.levels.ERROR)
+  return
+end
 
-require("blink-cmp").setup({
+blink_cmp.setup({
 	completion = {
 		menu = {
 			auto_show = true,

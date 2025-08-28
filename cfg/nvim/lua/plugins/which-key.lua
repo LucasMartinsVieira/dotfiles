@@ -1,8 +1,9 @@
-vim.pack.add({
-	{ src = "https://github.com/folke/which-key.nvim" },
-})
+local status_not_ok, wk = pcall(require, "which-key")
+if not status_not_ok then
+	vim.notify("which-key plugin not found!", vim.log.levels.ERROR)
+	return
+end
 
-local wk = require("which-key")
 wk.setup()
 
 wk.add({

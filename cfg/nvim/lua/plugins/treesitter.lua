@@ -1,9 +1,10 @@
-vim.pack.add({
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" },
-	"https://github.com/folke/ts-comments.nvim",
-})
+local status_not_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not status_not_ok then
+  vim.notify("Treesitter plugin not found!", vim.log.levels.ERROR)
+  return
+end
 
-require("nvim-treesitter.configs").setup({
+treesitter.setup({
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
@@ -33,7 +34,13 @@ require("nvim-treesitter.configs").setup({
 	auto_install = false,
 })
 
-require("ts-comments").setup()
+local status_not_ok, ts_comments = pcall(require, "ts-comments")
+if not status_not_ok then
+  vim.notify("Ts-comments plugin not found!", vim.log.levels.ERROR)
+  return
+end
+
+ts_comments .setup()
 
 vim.api.nvim_create_autocmd("PackChanged", {
 	desc = "Handle nvim-treesitter updates",

@@ -1,9 +1,10 @@
-vim.pack.add({
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
-	{ src = "https://github.com/sindrets/diffview.nvim" },
-})
+local status_ok_gitsigns, gitsigns = pcall(require, "gitsigns")
+if not status_ok_gitsigns then
+	vim.notify("gitsigns plugin not found!", vim.log.levels.ERROR)
+	return
+end
 
-require("gitsigns").setup({
+gitsigns.setup({
 	signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 	linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
@@ -42,4 +43,10 @@ vim.keymap.set("n", "[g", function()
 	require("gitsigns").prev_hunk({ navigation_message = false })
 end, { desc = "Prev git hunk" })
 
-require("diffview").setup()
+local status_ok_diffview, diffview = pcall(require, "diffview")
+if not status_ok_diffview then
+	vim.notify("diffview plugin not found!", vim.log.levels.ERROR)
+	return
+end
+
+diffview.setup()

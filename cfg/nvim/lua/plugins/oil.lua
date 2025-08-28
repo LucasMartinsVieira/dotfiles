@@ -1,9 +1,10 @@
-vim.pack.add({
-	"https://github.com/stevearc/oil.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
-})
+local status_ok, oil = pcall(require, "oil")
+if not status_ok then
+  vim.notify("Oil plugin not found!", vim.log.levels.ERROR)
+  return
+end
 
-require("oil").setup({
+oil.setup({
 	default_file_explorer = true,
 	float = {
 		max_height = 30,

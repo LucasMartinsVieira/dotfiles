@@ -3,6 +3,7 @@ require("core.autocommands")
 require("core.keymaps")
 require("core.lsp")
 
+require("plugins")
 require("plugins.colorsheme")
 require("plugins.oil")
 require("plugins.harpoon")

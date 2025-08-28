@@ -1,12 +1,7 @@
-vim.pack.add({
-	{
-		src = "https://github.com/ThePrimeagen/harpoon",
-		version = "harpoon2",
-	},
-	"https://github.com/nvim-lua/plenary.nvim",
-})
-
-local harpoon = require("harpoon")
+local status_ok, harpoon = pcall(require, "harpoon")
+if not status_ok then
+  vim.notify("Harpoon plugin not found!", vim.log.levels.ERROR)
+end
 
 harpoon:setup({
 	settings = {

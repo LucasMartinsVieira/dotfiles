@@ -1,8 +1,10 @@
-vim.pack.add({
-	{ src = "https://github.com/folke/snacks.nvim" },
-})
+local status_ok, snacks = pcall(require, "snacks");
+if not status_ok then
+  vim.notify("Snacks plugin not found!", vim.log.levels.ERROR)
+  return
+end
 
-require("snacks").setup({
+snacks.setup({
 	bigfile = { enabled = true },
 	dashboard = { enabled = false },
 	notifier = {

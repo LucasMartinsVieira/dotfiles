@@ -1,13 +1,26 @@
-vim.pack.add({
-	{ src = "https://github.com/j-hui/fidget.nvim" },
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-})
+local status_ok_fidget, fidget = pcall(require, "fidget")
+if not status_ok_fidget then
+  vim.notify("Fidget plugin not found!", vim.log.levels.ERROR)
+  return
+end
 
-require("fidget").setup()
-require("mason").setup()
-require("mason-tool-installer").setup({
+fidget.setup()
+
+local status_ok_mason, mason = pcall(require, "mason")
+if not status_ok_mason then
+  vim.notify("Mason plugin not found!", vim.log.levels.ERROR)
+  return
+end
+
+mason.setup()
+
+local status_ok_mason_installer, mason_tool_installer = pcall(require, "mason-tool-installer")
+if not status_ok_mason_installer then
+  vim.notify("Mason tool installer plugin not found!", vim.log.levels.ERROR)
+  return
+end
+
+mason_tool_installer.setup({
 	ensure_installed = {
 		-- Bash
 		"bash-language-server",

@@ -1,8 +1,10 @@
-vim.pack.add({
-	"https://github.com/stevearc/conform.nvim",
-})
+local status_not_ok, conform = pcall(require, "conform")
+if not status_not_ok then
+  vim.notify("Conform plugin not found!", vim.log.levels.ERROR)
+  return
+end
 
-require("conform").setup({
+conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		rust = { "rustfmt", lsp_format = "fallback" },

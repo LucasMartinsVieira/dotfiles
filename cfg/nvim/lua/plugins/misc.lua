@@ -1,11 +1,10 @@
-vim.pack.add({
-	"https://github.com/b0o/schemastore.nvim",
-	-- "https://github.com/elkowar/yuck.vim"https://github.com/
-	"https://github.com/luckasRanarison/tailwind-tools.nvim",
-	"https://github.com/brenoprata10/nvim-highlight-colors",
-})
+local status_not_ok, tailwind_tools = pcall(require, "tailwind-tools")
+if not status_not_ok then
+	vim.notify("Tailwind tools plugin not found!", vim.log.levels.ERROR)
+	return
+end
 
-require("tailwind-tools").setup({
+tailwind_tools.setup({
 	document_color = {
 		enabled = true, -- can be toggled by commands
 		kind = "inline", -- "inline" | "foreground" | "background"
@@ -22,6 +21,12 @@ require("tailwind-tools").setup({
 	custom_filetypes = {}, -- see the extension section to learn how it works
 })
 
-require("nvim-highlight-colors").setup({
+local ok, nvim_hightlight_colors = pcall(require, "nvim-highlight-colors")
+if not ok then
+	vim.notify("Tailwind tools plugin not found!", vim.log.levels.ERROR)
+	return
+end
+
+nvim_hightlight_colors.setup({
 	enable_tailwind = true,
 })
