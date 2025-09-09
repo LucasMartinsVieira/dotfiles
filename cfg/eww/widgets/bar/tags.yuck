@@ -9,7 +9,7 @@
     box
     :class "taglist"
     :space-evenly false
-    :orientation "v"
+    :orientation "h"
     (
       for tag in tags
       (
@@ -25,9 +25,9 @@
           tag == 2   ? "󰈹" :
           tag == 4   ? "󱩽" :
           tag == 8   ? "󰝚" :
-          tag == 16  ? "" :
-          tag == 32  ? "󱓷" :
-          tag == 64  ? "󰌢" :
+          tag == 16  ? "󰭹" :
+          tag == 32  ? "" :
+          tag == 64  ? "󱓷" :
           tag == 128 ? "󰥔" :
           tag == 256 ? "󰊖" :
 

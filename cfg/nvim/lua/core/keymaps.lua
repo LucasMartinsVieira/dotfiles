@@ -6,6 +6,8 @@ vim.g.maplocalleader = " "
 -- NORMAL
 vim.keymap.set("n", "<leader>w", "<CMD>wa!<CR>", { desc = "Write" })
 vim.keymap.set("n", "<leader>q", "<CMD>lua require('core.functions').smart_quit()<CR>", { desc = "Quit" })
+-- Map <leader>y to yank into system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
 -- vim.keymap.set("n", "<leader>o", "<CMD>source<CR>")
 
 vim.keymap.set("n", "<leader>/", "<CMD>noh<CR>", { desc = "Remove Highlight from words" })

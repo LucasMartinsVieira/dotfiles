@@ -10,8 +10,8 @@
     :class "icons brightness-icon"
     :tooltip "Brightness ${battery_percent}%"
      {
-       brightness_percent <= 30 ? "󰃞" : 
-       brightness_percent <= 60 ? "󰃟" : "󰃠"
+       brightness_percent <= 30 ? "󰃞 " : 
+       brightness_percent <= 60 ? "󰃟 " : "󰃠 "
      }
   )
  )

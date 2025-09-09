@@ -9,10 +9,10 @@
     :onclick "~/.local/bin/on-off -w"
     :tooltip "${wifi_name}"
      {
-      wifi_status == "down" || wifi_strengh == 0 ? "󰤯" :
-      wifi_status == "up" && wifi_strengh <= 20 ? "󰤟" :
-      wifi_status == "up" && wifi_strengh <= 40 ? "󰤢" :
-      wifi_status == "up" && wifi_strengh <= 70 ? "󰤥" : "󰤨"
+      wifi_status == "down" || wifi_strengh == 0 ? "󰤯 " :
+      wifi_status == "up" && wifi_strengh <= 20 ? "󰤟 " :
+      wifi_status == "up" && wifi_strengh <= 40 ? "󰤢 " :
+      wifi_status == "up" && wifi_strengh <= 70 ? "󰤥 " : "󰤨 "
      }
   ) 
  )

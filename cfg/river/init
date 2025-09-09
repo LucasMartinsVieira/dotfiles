@@ -6,13 +6,15 @@
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 # shellcheck disable=SC1091
 
+WALLPAPER="~/Pictures/Wallpapers/wallpapers0048.jpeg"
+
 ### AUTO START
 riverctl spawn "dunst"
 riverctl spawn "eww daemon"
 riverctl spawn "eww open-many bar0 bar1"
 riverctl spawn "wl-paste --type text --watch cliphist store"
 riverctl spawn "wl-paste --type image --watch cliphist store"
-riverctl spawn "swaybg -i ~/Pictures/Wallpapers/wallpapers0048.jpeg"
+riverctl spawn "swaybg -i $WALLPAPER"
 killall wlsunset
 riverctl spawn "wlsunset -t 3400 -T 3401"
 killall kanshi
@@ -29,6 +31,7 @@ riverctl map normal Super P spawn "kitty -e fish -c yazi"
 riverctl map normal Super+Alt N spawn "$HOME/.local/bin/on-off -n"
 riverctl map normal Super+Alt B spawn "$HOME/.local/bin/on-off -b"
 riverctl map normal Super+Alt W spawn "$HOME/.local/bin/on-off -w"
+riverctl map normal Super+Alt I spawn "$HOME/.local/bin/on-off -i"
 
 # Interfaces
 riverctl map normal Super+Control P spawn "eww open-many --toggle powermenu0 powermenu1"
@@ -48,7 +51,8 @@ riverctl map normal Super+Control B spawn "bookmark -B"
 # Others
 riverctl map normal Super E spawn "fuzzmoji"
 riverctl map normal Super C spawn "colorscheme"
-riverctl map normal Super V spawn "ds off"
+riverctl map normal Super V spawn "clip"
+riverctl map normal Super+Control V spawn "ds off"
 riverctl map normal Super+Shift V spawn "ds on"
 riverctl map normal Super+Alt V spawn "ds read"
 riverctl map normal Super+Shift P spawn "rofi-pass"
@@ -83,12 +87,12 @@ riverctl map normal Super+Shift O send-to-output previous
 # riverctl map normal Super Return zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super H send-layout-cmd filtile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd filtile "main-ratio +0.05"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Shift H send-layout-cmd filtile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd filtile "main-count -1"
 
 # Super+Alt+{H,J,K,L} to move views
 riverctl map normal Super+Alt H move left 100
@@ -124,10 +128,10 @@ riverctl map normal Super Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
 # Super+{W,D,S,A} to change layout orientation
-riverctl map normal Super W send-layout-cmd rivertile "main-location top"
-riverctl map normal Super D send-layout-cmd rivertile "main-location right"
-riverctl map normal Super S send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super A send-layout-cmd rivertile "main-location left"
+riverctl map normal Super W send-layout-cmd filtile "main-location top"
+riverctl map normal Super D send-layout-cmd filtile "main-location right"
+riverctl map normal Super S send-layout-cmd filtile "main-location bottom"
+riverctl map normal Super A send-layout-cmd filtile "main-location left"
 
 # Cycle through tags
 # riverctl map normal Super bracketleft spawn "cycle-focused-tags previous 6"
@@ -260,5 +264,11 @@ riverctl focus-follows-cursor normal
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-riverctl spawn "rivertile -view-padding 2 -outer-padding 2"
+riverctl default-layout filtile
+riverctl spawn "filtile -view-padding 1 -outer-padding 1"
+
+# Screen protection
+swayidle -w \
+  timeout 180 "swaylock -f" \
+  timeout 181 'wlopm --off "*" ' \
+  resume 'wlopm --on "*" '

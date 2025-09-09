@@ -5,11 +5,12 @@
 }
 
 .widget {
-  margin: .4rem;
+  margin: .9rem;
   border-radius: 1rem;
   background-color: $bg;
   padding: 1rem;
   color: $fg;
+  border: 0.1rem solid $fg;
 }
 
 .power-buttons {

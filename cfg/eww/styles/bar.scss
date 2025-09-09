@@ -1,9 +1,9 @@
-window>.bar {
-  margin-top: 6px;
-  margin-bottom: 6px;
-  margin-left: 5px;
-  border-radius: 0.8rem;
-}
+// window>.bar {
+//   margin-top: 0px;
+//   margin-bottom: 0px;
+//   margin-left: 0px;
+//   border-radius: 0.8rem;
+// }
 
 .bar {
   background: $bg;
@@ -15,14 +15,19 @@ window>.bar {
 .left,
 .center,
 .right {
-  padding: 5px;
-  padding-right: 8px;
+  padding: 0.1rem;
+}
+
+.right {
+  margin-right: 1rem;
+}
+
+.systray {
+  margin-right: 1rem;
 }
 
 .tag {
-  margin: 1px 0px;
-  // margin-left: 0.4rem;
-  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  margin: 1px 8px;
 
   &:hover {
     // transition: 100ms linear border-color;
@@ -44,9 +49,10 @@ window>.bar {
   &.menu-icon {
     color: $mint;
     font-size: 1.4rem;
-    margin-right: 0.3rem;
-    margin-bottom: 0.3rem;
-    margin-top: 0.3rem;
+    // margin-right: 1rem;
+    // margin-bottom: 0.3rem;
+    // margin-top: 0.3rem;
+    margin: 0.3rem 1rem
   }
 
   &.wifi-icon {

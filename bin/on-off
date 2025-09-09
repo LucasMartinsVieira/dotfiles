@@ -9,61 +9,77 @@ BLUETOOTH_STATE=$(bluetoothctl show | grep Powered: | awk '{print $2}')
 WIFI_STATE=$(nmcli radio wifi)
 NOTIFICATIONS_STATE=$(dunstctl is-paused)
 TRAYER_IS_OPEN=$(pgrep trayer)
+SWAY_IDLE_IS_OPEN=$(pgrep swayidle)
 
 # INFO: First argument is an Image, second is the service and the third is the state
 notify_user() {
-	notify-send -t 1800 -u normal -i "$1" "$2: $3"
+  notify-send -t 1800 -u normal -i "$1" "$2: $3"
 }
 
 bluetooth() {
-	if [[ "$BLUETOOTH_STATE" == "yes" ]]; then
-		bluetoothctl power off
-		notify_user "$BLUETOOTH_ICON" "Bluetooth" "OFF"
-	else
-		bluetoothctl power on
-		notify_user "$BLUETOOTH_ICON" "Bluetooth" "ON"
-	fi
+  if [[ "$BLUETOOTH_STATE" == "yes" ]]; then
+    bluetoothctl power off
+    notify_user "$BLUETOOTH_ICON" "Bluetooth" "OFF"
+  else
+    bluetoothctl power on
+    notify_user "$BLUETOOTH_ICON" "Bluetooth" "ON"
+  fi
 }
 
 wifi() {
-	if [[ "$WIFI_STATE" == "enabled" ]]; then
-		nmcli radio wifi off
-		notify_user "$WIFI_ICON" "Wifi" "OFF"
-	elif [[ "$WIFI_STATE" == "disabled" ]]; then
-		nmcli radio wifi on
-		notify_user "$WIFI_ICON" "Wifi" "ON"
-	fi
+  if [[ "$WIFI_STATE" == "enabled" ]]; then
+    nmcli radio wifi off
+    notify_user "$WIFI_ICON" "Wifi" "OFF"
+  elif [[ "$WIFI_STATE" == "disabled" ]]; then
+    nmcli radio wifi on
+    notify_user "$WIFI_ICON" "Wifi" "ON"
+  fi
 }
 
 notify() {
-	if [[ "$NOTIFICATIONS_STATE" == "false" ]]; then
-		notify_user "$NOTIFICATIONS_ICON" "Notifications" "OFF"
-		sleep 2
-		dunstctl set-paused true
-	else
-		dunstctl set-paused false
-		sleep 1
-		notify_user "$NOTIFICATIONS_ICON" "Notifications" "ON"
-	fi
+  if [[ "$NOTIFICATIONS_STATE" == "false" ]]; then
+    notify_user "$NOTIFICATIONS_ICON" "Notifications" "OFF"
+    sleep 2
+    dunstctl set-paused true
+  else
+    dunstctl set-paused false
+    sleep 1
+    notify_user "$NOTIFICATIONS_ICON" "Notifications" "ON"
+  fi
 }
 
 tray() {
-	if [[ "$TRAYER_IS_OPEN" ]]; then
-		killall trayer
-	else
-		killall trayer
-		trayer --width 10 --height 25 --iconspacing 2
-	fi
+  if [[ "$TRAYER_IS_OPEN" ]]; then
+    killall trayer
+  else
+    killall trayer
+    trayer --width 10 --height 25 --iconspacing 2
+  fi
+}
+
+idle() {
+  if [[ "$SWAY_IDLE_IS_OPEN" ]]; then
+    killall swayidle
+    notify_user "" "Sway IDLE" "OFF"
+  else
+    swayidle -w \
+      timeout 180 "swaylock -f" \
+      timeout 181 'wlopm --off "*" ' \
+      resume 'wlopm --on "*" ' &
+    notify_user "" "Sway IDLE" "ON"
+  fi
 }
 
 if [[ "$1" == "-b" ]]; then
-	bluetooth
+  bluetooth
 elif [[ "$1" == "-w" ]]; then
-	wifi
+  wifi
 elif [[ "$1" == "-n" ]]; then
-	notify
+  notify
 elif [[ "$1" == "-t" ]]; then
-	tray
+  tray
+elif [[ "$1" == "-i" ]]; then
+  idle
 else
-	exit 1
+  exit 1
 fi

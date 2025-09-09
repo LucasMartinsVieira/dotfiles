@@ -10,7 +10,7 @@
     :y "0"
     :width "270px"
     :height "60px"
-    :anchor "left center"
+    :anchor "bottom center"
   )
 
   (cal)
@@ -26,7 +26,7 @@
     :y "0"
     :width "270px"
     :height "60px"
-    :anchor "left center"
+    :anchor "bottom center"
   )
 
   (cal)

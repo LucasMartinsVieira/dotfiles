@@ -8,7 +8,7 @@
   (
     box
     :class "cal-box"
-    :orientation "v"
+    :orientation "h"
 
     (
       box

@@ -13,7 +13,7 @@
   (
     box
     :class "left"
-    :orientation "v"
+    :orientation "h"
     :space-evenly false
     :valign "start"
 
@@ -38,13 +38,15 @@
     box
     :class "right"
     :space-evenly false
-    :valign "end"
-    :orientation "v"
+    :hexpand "true"
+    :halign "end"
+    :orientation "h"
     :spacing 10
     (
       systray
-      :orientation "v"
-      :spacing 10
+      :class "systray"
+      :orientation "h"
+      :spacing 15
     )
 
 
@@ -62,7 +64,7 @@
   (
     box
     :class "bar"
-    :orientation "v"
+    :orientation "h"
     :vexpand "false"
     :hexpand "false"
 

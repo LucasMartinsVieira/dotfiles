@@ -9,8 +9,8 @@
     :onclick "dunstctl set-paused toggle"
     ;; :onclick "~/.local/bin/on-off -n"
     {
-      notify_status == 'true' ? '󰂛' :
-      notify_status == 'false' ? '󰂚' : '󰂚'
+      notify_status == 'true' ? '󰂛 ' :
+      notify_status == 'false' ? '󰂚 ' : '󰂚 '
     }
   )
  )

@@ -14,8 +14,8 @@
     :tooltip "Volume: ${volume_percent}%"
      {
       volume_percent == 0 || volume_mute == "[MUTED]" ? "󰖁" :
-      volume_percent <= 30 ? "󰕿" : 
-      volume_percent <= 70 ? "󰖀" : "󰕾"
+      volume_percent <= 30 ? "󰕿 " : 
+      volume_percent <= 70 ? "󰖀 " : "󰕾 "
      }
   )
  )

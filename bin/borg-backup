@@ -65,7 +65,8 @@ borg_command() {
       --exclude "$HOME/Media/Movies/" \
       --exclude "$HOME/Media/Series/" \
       --exclude "$HOME/Media/Videos/" \
-      --exclude "$HOME/Media/Mangayomi/"
+      --exclude "$HOME/Media/Mangayomi/" \
+      --exclude "$HOME/Media/viu/"
   then
     echo "SUCCESS: Backup created successfully"
     # borg_prune_command
