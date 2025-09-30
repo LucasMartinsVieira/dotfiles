@@ -269,6 +269,6 @@ riverctl spawn "filtile -view-padding 1 -outer-padding 1"
 
 # Screen protection
 swayidle -w \
-  timeout 180 "swaylock -f" \
-  timeout 181 'wlopm --off "*" ' \
+  timeout 300 "swaylock -f" \
+  timeout 301 'wlopm --off "*" ' \
   resume 'wlopm --on "*" '

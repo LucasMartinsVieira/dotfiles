@@ -63,8 +63,8 @@ idle() {
     notify_user "" "Sway IDLE" "OFF"
   else
     swayidle -w \
-      timeout 180 "swaylock -f" \
-      timeout 181 'wlopm --off "*" ' \
+      timeout 300 "swaylock -f" \
+      timeout 301 'wlopm --off "*" ' \
       resume 'wlopm --on "*" ' &
     notify_user "" "Sway IDLE" "ON"
   fi
