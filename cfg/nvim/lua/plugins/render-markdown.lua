@@ -20,10 +20,10 @@ require("render-markdown").setup({
 		checked = {
 			icon = "󰄲",
 		},
-		-- custom = {
-		-- 	in_progress = { raw = "[/]", rendered = "󱎖", highlight = "RenderMarkdownTodo" },
-		-- 	fowarded = { raw = "[>]", rendered = icons.ui.ChevronRight, highlight = "RenderMarkdownTodo" },
-		-- 	scheduled = { raw = "[<]", rendered = "󰨳", highlight = "RenderMarkdownTodo" },
-		-- },
+		custom = {
+			in_progress = { raw = "[/]", rendered = "󱎖", highlight = "RenderMarkdownTodo" },
+			-- 	fowarded = { raw = "[>]", rendered = icons.ui.ChevronRight, highlight = "RenderMarkdownTodo" },
+			-- scheduled = { raw = "[<]", rendered = "󰨳", highlight = "RenderMarkdownTodo" },
+		},
 	},
 })
