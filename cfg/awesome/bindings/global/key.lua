@@ -14,7 +14,7 @@ awful.keyboard.append_global_keybindings({
   awful.key({
     modifiers = { mod.super },
     key = "a",
-    description = "View Previous",
+    desription = "View Previous",
     group = "Tag",
     on_press = awful.tag.viewprev,
   }),

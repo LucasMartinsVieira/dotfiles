@@ -5,6 +5,7 @@ local vol = require("lib.volume")
 local brightness = require("lib.brightness")
 local screenshot = require("lib.screenshot")
 local updates = require("lib.updates")
+local menubar = require("menubar")
 
 local isDark = true
 local mod = require("bindings.mod")
@@ -48,8 +49,8 @@ awful.keyboard.append_global_keybindings({
     description = "Application Launcher",
     group = "Applications",
     on_press = function()
-      awful.util.spawn(user_likes.apps.app_launcher)
-      -- menubar.show()
+      -- awful.util.spawn(user_likes.apps.app_launcher)
+      menubar.show()
     end,
   }),
 
@@ -125,15 +126,15 @@ awful.keyboard.append_global_keybindings({
   }),
 
   -- UI
-  awful.key({
-    modifiers = { mod.super, mod.ctrl },
-    key = "d",
-    description = "Open Dashboard",
-    group = "Ui",
-    on_press = function()
-      dashboard_show()
-    end,
-  }),
+  -- awful.key({
+  --   modifiers = { mod.super, mod.ctrl },
+  --   key = "d",
+  --   description = "Open Dashboard",
+  --   group = "Ui",
+  --   on_press = function()
+  --     dashboard_show()
+  --   end,
+  -- }),
   awful.key({
     modifiers = { mod.super, mod.ctrl },
     key = "n",

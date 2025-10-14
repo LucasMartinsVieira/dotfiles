@@ -2,7 +2,7 @@ local awful = require("awful")
 local gears = require("gears")
 
 local battery_level = [[
-cat /sys/class/power_supply/BAT?/capacity 2>/dev/null | head -1
+cat /sys/class/power_supply/BAT0/capacity 2>/dev/null | head -1
 ]]
 
 local function get_bat()

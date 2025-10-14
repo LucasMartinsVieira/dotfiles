@@ -27,7 +27,7 @@ menu:connect_signal("mouse::leave", function()
 end)
 
 menu:buttons(gears.table.join(awful.button({}, 1, function()
-  dashboard_show()
+  -- dashboard_show()
 
   if dashboard.visible == true then
     menu.markup = helpers.colorize_text(icons.menu, theme.blue)

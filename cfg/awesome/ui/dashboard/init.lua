@@ -35,14 +35,14 @@ end
 local profile_widget = require("ui.dashboard.profile")
 local player_widget = require("ui.dashboard.player")
 local stats_widget = require("ui.dashboard.stats")
-local weather_widget = require("ui.dashboard.weather")
+-- local weather_widget = require("ui.dashboard.weather")
 local services_widget = require("ui.dashboard.services")
 
 -- Combine Widgets
 local profile = box_widget(profile_widget, 380, 200)
 local player = box_widget(player_widget, 380, 170)
 local stats = box_widget(stats_widget, 380, 100)
-local weather = box_widget(weather_widget, 380, 225)
+-- local weather = box_widget(weather_widget, 380, 225)
 local services = box_widget(services_widget, 380, 130)
 
 -- Dashboard
@@ -63,7 +63,7 @@ dashboard:setup({
     profile,
     player,
     stats,
-    weather,
+    -- weather,
     -- powerbar,
     services,
     spacing = dpi(25),
@@ -82,10 +82,10 @@ function dashboard_show()
   end
 end
 
-dashboard.timer = gears.timer {
+dashboard.timer = gears.timer({
   timeout = 16,
-	single_shot = true,
+  single_shot = true,
   callback = function()
     dashboard.visible = false
-  end
-}
+  end,
+})

@@ -10,9 +10,9 @@ return {
   },
   user = {
     -- Your Wallpapers directory
-    wallpapers_dir = "",
+    wallpapers_dir = "~/Pictures/Wallpapers/",
     -- Your main disk
-    main_disk = "",
+    main_disk = "/dev/mapper/cryptroot",
   },
   apps = {
     -- Default Applications

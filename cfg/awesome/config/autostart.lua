@@ -6,7 +6,7 @@ local user_likes = require("user_vars")
 -----------------------
 
 -- Set the Keyboard Map
--- awful.spawn.with_shell("setxkbmap br")
+awful.spawn.with_shell("setxkbmap us -variant intl")
 
 -- Keep Screen on
 awful.spawn.with_shell("xset s off")
@@ -27,5 +27,5 @@ awful.spawn.with_shell("redshift -P -O 3400")
 -- Monitor Config
 -- awful.spawn.with_shell("display_select")
 awful.spawn.with_shell(
-  "xrandr --output eDP --mode 1920x1080 --pos 3840x0 --rotate normal --output HDMI-A-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal"
+  "xrandr --output eDP-1 --mode 1920x1080 --pos 3840x0 --rotate normal --output HDMI-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal"
 )

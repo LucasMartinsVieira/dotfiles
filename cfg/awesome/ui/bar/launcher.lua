@@ -5,6 +5,8 @@ local helpers = require("helpers")
 local theme = require("theme.theme")
 local icons = require("utils.icons")
 
+local menubar = require("menubar")
+
 local user_likes = require("user_vars")
 
 local launcher = wibox.widget.textbox()
@@ -23,7 +25,8 @@ launcher:connect_signal("mouse::leave", function()
 end)
 
 launcher:buttons(gears.table.join(awful.button({}, 1, function()
-  awful.spawn(user_likes.apps.app_launcher, true)
+  -- awful.spawn(user_likes.apps.app_launcher, true)
+  menubar.show()
 end)))
 
 return launcher
