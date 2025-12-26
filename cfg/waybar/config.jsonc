@@ -1,31 +1,38 @@
 {
-  "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 25, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
-  "spacing": 4, // Gaps between modules (4px)
-  // Choose the order of the modules
-  // "modules-left": ["wlr/workspaces"],
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  "spacing": 4,
   "modules-left": ["hyprland/workspaces"],
-  // "modules-left": ["river/tags"],
-  "modules-center": ["idle_inhibitor", "clock", "custom/updates"],
+  "modules-center": ["clock", "custom/updates"],
   "modules-right": [
     "tray",
+    "network",
+    "bluetooth",
+    "pulseaudio",
     "cpu",
     "memory",
     "disk",
-    "pulseaudio",
-    "pulseaudio#microphone",
-    "backlight",
-    "battery",
     "custom/power_btn"
   ],
   // Modules configuration
   "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
     "on-click": "activate",
-    "persistent_workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "active": "󱓻"
+    },
+    "persistent-workspaces": {
       "1": [],
       "2": [],
       "3": [],
@@ -34,34 +41,10 @@
       "6": [],
       "7": [],
       "8": [],
-      "9": [],
-      "10": [],
-      "11": [],
-      "12": [],
-      "13": [],
-      "14": [],
-      "15": [],
-      "16": [],
-      "17": [],
-      "18": []
+      "9": []
     }
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    },
-    "tooltip": true
-  },
-  "tray": {
-    // "icon-size": 21,
-    // "spacing": 10
-    "icon-size": 18,
-    "spacing": 10
-  },
   "clock": {
-    // "tooltip-format": "{:%A, %e %B %Y}",
     "format-alt": "{:%d/%m/%Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -71,11 +54,11 @@
       "on-scroll": 1,
       "on-click-right": "mode",
       "format": {
-        "months": "<span color='#82aaff'><b>{}</b></span>",
-        "days": "<span color='#011627'><b>{}</b></span>",
-        "weeks": "<span color='#21c7a8'><b>W{}</b></span>",
-        "weekdays": "<span color='#f78c6c'><b>{}</b></span>",
-        "today": "<span color='#e3d18a'><b><u>{}</u></b></span>"
+        "months": "<span color='#8CD3CB'><b>{}</b></span>",
+        "days": "<span color='#F6F5DD'><b>{}</b></span>",
+        "weeks": "<span color='#2DD5B7'><b>W{}</b></span>",
+        "weekdays": "<span color='#FF5345'><b>{}</b></span>",
+        "today": "<span color='#E5C736'><b><u>{}</u></b></span>"
       }
     }
   },
@@ -128,23 +111,34 @@
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-  "pulseaudio": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format": "{icon}",
-    "format-muted": "",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "spacing": 3
+    // "on-click": "kitty --start-as=fullscreen --title bluetooth -c 'bluetoothctl'"
+  },
+    "pulseaudio": {
+    "format": "{icon}",
     "on-click": "~/.config/hypr/scripts/volume --toggle",
     "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
-    "format-alt-click": "click-right",
-    "format-alt": "{icon} {volume}%",
+    "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
+    "format-muted": "",
     "format-icons": {
       // "headphone": "",
       // "hands-free": "",
@@ -154,32 +148,15 @@
       // "car": "",
       "default": ["", "", ""]
     },
-    "tooltip": true,
-    "tooltip-format": "{icon}  at {volume}%"
-  },
-  "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "format-source": "",
-    "format-source-muted": "",
-    "on-click": "~/.config/hypr/scripts/volume --toggle_mic",
-    "on-scroll-up": "~/.config/hypr/scripts/volume --inc_mic",
-    "on-scroll-down": "~/.config/hypr/scripts/volume --dec_mic",
-    "format-alt-click": "click-right",
-    "format-alt": "{format_source} {volume}%",
-    "scroll-step": 5,
-    "tooltip": true,
-    "tooltip-format": " at {desc}"
-  },
-  "custom/updates": {
-    "format": "{}",
-    "exec": "~/.config/hypr/scripts/updates",
-    "on-click": "~/.config/hypr/scripts/updates --update",
-    "interval": 300,
     "tooltip": true
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
   },
   "custom/power_btn": {
     "format": " ",
-    "on-click": "wlogout -l ~/.config/wlogout/layout -b 5 -c 0 -r 0 --protocol layer-shell",
+    "on-click": "powermenu",
     "tooltip": false
   }
 }

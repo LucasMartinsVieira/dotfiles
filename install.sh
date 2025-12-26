@@ -273,15 +273,15 @@ configs() {
   get_programs && link_files
 }
 
-welcome
-read -r
-check_folder
-explanation
-beginning
-packages
-configs
-check
+# welcome
+# read -r
+# check_folder
+# explanation
+# beginning
+# packages
+# configs
+# check
 scripts
-change_shell
-mime_type
-finish
+# change_shell
+# mime_type
+# finish

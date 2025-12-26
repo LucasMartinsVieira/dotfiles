@@ -6,6 +6,7 @@ vim.pack.add({
 	-- colorscheme
 	{ src = "https://github.com/bluz71/vim-moonfly-colors" },
 	{ src = "https://github.com/bluz71/vim-nightfly-colors" },
+	{ src = "https://github.com/ribru17/bamboo.nvim.git" },
 
 	-- conform
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -33,7 +34,7 @@ vim.pack.add({
 	-- Misc
 	{ src = "https://github.com/b0o/schemastore.nvim" },
 	-- { src = "https://github.com/elkowar/yuck.vim"},
-	{ src = "https://github.com/luckasRanarison/tailwind-tools.nvim" },
+	-- { src = "https://github.com/luckasRanarison/tailwind-tools.nvim" },
 	{ src = "https://github.com/brenoprata10/nvim-highlight-colors" },
 
 	-- Oil

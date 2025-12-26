@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+confirm() {
+  printf "No\nYes" | fuzzel --dmenu --prompt="$1"
+}
+
+OPTIONS=" Shutdown
+ Reboot
+󰍃 Logout
+󰤄 Suspend
+ Lock"
+
+CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --dmenu --prompt="Power:")
+
+case "$CHOICE" in
+*Shutdown)
+  [ "$(confirm Shutdown)" = "Yes" ] && systemctl poweroff
+  ;;
+*Reboot)
+  [ "$(confirm Reboot)" = "Yes" ] && systemctl reboot
+  ;;
+*Logout)
+  [ "$(confirm Logout)" = "Yes" ] && hyprctl dispatch exit
+  ;;
+*Suspend)
+  if [ "$(confirm Suspend)" = "Yes" ]; then
+    sleep 3 && systemctl suspend
+  fi
+  ;;
+*Lock)
+  hyprlock
+  ;;
+*)
+  exit 0
+  ;;
+esac

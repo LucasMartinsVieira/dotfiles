@@ -1,7 +1,7 @@
 local status_not_ok, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status_not_ok then
-  vim.notify("Treesitter plugin not found!", vim.log.levels.ERROR)
-  return
+	vim.notify("Treesitter plugin not found!", vim.log.levels.ERROR)
+	return
 end
 
 treesitter.setup({
@@ -23,7 +23,7 @@ treesitter.setup({
 		"typescript",
 		"tsx",
 		"json",
-		"jsonc",
+		-- "jsonc",
 		"lua",
 		"markdown",
 		"rust",
@@ -36,11 +36,11 @@ treesitter.setup({
 
 local status_not_ok, ts_comments = pcall(require, "ts-comments")
 if not status_not_ok then
-  vim.notify("Ts-comments plugin not found!", vim.log.levels.ERROR)
-  return
+	vim.notify("Ts-comments plugin not found!", vim.log.levels.ERROR)
+	return
 end
 
-ts_comments .setup()
+ts_comments.setup()
 
 vim.api.nvim_create_autocmd("PackChanged", {
 	desc = "Handle nvim-treesitter updates",

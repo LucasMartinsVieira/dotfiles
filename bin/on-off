@@ -10,6 +10,7 @@ WIFI_STATE=$(nmcli radio wifi)
 NOTIFICATIONS_STATE=$(dunstctl is-paused)
 TRAYER_IS_OPEN=$(pgrep trayer)
 SWAY_IDLE_IS_OPEN=$(pgrep swayidle)
+WAYBAR_IS_OPEN=$(pgrep waybar)
 
 # INFO: First argument is an Image, second is the service and the third is the state
 notify_user() {
@@ -70,6 +71,16 @@ idle() {
   fi
 }
 
+bar() {
+  if [[ "$WAYBAR_IS_OPEN" ]]; then
+    killall waybar
+    notify_user "" "Waybar" "OFF"
+  else
+    waybar
+  fi
+
+}
+
 if [[ "$1" == "-b" ]]; then
   bluetooth
 elif [[ "$1" == "-w" ]]; then
@@ -80,6 +91,8 @@ elif [[ "$1" == "-t" ]]; then
   tray
 elif [[ "$1" == "-i" ]]; then
   idle
+elif [[ "$1" == "-y" ]]; then
+  bar
 else
   exit 1
 fi
