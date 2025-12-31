@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Variables
-VOL_ICON=$HOME/.config/river/assets/volume.png
-MIC_ICON=$HOME/.config/river/assets/microphone.png
-
 get_volume() {
   volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}')
   echo "$volume"
@@ -12,7 +8,7 @@ get_volume() {
 notify_user() {
   volume=$(get_volume)
   # notify-send -t 1000 -u normal -i "$VOL_ICON" "Volume : $(get_volume) %"
-  notify-send "$volume%  " -i "$VOL_ICON" -t 1000 -r 5555 -u low -h int:value:$(($volume))
+  notify-send "Volume" "$volume%" -t 1000 -r 5555 -u low -h int:value:$(($volume))
 }
 
 inc_volume() {
@@ -56,7 +52,7 @@ get_mic() {
 notify_mic_user() {
   mic_volume=$(get_mic)
   # notify-send -t 1000 -u normal -i "$MIC_ICON" "Microphone : $(get_mic) %"
-  notify-send "$mic_volume%  " -i "$MIC_ICON" -t 1000 -r 5555 -u low -h int:value:$(($mic_volume))
+  notify-send "Microphone" "$mic_volume%" -t 1000 -r 5555 -u low -h int:value:$(($mic_volume))
 }
 
 inc_mic_volume() {

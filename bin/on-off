@@ -1,51 +1,33 @@
 #!/usr/bin/env bash
 
-# Icons
-WIFI_ICON=$HOME/.config/river/assets/wifi.png
-NOTIFICATIONS_ICON=$HOME/.config/river/assets/notifications.png
-BLUETOOTH_ICON=$HOME/.config/river/assets/bluetooth.png
-
 BLUETOOTH_STATE=$(bluetoothctl show | grep Powered: | awk '{print $2}')
 WIFI_STATE=$(nmcli radio wifi)
-NOTIFICATIONS_STATE=$(dunstctl is-paused)
 TRAYER_IS_OPEN=$(pgrep trayer)
 SWAY_IDLE_IS_OPEN=$(pgrep swayidle)
 WAYBAR_IS_OPEN=$(pgrep waybar)
 
 # INFO: First argument is an Image, second is the service and the third is the state
 notify_user() {
-  notify-send -t 1800 -u normal -i "$1" "$2: $3"
+  notify-send -t 1800 -u normal "$1: $2"
 }
 
 bluetooth() {
   if [[ "$BLUETOOTH_STATE" == "yes" ]]; then
     bluetoothctl power off
-    notify_user "$BLUETOOTH_ICON" "Bluetooth" "OFF"
+    notify_user "Bluetooth" "OFF"
   else
     bluetoothctl power on
-    notify_user "$BLUETOOTH_ICON" "Bluetooth" "ON"
+    notify_user "Bluetooth" "ON"
   fi
 }
 
 wifi() {
   if [[ "$WIFI_STATE" == "enabled" ]]; then
     nmcli radio wifi off
-    notify_user "$WIFI_ICON" "Wifi" "OFF"
+    notify_user "Wifi" "OFF"
   elif [[ "$WIFI_STATE" == "disabled" ]]; then
     nmcli radio wifi on
-    notify_user "$WIFI_ICON" "Wifi" "ON"
-  fi
-}
-
-notify() {
-  if [[ "$NOTIFICATIONS_STATE" == "false" ]]; then
-    notify_user "$NOTIFICATIONS_ICON" "Notifications" "OFF"
-    sleep 2
-    dunstctl set-paused true
-  else
-    dunstctl set-paused false
-    sleep 1
-    notify_user "$NOTIFICATIONS_ICON" "Notifications" "ON"
+    notify_user "Wifi" "ON"
   fi
 }
 
@@ -85,8 +67,6 @@ if [[ "$1" == "-b" ]]; then
   bluetooth
 elif [[ "$1" == "-w" ]]; then
   wifi
-elif [[ "$1" == "-n" ]]; then
-  notify
 elif [[ "$1" == "-t" ]]; then
   tray
 elif [[ "$1" == "-i" ]]; then

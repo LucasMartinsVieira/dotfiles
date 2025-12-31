@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 confirm() {
-  printf "No\nYes" | fuzzel --dmenu --prompt="$1"
+  printf "No\nYes" | fuzzel --lines 5 --dmenu --prompt="$1"
 }
 
 OPTIONS=" Shutdown
@@ -10,7 +10,7 @@ OPTIONS=" Shutdown
 󰤄 Suspend
  Lock"
 
-CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --dmenu --prompt="Power:")
+CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --lines 5 --dmenu --prompt="Power:")
 
 case "$CHOICE" in
 *Shutdown)
@@ -24,7 +24,7 @@ case "$CHOICE" in
   ;;
 *Suspend)
   if [ "$(confirm Suspend)" = "Yes" ]; then
-    sleep 3 && systemctl suspend
+    sleep 1 && systemctl suspend
   fi
   ;;
 *Lock)

@@ -1,25 +1,42 @@
 #!/usr/bin/env bash
 
-SCREENSHOT_ICON=$HOME/.config/river/assets/camera.png
-LOCATION=$HOME/Pictures/Screenshot/
+LOCATION=$HOME/Imagens/Screenshot/
 TIME=$(date +"%y%m%d-%H%M-%S")
 
 notify_user() {
-	notify-send -t 1000 -u normal -i "$SCREENSHOT_ICON" "Screenshot Tool" "Smile 📸"
+  notify-send -t 1000 -u normal "Screenshot Tool" "Smile 📸"
 }
 
 full() {
-  grim -c "$LOCATION$TIME.png" && notify_user
+  grim - | tee "$LOCATION$TIME.png" | wl-copy && notify_user
 }
 
 area() {
-  grim -g "$(slurp)" -c "$LOCATION$TIME.png" && notify_user
+  grim -g "$(slurp)" - | tee "$LOCATION$TIME.png" | wl-copy && notify_user
 }
 
 window() {
-	notify-send -t 1000 -u normal -i "$SCREENSHOT_ICON" "Screenshot Tool" "TODO"
+  notify-send -t 1000 -u normal "Screenshot Tool" "TODO"
 }
 
+OPTIONS="Full
+Area"
+
+select_option() {
+  CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --lines 4 --dmenu --prompt="Screenshot:")
+
+  case "$CHOICE" in
+  *Full)
+    full
+    ;;
+  *Area)
+    area
+    ;;
+  *)
+    exit 0
+    ;;
+  esac
+}
 
 if [[ "$1" == "--full" ]]; then
   full
@@ -28,5 +45,5 @@ elif [[ "$1" == "--area" ]]; then
 elif [[ "$1" == "--window" ]]; then
   window
 else
-  full
+  select_option
 fi

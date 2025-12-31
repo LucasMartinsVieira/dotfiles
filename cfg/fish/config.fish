@@ -29,7 +29,7 @@ bind -M insert \cp 'yazicd'
 # bind -M insert \cf 'tmux-sessionizer'
 
 ### Adding to the $PATH
-fish_add_path "$HOME/.local/share/cargo/bin" "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/" "$HOME/.local/share/go/bin/" "$HOME/.local/share/bob/nvim-bin/"
+fish_add_path "$HOME/.local/share/cargo/bin" "$HOME/.cargo/bin/" "$HOME/.local/bin/" "$HOME/.npm-global/bin/" "$HOME/.local/share/go/bin/" "$HOME/.local/share/bob/nvim-bin/" "$HOME/.local/share/mise/shims/"
 
 ### EXPORT
 
@@ -50,11 +50,8 @@ set fish_greeting                # Disable Fish's intro message
 
 ### Alias ###
 
-alias mon "wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --on --preferred --mode 1920x1080 --pos 0,0 --transform normal"
-alias mof "wlr-randr --output eDP-1 --on --mode 1920x1080 --pos 1920,0 --transform normal --output HDMI-A-1 --off"
 alias restart-gpu "doas modprobe -r -f amdgpu && sleep 10 && doas mobprobe amdgpu"
 
-source ~/.config/fish/completions/sb.fish
 alias s "sesh connect (sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')"
 
 ### Git Aliases ###

@@ -402,7 +402,7 @@ keymap = [
   { on = [
     "g",
     "d",
-  ], run = "cd ~/Documents", desc = "Go to the documents directory" },
+  ], run = "cd ~/Documentos", desc = "Go to the documents directory" },
   { on = [
     "g",
     "r",
@@ -418,7 +418,7 @@ keymap = [
   { on = [
     "g",
     "p",
-  ], run = "cd ~/Pictures", desc = "Go to the pictures directory" },
+  ], run = "cd ~/Imagens/", desc = "Go to the pictures directory" },
   { on = [
     "g",
     "m",

@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Variables
-BRIGHTNESS_ICON=$HOME/.config/river/assets/brightness.png
-
 get_brightness() {
   brightness=$(brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-0)}' | sed 's/%//')
   echo "$brightness"
@@ -11,7 +8,7 @@ get_brightness() {
 notify_user() {
   brightness=$(get_brightness)
   # notify-send -t 1000 -u normal -i "$BRIGHTNESS_ICON" "Brightness : $(get_brightness)"
-  notify-send "$brightness%  " -i "$BRIGHTNESS_ICON" -t 1000 -r 5555 -u low -h int:value:$(($brightness))
+  notify-send "$brightness%" "Brightness" -t 1000 -r 5555 -u low -h int:value:$(($brightness))
 }
 
 inc_backlight() {

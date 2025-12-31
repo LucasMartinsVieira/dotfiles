@@ -1,6 +1,6 @@
 * {
-    background-color: #11221C;
-    color: #e6d8ba;
+    background-color: #011627;
+    color: #bdc1c6;
     border: none;
     border-radius: 0;
     font-family: "jetBrainsMono Nerd Font";
@@ -17,7 +17,7 @@ tooltip {
 }
 
 tooltip label{
-    color: #C1C497;
+    color: #bdc1c6;
 }
 
 #workspaces button {
@@ -61,7 +61,7 @@ tooltip label{
 }
 
 #temperature.critical {
-    color: #e92d4d;
+    color: #fc514e;
 }
 
 #workspaces {
