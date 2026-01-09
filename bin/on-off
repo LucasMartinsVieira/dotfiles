@@ -56,9 +56,8 @@ idle() {
 bar() {
   if [[ "$WAYBAR_IS_OPEN" ]]; then
     killall waybar
-    notify_user "" "Waybar" "OFF"
   else
-    waybar
+    waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.css
   fi
 
 }

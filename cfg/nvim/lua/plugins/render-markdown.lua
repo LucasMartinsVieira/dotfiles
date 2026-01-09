@@ -22,8 +22,8 @@ require("render-markdown").setup({
 		},
 		custom = {
 			in_progress = { raw = "[/]", rendered = "󱎖", highlight = "RenderMarkdownTodo" },
-			-- 	fowarded = { raw = "[>]", rendered = icons.ui.ChevronRight, highlight = "RenderMarkdownTodo" },
-			-- scheduled = { raw = "[<]", rendered = "󰨳", highlight = "RenderMarkdownTodo" },
+			fowarded = { raw = "[>]", rendered = "󰨳", highlight = "RenderMarkdownTodo" },
+			-- scheduled = { raw = "[<]", rendered = "", highlight = "RenderMarkdownTodo" },
 		},
 	},
 })

@@ -1,7 +1,7 @@
 vim.lsp.enable({
 	"lua_ls",
 	"gopls",
-	"bashls",
+	-- "bashls",
 	"cssls",
 	"eslint",
 	"html",
