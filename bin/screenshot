@@ -8,11 +8,23 @@ notify_user() {
 }
 
 full() {
-  grim - | tee "$LOCATION$TIME.png" | wl-copy && notify_user
+  grim - | satty \
+    --filename - \
+    --output-filename "$LOCATION$TIME.png" \
+    --early-exit \
+    --actions-on-enter save-to-clipboard \
+    --save-after-copy \
+    --copy-command 'wl-copy'
 }
 
 area() {
-  grim -g "$(slurp)" - | tee "$LOCATION$TIME.png" | wl-copy && notify_user
+  grim -g "$(slurp)" - | satty \
+    --filename - \
+    --output-filename "$LOCATION$TIME.png" \
+    --early-exit \
+    --actions-on-enter save-to-clipboard \
+    --save-after-copy \
+    --copy-command 'wl-copy'
 }
 
 window() {
@@ -27,10 +39,10 @@ select_option() {
 
   case "$CHOICE" in
   *Full)
-    full
+    sleep 1 && full
     ;;
   *Area)
-    area
+    sleep 1 && area
     ;;
   *)
     exit 0

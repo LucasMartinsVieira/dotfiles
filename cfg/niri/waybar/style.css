@@ -1,0 +1,76 @@
+* {
+    background-color: #011627;
+    color: #bdc1c6;
+    border: none;
+    border-radius: 0;
+    font-family: "jetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 0;
+}
+
+tooltip {
+    opacity: 0.8;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+tooltip label{
+    color: #bdc1c6;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: #f6f7fc;
+  margin-right: 5px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#custom-power_btn,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#temperature,
+#workspaces {
+    opacity: 0.8;
+    padding: 0px 6px;
+    margin: 0px 3px;
+    border: 0px;
+}
+
+#bluetooth {
+  border: 0px;
+  opacity: 0.8;
+  margin: 0px 4px;
+}
+
+#custom-updates,
+#custom-power_btn {
+    padding: 0px 2px;
+}
+
+#temperature.critical {
+    color: #fc514e;
+}
+
+#workspaces {
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#window {
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
