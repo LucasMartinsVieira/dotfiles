@@ -3,12 +3,16 @@
   "position": "top",
   "height": 25,
   "spacing": 4,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock", "custom/updates"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/updates"
+  ],
   "modules-right": [
     "tray",
-    "network",
-    "bluetooth",
     "pulseaudio",
     "cpu",
     "memory",
@@ -30,6 +34,7 @@
       "7": "7",
       "8": "8",
       "9": "9",
+      "10": "10",
       "active": "󱓻"
     },
     "persistent-workspaces": {
@@ -41,8 +46,13 @@
       "6": [],
       "7": [],
       "8": [],
-      "9": []
+      "9": [],
+      "10": []
     }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "separate-outputs": true
   },
   "clock": {
     "format": "{:%H:%M:%S}",
@@ -66,75 +76,28 @@
   },
   "cpu": {
     "interval": 10,
-    "format": "",
+    "format": "  {usage}%",
     "max-length": 10,
     "format-alt-click": "click-right",
-    "format-alt": " {usage}%",
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
   },
   "memory": {
-    "format": "󰍛",
+    "format": "󰍛  {}%",
     "format-alt-click": "click-right",
-    "format-alt": "󰍛 {}%",
     "tooltip": true,
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
   },
   "disk": {
     "interval": 30,
-    "format": "󰋊",
+    "format": "󰋊  {percentage_used}%",
     "path": "/",
     "format-alt-click": "click-right",
-    "format-alt": "󰋊 {percentage_used}%",
     "tooltip": true,
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
   },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}",
-    "format-alt-click": "click-right",
-    "format-alt": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "tooltip-format": "{icon}  {percent}%",
-    "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
-    "on-scroll-down": "~/.config/hypr/scripts/brightness --dec"
-  },
-  "battery": {
-    "states": {
-      "good": 80,
-      "warning": 30,
-      "critical": 20
-    },
-    "format": "{icon}",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰂄 {capacity}%",
-    "format-alt-click": "click-right",
-    "format-alt": "{icon} {capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-  },
-  "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format": "{icon}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰀂",
-    "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-disconnected": "Disconnected",
-    "interval": 3,
-    "spacing": 1
-  },
-  "bluetooth": {
-    "format": "",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂱",
-    "format-no-controller": "",
-    "tooltip-format": "Devices connected: {num_connections}",
-    "spacing": 3
-    // "on-click": "kitty --start-as=fullscreen --title bluetooth -c 'bluetoothctl'"
-  },
-    "pulseaudio": {
-    "format": "{icon}",
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
     "on-click": "~/.config/hypr/scripts/volume --toggle",
     "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
@@ -142,13 +105,11 @@
     "scroll-step": 5,
     "format-muted": "",
     "format-icons": {
-      // "headphone": "",
-      // "hands-free": "",
-      // "headset": "",
-      // "phone": "",
-      // "portable": "",
-      // "car": "",
-      "default": ["", "", ""]
+      "default": [
+        " ",
+        " ",
+        " "
+      ]
     },
     "tooltip": true
   },
