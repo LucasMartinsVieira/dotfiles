@@ -56,7 +56,6 @@ vim.pack.add({
 	-- which-key
 	{ src = "https://github.com/folke/which-key.nvim" },
 
-	-- obsidian
-	{ src = "https://github.com/obsidian-nvim/obsidian.nvim" },
+	-- render-markdown
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })

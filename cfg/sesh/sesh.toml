@@ -4,7 +4,7 @@ preview_command = "eza --all --git --icons --color=always {}"
 
 [[session]]
 name = "second brain 🧠"
-path = "~/Documents/obsidian"
+path = "~/Documentos/obsidian"
 startup_command = "nvim"
 preview_command = ""
 

@@ -59,10 +59,6 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter.git",
       "version": "'master'"
     },
-    "obsidian.nvim": {
-      "rev": "2c1d23c4f66e1be104eaf0e6848417cfd9e948df",
-      "src": "https://github.com/obsidian-nvim/obsidian.nvim"
-    },
     "oil.nvim": {
       "rev": "81b8a91735ad5cd24a6b3137f14a89f19176364f",
       "src": "https://github.com/stevearc/oil.nvim"
@@ -113,3 +109,4 @@
     }
   }
 }
+
