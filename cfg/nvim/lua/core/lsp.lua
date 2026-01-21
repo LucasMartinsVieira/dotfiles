@@ -7,6 +7,7 @@ vim.lsp.enable({
 	"html",
 	"prismals",
 	"ts_ls",
+	"rust_analyzer",
 	"yaml-language-server",
 	"json-lsp",
 	"taplo",
