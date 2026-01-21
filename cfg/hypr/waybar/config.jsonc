@@ -78,14 +78,12 @@
     "interval": 10,
     "format": "  {usage}%",
     "max-length": 10,
-    "format-alt-click": "click-right",
-    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    "format-alt-click": "click-right"
   },
   "memory": {
     "format": "󰍛  {}%",
     "format-alt-click": "click-right",
-    "tooltip": true,
-    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    "tooltip": true
   },
   "disk": {
     "interval": 30,
@@ -93,8 +91,7 @@
     "path": "/",
     "format-alt-click": "click-right",
     "tooltip": true,
-    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
-    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
