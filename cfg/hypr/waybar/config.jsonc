@@ -16,8 +16,7 @@
     "pulseaudio",
     "cpu",
     "memory",
-    "disk",
-    "custom/power_btn"
+    "disk"
   ],
   // Modules configuration
   "hyprland/workspaces": {
@@ -52,6 +51,7 @@
   },
   "hyprland/window": {
     "format": "{}",
+    "icon": true,
     "separate-outputs": true
   },
   "clock": {
@@ -83,6 +83,7 @@
   "memory": {
     "format": "󰍛  {}%",
     "format-alt-click": "click-right",
+    "tooltip-format": "{used}GiB / {total}GiB",
     "tooltip": true
   },
   "disk": {
@@ -98,14 +99,14 @@
     "on-click": "~/.config/hypr/scripts/volume --toggle",
     "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
-    "tooltip-format": "Playing at {volume}%",
+    "tooltip-format": "{desc} at {volume}%",
     "scroll-step": 5,
     "format-muted": "",
     "format-icons": {
       "default": [
-        " ",
-        " ",
-        " "
+        "󰕿 ",
+        "󰖀 ",
+        "󰕾 "
       ]
     },
     "tooltip": true
@@ -113,10 +114,5 @@
   "tray": {
     "icon-size": 18,
     "spacing": 10
-  },
-  "custom/power_btn": {
-    "format": " ",
-    "on-click": "powermenu",
-    "tooltip": false
   }
 }

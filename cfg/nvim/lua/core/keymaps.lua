@@ -34,6 +34,7 @@ vim.keymap.set("n", "<M-S-h>", "<CMD>vertical resize -2<CR>")
 
 vim.keymap.set("n", "<leader>os", "<CMD>ToggleSpell<CR>", opts)
 vim.keymap.set("n", "<leader>ow", "<CMD>ToggleWrap<CR>", opts)
+vim.keymap.set("n", "<leader>oh", "<CMD>ToggleInlayHints<CR>", { desc = "Toogle inlay hints" })
 
 -- INSERT
 vim.keymap.set("i", "jk", "<ESC>")

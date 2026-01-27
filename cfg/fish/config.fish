@@ -1,7 +1,7 @@
 fish_vi_key_bindings
 
 if status is-interactive
-    # freshfetch
+    fastfetch
 end
 
 ### Setting variables
@@ -244,9 +244,6 @@ zoxide init fish | source
 
 # FZF
 fzf --fish | source
-
-# Direnv
-direnv hook fish | source
 
 # Mise
 if type -q mise

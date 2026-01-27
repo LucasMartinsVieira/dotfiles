@@ -1,7 +1,7 @@
 local status_not_ok, blink_cmp = pcall(require, "blink-cmp")
 if not status_not_ok then
-  vim.notify("Blink-cmp plugin not found!", vim.log.levels.ERROR)
-  return
+	vim.notify("Blink-cmp plugin not found!", vim.log.levels.ERROR)
+	return
 end
 
 blink_cmp.setup({
@@ -14,8 +14,11 @@ blink_cmp.setup({
 
 	signature = { enabled = true, window = { show_documentation = true } },
 
-	-- INFO: Change this to rust afterwards...
-	fuzzy = { implementation = "lua" },
+	keymap = {
+		preset = "default",
+	},
+
+	fuzzy = { implementation = "prefer_rust_with_warning" },
 
 	sources = {
 		-- default = { "lsp", "path", "snippets", "buffer", "emoji", "crates", "obsidian", "obsidian_new", "obsidian_tags" },

@@ -1,7 +1,7 @@
-local status_ok, snacks = pcall(require, "snacks");
+local status_ok, snacks = pcall(require, "snacks")
 if not status_ok then
-  vim.notify("Snacks plugin not found!", vim.log.levels.ERROR)
-  return
+	vim.notify("Snacks plugin not found!", vim.log.levels.ERROR)
+	return
 end
 
 snacks.setup({
@@ -75,3 +75,12 @@ end, { desc = "Find LSP Workspace Symbols" })
 vim.keymap.set("n", "<leader>lg", function()
 	Snacks.lazygit()
 end, { desc = "Lazygit" })
+
+-- LSP
+vim.keymap.set("n", "grd", function()
+	Snacks.picker.lsp_definitions()
+end, { desc = "Snacks: LSP Definitions" })
+
+vim.keymap.set("n", "grr", function()
+	Snacks.picker.lsp_references()
+end, { desc = "Snacks: LSP References" })
