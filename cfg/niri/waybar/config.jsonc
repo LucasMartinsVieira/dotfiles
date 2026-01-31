@@ -1,0 +1,118 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  "spacing": 4,
+  "modules-left": [
+    "niri/workspaces",
+    "niri/window"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/updates"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "disk"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "active": "󱓻"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "icon": true,
+    "separate-outputs": true
+  },
+  "clock": {
+    "format": "{:%H:%M:%S}",
+    "format-alt": "{:%d/%m/%Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "interval": 1,
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#7fdbca'><b>{}</b></span>",
+        "days": "<span color='#bdc1c6'><b>{}</b></span>",
+        "weeks": "<span color='#21c7a8'><b>W{}</b></span>",
+        "weekdays": "<span color='#fc514e'><b>{}</b></span>",
+        "today": "<span color='#e3d18a'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "  {usage}%",
+    "max-length": 10,
+    "format-alt-click": "click-right"
+  },
+  "memory": {
+    "format": "󰍛  {}%",
+    "format-alt-click": "click-right",
+    "tooltip-format": "{used}GiB / {total}GiB",
+    "tooltip": true
+  },
+  "disk": {
+    "interval": 30,
+    "format": "󰋊  {percentage_used}%",
+    "path": "/",
+    "format-alt-click": "click-right",
+    "tooltip": true,
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "on-click": "~/.config/hypr/scripts/volume --toggle",
+    "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
+    "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
+    "tooltip-format": "{desc} at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "󰕿 ",
+        "󰖀 ",
+        "󰕾 "
+      ]
+    },
+    "tooltip": true
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  }
+}
