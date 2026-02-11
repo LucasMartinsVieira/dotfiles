@@ -3,10 +3,11 @@
   color: #bdc1c6;
   border: none;
   border-radius: 0;
-  font-family: "jetBrainsMono Nerd Font";
+  font-family: "GeistMono Nerd Font";
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   min-height: 0;
+  /* margin: 2px 0px; */
 }
 
 tooltip {

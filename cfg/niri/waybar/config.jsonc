@@ -8,8 +8,9 @@
     "niri/window"
   ],
   "modules-center": [
+    "privacy",
     "clock",
-    "custom/updates"
+    "idle_inhibitor"
   ],
   "modules-right": [
     "tray",
@@ -19,40 +20,43 @@
     "disk"
   ],
   // Modules configuration
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9",
-      "10": "10",
-      "active": "󱓻"
-    },
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
-    }
-  },
-  "hyprland/window": {
+  "niri/window": {
     "format": "{}",
     "icon": true,
     "separate-outputs": true
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ],
+    "ignore-monitor": true,
+    "ignore": [
+      {
+        "type": "audio-in",
+        "name": "cava"
+      },
+      {
+        "type": "screenshare",
+        "name": "obs"
+      }
+    ]
   },
   "clock": {
     "format": "{:%H:%M:%S}",
@@ -74,28 +78,35 @@
       }
     }
   },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
   "cpu": {
     "interval": 10,
-    "format": "  {usage}%",
+    "format": " {usage}%",
     "max-length": 10,
     "format-alt-click": "click-right"
   },
   "memory": {
-    "format": "󰍛  {}%",
+    "format": "󰍛 {}%",
     "format-alt-click": "click-right",
     "tooltip-format": "{used}GiB / {total}GiB",
     "tooltip": true
   },
   "disk": {
     "interval": 30,
-    "format": "󰋊  {percentage_used}%",
+    "format": "󰋊 {percentage_used}%",
     "path": "/",
     "format-alt-click": "click-right",
     "tooltip": true,
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
   },
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon} {volume}%",
     "on-click": "~/.config/hypr/scripts/volume --toggle",
     "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
@@ -104,9 +115,9 @@
     "format-muted": "",
     "format-icons": {
       "default": [
-        "󰕿 ",
-        "󰖀 ",
-        "󰕾 "
+        "󰕿",
+        "󰖀",
+        "󰕾"
       ]
     },
     "tooltip": true

@@ -20,7 +20,7 @@ case "$CHOICE" in
   [ "$(confirm Reboot)" = "Yes" ] && systemctl reboot
   ;;
 *Logout)
-  [ "$(confirm Logout)" = "Yes" ] && hyprctl dispatch exit
+  [ "$(confirm Logout)" = "Yes" ] && niri msg action quit
   ;;
 *Suspend)
   if [ "$(confirm Suspend)" = "Yes" ]; then

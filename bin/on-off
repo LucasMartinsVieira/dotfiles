@@ -57,7 +57,7 @@ bar() {
   if [[ "$WAYBAR_IS_OPEN" ]]; then
     killall waybar
   else
-    waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.css
+    waybar -c ~/.config/niri/waybar/config.jsonc -s ~/.config/niri/waybar/style.css
   fi
 
 }

@@ -45,7 +45,7 @@ set -Ux STEAM_EXTRA_COMPAT_TOOLS_PATH "$HOME/.steam/root/compatibilitytools.d";
 
 set -Ux EDITOR nvim                  # Set the $EDITOR to nvim
 set -Ux TERM kitty
-set -Ux BROWSER firefox
+set -Ux BROWSER zen-browser
 set fish_greeting                # Disable Fish's intro message
 
 ### Alias ###

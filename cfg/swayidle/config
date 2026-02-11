@@ -1,0 +1,2 @@
+timeout 450 'pidof hyprlock || hyprlock'
+timeout 450 'niri msg action power-off-monitors'
