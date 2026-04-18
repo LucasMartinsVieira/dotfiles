@@ -12,6 +12,7 @@ vim.lsp.enable({
 	"json-lsp",
 	"taplo",
 	"markdown-oxide",
+	"tailwindcss",
 })
 
 vim.diagnostic.config({
