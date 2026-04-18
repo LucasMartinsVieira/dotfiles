@@ -3,17 +3,20 @@
 // https://yalter.github.io/niri/Configuration:-Input
 spawn-sh-at-startup "swayidle -w"
 spawn-sh-at-startup "waybar -c ~/.config/niri/waybar/config.jsonc -s ~/.config/niri/waybar/style.css"
-spawn-sh-at-startup "swaybg -i ~/Imagens/backgrounds/1-osaka-jade-bg.jpg"
+spawn-sh-at-startup "swaybg -i ~/Pictures/backgrounds/1-osaka-jade-bg.jpg"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "mako"
+spawn-sh-at-startup "wlsunset -t 4800 -T 4801"
+spawn-sh-at-startup "foot --server"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 input {
     keyboard {
         xkb {
-            layout "us"
+            layout "us,br"
             variant "intl"
+            options "grp:shifts_toggle,lv3:ratl_switch"
         }
 
         repeat-rate 50
@@ -52,8 +55,18 @@ gestures {
 
 prefer-no-csd
 
+
+// cursor {
+//     xcursor-theme  "Bibata-Modern-Ice"
+//     xcursor-size 24
+//
+//     hide-when-typing
+//     hide-after-inactive-ms 1000
+// }
+
 output "HDMI-A-1" {
     mode "3840x2160@60"
+    // mode "1920x1080@60"
 
     scale 1
 
@@ -134,17 +147,25 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^Bitwarden"#
     match app-id=r#"^com\.gabm\.satty"#
     match app-id=r#"^org\.gnome\.clocks"#
-    match app-id=r#"org\.gnome\.Nautilus"#
     match app-id=r#"^org.pulseaudio.pavucontrol"#
     match app-id=r#"mpv"#
-    match app-id=r#"localsend"#
     match app-id=r#"virt-manager"#
 
     default-column-width { proportion 0.5; }
-    default-window-height { fixed 1500; }
+    default-window-height { fixed 1000; }
+   
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"localsend"#
+    match app-id=r#"org\.gnome\.Nautilus"#
+    match app-id=r#"^Bitwarden"#
+
+    default-column-width { proportion 0.3; }
+    default-window-height { fixed 1000; }
    
     open-floating true
 }
@@ -171,7 +192,7 @@ binds {
     Mod+Slash { show-hotkey-overlay; }
 
     // Bindings
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Run an Application: Zen Browser" { spawn "zen-browser"; }
 
@@ -230,11 +251,13 @@ binds {
     Mod+Ctrl+K     hotkey-overlay-title="Focus monitor up" { focus-monitor-up; }
     Mod+Ctrl+L     hotkey-overlay-title="Focus monitor right" { focus-monitor-right; }
 
+    Mod+Alt+J hotkey-overlay-title="Move Workspace Down" { move-workspace-down; }
+    Mod+Alt+K hotkey-overlay-title="Move Workspace Up" { move-workspace-up; }
+
     Mod+Shift+Ctrl+H     hotkey-overlay-title="Move column to monitor left" { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+J     hotkey-overlay-title="Move column to monitor down" { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+K     hotkey-overlay-title="Move column to monitor up" { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     hotkey-overlay-title="Move column to monitor right" { move-column-to-monitor-right; }
-
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.

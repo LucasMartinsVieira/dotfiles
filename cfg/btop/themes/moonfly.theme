@@ -1,0 +1,66 @@
+# Synced with your Kitty theme
+
+theme[main_bg]="#080808"
+theme[main_fg]="#b2b2b2"
+
+theme[title]="#e4e4e4"
+theme[hi_fg]="#e3c78a"
+
+theme[selected_bg]="#b2ceee"
+theme[selected_fg]="#080808"
+
+theme[inactive_fg]="#949494"
+theme[graph_text]="#e4e4e4"
+
+theme[proc_misc]="#79dac8"
+
+theme[cpu_box]="#80a0ff"
+theme[mem_box]="#80a0ff"
+theme[net_box]="#79dac8"
+theme[proc_box]="#cf87e8"
+
+theme[div_line]="#323437"
+
+# Temperature graph
+theme[temp_start]="#8cc85f"
+theme[temp_mid]="#e3c78a"
+theme[temp_end]="#ff5454"
+
+# CPU graph
+theme[cpu_start]="#80a0ff"
+theme[cpu_mid]="#79dac8"
+theme[cpu_end]="#36c692"
+
+# Mem/Disk free
+theme[free_start]="#79dac8"
+theme[free_mid]="#85dc85"
+theme[free_end]="#36c692"
+
+# Mem/Disk cached
+theme[cached_start]="#80a0ff"
+theme[cached_mid]="#cf87e8"
+theme[cached_end]="#ae81ff"
+
+# Mem/Disk available
+theme[available_start]="#8cc85f"
+theme[available_mid]="#85dc85"
+theme[available_end]="#36c692"
+
+# Mem/Disk used
+theme[used_start]="#e3c78a"
+theme[used_mid]="#ff5189"
+theme[used_end]="#ff5454"
+
+# Network
+theme[download_start]="#80a0ff"
+theme[download_mid]="#79dac8"
+theme[download_end]="#36c692"
+
+theme[upload_start]="#cf87e8"
+theme[upload_mid]="#ae81ff"
+theme[upload_end]="#ff5189"
+
+# Process gradients
+theme[process_start]="#8cc85f"
+theme[process_mid]="#e3c78a"
+theme[process_end]="#ff5454"

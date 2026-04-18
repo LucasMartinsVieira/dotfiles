@@ -1,34 +1,36 @@
 * {
-  background-color: #011627;
-  color: #bdc1c6;
+  background-color: #080808;
+  color: #b2b2b2;
   border: none;
   border-radius: 0;
   font-family: "GeistMono Nerd Font";
   font-weight: bold;
   font-size: 18px;
   min-height: 0;
-  /* margin: 2px 0px; */
 }
 
 tooltip {
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 10px;
   border-width: 2px;
   border-style: solid;
+  border-color: #323437;
+  background-color: #080808;
 }
 
 tooltip label {
-  color: #bdc1c6;
+  color: #b2b2b2;
 }
 
 #workspaces button {
   padding: 5px;
-  color: #f6f7fc;
+  color: #e4e4e4;
   margin-right: 5px;
 }
 
 #workspaces button.empty {
   opacity: 0.5;
+  color: #949494;
 }
 
 #window,
@@ -44,27 +46,60 @@ tooltip label {
 #tray,
 #temperature,
 #workspaces {
-  opacity: 0.8;
+  opacity: 0.9;
   padding: 0px 6px;
   margin: 0px 3px;
   border: 0px;
+  color: #b2b2b2;
 }
 
 #bluetooth {
   border: 0px;
-  opacity: 0.8;
+  opacity: 0.9;
   margin: 0px 4px;
+  color: #79dac8;
 }
 
-#custom-updates,
-#custom-power_btn {
-  padding: 0px 2px;
-}
-
-#temperature.critical {
-  color: #fc514e;
-}
-
+/* #cpu { */
+/*   color: #80a0ff; */
+/* } */
+/**/
+/* #memory { */
+/*   color: #cf87e8; */
+/* } */
+/**/
+/* #disk { */
+/*   color: #8cc85f; */
+/* } */
+/**/
+/* #network { */
+/*   color: #79dac8; */
+/* } */
+/**/
+/* #pulseaudio { */
+/*   color: #e3c78a; */
+/* } */
+/**/
+/* #battery { */
+/*   color: #8cc85f; */
+/* } */
+/**/
+/* #clock { */
+/*   color: #e4e4e4; */
+/* } */
+/**/
+/* #temperature { */
+/*   color: #e3c78a; */
+/* } */
+/**/
+/* #temperature.critical { */
+/*   color: #ff5454; */
+/* } */
+/**/
+/* #tray { */
+/*   color: #949494; */
+/* } */
+/**/
 #workspaces {
   padding-right: 0px;
   padding-left: 5px;
@@ -74,4 +109,5 @@ tooltip label {
   border-radius: 10px;
   margin-left: 20px;
   margin-right: 20px;
+  color: #e4e4e4;
 }

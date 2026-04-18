@@ -10,7 +10,8 @@ return {
 				-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
 				url = "",
 			},
-			schemas = require("schemastore").yaml.schemas(),
+			-- TODO: Fix this
+			-- schemas = require("schemastore").yaml.schemas(),
 		},
 	},
 	on_init = function(client)

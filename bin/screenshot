@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LOCATION=$HOME/Imagens/Screenshot/
+LOCATION=$HOME/Pictures/Screenshot/
 TIME=$(date +"%y%m%d-%H%M-%S")
 
 notify_user() {

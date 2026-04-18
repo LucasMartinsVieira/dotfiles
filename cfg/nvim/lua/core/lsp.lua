@@ -45,6 +45,8 @@ vim.diagnostic.config({
 -- 	vim.lsp.buf.definition()
 -- end, { desc = "Go to definition" })
 
+vim.keymap.set("n", "<leader>lr", "<CMD>lsp restart<CR>", { desc = "Restart the lsp" })
+
 vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Go to Next Diagnostic" })

@@ -1,5 +1,28 @@
-local util = require("lspconfig.util")
+-- local util = require("lspconfig.util")
 local lsp = vim.lsp
+
+-- TODO: Fix this afterwards
+local function insert_package_json(files, key, filename)
+	local pkg = vim.fs.find("package.json", {
+		path = filename,
+		upward = true,
+		type = "file",
+		limit = 1,
+	})[1]
+
+	if not pkg then
+		return files
+	end
+
+	local ok, data = pcall(vim.json.decode, vim.fn.readfile(pkg))
+	if not ok or type(data) ~= "table" or not data[key] then
+		return files
+	end
+
+	local new = vim.deepcopy(files)
+	table.insert(new, "package.json")
+	return new
+end
 
 local eslint_config_files = {
 	".eslintrc",
@@ -70,7 +93,8 @@ return {
 		-- We keep this for backward compatibility.
 		local filename = vim.api.nvim_buf_get_name(bufnr)
 		local eslint_config_files_with_package_json =
-			util.insert_package_json(eslint_config_files, "eslintConfig", filename)
+			-- util.insert_package_json(eslint_config_files, "eslintConfig", filename)
+			insert_package_json(eslint_config_files, "eslintConfig", filename)
 		local is_buffer_using_eslint = vim.fs.find(eslint_config_files_with_package_json, {
 			path = filename,
 			type = "file",
@@ -91,7 +115,7 @@ return {
 		packageManager = nil,
 		useESLintClass = false,
 		experimental = {
-			useFlatConfig = false,
+			useFlatConfig = true,
 		},
 		codeActionOnSave = {
 			enable = false,

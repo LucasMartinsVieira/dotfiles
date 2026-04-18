@@ -30,9 +30,10 @@ return {
 	},
 	root_markers = { ".git" },
 	settings = {
+		-- TODO: Fix this
 		json = {
-			schemas = require("schemastore").json.schemas(),
-			validate = { enable = true },
+			-- schemas = require("schemastore").json.schemas(),
+			-- validate = { enable = true },
 		},
 	},
 	setup = {

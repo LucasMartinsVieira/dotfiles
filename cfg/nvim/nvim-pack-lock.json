@@ -10,7 +10,7 @@
       "version": "'v1.6.0'"
     },
     "conform.nvim": {
-      "rev": "8314f4c9e205e7f30b62147069729f9a1227d8bf",
+      "rev": "c2526f1cde528a66e086ab1668e996d162c75f4f",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
@@ -18,15 +18,15 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "fidget.nvim": {
-      "rev": "64463022a1f2ff1318ab22a2ea4125ed9313a483",
+      "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "friendly-snippets": {
-      "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "30e5c516f03e0a0a4f71300c52abad481ee90337",
+      "rev": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "harpoon": {
@@ -35,7 +35,7 @@
       "version": "'harpoon2'"
     },
     "mason-tool-installer.nvim": {
-      "rev": "517ef5994ef9d6b738322664d5fdd948f0fdeb46",
+      "rev": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc",
       "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
     },
     "mason.nvim": {
@@ -43,15 +43,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "fb4ccfed03c1f0d9db702f93a65cb4c0c6c2832b",
+      "rev": "ca9adcfc4e796b292cc9072f4952318ef5a7f6c0",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "nvim-highlight-colors": {
-      "rev": "e0c4a58ec8c3ca7c92d3ee4eb3bc1dd0f7be317e",
+      "rev": "e2cb22089cc2358b2b995c09578224f142de6039",
       "src": "https://github.com/brenoprata10/nvim-highlight-colors"
     },
     "nvim-lspconfig": {
-      "rev": "0b38bc74487e73489624d61396af7805af9cc75f",
+      "rev": "44acfe887d4056f704ccc4f17513ed41c9e2b2e6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -60,7 +60,7 @@
       "version": "'master'"
     },
     "oil.nvim": {
-      "rev": "81b8a91735ad5cd24a6b3137f14a89f19176364f",
+      "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "persistence.nvim": {
@@ -72,11 +72,11 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "73a6ebc842cf81926eb1d424820b800f6f6a1227",
+      "rev": "48b4175dbca8439d30c1f52231cbe5a712c8f9d9",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schemastore.nvim": {
-      "rev": "1b83928c9ff8ff9d9506acc1aa8e0bdee635c570",
+      "rev": "55ca969ceed5209d62cbf4c20cef023ff188b6c5",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
@@ -87,20 +87,24 @@
       "rev": "fbe982901d4508b0dcd80e07addf0fcb6dab6c49",
       "src": "https://github.com/luckasRanarison/tailwind-tools.nvim"
     },
+    "telescope.nvim": {
+      "rev": "5255aa27c422de944791318024167ad5d40aad20",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
     "ts-comments.nvim": {
       "rev": "123a9fb12e7229342f807ec9e6de478b1102b041",
       "src": "https://github.com/folke/ts-comments.nvim"
     },
     "undotree": {
-      "rev": "178d19e00a643f825ea11d581b1684745d0c4eda",
+      "rev": "d8f99084d98c32f651860eb0baaf89759f91debc",
       "src": "https://github.com/mbbill/undotree"
     },
     "vim-moonfly-colors": {
-      "rev": "1ad5a8d40176a8749f0c77b8875225d9d299a438",
+      "rev": "d11b3d04cc1cb71a778d67a4df73283a5a6d66f4",
       "src": "https://github.com/bluz71/vim-moonfly-colors"
     },
     "vim-nightfly-colors": {
-      "rev": "35b7292334eba451f9f94252c7df1509570f864b",
+      "rev": "3b48dc0c5921f899aeb1e6e61b77b9345888a2f7",
       "src": "https://github.com/bluz71/vim-nightfly-colors"
     },
     "which-key.nvim": {
@@ -109,4 +113,3 @@
     }
   }
 }
-

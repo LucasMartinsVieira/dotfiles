@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+# CHOICE=$(printf "No\nYes" | fuzzel --dmenu)
+#
+# case "$CHOICE" in
+# *Yes)
+#   sleep 1 && systemctl suspend
+#   ;;
+# *No)
+#   exit 0
+#   ;;
+# *)
+#   exit 0
+#   ;;
+# esac
+
+# sleep 1 && systemctl suspend
+
 confirm() {
   printf "No\nYes" | fuzzel --lines 5 --dmenu --prompt="$1"
 }
@@ -10,7 +26,7 @@ OPTIONS=" Shutdown
 󰤄 Suspend
  Lock"
 
-CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --lines 5 --dmenu --prompt="Power:")
+CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --dmenu)
 
 case "$CHOICE" in
 *Shutdown)
