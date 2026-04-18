@@ -5,6 +5,7 @@ require("core.lsp")
 
 require("plugins")
 require("plugins.snacks")
+require("plugins.telescope")
 require("plugins.colorsheme")
 require("plugins.oil")
 require("plugins.harpoon")

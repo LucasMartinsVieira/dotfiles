@@ -45,6 +45,7 @@ vim.pack.add({
 
 	-- Snacks
 	{ src = "https://github.com/folke/snacks.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope.nvim", version = "*" },
 
 	-- Treesitter
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" },

@@ -24,33 +24,33 @@ snacks.setup({
 	explorer = { enabled = true },
 })
 
-vim.keymap.set("n", "<leader>d", function()
-	Snacks.picker.diagnostics_buffer()
-end, { desc = "Find diagnostics_buffer" })
-
-vim.keymap.set("n", "<leader>D", function()
-	Snacks.picker.diagnostics()
-end, { desc = "Find diagnostics workspace" })
-
-vim.keymap.set("n", "<leader>f", function()
-	Snacks.picker.files()
-end, { desc = "Find Files" })
-
-vim.keymap.set("n", "<leader>g", function()
-	Snacks.picker.grep()
-end, { desc = "Grep" })
-
-vim.keymap.set("n", "<leader>G", function()
-	Snacks.picker.grep_word()
-end, { desc = "Grep word" })
-
-vim.keymap.set("n", "<leader>n", function()
-	Snacks.picker.notifications()
-end, { desc = "Find notifications" })
-
-vim.keymap.set("n", "<leader><leader>", function()
-	Snacks.picker.buffers()
-end, { desc = "Buffers" })
+-- vim.keymap.set("n", "<leader>d", function()
+-- 	Snacks.picker.diagnostics_buffer()
+-- end, { desc = "Find diagnostics_buffer" })
+--
+-- vim.keymap.set("n", "<leader>D", function()
+-- 	Snacks.picker.diagnostics()
+-- end, { desc = "Find diagnostics workspace" })
+--
+-- vim.keymap.set("n", "<leader>f", function()
+-- 	Snacks.picker.files()
+-- end, { desc = "Find Files" })
+--
+-- vim.keymap.set("n", "<leader>g", function()
+-- 	Snacks.picker.grep()
+-- end, { desc = "Grep" })
+--
+-- vim.keymap.set("n", "<leader>G", function()
+-- 	Snacks.picker.grep_word()
+-- end, { desc = "Grep word" })
+--
+-- vim.keymap.set("n", "<leader>n", function()
+-- 	Snacks.picker.notifications()
+-- end, { desc = "Find notifications" })
+--
+-- vim.keymap.set("n", "<leader><leader>", function()
+-- 	Snacks.picker.buffers()
+-- end, { desc = "Buffers" })
 
 vim.keymap.set("n", "<leader>z", function()
 	Snacks.zen()
@@ -60,27 +60,27 @@ vim.keymap.set("n", "<leader>Z", function()
 	Snacks.zen.zoom()
 end, { desc = "Zen Mode zoom" })
 
-vim.keymap.set("n", "<leader>H", function()
-	Snacks.picker.help()
-end, { desc = "Find help" })
-
-vim.keymap.set("n", "<leader>s", function()
-	Snacks.picker.lsp_symbols()
-end, { desc = "Find LSP Symbols" })
-
-vim.keymap.set("n", "<leader>S", function()
-	Snacks.picker.lsp_workspace_symbols()
-end, { desc = "Find LSP Workspace Symbols" })
+-- vim.keymap.set("n", "<leader>H", function()
+-- 	Snacks.picker.help()
+-- end, { desc = "Find help" })
+--
+-- vim.keymap.set("n", "<leader>s", function()
+-- 	Snacks.picker.lsp_symbols()
+-- end, { desc = "Find LSP Symbols" })
+--
+-- vim.keymap.set("n", "<leader>S", function()
+-- 	Snacks.picker.lsp_workspace_symbols()
+-- end, { desc = "Find LSP Workspace Symbols" })
 
 vim.keymap.set("n", "<leader>lg", function()
 	Snacks.lazygit()
 end, { desc = "Lazygit" })
 
 -- LSP
-vim.keymap.set("n", "grd", function()
-	Snacks.picker.lsp_definitions()
-end, { desc = "Snacks: LSP Definitions" })
-
-vim.keymap.set("n", "grr", function()
-	Snacks.picker.lsp_references()
-end, { desc = "Snacks: LSP References" })
+-- vim.keymap.set("n", "grd", function()
+-- 	Snacks.picker.lsp_definitions()
+-- end, { desc = "Snacks: LSP Definitions" })
+--
+-- vim.keymap.set("n", "grr", function()
+-- 	Snacks.picker.lsp_references()
+-- end, { desc = "Snacks: LSP References" })
