@@ -55,5 +55,9 @@ return {
 		-- },
 		config = true,
 	},
+	{
+		"esmuellert/codediff.nvim",
+		cmd = "CodeDiff",
+		opts = {},
+	},
 }
-

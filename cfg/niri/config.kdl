@@ -3,7 +3,7 @@
 // https://yalter.github.io/niri/Configuration:-Input
 spawn-sh-at-startup "swayidle -w"
 spawn-sh-at-startup "waybar -c ~/.config/niri/waybar/config.jsonc -s ~/.config/niri/waybar/style.css"
-spawn-sh-at-startup "swaybg -i ~/Pictures/backgrounds/1-osaka-jade-bg.jpg"
+spawn-sh-at-startup "swaybg -i ~/Pictures/backgrounds/2-osaka-jade-bg.jpg"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "mako"
