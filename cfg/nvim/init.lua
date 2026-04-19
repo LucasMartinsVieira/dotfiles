@@ -1,23 +1,32 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("core.keymaps")
 require("core.options")
 require("core.autocommands")
-require("core.keymaps")
 require("core.lsp")
 
-require("plugins")
-require("plugins.snacks")
-require("plugins.telescope")
-require("plugins.colorsheme")
-require("plugins.oil")
-require("plugins.harpoon")
-require("plugins.lsp")
-require("plugins.blink-cmp")
-require("plugins.conform")
-require("plugins.treesitter")
-require("plugins.undotree")
-require("plugins.misc")
-require("plugins.mini")
-require("plugins.persistence")
-require("plugins.git")
-require("plugins.which-key")
-require("plugins.render-markdown")
--- require("plugins.obsidian")
+require("lazy").setup({
+	{ import = "plugins" },
+}, {
+	checker = {
+		enabled = true,
+		notify = false,
+	},
+	change_detection = {
+		notify = false,
+	},
+})
+
+local colorscheme = "moonfly"
+vim.cmd.colorscheme(colorscheme)

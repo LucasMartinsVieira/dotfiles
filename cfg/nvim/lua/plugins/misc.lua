@@ -1,32 +1,20 @@
--- local status_not_ok, tailwind_tools = pcall(require, "tailwind-tools")
--- if not status_not_ok then
--- 	vim.notify("Tailwind tools plugin not found!", vim.log.levels.ERROR)
--- 	return
--- end
---
--- tailwind_tools.setup({
--- 	document_color = {
--- 		enabled = true, -- can be toggled by commands
--- 		kind = "inline", -- "inline" | "foreground" | "background"
--- 		inline_symbol = "󰝤 ", -- only used in inline mode
--- 		debounce = 200, -- in milliseconds, only applied in insert mode
--- 	},
--- 	conceal = {
--- 		enabled = false, -- can be toggled by commands
--- 		symbol = "󱏿", -- only a single character is allowed
--- 		highlight = { -- extmark highlight options, see :h 'highlight'
--- 			fg = "#38BDF8",
--- 		},
--- 	},
--- 	custom_filetypes = {}, -- see the extension section to learn how it works
--- })
+return {
+	{
+		"brenoprata10/nvim-highlight-colors",
+		lazy = false,
+		config = function()
+			local ok, nvim_hightlight_colors = pcall(require, "nvim-highlight-colors")
+			if not ok then
+				vim.notify("nvim-highlight-colors plugin not found!", vim.log.levels.ERROR)
+				return
+			end
 
-local ok, nvim_hightlight_colors = pcall(require, "nvim-highlight-colors")
-if not ok then
-	vim.notify("Tailwind tools plugin not found!", vim.log.levels.ERROR)
-	return
-end
+			nvim_hightlight_colors.setup({
+				enable_tailwind = true,
+			})
+		end,
+	},
+	{ "b0o/schemastore.nvim" },
+	{ "luckasRanarison/tailwind-tools.nvim" },
+}
 
-nvim_hightlight_colors.setup({
-	enable_tailwind = true,
-})
