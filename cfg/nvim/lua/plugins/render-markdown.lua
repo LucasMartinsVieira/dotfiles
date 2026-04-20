@@ -29,7 +29,12 @@ return {
 					fowarded = { raw = "[>]", rendered = "󰨳", highlight = "RenderMarkdownTodo" },
 				},
 			},
+			code = {
+				enabled = true,
+			},
+			yaml = {
+				enabled = true,
+			},
 		})
 	end,
 }
-
