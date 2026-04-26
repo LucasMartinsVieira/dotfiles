@@ -1,0 +1,1 @@
+complete --keep-order --exclusive --command zn --arguments "(COMPLETE=fish /home/lucas/repos/zapnote/target/debug/zn -- (commandline --current-process --tokenize --cut-at-cursor) (commandline --current-token))"

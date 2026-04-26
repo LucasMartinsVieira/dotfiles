@@ -12,11 +12,11 @@ notify_user() {
 }
 
 inc_volume() {
-  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify_user
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
 }
 
 dec_volume() {
-  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%- && notify_user
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-
 }
 
 toggle_mute() {

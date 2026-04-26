@@ -13,7 +13,7 @@
     "idle_inhibitor"
   ],
   "modules-right": [
-    "tray",
+    "group/tray-expander",
     "pulseaudio",
     "cpu",
     "memory",
@@ -21,7 +21,7 @@
   ],
   // Modules configuration
   "niri/window": {
-    "format": "{}",
+    "format": "",
     "icon": true,
     "separate-outputs": true
   },
@@ -59,8 +59,8 @@
     ]
   },
   "clock": {
-    "format": "{:%H:%M:%S}",
-    "format-alt": "{:%d/%m/%Y}",
+    "format": "{:L%A %H:%M:%S}",
+    "format-alt": "{:L%d %B W%V %Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "interval": 1,
     "calendar": {
@@ -125,5 +125,21 @@
   "tray": {
     "icon-size": 18,
     "spacing": 10
+  },
+  "group/tray-expander": {
+  "orientation": "inherit",
+  "drawer": {
+    "transition-duration": 600,
+    "children-class": "tray-group-item"
+  },
+  "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+  "format": "",
+  "tooltip": false,
+  "on-scroll-up": "",
+  "on-scroll-down": "",
+  "on-scroll-left": "",
+  "on-scroll-right": ""
   }
 }

@@ -1,14 +1,14 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
-spawn-sh-at-startup "swayidle -w"
-spawn-sh-at-startup "waybar -c ~/.config/niri/waybar/config.jsonc -s ~/.config/niri/waybar/style.css"
-spawn-sh-at-startup "swaybg -i ~/Pictures/backgrounds/2-osaka-jade-bg.jpg"
-spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
-spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-spawn-at-startup "mako"
-spawn-sh-at-startup "wlsunset -t 4800 -T 4801"
-spawn-sh-at-startup "foot --server"
+// spawn-sh-at-startup "swayidle -w"
+// spawn-sh-at-startup "waybar -c ~/.config/niri/waybar/config.jsonc -s ~/.config/niri/waybar/style.css"
+// spawn-sh-at-startup "swaybg -i ~/Pictures/backgrounds/2-osaka-jade-bg.jpg"
+// spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+// spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+// spawn-at-startup "mako"
+// spawn-sh-at-startup "wlsunset -t 4800 -T 4801"
+// spawn-sh-at-startup "foot --server"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 input {
@@ -198,7 +198,7 @@ binds {
     Mod+Slash { show-hotkey-overlay; }
 
     // Bindings
-    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Run an Application: Zen Browser" { spawn "zen-browser"; }
 
