@@ -3,7 +3,7 @@ vim.lsp.enable({
 	"gopls",
 	-- "bashls",
 	"cssls",
-	"eslint",
+	-- "eslint",
 	"html",
 	"prismals",
 	"ts_ls",

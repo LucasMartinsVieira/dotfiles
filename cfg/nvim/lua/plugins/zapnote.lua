@@ -60,10 +60,15 @@ return {
 			":ZnJournalNav quarter --offset -1 quarter<CR>",
 			{ desc = "Go back one quarter", silent = true }
 		)
-		local function zn_prev_year_journal()
+
+		---@param delta integer|nil
+		local function zn_year_journal(delta)
+			delta = delta or 1
+
 			local bufname = vim.api.nvim_buf_get_name(0)
 			local stem = vim.fn.fnamemodify(bufname, ":t:r")
 
+			---@type string|nil
 			local journal_name
 			if stem:match("^%d%d%d%d%-%d%d%-%d%d$") then
 				journal_name = "day"
@@ -78,9 +83,17 @@ return {
 				return
 			end
 
-			vim.cmd(string.format("ZnJournalNav %s --offset -1 year", journal_name))
+			local sign = delta >= 0 and "+" or "-"
+			local amount = math.abs(delta)
+
+			vim.cmd(string.format("ZnJournalNav %s --offset %s%d year", journal_name, sign, amount))
 		end
 
-		vim.keymap.set("n", "<leader>zy", zn_prev_year_journal, { desc = "Go to journal last year" })
+		vim.keymap.set("n", "<leader>zy", function()
+			zn_year_journal(-1)
+		end, { desc = "Go to journal last year" })
+		vim.keymap.set("n", "<leader>zY", function()
+			zn_year_journal(1)
+		end, { desc = "Go to journal next year" })
 	end,
 }

@@ -104,7 +104,7 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 1.5
+        width 3.5
 
         active-color "#82aaff"
         inactive-color "#595959"
@@ -116,7 +116,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 2
+        width 3
         active-color "#82aaff"
         inactive-color "#595959"
 

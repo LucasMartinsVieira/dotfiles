@@ -14,7 +14,7 @@ return {
 				rust = { "rustfmt", lsp_format = "fallback" },
 				bash = { "shfmt" },
 				sh = { "shfmt" },
-				nix = { "nixfmt" },
+				-- nix = { "nixfmt" },
 				go = { "gofmt", "goimports-reviser", "golines" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				typescript = { "prettierd", "prettier", stop_after_first = true },
@@ -23,7 +23,7 @@ return {
 				json = { "prettierd", "prettier", stop_after_first = true },
 				html = { "prettierd", "prettier", stop_after_first = true },
 				css = { "prettierd", "prettier", stop_after_first = true },
-				python = { "black", "isort" },
+				-- python = { "black", "isort" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -41,4 +41,3 @@ return {
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }
-
