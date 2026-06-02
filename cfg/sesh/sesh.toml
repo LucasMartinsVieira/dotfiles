@@ -2,24 +2,38 @@
 startup_command_ignore_dirs = ["~/repos", "~/.config"]
 preview_command = "eza --all --git --icons --color=always {}"
 
+[[window]]
+name = "lazygit"
+startup_script = "lazygit"
+
+[[window]]
+name = "ai"
+startup_script = ""
+
+[[window]]
+name = "bacon"
+startup_script = "bacon clippy-all"
+
 [[session]]
 name = "second brain 🧠"
 path = "~/Documents/obsidian"
-startup_command = "nvim"
-preview_command = ""
+startup_command = "nvim ."
 
 [[session]]
 name = "zapnote ⚡"
 path = "~/repos/zapnote/"
-startup_command = "~/.config/sesh/scripts/rust_bacon_lazygit"
 preview_command = "bat --language=markdown --style=snip --color=always ~/repos/zapnote/README.md"
+windows = ["ai", "bacon", "lazygit"]
 
 [[session]]
 name = "nixos-config ❄️"
 path = "~/repos/nixos-config/"
-startup_command = "~/.config/sesh/scripts/nixos-setup"
 
 [[session]]
-name = "dotfiles"
+name = "projects 📽️"
+path = "~/Documents/projects/"
+
+[[session]]
+name = "dotfiles ⭐"
 path = "~/repos/dotfiles/"
 preview_command = ""

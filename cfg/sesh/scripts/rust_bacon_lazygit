@@ -1,7 +1,0 @@
-tmux new-window -n 'Bacon'
-tmux send-keys "bacon clippy-all" Enter
-tmux new-window -n 'Lazygit'
-tmux send-keys "lazygit" Enter
-tmux select-window -t 1
-tmux send-keys "clear" Enter
-tmux send-keys "nvim" Enter

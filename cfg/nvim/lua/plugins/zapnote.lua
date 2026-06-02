@@ -3,6 +3,9 @@ return {
 	dependencies = {},
 	config = function()
 		require("zapnote").setup({
+			ui = {
+				picker = "snacks",
+			},
 			zn_cmd = "zn",
 			link = {
 				enabled = true,

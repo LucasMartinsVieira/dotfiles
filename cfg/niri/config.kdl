@@ -8,7 +8,7 @@
 // spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 // spawn-at-startup "mako"
 // spawn-sh-at-startup "wlsunset -t 4800 -T 4801"
-// spawn-sh-at-startup "foot --server"
+spawn-sh-at-startup "foot --server"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 input {
@@ -49,6 +49,12 @@ input {
 
 gestures {
   hot-corners {
+    off
+  }
+}
+
+overview {
+  workspace-shadow {
     off
   }
 }
@@ -184,6 +190,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"org\.shotcut\.Shotcut"#
+  match app-id=r#"org\.kde\.kdenlive"#
 
   open-maximized true
 }
@@ -197,12 +204,15 @@ binds {
     // shows a list of important hotkeys.
     Mod+Slash { show-hotkey-overlay; }
 
+    // Restart DMS
+    Mod+Alt+R hotkey-overlay-title="Restart DMS" { spawn-sh "dms restart"; }
+
     // Bindings
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Run an Application: Zen Browser" { spawn "zen-browser"; }
 
-    Mod+Y hotkey-overlay-title="Clipboard menu" { spawn-sh "~/.local/bin/clip"; }
+    Mod+Y hotkey-overlay-title="Clipboard menu" { spawn-sh "CLIP_BACKEND=dms ~/.local/bin/clip"; }
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     Mod+Ctrl+Y hotkey-overlay-title="Toggle Waybar" { spawn-sh "~/.local/bin/on-off -y"; }
