@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+OUTPUT=${OUTPUT:-DP-1}
+HYPR_RESOLUTION_FILE=${HYPR_RESOLUTION_FILE:-$HOME/.config/hypr/modules/resolution.lua}
+
+OPTIONS="1080p (1920x1080@60)
+2k (2560x1440@59.951)
+4k (3840x2160@60)"
+
+CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --lines 3 --dmenu --prompt="Resolution:")
+
+case "$CHOICE" in
+*1080p*)
+  MODE="1920x1080@60"
+  ;;
+*2k*)
+  MODE="2560x1440@59.951"
+  ;;
+*4k*)
+  MODE="3840x2160@60"
+  ;;
+*)
+  exit 0
+  ;;
+esac
+
+if [[ -n "${NIRI_SOCKET:-}" ]]; then
+  niri msg output "$OUTPUT" mode "$MODE"
+  notify-send -t 1500 "Niri Resolution" "$OUTPUT -> $MODE"
+elif [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
+  mkdir -p "$(dirname "$HYPR_RESOLUTION_FILE")"
+  printf 'hl.monitor({\n\toutput = "%s",\n\tmode = "%s",\n\tposition = "0x0",\n\tscale = 1,\n})\n' "$OUTPUT" "$MODE" >"$HYPR_RESOLUTION_FILE"
+  hyprctl reload
+  notify-send -t 1500 "Hyprland Resolution" "$OUTPUT -> $MODE"
+else
+  notify-send -t 3000 "Resolution" "Unsupported compositor"
+  exit 1
+fi

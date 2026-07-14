@@ -54,11 +54,17 @@ borg_command() {
       --exclude "$HOME/.gradle/" \
       --exclude "$HOME/.java" \
       --exclude "$HOME/.openjfx/" \
-      --exclude "$HOME/**/.next/" \
       --exclude "$HOME/.local/share/Trash/" \
+      --exclude "$HOME/.bash_history" \
+      --exclude "$HOME/.codex/" \
+      --exclude "$HOME/.gemini/" \
+      --exclude "$HOME/.npm/" \
+      --exclude "$HOME/.ollama/" \
+      --exclude "$HOME/.yarn/" \
+      --exclude "$HOME/.yarn/" \
+      --exclude "$HOME/**/.next/" \
       --exclude "$HOME/**/node_modules" \
       --exclude "$HOME/**/target" \
-      --exclude "$HOME/.bash_history" \
       --exclude "$HOME/repos/clones/" \
       --exclude "$HOME/Media/Animes/" \
       --exclude "$HOME/Media/Games/" \

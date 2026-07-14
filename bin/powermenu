@@ -26,7 +26,7 @@ OPTIONS=" Shutdown
 󰤄 Suspend
  Lock"
 
-CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --dmenu)
+CHOICE=$(printf "%s\n" "$OPTIONS" | fuzzel --lines 5 --dmenu)
 
 case "$CHOICE" in
 *Shutdown)

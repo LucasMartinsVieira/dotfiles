@@ -70,7 +70,8 @@ prefer-no-csd
 //     hide-after-inactive-ms 1000
 // }
 
-output "HDMI-A-1" {
+// output "HDMI-A-1" {
+output "DP-1" {
     mode "3840x2160@60"
     // mode "1920x1080@60"
 
@@ -200,6 +201,20 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+window-rule {
+  match app-id="steam"
+
+  default-column-width { proportion 0.5; }
+  // default-window-height { fixed 1500; }
+  default-window-height { proportion 0.75; }
+  open-floating true
+}
+
 binds {
     // shows a list of important hotkeys.
     Mod+Slash { show-hotkey-overlay; }
@@ -213,7 +228,7 @@ binds {
     Mod+B hotkey-overlay-title="Run an Application: Zen Browser" { spawn "zen-browser"; }
 
     Mod+Y hotkey-overlay-title="Clipboard menu" { spawn-sh "CLIP_BACKEND=dms ~/.local/bin/clip"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    // Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     Mod+Ctrl+Y hotkey-overlay-title="Toggle Waybar" { spawn-sh "~/.local/bin/on-off -y"; }
 
@@ -222,6 +237,8 @@ binds {
     Mod+Shift+I hotkey-overlay-title="Screenshot: Area" { spawn-sh "~/.local/bin/screenshot --area"; }
 
     Mod+Ctrl+P hotkey-overlay-title="Open Power Menu"{ spawn-sh "~/.local/bin/powermenu"; }
+
+    Mod+G hotkey-overlay-title="Niri Resolution Script" { spawn-sh "~/.local/bin/niri-resolution"; }
 
     Mod+Shift+C hotkey-overlay-title="Open Color Picker" { spawn-sh "hyprpicker --autocopy"; }
     Mod+P hotkey-overlay-title="Open Nautilus" { spawn-sh "nautilus"; }
