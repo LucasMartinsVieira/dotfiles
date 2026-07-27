@@ -37,6 +37,7 @@ case "$CHOICE" in
   ;;
 *Logout)
   [ "$(confirm Logout)" = "Yes" ] && niri msg action quit
+  # [ "$(confirm Logout)" = "Yes" ] && command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'
   ;;
 *Suspend)
   if [ "$(confirm Suspend)" = "Yes" ]; then
@@ -44,7 +45,7 @@ case "$CHOICE" in
   fi
   ;;
 *Lock)
-  hyprlock
+  dms ipc call lock lock
   ;;
 *)
   exit 0

@@ -1,7 +1,4 @@
--- Ported from hyprland1.conf and modules/*.conf.
-
-local mainMod = "SUPER"
-local monitor = "DP-1"
+local config = require("modules.config")
 
 local function exec_once(cmd)
 	hl.on("hyprland.start", function()
@@ -13,7 +10,7 @@ end
 -- Monitors
 ----------------
 
-require("modules/resolution")
+require("modules.resolution")
 
 ---------------
 --- Envs ------
@@ -26,24 +23,28 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 -- Autostart
 ----------------
 
--- exec_once("dbus-update-activation-environment --systemd --all")
--- exec_once("dms run")
--- exec_once("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-exec_once("nm-applet")
+--r exec_once("dbus-update-activation-environment --systemd --all")
+exec_once("dms run")
 exec_once("systemctl --user start hyprpolkitagent")
 exec_once(
 	"dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 )
-exec_once("uwsm-app -- hypridle")
-exec_once("uwsm-app -- mako")
-exec_once(
-	"uwsm-app -- waybar -c ~/repos/dotfiles/cfg/hypr/waybar/config.jsonc -s ~/repos/dotfiles/cfg/hypr/waybar/style.css"
-)
-exec_once("wl-paste --type text --watch cliphist store")
-exec_once("wl-paste --type image --watch cliphist store")
 exec_once("hyprctl setcursor Bibata-Modern-Ice 24")
-exec_once("hyprsunset")
-exec_once("hyprpaper")
+
+if config.terminal == "footclient" then
+	exec_once("foot --server")
+end
+
+-- exec_once("nm-applet")
+-- exec_once("uwsm-app -- hypridle")
+-- exec_once("uwsm-app -- mako")
+-- exec_once(
+-- 	"uwsm-app -- waybar -c ~/repos/dotfiles/cfg/hypr/waybar/config.jsonc -s ~/repos/dotfiles/cfg/hypr/waybar/style.css"
+-- )
+-- exec_once("wl-paste --type text --watch cliphist store")
+-- exec_once("wl-paste --type image --watch cliphist store")
+-- exec_once("hyprsunset")
+-- exec_once("hyprpaper")
 
 ----------------
 -- Config
@@ -85,7 +86,7 @@ hl.config({
 			active_border = activeBorderColor,
 			inactive_border = inactiveBorderColor,
 		},
-		layout = "master",
+		layout = "scrolling",
 	},
 
 	decoration = {
@@ -187,52 +188,52 @@ hl.animation({ leaf = "workspaces", enabled = false, speed = 0, bezier = "ease" 
 ----------------
 
 for i = 1, 10 do
-	hl.workspace_rule({ workspace = tostring(i), monitor = "DP-1", default = i == 1 })
+	hl.workspace_rule({ workspace = tostring(i), monitor = config.monitor, default = i == 1 })
 
 	local key = i % 10
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(config.mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(config.mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind(mainMod .. " + Escape", hl.dsp.focus({ workspace = "previous" }))
+hl.bind(config.mainMod .. " + Escape", hl.dsp.focus({ workspace = "previous" }))
 
 ----------------
 -- Binds
 ----------------
 
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
-hl.bind(mainMod .. " + ALT + R", hl.dsp.exec_cmd("dms restart"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("zen-browser"))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("fuzzel"))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("nautilus"))
-hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("~/.local/bin/niri-resolution"))
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker --autocopy"))
-hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd("kitty --class floating.kitty"))
+hl.bind(config.mainMod .. " + Return", hl.dsp.exec_cmd(config.terminal))
+hl.bind(config.mainMod .. " + ALT + R", hl.dsp.exec_cmd("dms restart"))
+hl.bind(config.mainMod .. " + B", hl.dsp.exec_cmd("zen-browser"))
+hl.bind(config.mainMod .. " + R", hl.dsp.exec_cmd("fuzzel"))
+hl.bind(config.mainMod .. " + P", hl.dsp.exec_cmd("nautilus"))
+hl.bind(config.mainMod .. " + G", hl.dsp.exec_cmd("~/.local/bin/niri-resolution"))
+hl.bind(config.mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker --autocopy"))
+hl.bind(config.mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd("kitty --class floating.kitty"))
 
--- hl.bind(mainMod .. "N", hl.dsp.)
+-- hl.bind(config.mainMod .. "N", hl.dsp.)
 
-hl.bind(mainMod .. " + CTRL + code:21", hl.dsp.exec_cmd("~/.local/bin/volume --inc_mic"))
-hl.bind(mainMod .. " + CTRL + code:20", hl.dsp.exec_cmd("~/.local/bin/volume --dec_mic"))
+hl.bind(config.mainMod .. " + CTRL + code:21", hl.dsp.exec_cmd("~/.local/bin/volume --inc_mic"))
+hl.bind(config.mainMod .. " + CTRL + code:20", hl.dsp.exec_cmd("~/.local/bin/volume --dec_mic"))
 
-hl.bind(mainMod .. " + CTRL + 0", hl.dsp.exec_cmd("~/.local/bin/volume --toggle_mic"))
+hl.bind(config.mainMod .. " + CTRL + 0", hl.dsp.exec_cmd("~/.local/bin/volume --toggle_mic"))
 
-hl.bind(mainMod .. " + SHIFT + code:21", hl.dsp.exec_cmd("~/.local/bin/brightness --inc"))
-hl.bind(mainMod .. " + SHIFT + code:20", hl.dsp.exec_cmd("~/.local/bin/brightness --dec"))
+hl.bind(config.mainMod .. " + SHIFT + code:21", hl.dsp.exec_cmd("~/.local/bin/brightness --inc"))
+hl.bind(config.mainMod .. " + SHIFT + code:20", hl.dsp.exec_cmd("~/.local/bin/brightness --dec"))
 
-hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("~/.local/bin/screenshot"))
-hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("~/.local/bin/screenshot --area"))
+hl.bind(config.mainMod .. " + I", hl.dsp.exec_cmd("~/.local/bin/screenshot"))
+hl.bind(config.mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("~/.local/bin/screenshot --area"))
 
-hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.local/bin/powermenu"))
+hl.bind(config.mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.local/bin/powermenu"))
 hl.bind(
-	mainMod .. " + CTRL + Y",
+	config.mainMod .. " + CTRL + Y",
 	hl.dsp.exec_cmd("killall waybar && waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.css")
 )
 --
-hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("~/.local/bin/clip"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("bemoji"))
--- hl.bind(mainMod .. " + CTRL + Y", hl.dsp.exec_cmd("~/.local/bin/on-off -y"))
--- hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("~/.local/bin/on-off -b"))
--- hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.local/bin/on-off -w"))
+hl.bind(config.mainMod .. " + Y", hl.dsp.exec_cmd("CLIP_BACKEND=dms ~/.local/bin/clip"))
+hl.bind(config.mainMod .. " + E", hl.dsp.exec_cmd("bemoji"))
+-- hl.bind(config.mainMod .. " + CTRL + Y", hl.dsp.exec_cmd("~/.local/bin/on-off -y"))
+-- hl.bind(config.mainMod .. " + ALT + B", hl.dsp.exec_cmd("~/.local/bin/on-off -b"))
+-- hl.bind(config.mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.local/bin/on-off -w"))
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/.local/bin/volume --inc"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("~/.local/bin/volume --dec"), { repeating = true })
@@ -246,32 +247,32 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl --class=backlight 
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl --class=backlight set 10%-"))
 hl.bind("Print", hl.dsp.exec_cmd("~/.local/bin/screenshot"))
 
-hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exit())
+hl.bind(config.mainMod .. " + Q", hl.dsp.window.close())
+-- hl.bind(config.mainMod .. " + CTRL + Q", hl.dsp.exit())
 hl.bind(
-	mainMod .. " + CTRL + Q",
+	config.mainMod .. " + CTRL + Q",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
--- hl.bind(mainMod .. " + A", hl.dsp.workspace.)
-hl.bind(mainMod .. " + D", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + A", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+-- hl.bind(config.mainMod .. " + A", hl.dsp.workspace.)
+hl.bind(config.mainMod .. " + D", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(config.mainMod .. " + A", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(config.mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(config.mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(config.mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(config.mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(config.mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(config.mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(config.mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
+hl.bind(config.mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+hl.bind(config.mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+hl.bind(config.mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(config.mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Rezise Submap
--- hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
+-- hl.bind(config.mainMod .. " + R", hl.dsp.submap("resize"))
 --
 -- -- Start a submap called "resize".
 -- hl.define_submap("resize", function()
@@ -285,60 +286,68 @@ hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 -- 	hl.bind("escape", hl.dsp.submap("reset"))
 -- end)
 
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+hl.bind(config.mainMod .. " + CTRL + L", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+hl.bind(
+	config.mainMod .. " + CTRL + H",
+	hl.dsp.window.resize({ x = -10, y = 0, relative = true }),
+	{ repeating = true }
+)
+hl.bind(config.mainMod .. " + CTRL + K", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+hl.bind(
+	config.mainMod .. " + CTRL + J",
+	hl.dsp.window.resize({ x = 0, y = -10, relative = true }),
+	{ repeating = true }
+)
 
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse:276", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse:275", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(config.mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(config.mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(config.mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(config.mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(config.mainMod .. " + mouse:276", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(config.mainMod .. " + mouse:275", hl.dsp.focus({ workspace = "e-1" }))
 
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:music" }))
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("music"))
+hl.bind(config.mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:music" }))
+hl.bind(config.mainMod .. " + S", hl.dsp.workspace.toggle_special("music"))
 
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:clock" }))
-hl.bind(mainMod .. " + W", hl.dsp.workspace.toggle_special("clock"))
+hl.bind(config.mainMod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:clock" }))
+hl.bind(config.mainMod .. " + W", hl.dsp.workspace.toggle_special("clock"))
 
 -- Scrolling
-hl.bind(mainMod .. " + T", hl.dsp.layout("colresize +conf"))
-hl.bind(mainMod .. " + SHIFT + T", hl.dsp.layout("colresize -conf"))
+hl.bind(config.mainMod .. " + T", hl.dsp.layout("colresize +conf"))
+hl.bind(config.mainMod .. " + SHIFT + T", hl.dsp.layout("colresize -conf"))
 
--- hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
--- hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
+-- hl.bind(config.mainMod .. " + period", hl.dsp.layout("move +col"))
+-- hl.bind(config.mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 
 -- Groups
 
-hl.bind(mainMod .. " + CTRL + G", hl.dsp.group.toggle())
-hl.bind(mainMod .. " + ALT + G", hl.dsp.window.move({ out_of_group = true }))
+hl.bind(config.mainMod .. " + CTRL + G", hl.dsp.group.toggle())
+hl.bind(config.mainMod .. " + ALT + G", hl.dsp.window.move({ out_of_group = true }))
 
-hl.bind(mainMod .. " + ALT + TAB", hl.dsp.group.next())
-hl.bind(mainMod .. " + ALT + SHIFT + TAB", hl.dsp.group.prev())
+hl.bind(config.mainMod .. " + ALT + TAB", hl.dsp.group.next())
+hl.bind(config.mainMod .. " + ALT + SHIFT + TAB", hl.dsp.group.prev())
 
-hl.bind(mainMod .. " + ALT + H", hl.dsp.window.move({ into_group = "l" }))
-hl.bind(mainMod .. " + ALT + L", hl.dsp.window.move({ into_group = "r" }))
-hl.bind(mainMod .. " + ALT + K", hl.dsp.window.move({ into_group = "u" }))
-hl.bind(mainMod .. " + ALT + J", hl.dsp.window.move({ into_group = "d" }))
+hl.bind(config.mainMod .. " + ALT + H", hl.dsp.window.move({ into_group = "l" }))
+hl.bind(config.mainMod .. " + ALT + L", hl.dsp.window.move({ into_group = "r" }))
+hl.bind(config.mainMod .. " + ALT + K", hl.dsp.window.move({ into_group = "u" }))
+hl.bind(config.mainMod .. " + ALT + J", hl.dsp.window.move({ into_group = "d" }))
 
 for index = 1, 5 do
-	hl.bind(mainMod .. " + ALT + code:" .. tostring(index + 9), hl.dsp.group.active({ index = index }))
+	hl.bind(config.mainMod .. " + ALT + code:" .. tostring(index + 9), hl.dsp.group.active({ index = index }))
 end
 
 ----------------
 -- Workspace rules
 ----------------
-hl.workspace_rule({ workspace = "1", persistent = true, monitor = monitor, layout = "scrolling" })
-hl.workspace_rule({ workspace = "2", persistent = true, monitor = monitor })
-hl.workspace_rule({ workspace = "3", persistent = true, monitor = monitor })
-hl.workspace_rule({ workspace = "4", persistent = true, monitor = monitor })
-hl.workspace_rule({ workspace = "5", persistent = true, monitor = monitor })
-hl.workspace_rule({ workspace = "6", persistent = true, monitor = monitor, layout = "scrolling" })
-hl.workspace_rule({ workspace = "7", persistent = true, monitor = monitor })
-hl.workspace_rule({ workspace = "8", persistent = true, monitor = monitor })
-hl.workspace_rule({ workspace = "9", persistent = true, monitor = monitor })
+hl.workspace_rule({ workspace = "1", persistent = true, monitor = config.monitor })
+hl.workspace_rule({ workspace = "2", persistent = true, monitor = config.monitor })
+hl.workspace_rule({ workspace = "3", persistent = true, monitor = config.monitor })
+hl.workspace_rule({ workspace = "4", persistent = true, monitor = config.monitor })
+hl.workspace_rule({ workspace = "5", persistent = true, monitor = config.monitor })
+hl.workspace_rule({ workspace = "6", persistent = true, monitor = config.monitor })
+hl.workspace_rule({ workspace = "7", persistent = true, monitor = config.monitor })
+hl.workspace_rule({ workspace = "8", persistent = true, monitor = config.monitor, layout = "master" })
+hl.workspace_rule({ workspace = "9", persistent = true, monitor = config.monitor, layout = "master" })
 
 ----------------
 -- Window rules
@@ -346,7 +355,7 @@ hl.workspace_rule({ workspace = "9", persistent = true, monitor = monitor })
 
 -- hl.window_rule({ name = "steam-last-workspace", match = { class = "^(steam)$" }, workspace = "8" })
 hl.window_rule({ name = "obsidian", match = { class = "^(obsidian)$" }, opacity = 0.96, no_screen_share = true })
-hl.window_rule({ name = "terminal", match = { class = "^(kitty)$" }, opacity = 0.96 })
+hl.window_rule({ name = "terminal", match = { class = "^(kitty)$" }, opacity = 0.97 })
 hl.window_rule({ name = "zen-pip", match = { class = "zen$", title = "^Picture-in-Picture$" }, float = true })
 hl.window_rule({ name = "shotcut", match = { class = "^(org\\.shotcut\\.Shotcut)$" }, maximize = true })
 hl.window_rule({ name = "kdenlive", match = { class = "^(org\\.kde\\.kdenlive)$" }, maximize = true })
@@ -427,6 +436,17 @@ hl.window_rule({
 hl.window_rule({
 	name = "Youtube Music",
 	match = { class = "^(com.github.th-ch.youtube-music)$" },
+	-- com.rafaelmardojai.Blanket
+	float = true,
+	center = true,
+	-- size = "1600 1200",
+	size = { "monitor_w * 0.5", "monitor_h * 0.6" },
+	workspace = "special:music",
+})
+
+hl.window_rule({
+	name = "Blanket",
+	match = { class = "^(com.rafaelmardojai.Blanket)$" },
 	float = true,
 	center = true,
 	-- size = "1600 1200",
