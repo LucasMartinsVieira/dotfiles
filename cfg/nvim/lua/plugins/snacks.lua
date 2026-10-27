@@ -49,7 +49,7 @@ return {
 			Snacks.picker.grep()
 		end, { desc = "Grep" })
 
-		vim.keymap.set("n", "<leader>G", function()
+		vim.keymap.set({ "n", "v" }, "<leader>G", function()
 			Snacks.picker.grep_word()
 		end, { desc = "Grep word" })
 
@@ -57,8 +57,12 @@ return {
 			Snacks.picker.notifications()
 		end, { desc = "Find notifications" })
 
-		vim.keymap.set("n", "<leader><leader>", function()
+		vim.keymap.set("n", "<leader>b", function()
 			Snacks.picker.buffers()
+		end, { desc = "Buffers" })
+
+		vim.keymap.set("n", "<leader><leader>", function()
+			Snacks.picker()
 		end, { desc = "Buffers" })
 
 		vim.keymap.set("n", "<leader>Z", function()

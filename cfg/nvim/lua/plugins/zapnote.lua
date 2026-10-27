@@ -14,6 +14,10 @@ return {
 			open = {
 				cmd = "edit",
 			},
+			task = {
+				daily_dir = "~/Documents/obsidian/Journal/Daily",
+				weekly_dir = "~/Documents/obsidian/Journal/Weekly",
+			},
 		})
 
 		vim.keymap.set("n", "<leader>zn", ":ZnNote<CR>", { desc = "Zapnote note", silent = true })

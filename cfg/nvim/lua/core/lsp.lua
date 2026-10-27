@@ -6,6 +6,7 @@ vim.lsp.enable({
 	-- "eslint",
 	"html",
 	"prismals",
+	-- "prisma-language-server",
 	"ts_ls",
 	"rust_analyzer",
 	"yaml-language-server",

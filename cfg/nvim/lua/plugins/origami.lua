@@ -2,6 +2,7 @@ return {
 	"chrisgrieser/nvim-origami",
 	event = "VeryLazy",
 	opts = {}, -- required even when using default config
+	enabled = false,
 
 	-- recommended: disable vim's auto-folding
 	init = function()

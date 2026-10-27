@@ -10,6 +10,21 @@
 // spawn-sh-at-startup "wlsunset -t 4800 -T 4801"
 spawn-sh-at-startup "foot --server"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-sh-at-startup "dcal run -d --hidden"
+
+environment {
+  "__GL_NextGenAmd" "0" // Enforces proper Nvidia rendering under EGL
+
+  "QT_QPA_PLATFORM" "wayland;xcb"
+  "KITTY_ENABLE_WAYLAND" "1"
+  "LIBVA_DRIVER_NAME" "nvidia"
+  "XDG_SESSION_TYPE" "wayland"
+  "GBM_BACKEND" "nvidia-drm"
+  "GDK_BACKEND" "wayland,x11"
+  "__GLX_VENDOR_LIBRARY_NAME" "nvidia"
+  "ELECTRON_OZONE_PLATFORM_HINT" "auto"
+  "NVD_BACKEND" "direct"
+}
 
 input {
     keyboard {
@@ -111,7 +126,7 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 3.5
+        width 3
 
         active-color "#82aaff"
         inactive-color "#595959"
@@ -135,6 +150,7 @@ layout {
 // workspace "1" {}
 // workspace "2" {}
 // workspace "3" {}
+// workspace "stash" {}
 
 hotkey-overlay {
     skip-at-startup
@@ -207,7 +223,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id="steam"
+  match app-id=r#"^com\.github\.th-ch\.youtube-music"#
 
   default-column-width { proportion 0.5; }
   // default-window-height { fixed 1500; }
@@ -216,6 +232,9 @@ window-rule {
 }
 
 binds {
+    // Scratchpads
+    // Mod+S hotkey-overlay-title="YouTube Music" { spawn "niri-scratchpad" "target" "gnome-clocks" "appid" "org.gnome.clocks" ;}
+
     // shows a list of important hotkeys.
     Mod+Slash { show-hotkey-overlay; }
 
